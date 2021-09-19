@@ -1,0 +1,118 @@
+class NMC{
+}
+
+class Registrant{
+  abstract;
+  class Member{};
+  class MountainGuide{};
+  immutable String email;
+  String name;
+  String password;
+  Integer phoneNum;
+}
+
+class Admin{
+  String password = "admin";
+  1 -- * ClimbingSeason climbingSeason;
+  1 -- * Hotel hotel;
+}
+
+class Member{
+  Boolean hired;
+  Integer numberOfWeeks;
+  Boolean hotelStay;
+  1 -- * ClimbingWeek;
+  }
+
+class ClimbingSeason{
+  Date startDate;
+  Date endDate;
+  1<@>- * ClimbingWeek;
+}
+
+class ClimbingWeek{
+  Integer number;
+}
+
+class Equipment{
+  enum EquipmentList {rope,pickaxe,portablestove,etc}
+  Integer price;
+  Double weight;
+}
+
+class Bundle{
+  String name;
+  Double percentageDiscount;
+}
+
+class Hotel{
+  String name;
+  String address;
+  Integer star;
+  1 assignedHotel -- * Member;
+}
+
+class MountainGuide{
+}
+//$?[End_of_model]$?
+
+namespace -;
+
+
+class NMC
+{
+  position 50 30 109 45;
+}
+
+class Registrant
+{
+  position 17 86 156.375 125.359;
+}
+
+class MountainGuide
+{
+  position 14 252 123.422 41.3594;
+}
+
+class Admin
+{
+  position 215 0 138.266 58.3594;
+  position.association Admin__ClimbingSeason 55,58 69,0;
+  position.association Admin__Hotel 139,31 0,10;
+  position.association Admin__Hotel:hotel 131,31 0,10;
+  position.association Admin__ClimbingSeason:climbingSeason 64,58 68,0;
+}
+
+class ClimbingSeason
+{
+  position 215 76 130.016 75.3594;
+  position.association ClimbingSeason__ClimbingWeek 73,75 73,0;
+}
+
+class ClimbingWeek
+{
+  position 272 174 135.562 58.3594;
+}
+
+class Equipment
+{
+  position 273 302 125.828 75.3594;
+}
+
+class Bundle
+{
+  position 22 330 214.109 75.3594;
+}
+
+class Hotel
+{
+  position 450 30 109 45;
+  position.association Hotel__Member:assignedHotel 0,10 77,0;
+  position.association Hotel:assignedHotel__Member 52,92 121,0;
+}
+
+class Member
+{
+  position 423 229 193.984 92.3594;
+  position.association ClimbingWeek__Member 45,0 136,28;
+  }
