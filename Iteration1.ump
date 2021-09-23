@@ -46,7 +46,7 @@ class ClimbingWeek{
 
 class Equipment{
   enum EquipmentList {rope,pickaxe,portablestove,etc};
-  Integer price;
+  Integer weeklyPrice;
   Double weight;
 }
 
