@@ -18,7 +18,7 @@ class Admin{
   1 -- * ClimbingSeason climbingSeason;
   1 -- * Hotel hotel;
   1 -- * Equipment equipmentAvailable;
-  1<@>- * Assignment;
+  1<@>- * Assignment assignments;
 }
 
 class Member{
@@ -29,6 +29,8 @@ class Member{
   }
 
 class MountainGuide{
+  Integer weeklyCost;
+  0..1 -- 1 Assignment guideHired;
   isA Registrant;
 }
 
@@ -39,16 +41,17 @@ class ClimbingSeason{
 }
 
 class ClimbingWeek{
+  1 -- 1 Assignment assignedWeek;
 }
 
 class Equipment{
   enum EquipmentList {rope,pickaxe,portablestove,etc};
-  Integer price;
+  Integer pricePerWeek;
   Double weight;
 }
 
 class Bundle{
-  1 -- 2..* Equipment;
+  1 -- 2..* Equipment equipmentInBundle;
   String name;
   Double percentageDiscount;
 }
@@ -57,83 +60,94 @@ class Hotel{
   String name;
   String address;
   Integer star;
-  1 assignedHotel -- * Member;
+  0..1 assignedHotel -- 1 Assignment;
 }
 
 class Assignment{
-  Integer cost;
-  1 -- 1 Member totalCost;
+  Integer totalCost;
+  1 -- * Equipment rentedEquipments;
+  * -- 1 Member cost;
 }
 //$?[End_of_model]$?
 
 namespace -;
 
 
-class Hotel
+class ClimbingWeek
 {
-  position.association Hotel:assignedHotel__Member 0,55 73,92;
-  position 347 409 127.203 92.3594;
+  position 568 572 118.125 42.9688;
+  position.association ClimbingWeek__Member 66,0 60,92;
+  position.association ClimbingWeek__Member:assignedWeek 31,0 78,92;
+  position.association Assignment:assignedWeek__ClimbingWeek 49,0 89,60;
 }
 
-class Admin
+class Hotel
 {
-  position.association Admin__Hotel:hotel 10,41 127,45;
-    position.association Admin__Equipment:equipmentAvailable 104,41 69,0;
-  position.association Admin__Assignment 0,10 112,26;
-  position.association Admin__ClimbingSeason:climbingSeason 52,41 52,0;
-position 693 183 138.266 75.3594;
+  position 201 507 127.52 94.707;
+  position.association Hotel:assignedHotel__Member 55,0 148,92;
+  position.association Assignment__Hotel:assignedHotel 128,40 0,53;
 }
 
 class Bundle
 {
-  position.association Bundle__Equipment 99,0 70,75;
-  position 894 554 214.109 75.3594;
-}
-
-class Member
-{
-  position 215 243 193.984 92.3594;
-  position.association ClimbingWeek__Member 9,92 45,0;
-}
-
-class ClimbingWeek
-{
-  position 668 536 117.781 41.3594;
-}
-
-class Equipment
-{
-  position 921 337 125.828 75.3594;
+  position 845 307 214.395 93.7109;
+  position.association Bundle__Equipment 62,0 28,139;
+  position.association Bundle__Equipment:equipmentIn 1,0 0,10;
+  position.association Bundle__Equipment:equipmentInBundle 141,0 110,77;
 }
 
 class Assignment
 {
-  position 471 192 111.031 58.3594;
-  position.association Assignment__Member:totalCost 0,34 194,25;
-}
-
-class NMC
-{
-  position 974 66 109 41.3594;
-}
-
-class User
-{
-  position 415 15 164.547 91.3594;
+  position 491 405 143.945 60.2148;
+  position.association Assignment__Member:totalCost 0,14 195,76;
+  position.association Assignment__Equipment:rentedEquipments 145,43 0,70;
+  position.association Assignment__Member:cost 0,10 195,44;
 }
 
 class ClimbingSeason
 {
-  position 685 390 130.016 75.3594;
-  position.association ClimbingSeason__ClimbingWeek 46,75 60,0;
+  position 686 428 130.352 77.4609;
+  position.association ClimbingSeason__ClimbingWeek 63,77 119,5;
+}
+
+class Admin
+{
+  position 603 216 109 42.9688;
+  position.association Admin__ClimbingSeason:climbingSeason 88,43 53,0;
+  position.association Admin__Hotel:hotel 0,26 85,0;
+  position.association Admin__Equipment:equipmentAvailable 110,11 0,29;
+  position.association Admin__Assignment 47,43 121,0;
+  position.association Admin__Assignment:assignments 19,43 137,0;
+}
+
+class NMC
+{
+  position 50 30 109 45;
+}
+
+class User
+{
+  position 334 15 164.844 93.7109;
 }
 
 class Registrant
 {
-  position 110 111 109 41.3594;
+  position 148 165 156.66 77.4609;
+}
+
+class Member
+{
+  position 1 324 194.277 94.707;
 }
 
 class MountainGuide
 {
-  position 26 284 123.422 41.3594;
+  position 272 294 159.902 60.2148;
+  position.association Assignment__MountainGuide 88,60 0,10;
+  position.association Assignment:guideHired__MountainGuide 161,36 21,0;
+}
+
+class Equipment
+{
+  position 875 100 126.133 77.4609;
 }
