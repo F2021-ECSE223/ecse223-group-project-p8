@@ -53,7 +53,7 @@ class Equipment{
 class Bundle{
   * -- 2..* Equipment;
   String name;
-  Double percentDiscount;
+  Double percentagDiscount;
   Integer regularWeeklyPrice;
 }
 
