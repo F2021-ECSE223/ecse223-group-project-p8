@@ -54,7 +54,7 @@ class Bundle{
   * -- 2..* Equipment;
   String name;
   Double percentageDiscount;
-  Integer regularPrice;
+  Integer regularWeeklyPrice;
 }
 
 class Hotel{
