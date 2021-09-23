@@ -1,6 +1,6 @@
 class NMC{
 }
-
+//test
 class User{
   abstract;
   class Admin{};
