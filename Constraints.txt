@@ -1,0 +1,12 @@
+Constraint 1:
+For each ClimbingSeason:
+	self.endDate.isAfter(self.startDate)
+
+Constraint 2:
+For each Bundle:
+	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2
+
+Constraint 3:
+For each Assignments:
+	
+	
