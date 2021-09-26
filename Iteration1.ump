@@ -11,7 +11,11 @@ class User{
 
 class Registrant{
   String name;
+<<<<<<< Upstream, based on branch 'main' of https://github.com/F2021-ECSE223/ecse223-group-project-p8.git
   Integer phoneNum;    
+=======
+  Integer emergencyContact;    
+>>>>>>> 5ef9c30 there was a typo!
 }
 
 class Admin{
@@ -47,7 +51,7 @@ class ClimbingWeek{
 }
 
 class Equipment{
-  enum EquipmentList {rope,pickaxe,portablestove,etc};
+  enum EquipmentList {rope,pickaxe,portablestove,etc}
   String type;
   Integer weeklyPrice;
   Double weight;
