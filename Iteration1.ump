@@ -16,7 +16,7 @@ class Registrant{
 
 class Admin{
   1 -- * ClimbingSeason climbingSeason;
-  1 -- * Hotel hotel;
+  1 assignedBy -- * Hotel hotel;
   1 -- * Equipment equipmentAvailable;
   1<@>- * Assignment assignments;
 }
@@ -26,8 +26,8 @@ class Member{
   Boolean hireGuide;
   Integer numberOfWeeks;
   Boolean hotelStay;
-   Integer climbingWeeks;
-  Integer totalCost;
+  Integer climbingWeeks; 
+  
   }
 
 class MountainGuide{
