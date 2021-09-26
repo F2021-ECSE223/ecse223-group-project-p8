@@ -7,6 +7,13 @@ For each Bundle:
 	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2
 
 Constraint 3:
-For each Assignments:
+When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide 
+
+Constraint 4: 
+The equipment wanted by the member should be available for rent i.e the admin should specify the list of equipment first
+and then the member can choose from it
+
+Constraint 5:
+
 	
 	
