@@ -51,7 +51,7 @@ class ClimbingWeek{
 }
 
 class Equipment{
-  enum EquipmentList {rope,pickaxe,portablestove,etc};
+  enum EquipmentList {rope,pickaxe,portablestove,etc}
   String type;
   Integer weeklyPrice;
   Double weight;
