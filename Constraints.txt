@@ -10,8 +10,7 @@ Constraint 3:
 When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide 
 
 Constraint 4: 
-The equipment wanted by the member should be available for rent i.e the admin should specify the list of equipment first
-and then the member can choose from it
+A mountain guide cannot be assigned to many members during the same week.
 
 Constraint 5:
 

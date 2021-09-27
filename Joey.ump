@@ -1,0 +1,162 @@
+namespace draft.iteration1;
+
+class NMC{
+  1<@>- * User;
+  1<@>- * ClimbingSeason;
+  1<@>- * Hotel;
+  1<@>- * Equipment;
+  1<@>- * Bundle;
+}
+
+class User{
+  abstract;
+  class Admin{};
+  class Registrant{};
+  immutable String emailAddress;
+  String password;
+}
+
+class Registrant{
+  String name;
+  Integer phoneNum;    
+}
+
+class Admin{
+  1 -- * Bundle bundlesAvailable;
+  1 -- * MountainGuide guides;
+  1 -- * ClimbingSeason climbingSeason;
+  1 -- * Hotel hotel;
+  1 -- * Equipment equipmentAvailable;
+  1<@>- * Assignment assignments;
+}
+
+class Member{
+  isA Registrant;
+  Boolean hireGuide;
+  Integer numberOfWeeks;
+  Boolean hotelStay;
+  1 -> * Equipment equipmentWanted;
+  1 -> * Bundle bundlesWanted;
+  }
+
+class MountainGuide{
+  Integer weeklyCost;
+  1 -- * Assignment guideHired;
+  isA Registrant;
+}
+
+class ClimbingSeason{
+  Date startDate;
+  Date endDate;
+  1<@>- 1..* ClimbingWeek;
+}
+
+class ClimbingWeek{
+  1 -- 1 Assignment assignedWeek;
+}
+
+class Equipment{
+  Integer pricePerWeek;
+  Double weight;
+}
+
+class Bundle{
+  1 -> 2..* Equipment equipmentInBundle;
+  String name;
+  Double percentageDiscount;
+}
+
+class Hotel{
+  //enum Star{1,2,3,4,5}
+  //Star rating;
+  String name;
+  String address;
+  1 assignedHotel -- * Assignment;
+}
+
+class Assignment{
+  Integer totalCost;
+  * -- 1 Member;
+}//$?[End_of_model]$?
+
+namespace -;
+
+
+class NMC
+{
+  position 58 48 109 42.5208;
+  position.association ClimbingSeason__NMC 110,43 18,0;
+  position.association Hotel__NMC 110,10 0,10;
+  position.association Equipment__NMC 32,43 31,0;
+  position.association NMC__User 110,27 0,0;
+  position.association Bundle__NMC 0,35 30,0;
+}
+
+class User
+{
+  position 786 69 165.083 92.5208;
+}
+
+class Admin
+{
+  position 387 247 109 42.5208;
+  position.association Admin__Bundle:bundlesAvailable 14,43 125,0;
+  position.association Admin__MountainGuide:guides 84,43 16,0;
+  position.association Admin__ClimbingSeason:climbingSeason 48,43 124,0;
+  position.association Admin__Hotel:hotel 100,0 110,94;
+  position.association Admin__Equipment:equipmentAvailable 0,17 175,29;
+  position.association Admin__Assignment:assignments 110,29 0,28;
+}
+
+class Registrant
+{
+  position 922 292 156.917 76.5208;
+}
+
+class Member
+{
+  position 608 474 194.542 93.5208;
+  position.association Bundle:bundlesWanted__Member 0,22 215,35;
+  position.association Equipment:equipmentWanted__Member 109,0 175,60;
+}
+
+class MountainGuide
+{
+  position 919 521 160.146 59.5208;
+  position.association Assignment:guideHired__MountainGuide 96,0 144,60;
+}
+
+class ClimbingSeason
+{
+  position 273 445 130.542 76.5208;
+  position.association ClimbingSeason__ClimbingWeek 65,77 44,0;
+}
+
+class ClimbingWeek
+{
+  position 337 587 118.312 42.5208;
+  position.association Assignment:assignedWeek__ClimbingWeek 96,0 0,52;
+}
+
+class Equipment
+{
+  position 55 307 174.521 76.5208;
+}
+
+class Bundle
+{
+  position 19 518 214.667 76.5208;
+  position.association Bundle__Equipment:equipmentInBundle 76,0 42,77;
+}
+
+class Hotel
+{
+  position 319 91 127.729 93.5208;
+  position.association Assignment__Hotel:assignedHotel 128,68 21,0;
+}
+
+class Assignment
+{
+  position 732 227 144.188 59.5208;
+  position.association Assignment__Member 52,60 109,0;
+}
