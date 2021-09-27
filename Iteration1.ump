@@ -1,3 +1,14 @@
+namespace draft.iteration1;
+
+class NMC{
+  1<@>- * User;
+  1<@>- * Hotel;
+  1<@>- * Equipment;
+  1<@>- * Bundle;
+  1<@>- * ClimbingSeason;
+  1<@>- * Hotel;
+}
+
 class NMC{
 }
 
@@ -97,7 +108,7 @@ class Bundle
   position 845 307 214.395 93.7109;
   position.association Bundle__Equipment 62,0 28,139;
   position.association Bundle__Equipment:equipmentIn 1,0 0,10;
-  position.association Bundle__Equipment:equipmentInBundle 139,0 98,91;
+  position.association Bundle__Equipment:equipmentInBundle 139,0 88,97;
 }
 
 class Assignment
@@ -111,7 +122,7 @@ class Assignment
 class ClimbingSeason
 {
   position 686 428 130.352 77.4609;
-  position.association ClimbingSeason__ClimbingWeek 63,75 119,2;
+  position.association ClimbingSeason__ClimbingWeek 63,75 119,1;
 }
 
 class Admin
@@ -122,11 +133,15 @@ class Admin
   position.association Admin__Equipment:equipmentAvailable 110,11 0,29;
   position.association Admin__Assignment 47,43 121,0;
   position.association Admin__Assignment:assignments 19,43 128,0;
+  position.association Admin:assignedBy__Hotel:hotel 0,10 14,0;
 }
 
 class NMC
 {
   position 50 30 109 45;
+  position.association NMC__User 110,10 0,10;
+  position.association Equipment__NMC 110,10 0,10;
+  position.association Bundle__NMC 110,10 0,10;
 }
 
 class User
