@@ -23,6 +23,18 @@ Each year, there are only a few weeks which allow for safe climbing in the Nepta
 
 Constraint 6:
 All climbing weeks must be within the climbing season.
+	
+Constraint 11:
+The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
+For each ClimbingSeason:
+	size of climbingWeek <= lengthOfSeason (derived from start and end date)
+
+Constraint 12: Function to calculate the totalCost 
+For each Member:
+        totalCost(): Integer 
+	
+-------------	
+	
 
 Constraint 7:
 Bundles can be rented with a percentage discount if a mountain guide is also hired. // same thing as constraint 3
@@ -34,14 +46,3 @@ Constraint 9:
 At some point before the start of the climbing season, the administrator initiates the assignment of guides, climbing weeks, 
 and hotels to members, so that the total costs for guide and equipment can be shown to the member.
 (not sure about this one, but its prob something with a boolean?:D)
-	
-
-	
-Constraint 11:
-The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
-For each ClimbingSeason:
-	size of climbingWeek <= lengthOfSeason (derived from start and end date)
-
-Constraint 12: Function to calculate the totalCost 
-For each Member:
-        totalCost(): Integer 
