@@ -42,7 +42,7 @@ class Equipment{
 }
 
 class Bundle{
-  0..1 -> 2..* Equipment equipmentInBundle;
+  1 -> 2..* Equipment equipmentInBundle;
   String name;
   Double percentageDiscount;
 }
