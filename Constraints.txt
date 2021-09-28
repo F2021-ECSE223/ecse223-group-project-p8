@@ -5,6 +5,10 @@ For each ClimbingSeason:
 Constraint 2:
 For each Bundle:
 	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
+	
+Constraint 10: (if we decide not to make stars enum) 
+For each Hotel:
+	self.star<=5;
 
 Constraint 3:
 When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
@@ -30,9 +34,7 @@ At some point before the start of the climbing season, the administrator initiat
 and hotels to members, so that the total costs for guide and equipment can be shown to the member.
 (not sure about this one, but its prob something with a boolean?:D)
 	
-Constraint 10: (if we decide not to make stars enum) 
-For each Hotel:
-	self.star<=5;
+
 	
 Constraint 11:
 The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
