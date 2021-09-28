@@ -21,7 +21,7 @@ Constraint 6:
 Climbing weeks must be within climbing season.
 
 Constraint 7:
-Bundles can be rented with a percentage discount if a mountain guide is also hired
+Bundles can be rented with a percentage discount if a mountain guide is also hired // same thing as constraint 3
 
 Constraint 8:
 Member cannot stay at hotel both before and after their mountain climb
@@ -34,3 +34,7 @@ and hotels to members, so that the total costs for guide and equipment can be sh
 Constraint 10: (if we decide not to make stars enum) 
 For each Assignment:
 	∀ a1 in assignedHotel it is true that a1.stars<=5 and (a1.stars>=1)
+	
+Constraint 11: Cannot have more climbing weeks than the length of climbing season
+For each ClimbingSeason:
+	size of climbingWeek <= legthOfSeason (derived from start and end date)
