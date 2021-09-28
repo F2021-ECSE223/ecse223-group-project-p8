@@ -38,3 +38,7 @@ For each Assignment:
 Constraint 11: Cannot have more climbing weeks than the length of climbing season
 For each ClimbingSeason:
 	size of climbingWeek <= legthOfSeason (derived from start and end date)
+
+Constraint 12: Function to calculate the totalCost 
+For each Member:
+        totalCost(): Integer 
