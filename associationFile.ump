@@ -3,7 +3,7 @@ namespace draft.iteration2;
 class NMC{
   Date startDate;
   Date endDate;
-  1<@>- * Registrant;
+  1<@>- * User;
   1<@>- * Hotel;
   1<@>- * Equipment;
   1<@>- 1..* ClimbingWeek;
