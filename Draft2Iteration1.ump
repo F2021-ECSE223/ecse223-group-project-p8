@@ -34,7 +34,7 @@ class MountainGuide{
 }
 
 class ClimbingWeek{
-  * -- 1 Assignment assignedWeek;
+  * -- * Assignment;
 }
 
 class Equipment{
