@@ -11,8 +11,8 @@ For each Hotel:
 	self.star<=5;
 	
 Constraint 4: 
-For each 
-A mountain guide cannot be assigned to more than one member in a specific week.
+For each Admin:
+	∀ a1, a2 in assignments (a1.climbingWeek == a2.climbingWeek) implies that (a1.mountainGuide <> a2.mountainGuide)
 
 Constraint 3:
 When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
