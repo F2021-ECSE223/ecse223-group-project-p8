@@ -17,12 +17,10 @@ For each Admin:
 Constraint 3:
 When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
 
-Constraint 5:
-Each year, there are only a few weeks which allow for safe climbing in the Neptan mountains.
--> Members can only climb during climbing season.
-
 Constraint 6:
-All climbing weeks must be within the climbing season.
+for each ClimbingWeek:
+	
+	
 	
 Constraint 11:
 The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
@@ -34,7 +32,10 @@ For each Member:
         totalCost(): Integer 
 	
 -------------	
-	
+
+Constraint 5:
+Each year, there are only a few weeks which allow for safe climbing in the Neptan mountains.
+-> Members can only climb during climbing season.
 
 Constraint 7:
 Bundles can be rented with a percentage discount if a mountain guide is also hired. // same thing as constraint 3
