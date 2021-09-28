@@ -4,40 +4,40 @@ For each ClimbingSeason:
 
 Constraint 2:
 For each Bundle:
-	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2
+	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
 
 Constraint 3:
-When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide 
+When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
 
 Constraint 4: 
-A mountain guide cannot be assigned to many members during the same week.
+A mountain guide cannot be assigned to more than one member in a specific week.
 
 Constraint 5:
-Each year, there are only a few weeks which allow for safe climb ing in the Neptan 
-mountains.
+Each year, there are only a few weeks which allow for safe climbing in the Neptan mountains.
 -> Members can only climb during climbing season.
 
 Constraint 6:
-Climbing weeks must be within climbing season.
+All climbing weeks must be within the climbing season.
 
 Constraint 7:
-Bundles can be rented with a percentage discount if a mountain guide is also hired // same thing as constraint 3
+Bundles can be rented with a percentage discount if a mountain guide is also hired. // same thing as constraint 3
 
 Constraint 8:
-Member cannot stay at hotel both before and after their mountain climb
+Member cannot stay at a hotel outside (before/after) their mountain climb stay.
 
 Constraint 9:
 At some point before the start of the climbing season, the administrator initiates the assignment of guides, climbing weeks, 
-and hotels to members, so that the total costs for guide and equipment can be shown to the member
+and hotels to members, so that the total costs for guide and equipment can be shown to the member.
 (not sure about this one, but its prob something with a boolean?:D)
 	
 Constraint 10: (if we decide not to make stars enum) 
 For each Assignment:
 	∀ a1 in assignedHotel it is true that a1.stars<=5 and (a1.stars>=1)
 	
-Constraint 11: Cannot have more climbing weeks than the length of climbing season
+Constraint 11:
+The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
 For each ClimbingSeason:
-	size of climbingWeek <= legthOfSeason (derived from start and end date)
+	size of climbingWeek <= lengthOfSeason (derived from start and end date)
 
 Constraint 12: Function to calculate the totalCost 
 For each Member:
