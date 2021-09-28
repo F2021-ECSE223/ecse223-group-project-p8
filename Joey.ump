@@ -57,7 +57,7 @@ class Hotel{
 
 class Assignment{
   Integer totalCost;
-  * -- 1 Member;
+  1 -- 1 Member;
 }//$?[End_of_model]$?
 
 namespace -;
