@@ -31,8 +31,8 @@ and hotels to members, so that the total costs for guide and equipment can be sh
 (not sure about this one, but its prob something with a boolean?:D)
 	
 Constraint 10: (if we decide not to make stars enum) 
-For each Assignment:
-	∀ a1 in assignedHotel it is true that a1.stars<=5 and (a1.stars>=1)
+For each Hotel:
+	self.star<=5;
 	
 Constraint 11:
 The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
