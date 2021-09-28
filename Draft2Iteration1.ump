@@ -28,7 +28,7 @@ class Member{
 
 class MountainGuide{
   Integer weeklyCost;
-  1 -- * Assignment guideHired;
+  0..1 -- * Assignment guideHired;
   isA Registrant;
 }
 
@@ -52,12 +52,12 @@ class Hotel{
   StarRating starRating;
   String name;
   String address;
-  1 assignedHotel -- * Assignment;
+  0..1 assignedHotel -- * Assignment;
 }
 
 class Assignment{
   Integer totalCost;
-  1 -- 1 Member;
+  * -- 1 Member;
 }
 
 namespace -;
