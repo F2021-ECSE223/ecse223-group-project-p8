@@ -9,12 +9,13 @@ For each Bundle:
 Constraint 10: (if we decide not to make stars enum) 
 For each Hotel:
 	self.star<=5;
+	
+Constraint 4: 
+For each 
+A mountain guide cannot be assigned to more than one member in a specific week.
 
 Constraint 3:
 When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
-
-Constraint 4: 
-A mountain guide cannot be assigned to more than one member in a specific week.
 
 Constraint 5:
 Each year, there are only a few weeks which allow for safe climbing in the Neptan mountains.
