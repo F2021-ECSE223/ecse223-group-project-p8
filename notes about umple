@@ -1,0 +1,2 @@
+are we only using an equipment once (creating a rope everytime we need one) or are we reusing them
+If we reuse them the multiplicity fore equipment and bundle should be * instead of the 0..1 I put
