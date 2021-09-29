@@ -19,6 +19,8 @@ When boolean hired guide is true, a percentage discount should be offered to the
 
 Constraint 6:
 for each ClimbingWeek:
+
+	start of season < start + 7*(week #) < end of season
 	
 	
 	
