@@ -1,8 +1,8 @@
-Constraint 1:
+* Constraint 1:
 For each ClimbingSeason:
 	self.endDate.isAfter(self.startDate)
 
-Constraint 2:
+* Constraint 2:
 For each Bundle:
 	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
 	
@@ -10,14 +10,14 @@ Constraint 10: (if we decide not to make stars enum)
 For each Hotel:
 	self.star<=5;
 	
-Constraint 4: 
+* Constraint 4: 
 For each Admin:
 	∀ a1, a2 in assignments (a1.climbingWeek == a2.climbingWeek) implies that (a1.mountainGuide <> a2.mountainGuide)
 
-Constraint 3:
+* Constraint 3:
 When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
 
-Constraint 6:
+* Constraint 6:
 for each ClimbingWeek:
 
 	start of season < start + 7*(week #) < end of season
