@@ -15,8 +15,7 @@ class Registrant{
 }
 
 class Admin{
-  1<@>- * Assignment assignments;
-}
+  }
 
 class Member{
   isA Registrant;
@@ -71,8 +70,7 @@ class User
 class Admin
 {
   position 236 163 109 42.9688;
-  position.association Admin__Assignment:assignments 51,43 82,0;
-}
+  }
 
 class Registrant
 {
@@ -82,8 +80,8 @@ class Registrant
 class Member
 {
   position 524 388 194.277 94.707;
-  position.association Equipment:equipmentWanted__Member 37,95 87,0;
-  position.association Bundle:bundlesWanted__Member 159,95 136,0;
+  position.association Equipment:equipmentWanted__Member 36,108 87,0;
+  position.association Bundle:bundlesWanted__Member 148,95 136,0;
 }
 
 class MountainGuide
@@ -96,6 +94,7 @@ class ClimbingWeek
 {
   position 41 308 118.125 42.9688;
   position.association Assignment:assignedWeek__ClimbingWeek 119,20 0,26;
+  position.association Assignment__ClimbingWeek 119,5 0,10;
 }
 
 class Equipment
@@ -112,7 +111,7 @@ class Bundle
 class Hotel
 {
   position 91 427 157.688 92.3594;
-  position.association Assignment__Hotel:assignedHotel 128,44 19,60;
+  position.association Assignment__Hotel:assignedHotel 120,43 19,58;
 }
 
 class Assignment
