@@ -21,7 +21,10 @@ When boolean hired guide is true, a percentage discount should be offered to the
 for each ClimbingWeek:
 
 	start of season < start + 7*(week #) < end of season
-	
+Constraint 13:
+for each Admin:
+	self.password = "admin";
+	self.emailAddress = "admin@nmc.nt";
 	
 	
 Constraint 11:
