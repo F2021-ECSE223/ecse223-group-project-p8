@@ -4,9 +4,9 @@ For each ClimbingSeason:
 
 * Constraint 2:
 For each Bundle:
-	There exists e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
+	∃ e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
 	
-Constraint 10: (if we decide not to make stars enum) 
+* Constraint 3: (if we decide not to make stars enum) 
 For each Hotel:
 	self.star<=5;
 	
@@ -14,41 +14,11 @@ For each Hotel:
 For each Admin:
 	∀ a1, a2 in assignments (a1.climbingWeek == a2.climbingWeek) implies that (a1.mountainGuide <> a2.mountainGuide)
 
-* Constraint 3:
-When boolean hired guide is true, a percentage discount should be offered to the member who hired the guide.
-
-* Constraint 6:
-for each ClimbingWeek:
-
-	start of season < start + 7*(week #) < end of season
-Constraint 13:
-for each Admin:
-	self.password = "admin";
-	self.emailAddress = "admin@nmc.nt";
+* Constraint 5:
+For each Assignment:
+	if m in Member such that (m.hireguide) then 
+		For each Bundles:
+			self.cost = (sum of all e in equipmentInBundle) x self.percentageDiscount/100;
 	
 	
-Constraint 11:
-The number of climbing weeks cannot be greater than the number of weeks in the entire climbing season.
-For each ClimbingSeason:
-	size of climbingWeek <= lengthOfSeason (derived from start and end date)
-
-Constraint 12: Function to calculate the totalCost 
-For each Member:
-        totalCost(): Integer 
-	
--------------	
-
-Constraint 5:
-Each year, there are only a few weeks which allow for safe climbing in the Neptan mountains.
--> Members can only climb during climbing season.
-
-Constraint 7:
-Bundles can be rented with a percentage discount if a mountain guide is also hired. // same thing as constraint 3
-
-Constraint 8:
-Member cannot stay at a hotel outside (before/after) their mountain climb stay.
-
-Constraint 9:
-At some point before the start of the climbing season, the administrator initiates the assignment of guides, climbing weeks, 
-and hotels to members, so that the total costs for guide and equipment can be shown to the member.
-(not sure about this one, but its prob something with a boolean?:D)
+-------------
