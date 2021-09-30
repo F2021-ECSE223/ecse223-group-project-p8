@@ -8,7 +8,8 @@ class NMC{
   1<@>- * Equipment;
   1<@>- 1..* ClimbingWeek;
   1<@>- * MountainGuide;
-  1<@>- * Bundle;  
+  1<@>- * Bundle; 
+  1<@>- * EquipmentQuantity;
 }
 
 class Equipment{
@@ -27,6 +28,11 @@ class MountainGuide{
 }
 
 class User{
+}
+
+associationClass EquipmentQuantity{
+  * Bundle;
+  * Equipment;
 }
 
 use Iteration1.ump;
