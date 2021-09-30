@@ -28,7 +28,7 @@ class Member{
 
 class MountainGuide{
   Integer weeklyCost;
-  0..1 -- * Assignment guideHired;
+  0..1 guideHired -- * Assignment;
   isA Registrant;
 }
 
@@ -42,8 +42,8 @@ class Equipment{
 }
 
 class Bundle{
-  1 -> 2..* Equipment equipmentInBundle;
   Double percentageDiscount;
+  //this is a derived attribute
   Integer cost;
   String name;
 }
@@ -60,6 +60,12 @@ class Assignment{
 //this is a derived attribute for the total cost of a member 
   Integer totalCost;
   * -- 1 Member;
+}
+
+associationClass EquipmentQuantity{
+   Integer count;
+   * Bundle equipmentInBundle;
+   * Equipment;
 }
 
 namespace -;
@@ -89,31 +95,21 @@ class Member
 
 class MountainGuide
 {
-  position 759 306 159.902 60.2148;
+  position 782 315 160.146 59.5208;
   position.association Assignment:guideHired__MountainGuide 0,18 145,39;
+  position.association Assignment__MountainGuide:guideHired 0,10 145,12;
 }
 
 class ClimbingWeek
 {
-  position 41 308 118.125 42.9688;
+  position 47 265 118.312 42.5208;
   position.association Assignment:assignedWeek__ClimbingWeek 119,20 0,26;
   position.association Assignment__ClimbingWeek 119,5 0,10;
 }
 
-class Equipment
-{
-  position 336 593 174.258 77.4609;
-}
-
-class Bundle
-{
-  position 690 594 214.395 77.4609;
-  position.association Bundle__Equipment:equipmentInBundle 0,36 175,39;
-}
-
 class Hotel
 {
-  position 91 427 119.203 92.3594;
+  position 80 407 174.438 93.5208;
   position.association Assignment__Hotel:assignedHotel 120,42 19,58;
 }
 
