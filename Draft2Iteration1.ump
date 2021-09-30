@@ -56,8 +56,8 @@ class Hotel{
 }
 
 class Assignment{
-//this is a derived attribute for the total cost of a member
-  Integer totalCost = {};
+//this is a derived attribute for the total cost of a member 
+  Integer totalCost;
   * -- 1 Member;
 }
 
