@@ -10,7 +10,7 @@ class User{
 
 class Registrant{
   abstract;
-  String nam;
+  String name;
   Integer emergencyContact;    
 }
 
