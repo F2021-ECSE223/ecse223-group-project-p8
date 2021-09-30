@@ -29,7 +29,7 @@ class MountainGuide{
 class User{
 }
 
-use Draft2Iteration1.ump;
+use Iteration1.ump;
 
 //$?[End_of_model]$?
 
