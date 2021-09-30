@@ -31,7 +31,7 @@ class User{
 }
 
 associationClass EquipmentQuantity{
-  * Bundle;
+  * Bundle equipmentInBundle;
   * Equipment;
 }
 
