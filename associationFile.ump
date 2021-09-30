@@ -1,4 +1,4 @@
-namespace draft.iteration2;
+namespace ecse223.iteration1;
 
 class NMC{
   Date startDate;
