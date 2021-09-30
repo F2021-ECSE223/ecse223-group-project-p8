@@ -1,24 +1,29 @@
+_______________________________________________________________________________________________________________________________________________
+   Our 5 Constraints:
+_______________________________________________________________________________________________________________________________________________
+
+
 * Constraint 1:
-For each ClimbingSeason:
-	self.endDate.isAfter(self.startDate)
+	For each ClimbingSeason:
+		self.endDate.isAfter(self.startDate)
 
 * Constraint 2:
-For each Bundle:
-	∃ e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
-	
+	For each Bundle:
+		∃ e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
+
 * Constraint 3:
-if hotel stay then hotel multiplicity should be 1 for that assignment
-	
-	
+	if hotel stay then hotel multiplicity should be 1 for that assignment
+
+
 * Constraint 4: 
-For each Admin:
-	∀ a1, a2 in assignments (a1.climbingWeek == a2.climbingWeek) implies that (a1.mountainGuide <> a2.mountainGuide)
+	For each Admin:
+		∀ a1, a2 in assignments (a1.climbingWeek == a2.climbingWeek) implies that (a1.mountainGuide <> a2.mountainGuide)
 
 * Constraint 5:
-For each Assignment:
-	if m in Member such that (m.hireguide) then 
-		For each Bundles:
-			self.cost = (sum of all e in equipmentInBundle) x self.percentageDiscount/100;
+	For each Assignment:
+		if m in Member such that (m.hireguide) then 
+			For each Bundles:
+				self.cost = (sum of all e in equipmentInBundle) x self.percentageDiscount/100;
 	
 	
--------------
+_______________________________________________________________________________________________________________________________________________
