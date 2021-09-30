@@ -48,8 +48,7 @@ class Bundle{
 }
 
 class Hotel{
-  enum Star {1,2,3,4,5}
-  Star star;
+  Integer Star;
   String name;
   String address;
   0..1 assignedHotel -- * Assignment;
