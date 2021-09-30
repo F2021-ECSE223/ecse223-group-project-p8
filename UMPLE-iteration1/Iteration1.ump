@@ -1,0 +1,120 @@
+namespace ecse223.iteration1;
+
+class User{
+  abstract;
+  class Admin{};
+  class Registrant{};
+  unique String emailAddress;
+  String password;
+}
+
+class Registrant{
+  abstract;
+  String name;
+  Integer emergencyContact;    
+}
+
+class Admin{
+  }
+
+class Member{
+  isA Registrant;
+  Boolean hireGuide;
+  Integer numberOfWeeks;
+  Boolean hotelStay;
+  1 -> * Equipment equipmentWanted;
+  1 -> * Bundle bundlesWanted;
+  }
+
+class MountainGuide{
+  Integer weeklyCost;
+  0..1 guideHired -- * Assignment;
+  isA Registrant;
+}
+
+class ClimbingWeek{
+  * -- * Assignment;
+}
+
+class Equipment{
+  Integer pricePerWeek;
+  Double weight;
+}
+
+class Bundle{
+  Double percentageDiscount;
+  //this is a derived attribute
+  Integer cost;
+  String name;
+}
+
+class Hotel{
+  String name;
+  String address;
+  enum StarRating {one,two,three,four,five}
+  StarRating starRating;
+  0..1 assignedHotel -- * Assignment;
+}
+
+class Assignment{
+//this is a derived attribute for the total cost of a member 
+  Integer totalCost;
+  * -- 1 Member;
+}
+
+associationClass EquipmentQuantity{
+   Integer count;
+   * Bundle equipmentInBundle;
+   * Equipment;
+}
+
+namespace -;
+
+
+class User
+{
+  position 290 4 164.844 93.7109;
+}
+
+class Admin
+{
+  position 236 163 109 42.9688;
+  }
+
+class Registrant
+{
+  position 608 147 156.66 77.4609;
+}
+
+class Member
+{
+  position 524 388 194.277 94.707;
+  position.association Equipment:equipmentWanted__Member 36,108 87,0;
+  position.association Bundle:bundlesWanted__Member 148,95 136,0;
+}
+
+class MountainGuide
+{
+  position 782 315 160.146 59.5208;
+  position.association Assignment:guideHired__MountainGuide 0,18 145,39;
+  position.association Assignment__MountainGuide:guideHired 0,10 145,12;
+}
+
+class ClimbingWeek
+{
+  position 47 265 118.312 42.5208;
+  position.association Assignment:assignedWeek__ClimbingWeek 119,20 0,26;
+  position.association Assignment__ClimbingWeek 119,5 0,10;
+}
+
+class Hotel
+{
+  position 80 407 174.438 93.5208;
+  position.association Assignment__Hotel:assignedHotel 120,42 19,58;
+}
+
+class Assignment
+{
+  position 289 298 143.945 60.2148;
+  position.association Assignment__Member 122,58 0,36;
+}
