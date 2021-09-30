@@ -9,7 +9,6 @@ class NMC{
   1<@>- 1..* ClimbingWeek;
   1<@>- * MountainGuide;
   1<@>- * Bundle; 
-  1<@>- * EquipmentQuantity;
 }
 
 class Equipment{
@@ -29,12 +28,6 @@ class MountainGuide{
 
 class User{
 }
-
-associationClass EquipmentQuantity{
-  * Bundle equipmentInBundle;
-  * Equipment;
-}
-
 use Iteration1.ump;
 
 //$?[End_of_model]$?
