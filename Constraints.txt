@@ -7,8 +7,8 @@ For each Bundle:
 	∃ e1, e2 in equipmentInBundle such that type of e1 <> type of e2.
 	
 * Constraint 3:
-For each Hotel:
-	self.star<=5;
+if hotel stay then hotel multiplicity should be 1 for that assignment
+	
 	
 * Constraint 4: 
 For each Admin:
