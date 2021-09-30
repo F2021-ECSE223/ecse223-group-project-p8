@@ -44,7 +44,6 @@ class Equipment{
 class Bundle{
   1 -> 2..* Equipment equipmentInBundle;
   String name;
-  Double percentageDiscount;
 }
 
 class Hotel{
@@ -56,6 +55,7 @@ class Hotel{
 
 class Assignment{
   Integer totalCost = {};
+  Double percentageDiscount;
   * -- 1 Member;
 }
 
