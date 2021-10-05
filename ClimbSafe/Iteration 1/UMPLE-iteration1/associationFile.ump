@@ -1,0 +1,69 @@
+namespace ecse223.iteration1;
+
+class NMC{
+  Date startDate;
+  Date endDate;
+  1<@>- * User;
+  1<@>- * Hotel;
+  1<@>- * Equipment;
+  1<@>- 1..* ClimbingWeek;
+  1<@>- * MountainGuide;
+  1<@>- * Bundle;  
+}
+
+class Equipment{
+}
+
+class Hotel{
+}
+
+class ClimbingWeek{
+}
+
+class Bundle{
+}
+
+class MountainGuide{
+}
+
+class User{
+}
+
+use Iteration1.ump;
+
+//$?[End_of_model]$?
+
+namespace -;
+
+class NMC
+{
+  position 50 30 109 45;
+  position.association MountainGuide__NMC 110,10 0,10;
+  position.association Hotel__NMC 110,10 0,10;
+  position.association Equipment__NMC 110,11 0,10;
+}
+
+class Equipment
+{
+  position 387 349 109 42.9688;
+}
+
+class Hotel
+{
+  position 545 245 109 42.9688;
+}
+
+class ClimbingWeek
+{
+  position 215 359 118.125 42.9688;
+}
+
+class Bundle
+{
+  position 45 361 109 42.9688;
+}
+
+class MountainGuide
+{
+  position 445 81 123.75 42.9688;
+}
