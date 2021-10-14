@@ -69,6 +69,7 @@ public class P8StepDefinitions {
 	  // Double, Byte, Short, Long, BigInteger or BigDecimal.
 	  //
 	  // For other transformations you can register a DataTableType.
+	  throw new io.cucumber.java.PendingException();
   }
 
   @When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
