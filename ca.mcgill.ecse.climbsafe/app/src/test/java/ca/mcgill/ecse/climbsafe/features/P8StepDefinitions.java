@@ -1,46 +1,86 @@
 package ca.mcgill.ecse.climbsafe.features;
 
+import java.util.List;
+import java.util.Map;
+
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+import ca.mcgill.ecse.climbsafe.model.Equipment;
+import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class P8StepDefinitions {
+	
+	private ClimbSafe climbSafe;
+	
   @Given("the following ClimbSafe system exists: \\(p8)")
   public void the_following_climb_safe_system_exists_p8(io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  // Write code here that turns the phrase above into concrete actions
+	  // For automatic transformation, change DataTable to one of
+	  // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	  // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	  // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	  //
+	  // For other transformations you can register a DataTableType.
+	  List<Map<String,String>> climbSafe1 = dataTable.asMaps(String.class,String.class);
+	  var date = climbSafe1.get(0).get("startDate");
+	  var weeks = climbSafe1.get(0).get("nrWeeks");
+	  var price = climbSafe1.get(0).get("priceOfGuidesPerWeek");
+	  
+	  climbSafe = ClimbSafeApplication.getClimbSafe();
+	  climbSafe.setStartDate(java.sql.Date.valueOf(date));
+	  climbSafe.setNrWeeks(Integer.parseInt(weeks));
+	  climbSafe.setPriceOfGuidePerWeek(Integer.parseInt(price));
+	  throw new io.cucumber.java.PendingException();
   }
 
   @Given("the following equipment exists in the system: \\(p8)")
   public void the_following_equipment_exists_in_the_system_p8(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  // Write code here that turns the phrase above into concrete actions
+	  // For automatic transformation, change DataTable to one of
+	  // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	  // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	  // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	  //
+	  // For other transformations you can register a DataTableType.
+	  
+	  List<Map<String,String>> equipmentInfo = dataTable.asMaps(String.class, String.class); 
+	  
+	  for(Map<String,String> equipment : equipmentInfo) {
+		  var name = equipment.get("name");
+		  var weight = equipment.get("weight");
+		  var pricePerWeek = equipment.get("pricePerWeek");
+		  new Equipment(name, Integer.parseInt(weight), Integer.parseInt(pricePerWeek), climbSafe);
+	  }
+	  
+	  throw new io.cucumber.java.PendingException();
   }
 
   @Given("the following equipment bundles exist in the system: \\(p8)")
   public void the_following_equipment_bundles_exist_in_the_system_p8(
       io.cucumber.datatable.DataTable dataTable) {
-    // Write code here that turns the phrase above into concrete actions
-    // For automatic transformation, change DataTable to one of
-    // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-    // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-    // Double, Byte, Short, Long, BigInteger or BigDecimal.
-    //
-    // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  // Write code here that turns the phrase above into concrete actions
+	  // For automatic transformation, change DataTable to one of
+	  // E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
+	  // Map<K, List<V>>. E,K,V must be a String, Integer, Float,
+	  // Double, Byte, Short, Long, BigInteger or BigDecimal.
+	  //
+	  // For other transformations you can register a DataTableType.
+	  
+	  List<Map<String,String>> bundleInfo = dataTable.asMaps(String.class, String.class);
+	  for(Map<String,String> bundle : bundleInfo) {
+		  var name = bundle.get("name");
+		  var discount = bundle.get("discount");
+		  var items = bundle.get("items");
+		  var quantities = bundle.get("quantities");
+		  EquipmentBundle bundle1 = new EquipmentBundle(name, Integer.parseInt(discount), climbSafe);
+		  //should add the items and quantities
+	  }
+	  
+	  throw new io.cucumber.java.PendingException();
   }
 
   @When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
