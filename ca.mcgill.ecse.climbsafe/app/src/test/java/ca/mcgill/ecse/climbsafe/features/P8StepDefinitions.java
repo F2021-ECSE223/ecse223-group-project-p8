@@ -34,7 +34,6 @@ public class P8StepDefinitions {
 	  climbSafe.setStartDate(java.sql.Date.valueOf(date));
 	  climbSafe.setNrWeeks(Integer.parseInt(weeks));
 	  climbSafe.setPriceOfGuidePerWeek(Integer.parseInt(price));
-	  throw new io.cucumber.java.PendingException();
   }
 
   //@Joey
@@ -57,8 +56,6 @@ public class P8StepDefinitions {
 		  var pricePerWeek = equipment.get("pricePerWeek");
 		  new Equipment(name, Integer.parseInt(weight), Integer.parseInt(pricePerWeek), climbSafe);
 	  }
-	  
-	  throw new io.cucumber.java.PendingException();
   }
 
   //@Aigiarn
