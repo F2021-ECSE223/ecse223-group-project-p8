@@ -88,6 +88,7 @@ public class P8StepDefinitions {
     throw new io.cucumber.java.PendingException();
   }
 
+  //@Aigiarn
   @Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
   public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String string,
       String string2, String string3) {
@@ -102,7 +103,6 @@ public class P8StepDefinitions {
     throw new io.cucumber.java.PendingException();
   }
 
-  //@Aigiarn
   //@Mihail
   @Then("the equipment bundle {string} shall not exist in the system \\(p8)")
   public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
