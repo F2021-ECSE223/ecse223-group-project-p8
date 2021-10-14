@@ -15,6 +15,7 @@ public class P8StepDefinitions {
 	
 	private ClimbSafe climbSafe;
 	
+  //@Joey 
   @Given("the following ClimbSafe system exists: \\(p8)")
   public void the_following_climb_safe_system_exists_p8(io.cucumber.datatable.DataTable dataTable) {
 	  // Write code here that turns the phrase above into concrete actions
@@ -36,6 +37,7 @@ public class P8StepDefinitions {
 	  throw new io.cucumber.java.PendingException();
   }
 
+  //@Joey
   @Given("the following equipment exists in the system: \\(p8)")
   public void the_following_equipment_exists_in_the_system_p8(
       io.cucumber.datatable.DataTable dataTable) {
