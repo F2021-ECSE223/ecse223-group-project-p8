@@ -74,17 +74,36 @@ public class P8StepDefinitions {
 	  // For other transformations you can register a DataTableType.
 	  throw new io.cucumber.java.PendingException();
   }
-
+	
+  //@Maya
   @When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
   public void the_administrator_attempts_to_update_the_equipment_bundle_to_have_name_discount_items_and_quantities_p8(
       String string, String string2, String string3, String string4, String string5) {
-    // Write code here that turns the phrase above into concrete actions
+    List<String> newEquipmentNames = new List<String>(string4.split(","));
+    List<String> newEquipmentQuantities= new List<String>(string5.split(","));
+    List<Integer> newEquipmentQuantInt= new ArrayList<>();
+    for (String s: newEquipmentQuantities) {
+      newEquipmentQuantInt.add(Integer.valueOf(s));
+    }
+    try {
+      
+      ClimbSafeFeatureSet5Controller.updateEquipmentBundle(String string, 
+          String string2, int Integer.parseInt(string3),
+          List<String> newEquipmentNames, 
+          List<Integer> newEquipmentQuantInt)
+    }
+    catch (InvalidInputException e) {
+      error= e.getMessage();
+    }
     throw new io.cucumber.java.PendingException();
   }
-
+	
+  //@Maya
   @Then("the number of equipment bundles in the system shall be {string} \\(p8)")
   public void the_number_of_equipment_bundles_in_the_system_shall_be_p8(String string) {
-    // Write code here that turns the phrase above into concrete actions
+    if (ClimbSafe.hasBundles()) {
+    assertEqual(Integer.parseInt(string), ClimbSafe.numberOfBundles );
+    }
     throw new io.cucumber.java.PendingException();
   }
 
