@@ -61,6 +61,7 @@ public class P8StepDefinitions {
 	  throw new io.cucumber.java.PendingException();
   }
 
+  //@Aigiarn
   @Given("the following equipment bundles exist in the system: \\(p8)")
   public void the_following_equipment_bundles_exist_in_the_system_p8(
       io.cucumber.datatable.DataTable dataTable) {
@@ -101,6 +102,7 @@ public class P8StepDefinitions {
     throw new io.cucumber.java.PendingException();
   }
 
+  //@Aigiarn
   @Then("the equipment bundle {string} shall not exist in the system \\(p8)")
   public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
     // Write code here that turns the phrase above into concrete actions
