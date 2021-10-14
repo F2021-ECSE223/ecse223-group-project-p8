@@ -69,18 +69,6 @@ public class P8StepDefinitions {
 	  // Double, Byte, Short, Long, BigInteger or BigDecimal.
 	  //
 	  // For other transformations you can register a DataTableType.
-	  
-	  List<Map<String,String>> bundleInfo = dataTable.asMaps(String.class, String.class);
-	  for(Map<String,String> bundle : bundleInfo) {
-		  var name = bundle.get("name");
-		  var discount = bundle.get("discount");
-		  var items = bundle.get("items");
-		  var quantities = bundle.get("quantities");
-		  EquipmentBundle bundle1 = new EquipmentBundle(name, Integer.parseInt(discount), climbSafe);
-		  //should add the items and quantities
-	  }
-	  
-	  throw new io.cucumber.java.PendingException();
   }
 
   @When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
