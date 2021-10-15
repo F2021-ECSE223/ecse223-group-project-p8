@@ -2,14 +2,18 @@ package ca.mcgill.ecse.climbsafe.features;
 
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.Arrays;
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class P8StepDefinitions {
 	
@@ -95,8 +99,8 @@ public class P8StepDefinitions {
   //@Maya
   @Then("the number of equipment bundles in the system shall be {string} \\(p8)")
   public void the_number_of_equipment_bundles_in_the_system_shall_be_p8(String string) {
-    if (ClimbSafe.hasBundles()) {
-    assertEqual(Integer.parseInt(string), ClimbSafe.numberOfBundles );
+    if (climbSafe.hasBundles()) {
+    	assertEquals(Integer.parseInt(string), climbSafe.numberOfBundles());
     }
   //  throw new io.cucumber.java.PendingException();
   }
