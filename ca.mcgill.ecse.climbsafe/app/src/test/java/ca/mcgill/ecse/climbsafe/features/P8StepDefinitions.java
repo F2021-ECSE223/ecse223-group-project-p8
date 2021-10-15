@@ -133,7 +133,10 @@ public class P8StepDefinitions {
   @Then("the number of pieces of equipment in the system shall be {string} \\(p8)")
   public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String string) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+
+    assertEquals(string, climbSafe.getBookableItems().length;)
+
+    //throw new io.cucumber.java.PendingException();
   }
 
   @Then("the error {string} shall be raised \\(p8)")
