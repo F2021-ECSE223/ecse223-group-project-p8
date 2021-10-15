@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
+import ca.mcgill.ecse.climbsafe.controller.InvalidInputException;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class P8StepDefinitions {
 	
 	private ClimbSafe climbSafe;
+	private String error;
 	
   //@Joey 
   @Given("the following ClimbSafe system exists: \\(p8)")
@@ -87,8 +89,8 @@ public class P8StepDefinitions {
 		  newEquipmentQuantInt.add(Integer.valueOf(s));
 	  }
 	  try {
-		  ClimbSafeFeatureSet5Controller.updateEquipmentBundle(string, string2, 
-								       Integer.parseInt(string3), newEquipmentNames,  newEquipmentQuantInt)
+		  ClimbSafeFeatureSet5Controller.updateEquipmentBundle(string, string2, Integer.parseInt(string3),
+				  newEquipmentNames,  newEquipmentQuantInt);
 		  }
 	  catch (InvalidInputException e) {
 		  error= e.getMessage();
