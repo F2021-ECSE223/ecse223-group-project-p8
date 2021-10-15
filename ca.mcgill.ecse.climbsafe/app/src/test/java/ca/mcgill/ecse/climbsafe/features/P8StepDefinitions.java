@@ -2,7 +2,7 @@ package ca.mcgill.ecse.climbsafe.features;
 
 import java.util.List;
 import java.util.Map;
-
+import java.util.Arrays;
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
