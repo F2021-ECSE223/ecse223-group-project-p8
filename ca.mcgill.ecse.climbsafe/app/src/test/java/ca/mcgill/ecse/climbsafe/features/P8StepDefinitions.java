@@ -116,11 +116,19 @@ public class P8StepDefinitions {
   }
 
   //@Ke
-  @Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
-  public void the_equipment_bundle_shall_have_a_discount_of_p8(String string, String string2) {
+//  @Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
+//  public void the_equipment_bundle_shall_have_a_discount_of_p8(int string, int string2) {
+//    // Write code here that turns the phrase above into concrete actions
+//	//String string, String string2
+//    assertEquals(string2, climbSafe.getBundles().get(string).getDiscount);
+//
+//    //throw new io.cucumber.java.PendingException();
+//  }
+  @Then("the equipment bundle {int} shall have a discount of {int} \\(p8)")
+  public void the_equipment_bundle_shall_have_a_discount_of_p8(int bundleNumber, int discount) {
     // Write code here that turns the phrase above into concrete actions
 
-    assertEquals(string2, climbSafe.getBundles().get(string).getDiscount);
+    assertEquals(discount, climbSafe.getBundles().get(bundleNumber).getDiscount);
 
     //throw new io.cucumber.java.PendingException();
   }
@@ -134,13 +142,19 @@ public class P8StepDefinitions {
   }
 
   //@Ke
-  @Then("the number of pieces of equipment in the system shall be {string} \\(p8)")
-  public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String string) {
-    // Write code here that turns the phrase above into concrete actions
+//  @Then("the number of pieces of equipment in the system shall be {string} \\(p8)")
+//  public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String string) {
+//    // Write code here that turns the phrase above into concrete actions
+//
+//    assertEquals(string, climbSafe.numberOfEquipment());
+//
+//    //throw new io.cucumber.java.PendingException();
+//  }
+  @Then("the number of pieces of equipment in the system shall be {int} \\(p8)")
+  public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(int totalEquipment) {
 
-    assertEquals(string, climbSafe.numberOfEquipment());
+    assertEquals(totalEquipment, climbSafe.numberOfEquipment());
 
-    //throw new io.cucumber.java.PendingException();
   }
 
   @Then("the error {string} shall be raised \\(p8)")
