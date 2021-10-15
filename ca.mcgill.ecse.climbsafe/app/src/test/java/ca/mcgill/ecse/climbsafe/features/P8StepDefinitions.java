@@ -116,7 +116,10 @@ public class P8StepDefinitions {
   @Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
   public void the_equipment_bundle_shall_have_a_discount_of_p8(String string, String string2) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+
+    assertEquals(string2, climbSafe.getEquipmentBundles().get(string).getDiscount);
+
+    //throw new io.cucumber.java.PendingException();
   }
 
   //@Mihail
