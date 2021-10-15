@@ -125,8 +125,10 @@ public class P8StepDefinitions {
   //@Mihail
   @Then("the equipment bundle {string} shall not exist in the system \\(p8)")
   public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    	// Write code here that turns the phrase above into concrete actions
+	EquipmentBundle temp = climbSafe.getEquipmentBundles().get(string);
+	assertNull(temp);
+	//throw new io.cucumber.java.PendingException();
   }
 
   //@Ke
