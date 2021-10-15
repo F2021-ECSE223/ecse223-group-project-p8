@@ -117,7 +117,7 @@ public class P8StepDefinitions {
   public void the_equipment_bundle_shall_have_a_discount_of_p8(String string, String string2) {
     // Write code here that turns the phrase above into concrete actions
 
-    assertEquals(string2, climbSafe.getEquipmentBundles().get(string).getDiscount);
+    assertEquals(string2, climbSafe.getBundles().get(string).getDiscount);
 
     //throw new io.cucumber.java.PendingException();
   }
@@ -136,7 +136,7 @@ public class P8StepDefinitions {
   public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String string) {
     // Write code here that turns the phrase above into concrete actions
 
-    assertEquals(string, climbSafe.getBookableItems().length);
+    assertEquals(string, climbSafe.numberOfEquipment());
 
     //throw new io.cucumber.java.PendingException();
   }
