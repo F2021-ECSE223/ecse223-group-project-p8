@@ -36,7 +36,7 @@ public class P8StepDefinitions {
 	  List<Map<String,String>> climbSafe1 = dataTable.asMaps(String.class,String.class);
 	  var date = climbSafe1.get(0).get("startDate");
 	  var weeks = climbSafe1.get(0).get("nrWeeks");
-	  var price = climbSafe1.get(0).get("priceOfGuidesPerWeek");
+	  var price = climbSafe1.get(0).get("priceOfGuidePerWeek");
 	  
 	  error = "";
 	  climbSafe = ClimbSafeApplication.getClimbSafe();
