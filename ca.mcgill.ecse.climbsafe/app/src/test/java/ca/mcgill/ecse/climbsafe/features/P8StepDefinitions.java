@@ -78,7 +78,16 @@ public class P8StepDefinitions {
 	  // Double, Byte, Short, Long, BigInteger or BigDecimal.
 	  //
 	  // For other transformations you can register a DataTableType.
-	  throw new io.cucumber.java.PendingException();
+
+	  List<Map<String,String>> equipmentBundleInfo = dataTable.asMaps(String.class, String.class); 
+	  
+	  for(Map<String,String> equipmentBundle : equipmentBundleInfo) {
+		  var name = super.equipmentBundle.getName();
+		  var discount = equipmentBundle.getDiscount();
+		  var climbSafe = equipmentBundle.getClimbSafe();
+		  new equipmentBundle(name, discount, climbSafe);
+	  }
+
   }
 	
   //@Maya
@@ -114,8 +123,11 @@ public class P8StepDefinitions {
   @Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
   public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String string,
       String string2, String string3) {
-    // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+		
+		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
+		assertEquals(string2, equipmentBundle.getBundleItem(string2));
+		assertEquals(string3, equipmentBundle.getBundleItem(string2).getQuantity);
+
   }
 
   //@Ke
