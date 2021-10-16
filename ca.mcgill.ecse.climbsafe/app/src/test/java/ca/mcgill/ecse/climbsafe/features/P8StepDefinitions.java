@@ -119,7 +119,7 @@ public class P8StepDefinitions {
   @Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
   public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discount) {
 
-    assertEquals(Integer.parseInt(discount), climbSafe.BookableItem.getWithName(bundleName).getDiscount);
+    assertEquals(Integer.parseInt(discount), climbSafe.getBundle(0).getWithName(bundleName).getDiscount);
    
   }
 
