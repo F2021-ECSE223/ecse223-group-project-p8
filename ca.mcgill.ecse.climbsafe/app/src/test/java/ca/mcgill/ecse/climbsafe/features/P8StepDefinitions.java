@@ -121,7 +121,7 @@ public class P8StepDefinitions {
   public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discountString) {
 
     //assertEquals(Integer.parseInt(discount), climbSafe.getBundle(0).getWithName(bundleName).getDiscount());
-    int discount = parseInt(discount);
+    int discount = Integer.parseInt(discountString);
 //    List<EquipmentBundle> tempList = climbSafe.getBundles();
 //	  EquipmentBundle found = null;
 //	  for(EquipmentBundle temp : tempList){
@@ -133,7 +133,7 @@ public class P8StepDefinitions {
 //	      }
 //	  }
 	  
-    EquipmentBundle equipmentBundle = EquipmentBundle.getWithName(bundleName);
+    EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
     assertEquals(discount, equipmentBundle.getDiscount());
     //here
   }
