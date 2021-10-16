@@ -128,7 +128,20 @@ public class P8StepDefinitions {
   @Then("the equipment bundle {string} shall not exist in the system \\(p8)")
   public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
     	// Write code here that turns the phrase above into concrete actions
-	assertNull(climbSafe.getBundle(0).getWithName(string));
+	//assertNull(climbSafe.getBundle(0).getWithName(string));
+	  
+	   List<EquipmentBundle> tempList = climbSafe.getBundles();
+	  EquipmentBundle found = null;
+	  for(EquipmentBundle temp : tempList){
+	      if ((temp.getName().equals(string))) {
+	    	  found = temp;
+	    	  break;
+	      }
+	  }
+	  
+	  //now if found is null, not found. else we got the bundle
+
+	  assertNull(found);
 	//throw new io.cucumber.java.PendingException();
   }
 
