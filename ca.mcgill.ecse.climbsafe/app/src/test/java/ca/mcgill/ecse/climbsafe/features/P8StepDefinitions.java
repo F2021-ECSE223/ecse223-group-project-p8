@@ -38,6 +38,7 @@ public class P8StepDefinitions {
 	  var weeks = climbSafe1.get(0).get("nrWeeks");
 	  var price = climbSafe1.get(0).get("priceOfGuidesPerWeek");
 	  
+	  error = "";
 	  climbSafe = ClimbSafeApplication.getClimbSafe();
 	  climbSafe.setStartDate(java.sql.Date.valueOf(date));
 	  climbSafe.setNrWeeks(Integer.parseInt(weeks));
@@ -95,7 +96,7 @@ public class P8StepDefinitions {
 				  newEquipmentNames,  newEquipmentQuantInt);
 		  }
 	  catch (InvalidInputException e) {
-		  error= e.getMessage();
+		  error += e.getMessage();
 	  }
 	//  throw new io.cucumber.java.PendingException();
   }
@@ -160,7 +161,7 @@ public class P8StepDefinitions {
   @Then("the error {string} shall be raised \\(p8)")
   public void the_error_shall_be_raised_p8(String string) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    assertTrue(error.contains(string));
   }
   
   @After
