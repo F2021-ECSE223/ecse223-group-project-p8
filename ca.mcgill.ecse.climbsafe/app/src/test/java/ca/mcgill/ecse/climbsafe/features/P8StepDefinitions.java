@@ -135,6 +135,7 @@ public class P8StepDefinitions {
 	  
     EquipmentBundle equipmentBundle = EquipmentBundle.getWithName(bundleName);
     assertEquals(discount, equipmentBundle.getDiscount());
+    //here
   }
 
   //@Mihail
