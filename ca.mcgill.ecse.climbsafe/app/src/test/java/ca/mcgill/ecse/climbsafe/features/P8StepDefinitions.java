@@ -161,7 +161,6 @@ public class P8StepDefinitions {
   @Then("the error {string} shall be raised \\(p8)")
   public void the_error_shall_be_raised_p8(String string) {
     // Write code here that turns the phrase above into concrete actions
-    assertTrue(error.contains(string));
   }
   
   @After
