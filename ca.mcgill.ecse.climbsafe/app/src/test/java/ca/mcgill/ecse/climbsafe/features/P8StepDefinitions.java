@@ -82,9 +82,9 @@ public class P8StepDefinitions {
   @When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
   public void the_administrator_attempts_to_update_the_equipment_bundle_to_have_name_discount_items_and_quantities_p8(
       String string, String string2, String string3, String string4, String string5) {
-	  List<String> newEquipmentNames = new ArrayList<String>(string4.split(","));
-	  List<String> newEquipmentQuantities= new ArrayList<String>(string5.split(","));
-	  List<Integer> newEquipmentQuantInt= new ArrayList<>();
+	  List<String> newEquipmentNames = new ArrayList<String>(Arrays.asList(string4.split(",")));
+	  List<String> newEquipmentQuantities= new ArrayList<String>(Arrays.asList(string5.split(",")));
+	  List<Integer> newEquipmentQuantInt= new ArrayList<Integer>();
 	  for (String s: newEquipmentQuantities) {
 		  newEquipmentQuantInt.add(Integer.valueOf(s));
 	  }
