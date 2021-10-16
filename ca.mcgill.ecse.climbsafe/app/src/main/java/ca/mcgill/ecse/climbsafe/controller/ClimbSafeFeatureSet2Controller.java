@@ -18,16 +18,11 @@ public class ClimbSafeFeatureSet2Controller {
 		  climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
 		  //what to do with list?
 	  } catch (InvalidInputException e) {
-		  //is this the right error? do I throw?
+		  //is this the right error?
 		  //throw new InvalidInputException(e.getMessage());
 		  error += e.getMessage();
 	  }
 	  
-	  try {
-		  
-	  } catch () {
-		  
-	  }
   }
 
   public static void updateMember(String email, String newPassword, String newName,
