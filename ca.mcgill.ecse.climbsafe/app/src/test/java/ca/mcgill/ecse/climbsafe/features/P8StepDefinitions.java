@@ -15,6 +15,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class P8StepDefinitions {
 	
@@ -82,9 +83,9 @@ public class P8StepDefinitions {
   @When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
   public void the_administrator_attempts_to_update_the_equipment_bundle_to_have_name_discount_items_and_quantities_p8(
       String string, String string2, String string3, String string4, String string5) {
-	  List<String> newEquipmentNames = new ArrayList<String>(string4.split(","));
-	  List<String> newEquipmentQuantities= new ArrayList<String>(string5.split(","));
-	  List<Integer> newEquipmentQuantInt= new ArrayList<>();
+	  List<String> newEquipmentNames = new ArrayList<String>(Arrays.asList(string4.split(",")));
+	  List<String> newEquipmentQuantities= new ArrayList<String>(Arrays.asList(string5.split(",")));
+	  List<Integer> newEquipmentQuantInt= new ArrayList<Integer>();
 	  for (String s: newEquipmentQuantities) {
 		  newEquipmentQuantInt.add(Integer.valueOf(s));
 	  }
@@ -140,7 +141,20 @@ public class P8StepDefinitions {
   @Then("the equipment bundle {string} shall not exist in the system \\(p8)")
   public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
     	// Write code here that turns the phrase above into concrete actions
-	assertNull(climbSafe.getBundles().get(string));
+	//assertNull(climbSafe.getBundle(0).getWithName(string));
+	  
+	   List<EquipmentBundle> tempList = climbSafe.getBundles();
+	  EquipmentBundle found = null;
+	  for(EquipmentBundle temp : tempList){
+	      if ((temp.getName().equals(string))) {
+	    	  found = temp;
+	    	  break;
+	      }
+	  }
+	  
+	  //now if found is null, not found. else we got the bundle
+
+	  assertNull(found);
 	//throw new io.cucumber.java.PendingException();
   }
 
