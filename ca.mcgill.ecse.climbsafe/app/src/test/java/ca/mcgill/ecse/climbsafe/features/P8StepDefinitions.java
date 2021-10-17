@@ -114,25 +114,41 @@ public class P8StepDefinitions {
 
 	// @Aigiarn
 	@Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
-	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String string, String string2,String string3) {
+	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bunndleName, String itemName,String quantityString) {
 
+		// //OLD CODE START
+		// EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
+		// // in the feature file the items are separated by a comma so the elements in the
+		// // array list each represent
+		// // the name of one equipment for e.g itemsInBundle.get(0) would be backpack for
+		// // the first scenario first e.g
+		// ArrayList<String> itemsInBundle = new ArrayList<String>(Arrays.asList(string2.split(",")));
+		// // same here quantities are separated with a comma so each element is the
+		// // quantity of 1 item in the bundle
+		// ArrayList<String> quantityForEachItem = new ArrayList<String>(Arrays.asList(string3.split(",")));
+
+		// // I do not really know what to compare sorry I hope u can figure it out
+		// for (int i = 0; i < itemsInBundle.size(); i++){
+		// 	assertEquals(itemsInBundle.get(i), 0);
+		// 	assertEquals(Integer.parseInt(quantityForEachItem.get(i)), 0);
+		// }
+		// //assertEquals(string2, equipmentBundle.getBundleItem(string2));
+		// // assertEquals(string3, equipmentBundle.getBundleItem(string2).getQuantity);
+		// //OLD CODE END
+
+
+//UPDATED CODE is there any error here? -k
+
+		int quantity = Integer.parseInt(quantityString);
 		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
-		// in the feature file the items are separated by a comma so the elements in the
-		// array list each represent
-		// the name of one equipment for e.g itemsInBundle.get(0) would be backpack for
-		// the first scenario first e.g
-		ArrayList<String> itemsInBundle = new ArrayList<String>(Arrays.asList(string2.split(",")));
-		// same here quantities are separated with a comma so each element is the
-		// quantity of 1 item in the bundle
-		ArrayList<String> quantityForEachItem = new ArrayList<String>(Arrays.asList(string3.split(",")));
-
-		// I do not really know what to compare sorry I hope u can figure it out
-		for (int i = 0; i < itemsInBundle.size(); i++){
-			assertEquals(itemsInBundle.get(i), 0);
-			assertEquals(Integer.parseInt(quantityForEachItem.get(i)), 0);
+		for (BundleItem temp : equipmentBundle.getBundleItems()) {
+			if (temp.getEquipment().getName().equals(itemName)) {
+				assertEquals (quantity, temp.getQuantity);
+			}
 		}
-		//assertEquals(string2, equipmentBundle.getBundleItem(string2));
-		// assertEquals(string3, equipmentBundle.getBundleItem(string2).getQuantity);
+		//should something be added in case the equipment isn't found?
+
+
 	}
 
 	// @Ke
