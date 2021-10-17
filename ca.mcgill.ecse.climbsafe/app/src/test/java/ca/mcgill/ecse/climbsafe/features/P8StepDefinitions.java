@@ -80,14 +80,21 @@ public class P8StepDefinitions {
 	  // For other transformations you can register a DataTableType.
 
 	  List<Map<String,String>> equipmentBundleInfo = dataTable.asMaps(String.class, String.class); 
-	  
+	  System.out.println(equipmentBundleInfo.toString());
 	  for(Map<String,String> equipmentBundle : equipmentBundleInfo) {
-		  var name = super.equipmentBundle.getName();
-		  var discount = equipmentBundle.getDiscount();
-		  var climbSafe = equipmentBundle.getClimbSafe();
-		  new equipmentBundle(name, discount, climbSafe);
+		  
+		  var name = equipmentBundle.get("name");
+		  var discount = equipmentBundle.get("discount");
+		  List<String> equipmentsInBundle = new ArrayList<String>(Arrays.asList(equipmentBundle.get("items").split(",")));
+		  List<String> equipmentQuantity = new ArrayList<String>(Arrays.asList(equipmentBundle.get("quantities").split(",")));
+		  
+		  EquipmentBundle equipmentBundle1 = new EquipmentBundle(name, Integer.parseInt(discount), climbSafe);
+		  
+		  for(int i = 0;i<equipmentsInBundle.size();i++) {
+			  new BundleItem(Integer.parseInt(equipmentQuantity.get(i)), climbSafe, equipmentBundle1, 
+					  (Equipment) BookableItem.getWithName(equipmentsInBundle.get(i)));
+		  }
 	  }
-
   }
 	
   //@Maya
