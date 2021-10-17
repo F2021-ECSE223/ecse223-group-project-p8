@@ -116,7 +116,6 @@ public class P8StepDefinitions {
 	  catch (InvalidInputException e) {
 		  error += e.getMessage();
 	  }
-	//  throw new io.cucumber.java.PendingException();
   }
 	
   //@Maya
@@ -125,7 +124,6 @@ public class P8StepDefinitions {
     if (climbSafe.hasBundles()) {
     	assertEquals(Integer.parseInt(string), climbSafe.numberOfBundles());
     }
-  //  throw new io.cucumber.java.PendingException();
   }
 
   //@Aigiarn
@@ -142,48 +140,29 @@ public class P8StepDefinitions {
   //@Ke
   @Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
   public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discountString) {
-
-    //assertEquals(Integer.parseInt(discount), climbSafe.getBundle(0).getWithName(bundleName).getDiscount());
     int discount = Integer.parseInt(discountString);
-//    List<EquipmentBundle> tempList = climbSafe.getBundles();
-//	  EquipmentBundle found = null;
-//	  for(EquipmentBundle temp : tempList){
-//	      if ((temp.getName().equals(string))) {
-//	    	  found = temp;
-//	    	  assertEquals(discount, temp.getDiscount());
-//	    	  
-//	    	  break;
-//	      }
-//	  }
-	  
     EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
     assertEquals(discount, equipmentBundle.getDiscount());
-    //here
   }
 
   //@Mihail
   @Then("the equipment bundle {string} shall not exist in the system \\(p8)")
   public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
-    	// Write code here that turns the phrase above into concrete actions
-	
-
+      // Write code here that turns the phrase above into concrete actions
 	  assertNull(EquipmentBundle.getWithName(string));
-	//throw new io.cucumber.java.PendingException();
   }
 
   //@Ke
   @Then("the number of pieces of equipment in the system shall be {string} \\(p8)")
   public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String totalEquipment) {
-    
 	  assertEquals(Integer.parseInt(totalEquipment), climbSafe.numberOfEquipment());
-
   }
+  
   //@Selina
   @Then("the error {string} shall be raised \\(p8)")
   public void the_error_shall_be_raised_p8(String string) {
     // Write code here that turns the phrase above into concrete actions
 	  assertTrue(error.contains(string));
-	  
   }
   
   @After
