@@ -78,14 +78,12 @@ public class P8StepDefinitions {
 			for (int i = 0; i < equipmentsInBundle.size(); i++) {
 				new BundleItem(Integer.parseInt(equipmentQuantity.get(i)), climbSafe, equipmentBundle1,(Equipment) BookableItem.getWithName(equipmentsInBundle.get(i)));
 			}
-			
 		}
 	}
 
 	// @Maya
 	@When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
 	public void the_administrator_attempts_to_update_the_equipment_bundle_to_have_name_discount_items_and_quantities_p8(String string, String string2, String string3, String string4, String string5) {
-		
 		List<String> newEquipmentNames = new ArrayList<String>(Arrays.asList(string4.split(",")));
 		List<String> newEquipmentQuantities = new ArrayList<String>(Arrays.asList(string5.split(",")));
 		List<Integer> newEquipmentQuantInt = new ArrayList<Integer>();
@@ -99,22 +97,19 @@ public class P8StepDefinitions {
 		} catch (InvalidInputException e){
 			error += e.getMessage();
 		}
-		
 	}
 
 	// @Maya
 	@Then("the number of equipment bundles in the system shall be {string} \\(p8)")
 	public void the_number_of_equipment_bundles_in_the_system_shall_be_p8(String string) {
-		
 		if (climbSafe.hasBundles()){
 			assertEquals(Integer.parseInt(string), climbSafe.numberOfBundles());
 		}
-		
 	}
 
 	// @Aigiarn
 	@Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
-	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bunndleName, String itemName,String quantityString) {
+	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bundleName, String itemName,String quantityString) {
 
 		// //OLD CODE START
 		// EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
@@ -140,49 +135,39 @@ public class P8StepDefinitions {
 //UPDATED CODE is there any error here? -k
 
 		int quantity = Integer.parseInt(quantityString);
-		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
+		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
 		for (BundleItem temp : equipmentBundle.getBundleItems()) {
 			if (temp.getEquipment().getName().equals(itemName)) {
-				assertEquals (quantity, temp.getQuantity);
+				assertEquals (quantity, temp.getQuantity());
 			}
 		}
 		//should something be added in case the equipment isn't found?
-
-
 	}
 
 	// @Ke
 	@Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
 	public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discountString) {
-		
 		int discount = Integer.parseInt(discountString);
 		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
 		assertEquals(discount, equipmentBundle.getDiscount());
-		
 	}
 
 	// @Mihail
 	@Then("the equipment bundle {string} shall not exist in the system \\(p8)")
 	public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
-		
 		assertNull(EquipmentBundle.getWithName(string));
-		
 	}
 
 	// @Ke
 	@Then("the number of pieces of equipment in the system shall be {string} \\(p8)")
 	public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String totalEquipment) {
-		
 		assertEquals(Integer.parseInt(totalEquipment), climbSafe.numberOfEquipment());
-		
 	}
 
 	// @Selina
 	@Then("the error {string} shall be raised \\(p8)")
 	public void the_error_shall_be_raised_p8(String string) {
-		
 		assertTrue(error.contains(string));
-		
 	}
 
 	@After
