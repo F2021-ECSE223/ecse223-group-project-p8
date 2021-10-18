@@ -149,7 +149,7 @@ public class P8StepDefinitions {
 			}
 		}
 
-		//should something be added in case the equipment isn't found?
+		
 	}
 
 	// @Ke
