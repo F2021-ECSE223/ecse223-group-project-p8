@@ -114,7 +114,7 @@ public class P8StepDefinitions {
 
 	// @Aigiarn
 	@Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
-	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bunndleName, String itemName,String quantityString) {
+	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bundleName, String itemNames,String quantityStrings) {
 
 		// //OLD CODE START
 		// EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
@@ -136,16 +136,26 @@ public class P8StepDefinitions {
 		// // assertEquals(string3, equipmentBundle.getBundleItem(string2).getQuantity);
 		// //OLD CODE END
 
+		//NEW CODE HERE -K
+		List<String> itemNamesCleaned = new ArrayList<String>(Arrays.asList(itemNames.split(",")));
+		List<String> quantityStringsCleaned = new ArrayList<String>(Arrays.asList(quantityStrings.split(",")));
+		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
 
-//UPDATED CODE is there any error here? -k
+		for (int i=0; i<itemNamesCleaned.size(); i++) {
+			for (int j=0; j<quantityStringsCleaned.size(); j++) {
 
-		int quantity = Integer.parseInt(quantityString);
-		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
-		for (BundleItem temp : equipmentBundle.getBundleItems()) {
-			if (temp.getEquipment().getName().equals(itemName)) {
-				assertEquals (quantity, temp.getQuantity);
+				int quantity = Integer.parseInt(quantityStringsCleaned.get(j));
+
+				for (BundleItem temp : equipmentBundle.getBundleItems()) {
+					if (temp.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
+						assertEquals (quantity, temp.getQuantity);
+					}
+				}
+
 			}
+
 		}
+
 		//should something be added in case the equipment isn't found?
 
 
