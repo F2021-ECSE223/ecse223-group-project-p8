@@ -107,56 +107,61 @@ public class P8StepDefinitions {
 		}
 	}
 
-	// @Aigiarn
+	// @Aigiarn, Joey, Ke
 	@Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
 	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bundleName, String itemNames,String quantityStrings) {
 
-		// //OLD CODE START
-		// EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(string);
-		// // in the feature file the items are separated by a comma so the elements in the
-		// // array list each represent
-		// // the name of one equipment for e.g itemsInBundle.get(0) would be backpack for
-		// // the first scenario first e.g
-		// ArrayList<String> itemsInBundle = new ArrayList<String>(Arrays.asList(string2.split(",")));
-		// // same here quantities are separated with a comma so each element is the
-		// // quantity of 1 item in the bundle
-		// ArrayList<String> quantityForEachItem = new ArrayList<String>(Arrays.asList(string3.split(",")));
-
-		// // I do not really know what to compare sorry I hope u can figure it out
-		// for (int i = 0; i < itemsInBundle.size(); i++){
-		// 	assertEquals(itemsInBundle.get(i), 0);
-		// 	assertEquals(Integer.parseInt(quantityForEachItem.get(i)), 0);
-		// }
-		// //assertEquals(string2, equipmentBundle.getBundleItem(string2));
-		// // assertEquals(string3, equipmentBundle.getBundleItem(string2).getQuantity);
-		// //OLD CODE END
-
-		//NEW CODE HERE -K
+		boolean found=false;
 		List<String> itemNamesCleaned = new ArrayList<String>(Arrays.asList(itemNames.split(",")));
 		List<String> quantityStringsCleaned = new ArrayList<String>(Arrays.asList(quantityStrings.split(",")));
-		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
-
+		EquipmentBundle equipmentBundle;
+		Equipment currentItem;
+		
+		
+		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
+		
+		for (EquipmentBundle temp : equipmentBundleList) {
+			if (temp.getName().equals(bundleName)) {
+				equipmentBundle = temp;	
+		}
+		
+		assertNotNull(equipmentBundle);
+		
 		for (int i=0; i<itemNamesCleaned.size(); i++) {
-			for (int j=0; j<quantityStringsCleaned.size(); j++) {
-
-				int quantity = Integer.parseInt(quantityStringsCleaned.get(j));
-
-				for (BundleItem temp : equipmentBundle.getBundleItems()) {
-					if (temp.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
-						assertEquals (quantity, temp.getQuantity);
-					}
+			int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
+			
+			for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
+				if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
+					currentItem=temp2.getEquipment();
 				}
 			}
+			
+			assertNotNull(currentItem);
+			
+			assertEquals(quantity, equipmentBundle.getQuantity());
+			
 		}
-
+	}	
 		
 	}
 
 	// @Ke
 	@Then("the equipment bundle {string} shall have a discount of {string} \\(p8)")
 	public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discountString) {
+		
 		int discount = Integer.parseInt(discountString);
-		EquipmentBundle equipmentBundle = (EquipmentBundle) EquipmentBundle.getWithName(bundleName);
+		EquipmentBundle equipmentBundle;
+		
+		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
+		
+		for (EquipmentBundle temp : equipmentBundleList) {
+			if (temp.getName.equals(bundleName)) {
+				equipmentBundle = temp;	
+			}
+		}
+		
+		assertNotNull(equipmentBundle);
+		
 		assertEquals(discount, equipmentBundle.getDiscount());
 	}
 
