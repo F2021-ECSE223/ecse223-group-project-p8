@@ -16,6 +16,8 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -57,14 +59,7 @@ public class P8StepDefinitions {
 	// @Aigiarn
 	@Given("the following equipment bundles exist in the system: \\(p8)")
 	public void the_following_equipment_bundles_exist_in_the_system_p8(io.cucumber.datatable.DataTable dataTable) {
-		// Write code here that turns the phrase above into concrete actions
-		// For automatic transformation, change DataTable to one of
-		// E, List<E>, List<List<E>>, List<Map<K,V>>, Map<K,V> or
-		// Map<K, List<V>>. E,K,V must be a String, Integer, Float,
-		// Double, Byte, Short, Long, BigInteger or BigDecimal.
-		//
-		// For other transformations you can register a DataTableType.
-
+		
 		List<Map<String, String>> equipmentBundleInfo = dataTable.asMaps(String.class, String.class);
 		System.out.println(equipmentBundleInfo.toString());
 		
@@ -109,40 +104,44 @@ public class P8StepDefinitions {
 
 	// @Aigiarn, Joey, Ke
 	@Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
-	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bundleName, String itemNames,String quantityStrings) {
+	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bundleName, 
+			String itemNames,String quantityStrings) {
 
-		boolean found=false;
-		List<String> itemNamesCleaned = new ArrayList<String>(Arrays.asList(itemNames.split(",")));
-		List<String> quantityStringsCleaned = new ArrayList<String>(Arrays.asList(quantityStrings.split(",")));
-		EquipmentBundle equipmentBundle;
-		Equipment currentItem;
+			//boolean found=false;
+			List<String> itemNamesCleaned = new ArrayList<String>(Arrays.asList(itemNames.split(",")));
+			List<String> quantityStringsCleaned = new ArrayList<String>(Arrays.asList(quantityStrings.split(",")));
+			//initialise variable to null
+			EquipmentBundle equipmentBundle = null;
+			//change from Equipment to bundleItem
+			BundleItem currentItem = null;
 		
 		
-		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
+			List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
 		
-		for (EquipmentBundle temp : equipmentBundleList) {
-			if (temp.getName().equals(bundleName)) {
-				equipmentBundle = temp;	
-		}
-		
-		assertNotNull(equipmentBundle);
-		
-		for (int i=0; i<itemNamesCleaned.size(); i++) {
-			int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
-			
-			for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
-				if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
-					currentItem=temp2.getEquipment();
+			for (EquipmentBundle temp : equipmentBundleList) {
+				if (temp.getName().equals(bundleName)) {
+					equipmentBundle = temp;	
 				}
-			}
-			
-			assertNotNull(currentItem);
-			
-			assertEquals(quantity, equipmentBundle.getQuantity());
-			
-		}
-	}	
 		
+				assertNotNull(equipmentBundle);
+		
+				for (int i=0; i<itemNamesCleaned.size(); i++) {
+					int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
+			
+					for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
+						if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
+							//set currentItem to temp2 instead of currentItem = temp2.getEquipment
+							currentItem = temp2;
+						}
+					}
+			
+				assertNotNull(currentItem);
+				
+				//change from equipmentBundle.getQuantity (method does not exist in model)
+				assertEquals(quantity, currentItem.getQuantity());
+			
+				}
+			}	
 	}
 
 	// @Ke
@@ -150,12 +149,13 @@ public class P8StepDefinitions {
 	public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discountString) {
 		
 		int discount = Integer.parseInt(discountString);
-		EquipmentBundle equipmentBundle;
+		//initialise to null
+		EquipmentBundle equipmentBundle = null;
 		
 		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
 		
 		for (EquipmentBundle temp : equipmentBundleList) {
-			if (temp.getName.equals(bundleName)) {
+			if (temp.getName().equals(bundleName)) {
 				equipmentBundle = temp;	
 			}
 		}
@@ -167,14 +167,15 @@ public class P8StepDefinitions {
 
 	// @Mihail
 	@Then("the equipment bundle {string} shall not exist in the system \\(p8)")
-	public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
+	public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String bundleName) {
 		//assertNull(EquipmentBundle.getWithName(string));
 		
 		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
-		EquipmentBundle equipmentBundle;
+		//initialise to null
+		EquipmentBundle equipmentBundle = null;
 		
 		for (EquipmentBundle temp : equipmentBundleList) {
-			if (temp.getName.equals(bundleName)) {
+			if (temp.getName().equals(bundleName)) {
 				equipmentBundle= temp;
 			}
 		}
