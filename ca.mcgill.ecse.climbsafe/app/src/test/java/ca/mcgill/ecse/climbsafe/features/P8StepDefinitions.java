@@ -168,7 +168,19 @@ public class P8StepDefinitions {
 	// @Mihail
 	@Then("the equipment bundle {string} shall not exist in the system \\(p8)")
 	public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String string) {
-		assertNull(EquipmentBundle.getWithName(string));
+		//assertNull(EquipmentBundle.getWithName(string));
+		
+		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
+		EquipmentBundle equipmentBundle;
+		
+		for (EquipmentBundle temp : equipmentBundleList) {
+			if (temp.getName.equals(bundleName)) {
+				equipmentBundle= temp;
+			}
+		}
+		
+		assertNull(equipmentBundle);
+		
 	}
 
 	// @Ke
