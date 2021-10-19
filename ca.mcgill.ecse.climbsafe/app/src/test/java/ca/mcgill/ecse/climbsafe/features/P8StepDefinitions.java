@@ -119,20 +119,20 @@ public class P8StepDefinitions {
 		for (EquipmentBundle temp : equipmentBundleList) {
 			if (temp.getName().equals(bundleName)) {
 				equipmentBundle = temp;	
-			}
-			
-			assertNotNull(equipmentBundle);
-			
-			for (int i=0; i<itemNamesCleaned.size(); i++) {
-				int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
-				for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
-					if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
-						currentItem = temp2;
-					}
+			}	
+		}		
+		
+		assertNotNull(equipmentBundle);
+		
+		for (int i=0; i<itemNamesCleaned.size(); i++) {
+			int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
+			for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
+				if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
+					currentItem = temp2;
 				}
-				assertNotNull(currentItem);
-				assertEquals(quantity, currentItem.getQuantity());
-			}					
+			}
+			assertNotNull(currentItem);
+			assertEquals(quantity, currentItem.getQuantity());
 		}	
 	}
 
