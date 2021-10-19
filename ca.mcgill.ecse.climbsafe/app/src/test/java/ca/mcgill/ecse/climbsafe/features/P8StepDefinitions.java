@@ -20,7 +20,7 @@ import io.cucumber.java.en.When;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class P8StepDefinitions {
 
@@ -61,13 +61,12 @@ public class P8StepDefinitions {
 	public void the_following_equipment_bundles_exist_in_the_system_p8(io.cucumber.datatable.DataTable dataTable) {
 		
 		List<Map<String, String>> equipmentBundleInfo = dataTable.asMaps(String.class, String.class);
-		//System.out.println(equipmentBundleInfo.toString());
 		
 		for (Map<String, String> equipmentBundle : equipmentBundleInfo){
 			var name = equipmentBundle.get("name");
 			var discount = equipmentBundle.get("discount");
-			List<String> equipmentsInBundle = new ArrayList<String>(Arrays.asList(equipmentBundle.get("items").split(",")));
-			List<String> equipmentQuantity = new ArrayList<String>(Arrays.asList(equipmentBundle.get("quantities").split(",")));
+			List<String> equipmentsInBundle = Arrays.asList(equipmentBundle.get("items").split(","));
+			List<String> equipmentQuantity = Arrays.asList(equipmentBundle.get("quantities").split(","));
 			EquipmentBundle equipmentBundle1 = new EquipmentBundle(name, Integer.parseInt(discount), climbSafe);
 			
 			for (int i = 0; i < equipmentsInBundle.size(); i++) {
@@ -79,9 +78,11 @@ public class P8StepDefinitions {
 
 	// @Maya
 	@When("the administrator attempts to update the equipment bundle {string} to have name {string}, discount {string}, items {string}, and quantities {string} \\(p8)")
-	public void the_administrator_attempts_to_update_the_equipment_bundle_to_have_name_discount_items_and_quantities_p8(String string, String string2, String string3, String string4, String string5) {
-		List<String> newEquipmentNames = new ArrayList<String>(Arrays.asList(string4.split(",")));
-		List<String> newEquipmentQuantities = new ArrayList<String>(Arrays.asList(string5.split(",")));
+	public void the_administrator_attempts_to_update_the_equipment_bundle_to_have_name_discount_items_and_quantities_p8(
+			String bundleName, String newBundleName, String discountString, String itemsInBundleString, 
+			String quantityOfItemsString) {
+		List<String> newEquipmentNames = Arrays.asList(itemsInBundleString.split(","));
+		List<String> newEquipmentQuantities = Arrays.asList(quantityOfItemsString.split(","));
 		List<Integer> newEquipmentQuantInt = new ArrayList<Integer>();
 		
 		for (String s : newEquipmentQuantities){
@@ -91,8 +92,8 @@ public class P8StepDefinitions {
 		}
 		
 		try {
-			ClimbSafeFeatureSet5Controller.updateEquipmentBundle(string, string2,
-					Integer.parseInt(string3), newEquipmentNames, newEquipmentQuantInt);
+			ClimbSafeFeatureSet5Controller.updateEquipmentBundle(bundleName, newBundleName,
+					Integer.parseInt(discountString), newEquipmentNames, newEquipmentQuantInt);
 		} catch (InvalidInputException e){
 			error += e.getMessage();
 		}
@@ -100,54 +101,39 @@ public class P8StepDefinitions {
 
 	// @Maya
 	@Then("the number of equipment bundles in the system shall be {string} \\(p8)")
-	public void the_number_of_equipment_bundles_in_the_system_shall_be_p8(String string) {
-		if (climbSafe.hasBundles()){
-			assertEquals(Integer.parseInt(string), climbSafe.numberOfBundles());
-		}
+	public void the_number_of_equipment_bundles_in_the_system_shall_be_p8(String nrOfEquipmentBundle) {
+		assertEquals(Integer.parseInt(nrOfEquipmentBundle), climbSafe.numberOfBundles());
 	}
 
 	// @Aigiarn, Joey, Ke
 	@Then("the equipment bundle {string} shall contain the items {string} with quantities {string} \\(p8)")
 	public void the_equipment_bundle_shall_contain_the_items_with_quantities_p8(String bundleName, 
 			String itemNames,String quantityStrings) {
-
-			//boolean found=false;
-			List<String> itemNamesCleaned = new ArrayList<String>(Arrays.asList(itemNames.split(",")));
-			List<String> quantityStringsCleaned = new ArrayList<String>(Arrays.asList(quantityStrings.split(",")));
-			//initialise variable to null
-			EquipmentBundle equipmentBundle = null;
-			//change from Equipment to bundleItem
-			BundleItem currentItem = null;
 		
-		
-			List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
-		
-			for (EquipmentBundle temp : equipmentBundleList) {
-				if (temp.getName().equals(bundleName)) {
-					equipmentBundle = temp;	
+		List<String> itemNamesCleaned = Arrays.asList(itemNames.split(","));
+		List<String> quantityStringsCleaned = Arrays.asList(quantityStrings.split(","));
+		EquipmentBundle equipmentBundle = null;
+		BundleItem currentItem = null;		
+		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
+			
+		for (EquipmentBundle temp : equipmentBundleList) {
+			if (temp.getName().equals(bundleName)) {
+				equipmentBundle = temp;	
+			}
+			
+			assertNotNull(equipmentBundle);
+			
+			for (int i=0; i<itemNamesCleaned.size(); i++) {
+				int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
+				for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
+					if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
+						currentItem = temp2;
+					}
 				}
-		
-				//assertNotNull(equipmentBundle);
-				if(equipmentBundle != null) {
-					for (int i=0; i<itemNamesCleaned.size(); i++) {
-						int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
-				
-						for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
-							if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
-								//set currentItem to temp2 instead of currentItem = temp2.getEquipment
-								currentItem = temp2;
-							}
-						}
-						
-							if(currentItem != null) {
-								//change from equipmentBundle.getQuantity (method does not exist in model)
-								assertEquals(quantity, currentItem.getQuantity());
-							}
-					
-					}			
-				//assertNotNull(currentItem);			
-				}
-			}	
+				assertNotNull(currentItem);
+				assertEquals(quantity, currentItem.getQuantity());
+			}					
+		}	
 	}
 
 	// @Ke
@@ -155,9 +141,7 @@ public class P8StepDefinitions {
 	public void the_equipment_bundle_shall_have_a_discount_of_p8(String bundleName, String discountString) {
 		
 		int discount = Integer.parseInt(discountString);
-		//initialise to null
 		EquipmentBundle equipmentBundle = null;
-		
 		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
 		
 		for (EquipmentBundle temp : equipmentBundleList) {
@@ -165,29 +149,21 @@ public class P8StepDefinitions {
 				equipmentBundle = temp;	
 			}
 		}
-		
 		assertNotNull(equipmentBundle);
-		
 		assertEquals(discount, equipmentBundle.getDiscount());
 	}
 
 	// @Mihail
 	@Then("the equipment bundle {string} shall not exist in the system \\(p8)")
 	public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String bundleName) {
-		//assertNull(EquipmentBundle.getWithName(string));
 		
 		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
-		//initialise to null
-		EquipmentBundle equipmentBundle = null;
 		
 		for (EquipmentBundle temp : equipmentBundleList) {
 			if (temp.getName().equals(bundleName)) {
-				equipmentBundle= temp;
+				fail();
 			}
 		}
-		
-		assertNull(equipmentBundle);
-		
 	}
 
 	// @Ke
@@ -204,8 +180,6 @@ public class P8StepDefinitions {
 
 	@After
 	public void tearDown() {
-		
-		climbSafe.delete();
-		
+		climbSafe.delete();		
 	}
 }
