@@ -113,22 +113,24 @@ public class P8StepDefinitions {
 		List<String> itemNamesCleaned = Arrays.asList(itemNames.split(","));
 		List<String> quantityStringsCleaned = Arrays.asList(quantityStrings.split(","));
 		EquipmentBundle equipmentBundle = null;
-		BundleItem currentItem = null;		
 		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
 			
 		for (EquipmentBundle temp : equipmentBundleList) {
 			if (temp.getName().equals(bundleName)) {
-				equipmentBundle = temp;	
+				equipmentBundle = temp;
+				break;
 			}	
 		}		
 		
 		assertNotNull(equipmentBundle);
 		
 		for (int i=0; i<itemNamesCleaned.size(); i++) {
+			BundleItem currentItem = null;		
 			int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
 			for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
 				if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
 					currentItem = temp2;
+					break;
 				}
 			}
 			assertNotNull(currentItem);
