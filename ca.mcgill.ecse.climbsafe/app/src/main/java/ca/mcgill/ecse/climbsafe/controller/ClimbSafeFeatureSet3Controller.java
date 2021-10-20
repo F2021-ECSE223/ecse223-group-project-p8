@@ -3,13 +3,13 @@ package ca.mcgill.ecse.climbsafe.controller;
 public class ClimbSafeFeatureSet3Controller {
 
   public static void registerGuide(String email, String password, String name,
-      String emergencyContact, int priceOfGuidePerWeek) 
+      String emergencyContact) 
     		  throws InvalidInputException {
 	  ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	  
 	  var error = "";
 	  try {
-		  climbSafe.addGuide(email, password, name, emergencyContact, priceOfGuidePerWeek);
+		  climbSafe.addGuide(email, password, name, emergencyContact);
 	  }
 	  catch (RuntimeException e){
 		  
