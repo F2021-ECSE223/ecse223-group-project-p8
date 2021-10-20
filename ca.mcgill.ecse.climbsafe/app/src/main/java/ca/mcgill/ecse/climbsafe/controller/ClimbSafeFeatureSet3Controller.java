@@ -13,7 +13,7 @@ public class ClimbSafeFeatureSet3Controller {
 	  }
 	  catch (InvalidInputException){
 		  
-		  
+		  error += e.getMessage();
 	  }
   }
 
