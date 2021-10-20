@@ -11,9 +11,11 @@ public class ClimbSafeFeatureSet3Controller {
 	  try {
 		  climbSafe.addGuide(email, password, name, emergencyContact, priceOfGuidePerWeek);
 	  }
-	  catch (InvalidInputException){
+	  catch (RuntimeException e){
 		  
 		  error += e.getMessage();
+		  
+		  throw new InvalidInputException(error); 
 	  }
   }
 
