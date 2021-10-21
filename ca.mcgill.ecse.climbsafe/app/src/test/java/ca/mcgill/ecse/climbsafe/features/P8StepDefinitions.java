@@ -87,7 +87,7 @@ public class P8StepDefinitions {
 		List<Integer> newEquipmentQuantInt = new ArrayList<Integer>();
 		
 		for (String s : newEquipmentQuantities){
-			if(s != "") {
+			if(!s.equals("")) {
 				newEquipmentQuantInt.add(Integer.valueOf(s));
 			}
 		}
