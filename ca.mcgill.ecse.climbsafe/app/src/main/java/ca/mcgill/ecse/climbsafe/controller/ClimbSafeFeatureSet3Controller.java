@@ -1,11 +1,11 @@
 package ca.mcgill.ecse.climbsafe.controller;
 
 public class ClimbSafeFeatureSet3Controller {
+	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
   public static void registerGuide(String email, String password, String name,
-      String emergencyContact) 
-    		  throws InvalidInputException {
-	  ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
+      String emergencyContact) throws InvalidInputException {
+	 
 	  
 	  var error = "";
 	  try {
