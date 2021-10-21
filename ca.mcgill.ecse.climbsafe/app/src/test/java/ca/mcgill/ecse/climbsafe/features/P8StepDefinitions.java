@@ -18,6 +18,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -125,7 +126,7 @@ public class P8StepDefinitions {
 		assertNotNull(equipmentBundle);
 		
 		for (int i=0; i<itemNamesCleaned.size(); i++) {
-			BundleItem currentItem = null;		
+			BundleItem currentItem = null;
 			int quantity = Integer.parseInt(quantityStringsCleaned.get(i));
 			for (BundleItem temp2 : equipmentBundle.getBundleItems()) {
 				if (temp2.getEquipment().getName().equals(itemNamesCleaned.get(i))) {
@@ -149,6 +150,7 @@ public class P8StepDefinitions {
 		for (EquipmentBundle temp : equipmentBundleList) {
 			if (temp.getName().equals(bundleName)) {
 				equipmentBundle = temp;	
+				break;
 			}
 		}
 		assertNotNull(equipmentBundle);
@@ -160,14 +162,14 @@ public class P8StepDefinitions {
 	public void the_equipment_bundle_shall_not_exist_in_the_system_p8(String bundleName) {
 		
 		List<EquipmentBundle> equipmentBundleList = climbSafe.getBundles();
-		
+
 		for (EquipmentBundle temp : equipmentBundleList) {
 			if (temp.getName().equals(bundleName)) {
 				fail();
 			}
 		}
 	}
-
+	
 	// @Ke
 	@Then("the number of pieces of equipment in the system shall be {string} \\(p8)")
 	public void the_number_of_pieces_of_equipment_in_the_system_shall_be_p8(String totalEquipment) {

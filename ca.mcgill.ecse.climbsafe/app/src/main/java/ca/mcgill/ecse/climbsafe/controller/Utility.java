@@ -1,7 +1,11 @@
 package ca.mcgill.ecse.climbsafe.controller;
 
+import java.util.List;
+
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+import ca.mcgill.ecse.climbsafe.model.Equipment;
+import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
@@ -47,7 +51,148 @@ public class Utility {
 		return foundGuide;
 	}
 	
+	/* @Aigiarn
+	 * Finds the corresponding equipment bundle to the given name and returns it
+	 * 
+	 * @param name Name of the equipment bundle
+	 * 
+	 * @return EquipmentBundle Corresponding equipment bundle
+	 */
+	public static EquipmentBundle findEquipmentBundle(String name) {
+		EquipmentBundle foundEquipmentBundle = null;
+		// iterate through all bundle until the old bundle is found
+		for (var equipmentBundle : climbSafe.getBundles()) {
+			if (equipmentBundle.getName().equals(name)) {
+				foundEquipmentBundle = equipmentBundle;
+				break;
+			}
+		}
+		// return the desired bundle
+		return foundEquipmentBundle;
+	}
+
+	/* @Aigiarn
+	 * Finds the corresponding equipment to the given name and returns it
+	 * 
+	 * @param name Name of the equipment 
+	 * 
+	 * @return Equipment Corresponding equipment 
+	 */
+	public static Equipment findEquipment(String name) {
+		Equipment foundEquipment = null;
+		// iterate through all bundle until the old bundle is found
+		for (var equipment : climbSafe.getEquipment()) {
+			if (equipment.getName().equals(name)) {
+				foundEquipment = equipment;
+				break;
+			}
+		}
+		// return the desired bundle
+		return foundEquipment;
+	}
 	
+	/* @Joey
+	 * Finds whether a list contains 2 different kinds of equipment
+	 * 
+	 * @param equipmentList list of equipment 
+	 * 
+	 * @return boolean
+	 */
+	public static boolean listHas2DistinctEquipment(List<String> equipmentList) {
+		boolean has2 = false;
+		
+		for(int i=0;i<equipmentList.size()-1;i++) {
+			if(!(equipmentList.get(i).equals(equipmentList.get(i+1)))) {
+				has2 = true;
+				break;
+			}
+		}
+		return has2;
+	}
+	
+	
+	/* @Joey
+	 * Finds whether the equipment present in the list is available in the system
+	 * 
+	 * @param equipmentList list of equipment 
+	 * @param climbSafe instance of system
+	 * 
+	 * @return boolean
+	 */
+	public static boolean equipmentIsNotInSystem(ClimbSafe climbSafe,List<String> newEquipmentList) {
+		boolean isIn = true;
+		List<Equipment> equipmentsInSystem = climbSafe.getEquipment();
+		
+		for(String x : newEquipmentList) {
+			if(!(equipmentsInSystem.contains(Equipment.getWithName(x)))) {
+				isIn = false;
+				break;
+			}
+		}
+		return isIn;
+	}
+	
+	/* @Joey
+	 * Finds whether the bundle is available in the system
+	 * 
+	 * @param bundleName name of bundle
+	 * 
+	 * @return boolean
+	 */
+	public static boolean bundleExistsInSystem(ClimbSafe climbSafe,String bundleName) {
+		List<EquipmentBundle> equipmentBundleInSystem = climbSafe.getBundles();
+		
+		boolean valid = false;
+		
+		for(EquipmentBundle x : equipmentBundleInSystem) {
+			if(x.getName().equals(bundleName)) {
+				valid = true;
+				break;
+			}
+		}
+		return valid;
+	}
+	
+	/* @Joey
+	 * Finds whether the bundle is available in the system
+	 * 
+	 * @param bundleName name of bundle
+	 * 
+	 * @return boolean
+	 */
+	public static boolean quantityIsNotValid(List<Integer> newEquipmentQuantities) {
+		boolean invalid = false;
+		for(int i=0;i<newEquipmentQuantities.size();i++) {
+			if(newEquipmentQuantities.get(i) <= 0) {
+				invalid = true;
+				break;
+			}
+		}
+		return invalid;
+	}
+	
+	
+	/* @Joey
+	 * Finds whether the bundle is available in the system
+	 * 
+	 * @param newBundleName new name of bundle
+	 * @param climbSafe instance of system
+	 * 
+	 * @return boolean
+	 */
+	public static boolean bookableItemtHasSameNameAsNewBundleName(ClimbSafe climbSafe,
+			String newBundleName) {
+		//checks whether a bookable item has the same name as the new bundle name
+		boolean invalid = false;
+		List<Equipment> equipmentsInSystem = climbSafe.getEquipment();
+		for(Equipment x : equipmentsInSystem) {
+			if(x.getName().equals(newBundleName)){
+				invalid = true;
+				break;
+			}
+		}
+		return invalid;
+	}
 	
 	/*
 	 * I CREATED AN INSTANCE OF THE CLIMB SAFE APP SO EVERY CONTROLLER CAN ACCESS IT FROM HERE
