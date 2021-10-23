@@ -202,10 +202,12 @@ public class Utility {
 	 * U CAN USE THEM IF U WANT TO
 	 */
 	
-	/*
-	 * @SelinaG 
+	
+	/**
+	 * @author Selina
+	 * @param email Email of guide 
+	 * @return boolean value that indicates whether the email entered is functional
 	 * Idk if this works tbh
-	 * This is supposed to find whether @ exists twice in an email
 	 */
 	
 	public static boolean emailInvalidSyntax(String email) {
@@ -227,9 +229,9 @@ public class Utility {
 	}
 	
 	/**
-	 * @Selina 
-	 * Idk if this works either LOL
-	 * 
+	 * @author Selina
+	 * @param email Email of guide 
+	 * @return boolean value that indicates whether the email entered is functional
 	 */
 	
 	public static boolean emailMissingSubstring(String email) {
@@ -242,8 +244,9 @@ public class Utility {
 	}
 	
 	/**
-	 * @Selina
-	 * This method finds whether string contains substring "email"
+	 * @author Selina
+	 * @param email Email of guide 
+	 * @return boolean value that indicates whether the email entered is functional
 	 */
 	public static boolean missingEmailDeclaration(String email) {
 		boolean invalid=false;
