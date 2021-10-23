@@ -82,19 +82,23 @@ public class ClimbSafeFeatureSet3Controller {
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  try {
-		  climbSafe.addGuide(email, password, name, emergencyContact); 
+	  if(!email.contains(name.toLowerCase())) {
+		  error="Invalid Email";
+		  throw new InvalidInputException(error);
 	  }
-	  catch (RuntimeException e){
-		  error += e.getMessage();
-		  throw new InvalidInputException(error); 
-	  }
+	  
+	 if(Utility.wrongEmailSyntax(email) == true) {
+		 error="Invalid Email";
+		 throw new InvalidInputException(error);
+	 }
+	  
+	 try {
+		 climbSafe.addGuide(email, password, name, emergencyContact); 
+	 }
+	 catch (RuntimeException e){
+		 error += e.getMessage();
+		 throw new InvalidInputException(error); 
+	 }
   }
 
   public static void updateGuide(String email, String newPassword, String newName,
