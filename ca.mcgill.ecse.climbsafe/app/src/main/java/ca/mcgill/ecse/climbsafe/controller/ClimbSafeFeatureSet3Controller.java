@@ -1,5 +1,8 @@
 package ca.mcgill.ecse.climbsafe.controller;
 
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+
 public class ClimbSafeFeatureSet3Controller {
 	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 

@@ -13,7 +13,40 @@ public class Utility {
 	
 	public static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	
-	/*
+	
+	/**
+	 * @JoeyLiu
+	 * @param email is the unique email of the member which is wanted
+	 * @return the member with the specified email
+	 */
+	public static boolean dateIsValid(String date){
+		boolean validDate = true;
+		String month = "";
+		String day = "";
+		
+		for(int i=0;i<date.length();i++) {
+			if(i==5 || i==6) {
+				month += date.charAt(i);
+			}
+			if(i==8 || i==9) {
+				day += date.charAt(i);
+			}
+		}
+		
+		int monthNr = Integer.parseInt(month);
+		int dateOfDay = Integer.parseInt(day);
+		
+		if(!(monthNr <= 12 && monthNr >= 1)) {
+			validDate = false;
+		}
+		if(!(dateOfDay <= 31 && dateOfDay >= 1)) {
+			validDate = false;
+		}
+		
+		return validDate;
+	}
+	
+	/**
 	 * @JoeyLiu
 	 * @param email is the unique email of the member which is wanted
 	 * @return the member with the specified email
@@ -32,7 +65,7 @@ public class Utility {
 		return foundMember;
 	}
 	
-	/*
+	/**
 	 * @JoeyLiu
 	 * @param email is the unique email of the guide which is wanted
 	 * @return the guide with the specified email
@@ -51,7 +84,7 @@ public class Utility {
 		return foundGuide;
 	}
 	
-	/* @Aigiarn
+	/** @Aigiarn
 	 * Finds the corresponding equipment bundle to the given name and returns it
 	 * 
 	 * @param name Name of the equipment bundle
@@ -71,7 +104,7 @@ public class Utility {
 		return foundEquipmentBundle;
 	}
 
-	/* @Aigiarn
+	/** @Aigiarn
 	 * Finds the corresponding equipment to the given name and returns it
 	 * 
 	 * @param name Name of the equipment 
@@ -91,7 +124,7 @@ public class Utility {
 		return foundEquipment;
 	}
 	
-	/* @Joey
+	/** @Joey
 	 * Finds whether a list contains 2 different kinds of equipment
 	 * 
 	 * @param equipmentList list of equipment 
@@ -111,7 +144,7 @@ public class Utility {
 	}
 	
 	
-	/* @Joey
+	/** @Joey
 	 * Finds whether the equipment present in the list is available in the system
 	 * 
 	 * @param equipmentList list of equipment 
@@ -132,7 +165,7 @@ public class Utility {
 		return isIn;
 	}
 	
-	/* @Joey
+	/** @Joey
 	 * Finds whether the bundle is available in the system
 	 * 
 	 * @param bundleName name of bundle
@@ -153,7 +186,7 @@ public class Utility {
 		return valid;
 	}
 	
-	/* @Joey
+	/** @Joey
 	 * Finds whether the bundle is available in the system
 	 * 
 	 * @param bundleName name of bundle
@@ -172,7 +205,7 @@ public class Utility {
 	}
 	
 	
-	/* @Joey
+	/** @Joey
 	 * Finds whether the bundle is available in the system
 	 * 
 	 * @param newBundleName new name of bundle

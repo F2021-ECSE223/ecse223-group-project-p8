@@ -2,6 +2,9 @@ package ca.mcgill.ecse.climbsafe.controller;
 
 import java.util.List;
 
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+
 public class ClimbSafeFeatureSet2Controller {
 	
 	//check if it should it be static
@@ -17,7 +20,7 @@ public class ClimbSafeFeatureSet2Controller {
 	  try {
 		  climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
 		  //what to do with list?
-	  } catch (InvalidInputException e) {
+	  } catch (RuntimeException e) {
 		  //is this the right error?
 		  //throw new InvalidInputException(e.getMessage());
 		  error += e.getMessage();
