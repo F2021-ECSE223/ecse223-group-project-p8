@@ -2,6 +2,9 @@ package ca.mcgill.ecse.climbsafe.controller;
 
 import java.util.List;
 
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+
 public class ClimbSafeFeatureSet2Controller {
 	
 	/**
@@ -27,7 +30,7 @@ public class ClimbSafeFeatureSet2Controller {
 		}
 		
 		//email already in use
-		if (findMember(email)!=null) {
+		if (Utility.findMember(email)!=null) {
 			error = "A member with this email already exists";
 			throw new InvalidInputException(error);
 		}
@@ -72,7 +75,7 @@ public class ClimbSafeFeatureSet2Controller {
 			throw new InvalidInputException(error);
 		}
 		
-		if (nrWeeks>=climbSafe.getNrWeeks) {
+		if (nrWeeks>=climbSafe.getNrWeeks()) {
 			error = "The number of weeks must be greater than zero and less than or equal to the number of climbing weeks in the climbing season";
 			throw new InvalidInputException(error);
 		}
