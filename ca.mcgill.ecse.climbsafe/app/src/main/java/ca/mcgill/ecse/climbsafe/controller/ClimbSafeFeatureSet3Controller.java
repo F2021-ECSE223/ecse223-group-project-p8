@@ -10,12 +10,13 @@ public class ClimbSafeFeatureSet3Controller {
 	 
 	 
 	 // idk how to do javadoc 
-	 /* 
-	  * @param email: Email of Guide that gets entered and that is registered in the climbSafe system
-	  * @param password: Password of Guide that gets entered and that is registered in the climbSafe system
-	  * @param name: First name of Guide that is entered and registered in the climbSafe system
-	  * @param emergencyContact: Guide enters an emergency contact's phone number and this is registered in the climbSafe system
-	  * @throws: throws InvalidInputException for inputs when errors occur 
+	 /**
+	  * 
+	  * @param email Email of Guide that gets entered and that is registered in the climbSafe system
+	  * @param password Password of Guide that gets entered and that is registered in the climbSafe system
+	  * @param name First name of Guide that is entered and registered in the climbSafe system
+	  * @param emergencyContact Guide enters an emergency contact's phone number and this is registered in the climbSafe system
+	  * @throws InvalidInputException for inputs when errors occur 
 	  */
 
   public static void registerGuide(String email, String password, String name,
