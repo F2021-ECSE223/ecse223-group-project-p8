@@ -234,5 +234,76 @@ public class Utility {
 	 * I ADDED THE FINDGUIDE AND THE FINDMEMBER BECAUSE I NEEDED THEM IN THE CONTROLLER
 	 * U CAN USE THEM IF U WANT TO
 	 */
+	
+	
+	/**
+	 * @author Selina
+	 * @param email Email of guide 
+	 * @return boolean value that indicates whether the email entered is functional
+	 * Idk if this works tbh
+	 */
+	
+	public static boolean emailInvalidSyntax(String email) {
+		boolean invalid=false;
+		char c = '@';
+		int count=0;
+		
+		for(int i=0; i<email.length();i++) {
+			char a=email.charAt(i);
+			if(c == a) {
+				count++;
+			}
+		}
+		
+		if(count > 1) {
+			invalid=true;
+		}
+		return invalid;
+	}
+	
+	/**
+	 * @author Selina
+	 * @param email Email of guide 
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
+	
+	public static boolean emailMissingSubstring(String email) {
+		boolean invalid=false;
+		if(!email.contains("com")) {
+			invalid=true;
+		}
+		return invalid;
+		
+	}
+	
+	/**
+	 * @author Selina
+	 * @param email Email of guide 
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
+	public static boolean missingEmailDeclaration(String email) {
+		boolean invalid=false;
+		if(!email.contains("email")) {
+			invalid=true;
+		}
+		return invalid;
+	}
+	
+	/**
+	 * idk how to handle @ symbol in a string 
+	 * @author Selina
+	 * @param email
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
+	
+	public static boolean wrongEmailSyntax(String email) {
+		boolean invalid=false;
+		int indexofDot=email.indexOf(".");
+		char c = email.charAt(indexofDot);
+		if(c != '@') {
+			invalid=true;
+		}
+		return invalid;
+	}
 
 }
