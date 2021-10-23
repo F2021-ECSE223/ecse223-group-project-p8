@@ -201,5 +201,29 @@ public class Utility {
 	 * I ADDED THE FINDGUIDE AND THE FINDMEMBER BECAUSE I NEEDED THEM IN THE CONTROLLER
 	 * U CAN USE THEM IF U WANT TO
 	 */
+	
+	/*
+	 * @SelinaG 
+	 * Idk if this works tbh
+	 * This is supposed to find whether @ exists twice in an email
+	 */
+	
+	public static boolean emailInvalidSyntax(String email) {
+		boolean invalid=false;
+		char c = '@';
+		int count=0;
+		
+		for(int i=0; i<email.length();i++) {
+			char a=email.charAt(i);
+			if(c == a) {
+				count++;
+			}
+		}
+		
+		if(count > 1) {
+			invalid=true;
+		}
+		return invalid;
+	}
 
 }
