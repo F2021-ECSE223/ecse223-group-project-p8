@@ -225,5 +225,32 @@ public class Utility {
 		}
 		return invalid;
 	}
+	
+	/**
+	 * @Selina 
+	 * Idk if this works either LOL
+	 * 
+	 */
+	
+	public static boolean emailMissingSubstring(String email) {
+		boolean invalid=false;
+		if(!email.contains("com")) {
+			invalid=true;
+		}
+		return invalid;
+		
+	}
+	
+	/**
+	 * @Selina
+	 * This method finds whether string contains substring "email"
+	 */
+	public static boolean missingEmailDeclaration(String email) {
+		boolean invalid=false;
+		if(!email.contains("email")) {
+			invalid=true;
+		}
+		return invalid;
+	}
 
 }
