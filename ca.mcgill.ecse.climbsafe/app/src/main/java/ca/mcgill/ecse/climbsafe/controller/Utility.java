@@ -255,5 +255,22 @@ public class Utility {
 		}
 		return invalid;
 	}
+	
+	/**
+	 * idk how to handle @ symbol in a string 
+	 * @author Selina
+	 * @param email
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
+	
+	public static boolean wrongEmailSyntax(String email) {
+		boolean invalid=false;
+		int indexofDot=email.indexOf(".");
+		char c = email.charAt(indexofDot);
+		if(c != '@') {
+			invalid=true;
+		}
+		return invalid;
+	}
 
 }
