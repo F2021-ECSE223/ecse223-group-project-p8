@@ -3,20 +3,33 @@ package ca.mcgill.ecse.climbsafe.controller;
 import java.util.List;
 import java.util.Map;
 
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.model.Assignment;
+import ca.mcgill.ecse.climbsafe.model.BookableItem;
+import ca.mcgill.ecse.climbsafe.model.Equipment;
+import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
+
 public class ClimbSafeFeatureSet6Controller {
 
   public static void deleteEquipment(String name) throws InvalidInputException {
-	  
-	
-	  BookableItem equipmentToDelete = (ClimbSafeApplication.getClimbSafe()).getWithName(name);
 	 
-	  if(equipmentToDelete!=null) {
+	Equipment equipment = null;
+	List<Equipment> equipmentList = (ClimbSafeApplication.getClimbSafe()).getEquipment();
+	
+	for (Equipment temp : equipmentList) {
+		if (temp.getName().equals(name)) {
+			equipment = temp;	
+			break;
+		}
+	}
+	
+	  if(equipment!=null) {
 		 
-		  equipmentToDelete.delete();
+		  equipment.delete();
 	  }
   }
 
-  // this method does not need to be implemented by a team with five team members
+  // this method  does not need to be implemented by a team with five team members
   public static void deleteEquipmentBundle(String name) {
 	  BookableItem equipmentBundleToDelete = (ClimbSafeApplication.getClimbSafe()).getWithName(name);
 		 
@@ -32,8 +45,8 @@ public class ClimbSafeFeatureSet6Controller {
 	  
 	  List<Assignment> temp = (ClimbSafeApplication.getClimbSafe()).getAssignments();
 	  List<TOAssignment> resultAssignment;
-	  for(Assignment current : resultAssignment) {
-		  String aMemberEmail = current.getMember().getEmail();
+	  for(TOAssignment current : resultAssignment) {
+		  String aMemberEmail = current.getEmail();
 		  String aMemberName = current.getMember().getName();
 		  String aGuideEmail = current.getGuide().getEmail();
 		  String aGuideName = current.getGuide().getName();
