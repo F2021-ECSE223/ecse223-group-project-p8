@@ -31,13 +31,13 @@ public class ClimbSafeFeatureSet4Controller {
       throw new InvalidInputException(error);
     }
     
-    if (Utility.climbSafe.hasEquipment() && 
- Utility.equipmentExists(name, Utility.climbSafe)) { //a piece of equipment with the same name cannot already exist in the system
-      
-        error = "A piece of equipment with the name "+ name +" already exists in system";
-        throw new InvalidInputException(error);
+    if (Utility.climbSafe.hasEquipment() && Utility.equipmentExists(name, Utility.climbSafe)) {
+      //a piece of equipment with the same name cannot already exist in the system
+      error = "A piece of equipment with the name "+ name +" already exists in system";
+      throw new InvalidInputException(error);
       }
-    if (Utility.bundleExistsInSystem(Utility.climbSafe, name)) {
+    
+    if (Utility.climbSafe.hasBundles() && Utility.bundleExistsInSystem(Utility.climbSafe, name)) {
       //a bundle with the same name cannot already exist in the system
       error = "An equipment bundle with the name "+ name +" already exists in system.";
     }
