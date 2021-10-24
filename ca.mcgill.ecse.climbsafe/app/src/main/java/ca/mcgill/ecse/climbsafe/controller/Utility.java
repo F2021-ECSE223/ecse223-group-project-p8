@@ -227,6 +227,24 @@ public class Utility {
 		return invalid;
 	}
 	
+	/**Method to find if there is an existing instance of equipment in the system.
+	 * 
+	 * @author Maya
+	 * 
+	 * @param name equipment name entered
+	 * @param climbsafe ClimbSafe system
+	 * @return boolean indicating if the equipment entered was found in the system or not
+	 */
+	public static boolean equipmentExists( String name, ClimbSafe climbsafe) {
+	      List<Equipment> existingEquipment = climbsafe.getEquipment();
+	      for (Equipment equipment: existingEquipment) {
+	        if(equipment.getName().equals(name)) {
+	          return true;
+	        }
+	      }
+	      return false;
+	}
+	
 	/*
 	 * I CREATED AN INSTANCE OF THE CLIMB SAFE APP SO EVERY CONTROLLER CAN ACCESS IT FROM HERE
 	 * (CALL for e.g Utility.climbSafe.setNrWeeks())
