@@ -31,12 +31,20 @@ public class ClimbSafeFeatureSet6Controller {
 
   // this method  does not need to be implemented by a team with five team members
   public static void deleteEquipmentBundle(String name) {
-	  BookableItem equipmentBundleToDelete = (ClimbSafeApplication.getClimbSafe()).getWithName(name);
-		 
-	  if(equipmentBundleToDelete!=null) {
-		 
-		  equipmentBundleToDelete.delete();
-	  }
+	  EquipmentBundle equipmentBundle = null;
+		List<EquipmentBundle> equipmentBundleList = (ClimbSafeApplication.getClimbSafe()).getBundles();
+		
+		for (EquipmentBundle temp : equipmentBundleList) {
+			if (temp.getName().equals(name)) {
+				equipmentBundle = temp;	
+				break;
+			}
+		}
+		
+		  if(equipmentBundle!=null) {
+			 
+			  equipmentBundle.delete();
+		  }
   }
 
   public static List<TOAssignment> getAssignments() {
