@@ -11,7 +11,7 @@ public class ClimbSafeFeatureSet3Controller {
 	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	 
 	 // idk how to do javadoc 
-	 /**
+	 /** This method registers a new guide in the climbSafe system
 	  * 
 	  * @param email Email of Guide that gets entered and that is registered in the climbSafe system
 	  * @param password Password of Guide that gets entered and that is registered in the climbSafe system
@@ -102,6 +102,15 @@ public class ClimbSafeFeatureSet3Controller {
 		 throw new InvalidInputException(error); 
 	 }
   }
+  
+  /** This method updates the guide's relative information in the climbSafe system
+   * 
+   * @param email Email of guide we wish to update information for
+   * @param newPassword New password of guide that gets registered in the climbSafe system
+   * @param newName New first name of guide that gets registered in the climbSafe system
+   * @param newEmergencyContact New phone number for emergency contact of guide that gets registered in the climbSafe system
+   * @throws InvalidInputException for inputs where errors occur
+   */
 
   public static void updateGuide(String email, String newPassword, String newName,
       String newEmergencyContact) throws InvalidInputException {
