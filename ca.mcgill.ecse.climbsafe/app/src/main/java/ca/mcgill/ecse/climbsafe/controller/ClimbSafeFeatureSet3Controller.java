@@ -10,7 +10,6 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 public class ClimbSafeFeatureSet3Controller {
 	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	 
-	 
 	 // idk how to do javadoc 
 	 /**
 	  * 
@@ -23,8 +22,8 @@ public class ClimbSafeFeatureSet3Controller {
 
   public static void registerGuide(String email, String password, String name,
       String emergencyContact) throws InvalidInputException {
-	 
-	  var error = "";
+	  
+	  var error="";
 	  
 	  if(email.isEmpty()) {
 		  error="Email cannot be empty";
@@ -93,7 +92,7 @@ public class ClimbSafeFeatureSet3Controller {
 		 error="Invalid Email";
 		 throw new InvalidInputException(error);
 	 }
-	  
+	 
 	 try {
 		 Guide newGuide=climbSafe.addGuide(email, password, name, emergencyContact); 
 		 climbSafe.addGuide(newGuide);
@@ -105,6 +104,36 @@ public class ClimbSafeFeatureSet3Controller {
   }
 
   public static void updateGuide(String email, String newPassword, String newName,
-      String newEmergencyContact) throws InvalidInputException {}
+      String newEmergencyContact) throws InvalidInputException {
+	  
+	  var error="";
+	  
+	  if(newPassword.isEmpty()) {
+		  error="Password cannot be empty";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(newName.isEmpty()) {
+		  error="Name cannot be empty";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(newEmergencyContact.isEmpty()) {
+		  error="Emergency contact cannot be empty";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  try {
+		  Guide existingGuide = Utility.findGuide(email);
+		  existingGuide.setPassword(newPassword);
+		  existingGuide.setName(newName);
+		  existingGuide.setEmergencyContact(newEmergencyContact);
+	  }
+	  catch (RuntimeException e) {
+		  error += e.getMessage();
+		  throw new InvalidInputException(error);
+	  }
+	  
+  }
 
 }
