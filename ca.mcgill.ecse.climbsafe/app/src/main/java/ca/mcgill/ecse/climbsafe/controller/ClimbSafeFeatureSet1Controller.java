@@ -18,14 +18,17 @@ public class ClimbSafeFeatureSet1Controller {
       throws InvalidInputException {
 	  
 	  var error = "";
-	  if(Utility.dateIsValid(startDate.toString())){
+	  if(!Utility.dateIsValid(startDate.toString())){
 		  error = "Invalid date";
+		  throw new InvalidInputException(error);
 	  }
 	  if(nrWeeks <= 0){
 		  error = "The number of climbing weeks must be greater than or equal to zero";
+		  throw new InvalidInputException(error);
 	  }
-	  if(priceOfGuidePerWeek < 0){
+	  if(priceOfGuidePerWeek <= 0){
 		  error = "The price of guide per week must be greater than or equal to zero";
+		  throw new InvalidInputException(error);
 	  }
 	  
 	  try {
@@ -45,7 +48,7 @@ public class ClimbSafeFeatureSet1Controller {
 	  //find the member with specified email
 	  Member member = Utility.findMember(email);
 	  //if the member exists
-	  if(!member.equals(null)) {
+	  if(member != null) {
 		  //delete the member
 		  member.delete();
 	  }
@@ -58,7 +61,7 @@ public class ClimbSafeFeatureSet1Controller {
 	  //find the guide with specified email
 	  Guide guide = Utility.findGuide(email);
 	  //if the guide exists
-	  if(!(guide.equals(null))) {
+	  if(guide != null) {
 		  //delete the guide
 		  guide.delete();
 	  }
