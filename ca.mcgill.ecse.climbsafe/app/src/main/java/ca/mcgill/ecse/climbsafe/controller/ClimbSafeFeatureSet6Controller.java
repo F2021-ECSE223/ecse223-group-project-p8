@@ -1,11 +1,13 @@
 package ca.mcgill.ecse.climbsafe.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.BookableItem;
+import ca.mcgill.ecse.climbsafe.model.BookedItem;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 
@@ -29,7 +31,6 @@ public class ClimbSafeFeatureSet6Controller {
 	  }
   }
 
-  // this method  does not need to be implemented by a team with five team members
   public static void deleteEquipmentBundle(String name) {
 	  EquipmentBundle equipmentBundle = null;
 		List<EquipmentBundle> equipmentBundleList = (ClimbSafeApplication.getClimbSafe()).getBundles();
@@ -52,30 +53,38 @@ public class ClimbSafeFeatureSet6Controller {
 	  // NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE
 	  
 	  List<Assignment> temp = (ClimbSafeApplication.getClimbSafe()).getAssignments();
-	  List<TOAssignment> resultAssignment;
-	  for(TOAssignment current : resultAssignment) {
-		  String aMemberEmail = current.getEmail();
+	  List<TOAssignment> resultAssignment = new ArrayList<>();
+	  
+	  for(Assignment current : temp) {
+		  
+		  String aMemberEmail = current.getMember().getEmail();
 		  String aMemberName = current.getMember().getName();
 		  String aGuideEmail = current.getGuide().getEmail();
 		  String aGuideName = current.getGuide().getName();
 		  String aHotelName = current.getHotel().getName();
 		  int aStartWeek = current.getStartWeek();
 		  int aEndWeek = current.getEndWeek();
-		  int aTotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek();
-		  //int aTotalCostForEquipment = ;
-	
-		  //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE
+		  int TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek();
+		  int TotalCostForEquipment = 5;
+		  List<BookedItem> memberItems =  current.getMember().getBookedItems();
 		  
+		  for(BookedItem currentBooked : memberItems) {
+		
+			  BookableItem currentItem = currentBooked.getItem();
+			  if (currentItem.getClass().equals("EquipmentBundle")) {
+				  
+			  }
+		  }
 		  
-		  resultAssignment.add(new ToAssignment(aMemberEmail,aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, aTotalCostForGuide, aTotalCostForEquipment));
+		// NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE / temp1
+		  resultAssignment.add(new TOAssignment(aMemberEmail,aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForGuide));
 		  
-		  var name = equipment.get("name");
-		  var weight = equipment.get("weight");
-		  var pricePerWeek = equipment.get("pricePerWeek");
-		  new Equipment(name, Integer.parseInt(weight), Integer.parseInt(pricePerWeek), climbSafe);
+		 
 	  }
 	  
-	  
+	  return resultAssignment;
   }
+  
+ 
 
 }
