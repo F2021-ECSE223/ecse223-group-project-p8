@@ -2,11 +2,10 @@ package ca.mcgill.ecse.climbsafe.controller;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
-<<<<<<< HEAD
-=======
+
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
->>>>>>> branch 'main' of https://github.com/F2021-ECSE223/ecse223-group-project-p8
+
 
 public class ClimbSafeFeatureSet3Controller {
 	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
@@ -96,7 +95,8 @@ public class ClimbSafeFeatureSet3Controller {
 	 }
 	  
 	 try {
-		 climbSafe.addGuide(email, password, name, emergencyContact); 
+		 Guide newGuide=climbSafe.addGuide(email, password, name, emergencyContact); 
+		 climbSafe.addGuide(newGuide);
 	 }
 	 catch (RuntimeException e){
 		 error += e.getMessage();
