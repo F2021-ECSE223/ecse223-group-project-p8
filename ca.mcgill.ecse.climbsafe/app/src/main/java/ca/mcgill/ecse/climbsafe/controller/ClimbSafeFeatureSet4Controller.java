@@ -91,17 +91,11 @@ public class ClimbSafeFeatureSet4Controller {
       throw new InvalidInputException(error);
     }
     
-    try {
     Equipment eq_to_be_updated = Utility.findEquipment(oldName);
     eq_to_be_updated.setName(newName);
     eq_to_be_updated.setWeight(newWeight);
     eq_to_be_updated.setPricePerWeek(newPricePerWeek);
   
-    }
-    catch(RuntimeException e) {
-      error = e.getMessage();
-      throw new InvalidInputException(error);
-    }
   }
 }
 
