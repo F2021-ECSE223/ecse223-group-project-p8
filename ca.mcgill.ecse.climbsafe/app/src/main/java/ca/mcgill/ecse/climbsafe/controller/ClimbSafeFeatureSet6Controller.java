@@ -58,37 +58,39 @@ public class ClimbSafeFeatureSet6Controller {
 
         for (Assignment current: temp) {
         	String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName;
-        	aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = "";
+        	aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = null;
         	int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment;
         	aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = 0;
+	    	aStartWeek = current.getStartWeek();
+	        aEndWeek = current.getEndWeek();
+        	stayedWeeks = (aEndWeek - aStartWeek)+1;
         	aMemberEmail = current.getMember().getEmail();
             aMemberName = current.getMember().getName();
             Boolean hasGuide = current.getMember().isGuideRequired();
+            Boolean hasHotel = current.getMember().isHotelRequired();
             if (hasGuide) {
 			  aGuideEmail = current.getGuide().getEmail();
 			  aGuideName = current.getGuide().getName();
+			  TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks ;
             }
-            aHotelName = current.getHotel().getName();
+            if (hasHotel) {
+            	aHotelName = current.getHotel().getName();
+            }
             
-            aStartWeek = current.getStartWeek();
-            aEndWeek = current.getEndWeek();
-            stayedWeeks = aEndWeek - aStartWeek;
-            TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks;
-            TotalCostForEquipment = 0;
 
             List < BookedItem > membersItems = current.getMember().getBookedItems();
 
             for (BookedItem currentBooked: membersItems) {
 
-                if (currentBooked.getItem().getClass().equals("EquipmentBundle")) {
-                   
+                if (currentBooked.getItem() instanceof EquipmentBundle) {
+                	System.out.println("Type: "  + currentBooked.getItem().getClass()+ "!");
                 	EquipmentBundle specificItem = (EquipmentBundle) currentBooked.getItem();
                     List < BundleItem > storedEquipment = specificItem.getBundleItems();
                     int costForBundle = 0;
                     
                     for (BundleItem currentEqi: storedEquipment) {
                         
-                    	int price = currentEqi.getEquipment().getPricePerWeek() * stayedWeeks;
+                    	int price = currentEqi.getEquipment().getPricePerWeek() * stayedWeeks* currentBooked.getQuantity();
                     	costForBundle += price;
                     	
                     }
@@ -98,7 +100,7 @@ public class ClimbSafeFeatureSet6Controller {
                    
                     TotalCostForEquipment += costForBundle;
 
-                } else if (currentBooked.getItem().getClass().equals("Equipment")) {
+                } else if (currentBooked.getItem() instanceof Equipment) {
                 	
                     Equipment specificItem = (Equipment) currentBooked.getItem();
                     TotalCostForEquipment += specificItem.getPricePerWeek() * stayedWeeks * currentBooked.getQuantity();
