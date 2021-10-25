@@ -56,61 +56,61 @@ public class ClimbSafeFeatureSet6Controller {
         List < Assignment > temp = (ClimbSafeApplication.getClimbSafe()).getAssignments();
         List < TOAssignment > assignment2ToAssignment = new ArrayList <>();
 
-        for (Assignment current: temp) {
+        for (Assignment currentAssignment: temp) {
+        	
         	String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName;
         	aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = null;
         	int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment;
         	aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = 0;
-	    	aStartWeek = current.getStartWeek();
-	        aEndWeek = current.getEndWeek();
+	    	aStartWeek = currentAssignment.getStartWeek();
+	        aEndWeek = currentAssignment.getEndWeek();
         	stayedWeeks = (aEndWeek - aStartWeek)+1;
-        	aMemberEmail = current.getMember().getEmail();
-            aMemberName = current.getMember().getName();
-            Boolean hasGuide = current.getMember().isGuideRequired();
-            Boolean hasHotel = current.getMember().isHotelRequired();
+        	aMemberEmail = currentAssignment.getMember().getEmail();
+            aMemberName = currentAssignment.getMember().getName();
+            Boolean hasGuide = currentAssignment.getMember().isGuideRequired();
+            Boolean hasHotel = currentAssignment.getMember().isHotelRequired();
+            
             if (hasGuide) {
-			  aGuideEmail = current.getGuide().getEmail();
-			  aGuideName = current.getGuide().getName();
+			  aGuideEmail = currentAssignment.getGuide().getEmail();
+			  aGuideName = currentAssignment.getGuide().getName();
 			  TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks ;
             }
             if (hasHotel) {
-            	aHotelName = current.getHotel().getName();
+            	aHotelName = currentAssignment.getHotel().getName();
             }
             
 
-            List < BookedItem > membersItems = current.getMember().getBookedItems();
+            List < BookedItem > membersItems = currentAssignment.getMember().getBookedItems();
 
             for (BookedItem currentBooked: membersItems) {
 
                 if (currentBooked.getItem() instanceof EquipmentBundle) {
-                	System.out.println("Type: "  + currentBooked.getItem().getClass()+ "!");
-                	EquipmentBundle specificItem = (EquipmentBundle) currentBooked.getItem();
-                    List < BundleItem > storedEquipment = specificItem.getBundleItems();
+                	
+                	EquipmentBundle currentBundle = (EquipmentBundle) currentBooked.getItem();
+                    List < BundleItem > storedEquipment = currentBundle.getBundleItems();
                     int costForBundle = 0;
                     
-                    for (BundleItem currentEqi: storedEquipment) {
+                    for (BundleItem itemInBundle: storedEquipment) {
                         
-                    	int price = currentEqi.getEquipment().getPricePerWeek() * stayedWeeks* currentBooked.getQuantity();
-                    	costForBundle += price;
+                    	costForBundle += itemInBundle.getEquipment().getPricePerWeek() * stayedWeeks *itemInBundle.getQuantity();
                     	
                     }
                     if (hasGuide) {
-                    	costForBundle = costForBundle * ((100 - specificItem.getDiscount()) / 100);
+                    	float discount = (float) currentBundle.getDiscount() / 100;
+                    	costForBundle = (int) (costForBundle - costForBundle*discount);
                     } 
                    
                     TotalCostForEquipment += costForBundle;
 
                 } else if (currentBooked.getItem() instanceof Equipment) {
                 	
-                    Equipment specificItem = (Equipment) currentBooked.getItem();
-                    TotalCostForEquipment += specificItem.getPricePerWeek() * stayedWeeks * currentBooked.getQuantity();
+                    Equipment equipment = (Equipment) currentBooked.getItem();
+                    TotalCostForEquipment += equipment.getPricePerWeek() * stayedWeeks * currentBooked.getQuantity();
                     
                 }
             }
 	        
             assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide,  TotalCostForEquipment));
-	        
-          
 
         }
 
