@@ -18,28 +18,29 @@ public class ClimbSafeFeatureSet4Controller {
     var error= ""; 
     Equipment equipmentEntered;
     if (name.equals("")) {
-      error= "Name cannot be empty.";
+      error= "The name must not be empty.";
       throw new InvalidInputException(error);
     }
     if (weight<=0) {
-      error = "Weight must be greater than 0.";
+      error = "The weight must be greater than 0.";
       throw new InvalidInputException(error);
       
     }
+    
     if (pricePerWeek<0) {
-      error = "Price must be greater than or equal to 0. ";
+      error = "The price per week must be greater than or equal to 0. ";
       throw new InvalidInputException(error);
     }
     
     if (Utility.climbSafe.hasEquipment() && Utility.equipmentExists(name, Utility.climbSafe)) {
       //a piece of equipment with the same name cannot already exist in the system
-      error = "A piece of equipment with the name "+ name +" already exists in system";
+      error = "The piece of equipment already exists";
       throw new InvalidInputException(error);
       }
-    
     if (Utility.climbSafe.hasBundles() && Utility.bundleExistsInSystem(Utility.climbSafe, name)) {
       //a bundle with the same name cannot already exist in the system
-      error = "An equipment bundle with the name "+ name +" already exists in system.";
+      error = "The equipment bundle already exists";
+      throw new InvalidInputException(error);
     }
   
     try {
@@ -52,7 +53,7 @@ public class ClimbSafeFeatureSet4Controller {
   }
 
 
-/**Updates a piece of equipment in the system
+/**Method to update a piece of equipment in the system
  * 
  * @param oldName 
  * @param newName this cannot be an already existing name
@@ -64,36 +65,43 @@ public class ClimbSafeFeatureSet4Controller {
       int newPricePerWeek) throws InvalidInputException {
     var error="";
     if (newName.equals("")) {
-      error= "New name cannot be empty.";
+      error= "The name must not be empty.";
       throw new InvalidInputException(error);
     }
     if (newWeight<=0) {
-      error = "New weight must be greater than 0.";
+      error = "The weight must be greater than 0.";
       throw new InvalidInputException(error);
     }
     if (newPricePerWeek<0) {
-      error = "New price must be greater than or equal to 0.";
+      error = "The price per week must be greater than or equal to 0.";
       throw new InvalidInputException(error);
     }
     if (!Utility.equipmentExists(oldName, Utility.climbSafe)) {
-      error = "This piece of equipment does not exist.";
+      error = "The piece of equipment does not exist.";
       throw new InvalidInputException(error);
     }
     
     if (Utility.equipmentExists(newName, Utility.climbSafe)) {
-      error= "A piece of equipment with the name "+ newName + " already exists in the system.";
+      error= "The piece of equipment already exists.";
       throw new InvalidInputException(error);
     }
     
     if (Utility.bundleExistsInSystem(Utility.climbSafe, newName)) {
-      error = "An equipment Bundle with the same name already exists in the system.";
+      error = "An equipment Bundle with the same name already exists.";
       throw new InvalidInputException(error);
     }
     
+    try {
     Equipment eq_to_be_updated = Utility.findEquipment(oldName);
     eq_to_be_updated.setName(newName);
     eq_to_be_updated.setWeight(newWeight);
     eq_to_be_updated.setPricePerWeek(newPricePerWeek);
+  
+    }
+    catch(RuntimeException e) {
+      error = e.getMessage();
+      throw new InvalidInputException(error);
+    }
   }
-
 }
+
