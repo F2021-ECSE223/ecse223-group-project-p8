@@ -57,18 +57,24 @@ public class ClimbSafeFeatureSet6Controller {
         List < TOAssignment > assignment2ToAssignment = new ArrayList <>();
 
         for (Assignment current: temp) {
-
-            String aMemberEmail = current.getMember().getEmail();
-            String aMemberName = current.getMember().getName();
-            String aGuideEmail = current.getGuide().getEmail();
-            String aGuideName = current.getGuide().getName();
-            String aHotelName = current.getHotel().getName();
+        	String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName;
+        	aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = "";
+        	int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment;
+        	aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = 0;
+        	aMemberEmail = current.getMember().getEmail();
+            aMemberName = current.getMember().getName();
+            Boolean hasGuide = current.getMember().isGuideRequired();
+            if (hasGuide) {
+			  aGuideEmail = current.getGuide().getEmail();
+			  aGuideName = current.getGuide().getName();
+            }
+            aHotelName = current.getHotel().getName();
             
-            int aStartWeek = current.getStartWeek();
-            int aEndWeek = current.getEndWeek();
-            int stayedWeeks = aEndWeek - aStartWeek;
-            int TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks;
-            int TotalCostForEquipment = 0;
+            aStartWeek = current.getStartWeek();
+            aEndWeek = current.getEndWeek();
+            stayedWeeks = aEndWeek - aStartWeek;
+            TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks;
+            TotalCostForEquipment = 0;
 
             List < BookedItem > membersItems = current.getMember().getBookedItems();
 
@@ -86,8 +92,10 @@ public class ClimbSafeFeatureSet6Controller {
                     	costForBundle += price;
                     	
                     }
-                    
-                    costForBundle = costForBundle * ((100 - specificItem.getDiscount()) / 100);
+                    if (hasGuide) {
+                    	costForBundle = costForBundle * ((100 - specificItem.getDiscount()) / 100);
+                    } 
+                   
                     TotalCostForEquipment += costForBundle;
 
                 } else if (currentBooked.getItem().getClass().equals("Equipment")) {
@@ -97,8 +105,10 @@ public class ClimbSafeFeatureSet6Controller {
                     
                 }
             }
-
-            assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForGuide));
+	        
+            assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide,  TotalCostForEquipment));
+	        
+          
 
         }
 
