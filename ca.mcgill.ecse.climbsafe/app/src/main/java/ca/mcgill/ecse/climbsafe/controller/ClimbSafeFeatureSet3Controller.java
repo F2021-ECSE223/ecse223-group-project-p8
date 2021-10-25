@@ -10,7 +10,7 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 public class ClimbSafeFeatureSet3Controller {
 	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	 
-	 // idk how to do javadoc haha 
+	 // idk how to do javadoc haha ha ha 
 	 /** This method registers a new guide in the climbSafe system
 	  * 
 	  * @param email Email of Guide that gets entered and that is registered in the climbSafe system
