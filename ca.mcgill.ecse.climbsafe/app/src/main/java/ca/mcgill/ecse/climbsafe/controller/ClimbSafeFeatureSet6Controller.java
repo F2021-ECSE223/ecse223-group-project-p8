@@ -8,8 +8,10 @@ import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.BookableItem;
 import ca.mcgill.ecse.climbsafe.model.BookedItem;
+import ca.mcgill.ecse.climbsafe.model.BundleItem;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
+import ca.mcgill.ecse.climbsafe.model.Member;
 
 public class ClimbSafeFeatureSet6Controller {
 
@@ -49,8 +51,7 @@ public class ClimbSafeFeatureSet6Controller {
   }
 
   public static List<TOAssignment> getAssignments() {
-	  
-	  // NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE
+
 	  
 	  List<Assignment> temp = (ClimbSafeApplication.getClimbSafe()).getAssignments();
 	  List<TOAssignment> resultAssignment = new ArrayList<>();
@@ -64,19 +65,35 @@ public class ClimbSafeFeatureSet6Controller {
 		  String aHotelName = current.getHotel().getName();
 		  int aStartWeek = current.getStartWeek();
 		  int aEndWeek = current.getEndWeek();
-		  int TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek();
-		  int TotalCostForEquipment = 5;
-		  List<BookedItem> memberItems =  current.getMember().getBookedItems();
+		  int stayedWeeks = aEndWeek - aStartWeek;
+		  int TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek()*stayedWeeks;
+		 
+		  int TotalCostForEquipment = 0;
 		  
-		  for(BookedItem currentBooked : memberItems) {
-		
-			  BookableItem currentItem = currentBooked.getItem();
-			  if (currentItem.getClass().equals("EquipmentBundle")) {
-				  
-			  }
+		  List<BookedItem> membersItems =  current.getMember().getBookedItems();
+		  
+		  for(BookedItem currentBooked : membersItems) {
+
+			 
+			  		  
+			  if (currentBooked.getItem().getClass().equals("EquipmentBundle")) {
+					EquipmentBundle specificItem = (EquipmentBundle) currentBooked.getItem();
+					List<BundleItem> storedEquipment = specificItem.getBundleItems();
+					int costForBundle = 0;
+					for (BundleItem currentEqi: storedEquipment) {
+						int price = currentEqi.getEquipment().getPricePerWeek()*stayedWeeks;
+						costForBundle += price;
+					}
+					//sub discount
+					TotalCostForEquipment += costForBundle;
+					
+			} else if (currentBooked.getItem().getClass().equals("Equipment")) {
+				Equipment specificItem = (Equipment) currentBooked.getItem();
+				TotalCostForEquipment += specificItem.getPricePerWeek()*stayedWeeks*currentBooked.getQuantity();
+			}
 		  }
 		  
-		// NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE //  NOT DONE / temp1
+	
 		  resultAssignment.add(new TOAssignment(aMemberEmail,aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForGuide));
 		  
 		 
