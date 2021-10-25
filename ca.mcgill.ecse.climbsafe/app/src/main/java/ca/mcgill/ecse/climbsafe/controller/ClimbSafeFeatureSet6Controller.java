@@ -12,7 +12,7 @@ import ca.mcgill.ecse.climbsafe.model.BundleItem;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Member;
-
+//test
 public class ClimbSafeFeatureSet6Controller {
 
   public static void deleteEquipment(String name) throws InvalidInputException {
