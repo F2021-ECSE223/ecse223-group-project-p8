@@ -321,7 +321,6 @@ public class Utility {
 		if(indexOfAt > indexOfEmail) {
 			invalid=true;
 		}
-		
 		return invalid;
 	}
 
