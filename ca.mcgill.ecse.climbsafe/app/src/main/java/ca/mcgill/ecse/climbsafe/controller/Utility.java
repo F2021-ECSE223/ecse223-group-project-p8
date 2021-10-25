@@ -316,11 +316,12 @@ public class Utility {
 	
 	public static boolean wrongEmailSyntax(String email) {
 		boolean invalid=false;
-		int indexofDot=email.indexOf(".");
-		char c = email.charAt(indexofDot);
-		if(c != '@') {
+		int indexOfEmail=email.indexOf("email");
+		int indexOfAt=email.indexOf("@");
+		if(indexOfAt > indexOfEmail) {
 			invalid=true;
 		}
+		
 		return invalid;
 	}
 
