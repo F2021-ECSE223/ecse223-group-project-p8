@@ -67,15 +67,12 @@ public class ClimbSafeFeatureSet6Controller {
 		  int aEndWeek = current.getEndWeek();
 		  int stayedWeeks = aEndWeek - aStartWeek;
 		  int TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek()*stayedWeeks;
-		 
 		  int TotalCostForEquipment = 0;
 		  
 		  List<BookedItem> membersItems =  current.getMember().getBookedItems();
 		  
 		  for(BookedItem currentBooked : membersItems) {
 
-			 
-			  		  
 			  if (currentBooked.getItem().getClass().equals("EquipmentBundle")) {
 					EquipmentBundle specificItem = (EquipmentBundle) currentBooked.getItem();
 					List<BundleItem> storedEquipment = specificItem.getBundleItems();
@@ -84,7 +81,7 @@ public class ClimbSafeFeatureSet6Controller {
 						int price = currentEqi.getEquipment().getPricePerWeek()*stayedWeeks;
 						costForBundle += price;
 					}
-					//sub discount
+					costForBundle = costForBundle*((100-specificItem.getDiscount())/100);
 					TotalCostForEquipment += costForBundle;
 					
 			} else if (currentBooked.getItem().getClass().equals("Equipment")) {
@@ -93,10 +90,9 @@ public class ClimbSafeFeatureSet6Controller {
 			}
 		  }
 		  
-	
 		  resultAssignment.add(new TOAssignment(aMemberEmail,aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForGuide));
 		  
-		 
+
 	  }
 	  
 	  return resultAssignment;
