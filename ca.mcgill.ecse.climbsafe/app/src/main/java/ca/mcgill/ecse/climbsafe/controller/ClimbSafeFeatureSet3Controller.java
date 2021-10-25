@@ -67,40 +67,40 @@ public class ClimbSafeFeatureSet3Controller {
 		  error="Email must not contain any spaces";
 		  throw new InvalidInputException(error);
 	  }
-	  
+	 
 	  if(Utility.emailInvalidSyntax(email) == true) {
 		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
 	  
 	  if(Utility.emailMissingSubstring(email) == true) {
-		  error="Invalid Email";
+		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
 	  
 	  if(Utility.missingEmailDeclaration(email) == true) {
-		  error="Invalid Email";
+		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
 	  
 	  if(!email.contains(name.toLowerCase())) {
-		  error="Invalid Email";
+		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
-	  
+	 
 	 if(Utility.wrongEmailSyntax(email) == true) {
-		 error="Invalid Email";
+		 error="Invalid email";
 		 throw new InvalidInputException(error);
 	 }
 	 
 	 try {
-		 Guide newGuide=climbSafe.addGuide(email, password, name, emergencyContact); 
-		 climbSafe.addGuide(newGuide);
+		Guide newGuide=climbSafe.addGuide(email, password, name, emergencyContact); 
+		climbSafe.addGuide(newGuide);
 	 }
 	 catch (RuntimeException e){
-		 error += e.getMessage();
-		 throw new InvalidInputException(error); 
-	 }
+		  error = e.getMessage();
+		  throw new InvalidInputException(error);
+	  }
   }
   
   /** This method updates the guide's relative information in the climbSafe system

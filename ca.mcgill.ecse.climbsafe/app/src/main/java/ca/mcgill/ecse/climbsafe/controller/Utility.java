@@ -313,7 +313,6 @@ public class Utility {
 	 * @param email
 	 * @return boolean value that indicates whether the email entered is functional
 	 */
-	
 	public static boolean wrongEmailSyntax(String email) {
 		boolean invalid=false;
 		int indexOfEmail=email.indexOf("email");
