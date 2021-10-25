@@ -16,21 +16,20 @@ public class ClimbSafeFeatureSet2Controller {
 	 */
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
-<<<<<<< HEAD
-  public static void registerMember(String email, String password, String name,
-      String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,
-      List<String> itemNames, List<Integer> itemQuantities) throws InvalidInputException {
+
+//   public static void registerMember(String email, String password, String name,
+//       String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,
+//       List<String> itemNames, List<Integer> itemQuantities) throws InvalidInputException {
 	  
-	  var error = "";
+// 	  var error = "";
 	  
-	  try {
-		  climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
-		  //what to do with list?
-	  } catch (RuntimeException e) {
-		  //is this the right error?
-		  //throw new InvalidInputException(e.getMessage());
-		  error += e.getMessage();
-=======
+// 	  try {
+// 		  climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
+// 		  //what to do with list?
+// 	  } catch (RuntimeException e) {
+// 		  //is this the right error?
+// 		  //throw new InvalidInputException(e.getMessage());
+// 		  error += e.getMessage();
  
 	public static void registerMember(String email, String password, String name,
      String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,    
@@ -107,7 +106,7 @@ public class ClimbSafeFeatureSet2Controller {
 			error = e.getMessage();
 			throw new InvalidInputException(error);
 		}
->>>>>>> branch 'main' of https://github.com/F2021-ECSE223/ecse223-group-project-p8
+
 	  }
 
  
