@@ -63,6 +63,10 @@ public class ClimbSafeFeatureSet2Controller {
 		//no space
 		//cannot start with @
 		//right format __@__.__
+		if (email.contains("@.")||!email.contains("@")||!email.contains(".")) {
+			error = "Invalid email";
+			throw new InvalidInputException(error);
+		}
 		
 		//empty password
 		if (password.isEmpty()) {
