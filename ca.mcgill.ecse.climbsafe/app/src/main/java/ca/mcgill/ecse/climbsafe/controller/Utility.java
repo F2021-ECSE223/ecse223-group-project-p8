@@ -289,4 +289,30 @@ public class Utility {
 		return invalid;
 	}
 
+
+
+	 /** Method to check existence of a list of bookableItems in system.
+	  * @author Ke
+	  * @param climbSafe instace of a system
+	  * @param itemsToCheck list of items to check
+	  * @return boolean value that indicates the existance of the items in system
+	  */
+	public static boolean bookableItemsExists( ClimbSafe climbSafe, List<String> itemsToCheck) {
+		
+
+		for (String item: itemsToCheck) {
+
+		  if(bundleExistsInSystem(climbSafe,item)) {
+			return true;
+		  }
+
+		  if(equipmentExists( item, climbSafe)) {
+			return true;
+		  }
+
+		}
+		return false;
+  }
+
+
 }
