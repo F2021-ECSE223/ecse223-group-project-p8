@@ -11,8 +11,8 @@ import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
+// By Mihail
 
-//Mihail
 public class ClimbSafeFeatureSet6Controller {
 
     /**
@@ -23,14 +23,19 @@ public class ClimbSafeFeatureSet6Controller {
      * @return none (void)
      */
     public static void deleteEquipment(String name) throws InvalidInputException {
-
         Equipment equipment = null;
         List < Equipment > equipmentList = (ClimbSafeApplication.getClimbSafe()).getEquipment();
-        for (Equipment temp: equipmentList) {
-            if (temp.getName().equals(name)) {
-                equipment = temp;
-                break;
+        List < EquipmentBundle > equipmentBundles = (ClimbSafeApplication.getClimbSafe()).getBundles();		
+		for(EquipmentBundle currentBundle : equipmentBundles) {
+            List < BundleItem > storedEquipment = currentBundle.getBundleItems();
+            for (BundleItem itemInBundle: storedEquipment) {
+                if (itemInBundle.getEquipment().getName().equals(name)){
+                	throw new InvalidInputException("The piece of equipment is in a bundle and cannot be deleted");
+                }
             }
+		}
+        for (Equipment temp: equipmentList) {
+            if (temp.getName().equals(name)) {equipment = temp; break;}
         }
         if (equipment != null) {equipment.delete();}
     }
@@ -46,10 +51,7 @@ public class ClimbSafeFeatureSet6Controller {
         EquipmentBundle equipmentBundle = null;
         List < EquipmentBundle > equipmentBundleList = (ClimbSafeApplication.getClimbSafe()).getBundles();
         for (EquipmentBundle temp: equipmentBundleList) {
-            if (temp.getName().equals(name)) {
-                equipmentBundle = temp;
-                break;
-            }
+            if (temp.getName().equals(name)) {equipmentBundle = temp; break;}
         }
         if (equipmentBundle != null) {equipmentBundle.delete();}
     }
