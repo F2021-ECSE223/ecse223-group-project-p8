@@ -304,7 +304,9 @@ public class Utility {
 		}
 		return invalid;
 	}
-
+/*
+ * for mail
+ */
 	public static boolean wrongEmailSyntax2(String email) {
 		boolean invalid=false;
 		int indexOfEmail=email.indexOf("mail");
