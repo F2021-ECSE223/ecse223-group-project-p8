@@ -22,20 +22,6 @@ public class ClimbSafeFeatureSet2Controller {
 	 */
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
-
-//   public static void registerMember(String email, String password, String name,
-//       String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,
-//       List<String> itemNames, List<Integer> itemQuantities) throws InvalidInputException {
-	  
-// 	  var error = "";
-	  
-// 	  try {
-// 		  climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
-// 		  //what to do with list?
-// 	  } catch (RuntimeException e) {
-// 		  //is this the right error?
-// 		  //throw new InvalidInputException(e.getMessage());
-// 		  error += e.getMessage();
  
 	public static void registerMember(String email, String password, String name,
      String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,    
@@ -43,11 +29,6 @@ public class ClimbSafeFeatureSet2Controller {
 		
 		var error = "";
 		
-		//empty email SHOULD I CHECK?
-		// if (name.isEmpty()) {
-		// 	error = "The email cannot be empty";
-		// 	throw new InvalidInputException(error);
-		// }
 		
 		//email already in use
 		if (Utility.findMember(email)!=null) {
@@ -86,11 +67,6 @@ public class ClimbSafeFeatureSet2Controller {
 			throw new InvalidInputException(error);
 		}
 
-		
-		// if(!email.contains(name.toLowerCase())) {
-		// 	error="Invalid email";
-		// 	throw new InvalidInputException(error);
-		// }
 	   
 
 	   if(Utility.wrongEmailSyntax2(email) == true) {
@@ -140,13 +116,13 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "A guide with this email already exists";
 			throw new InvalidInputException(error);
 		}
-		/*
+		
 		//requested item not found
 		if (!Utility.bookableItemsExists(climbSafe, itemNames)) {
 			error = "Requested item not found";
 			throw new InvalidInputException(error);
 		}
-		*/
+		
 
 		try {
 			Member myMember;
