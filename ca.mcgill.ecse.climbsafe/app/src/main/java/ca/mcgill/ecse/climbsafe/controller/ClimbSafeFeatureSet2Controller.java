@@ -67,11 +67,15 @@ public class ClimbSafeFeatureSet2Controller {
 			throw new InvalidInputException(error);
 		}
 
-	   
 
 	   if(Utility.wrongEmailSyntax2(email) == true) {
 		   error="Invalid email";
 		   throw new InvalidInputException(error);
+	   }
+
+	   if(Utility.goodStart(email)==true) {
+			error="Invalid email";
+			throw new InvalidInputException(error);
 	   }
 
 		

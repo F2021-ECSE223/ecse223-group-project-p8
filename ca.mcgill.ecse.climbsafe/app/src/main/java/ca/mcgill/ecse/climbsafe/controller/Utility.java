@@ -318,6 +318,21 @@ public class Utility {
 	}
 
 
+	/** Method to check if there are characters before "@"
+	 * @author Ke
+	 * @param email
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
+	public static boolean goodStart(String email) {
+		boolean invalid=false;
+		
+		if(email.charAt(0)=='@') {
+			invalid=true;
+		}
+		return invalid;
+	}
+
+
 	 /** Method to check existence of a list of bookableItems in system.
 	  * @author Ke
 	  * @param climbSafe instace of a system
