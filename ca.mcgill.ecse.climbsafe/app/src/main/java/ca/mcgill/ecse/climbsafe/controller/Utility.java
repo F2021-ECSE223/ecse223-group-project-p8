@@ -221,7 +221,7 @@ public class Utility {
 	 */
 	
 	
-	/**
+	/** Method to find whether two @ exist in the email declaration
 	 * @author Selina
 	 * @param email Email of guide 
 	 * @return boolean value that indicates whether the email entered is functional
@@ -246,7 +246,7 @@ public class Utility {
 		return invalid;
 	}
 	
-	/**
+	/** Method to check if there is a missing "com"
 	 * @author Selina
 	 * @param email Email of guide 
 	 * @return boolean value that indicates whether the email entered is functional
@@ -261,7 +261,7 @@ public class Utility {
 		
 	}
 	
-	/**
+	/** Method to check if there is a missing "email"
 	 * @author Selina
 	 * @param email Email of guide 
 	 * @return boolean value that indicates whether the email entered is functional
@@ -274,7 +274,7 @@ public class Utility {
 		return invalid;
 	}
 	
-	/**
+	/** Method to check if there "@" is in front of "email"
 	 * idk how to handle @ symbol in a string 
 	 * @author Selina
 	 * @param email
