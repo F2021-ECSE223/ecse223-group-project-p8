@@ -18,6 +18,7 @@ public class ClimbSafeFeatureSet2Controller {
 	 * check getNrWeeks
 	 * ADD GUIDE AND HOTEL
 	 * update equipment or add?
+	 * fix errors
 	 */
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
@@ -171,6 +172,12 @@ public class ClimbSafeFeatureSet2Controller {
 				throw new InvalidInputException(error);
 			}
 
+			//empty emergency contact
+			if (newEmergencyContact.isEmpty()) {
+			error = "The emergency contact cannot be empty";
+			throw new InvalidInputException(error);
+			}
+
 			//number of climbing weeks check
 			if (newNrWeeks<=0) {
 				error = "The number of weeks must be greater than zero and less than or equal to the number of climbing weeks in the climbing season";
@@ -190,7 +197,7 @@ public class ClimbSafeFeatureSet2Controller {
 
 			//email already in use
 			if (Utility.findMember(email)==null) {
-				error = "A member with this email already exists";
+				error = "Member not found";
 				throw new InvalidInputException(error);
 			}
 
