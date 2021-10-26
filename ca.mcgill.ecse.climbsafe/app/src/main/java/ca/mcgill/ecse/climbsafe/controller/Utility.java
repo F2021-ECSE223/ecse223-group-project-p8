@@ -221,11 +221,11 @@ public class Utility {
 	 */
 	
 	
-	/** Method to find whether two @ exist in the email declaration
+	/** Method to find whether two @ exist in the email declaration of the guide
 	 * @author Selina
 	 * @param email Email of guide 
 	 * @return boolean value that indicates whether the email entered is functional
-	 * Idk if this works tbh
+	 * 
 	 */
 	
 	public static boolean emailInvalidSyntax(String email) {
@@ -275,7 +275,6 @@ public class Utility {
 	}
 	
 	/** Method to check if there "@" is in front of "email"
-	 * idk how to handle @ symbol in a string 
 	 * @author Selina
 	 * @param email
 	 * @return boolean value that indicates whether the email entered is functional
