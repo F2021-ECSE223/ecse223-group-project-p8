@@ -161,6 +161,12 @@ public class ClimbSafeFeatureSet2Controller {
 
 			var error = "";
 
+			//member not found
+			if (Utility.findMember(email)==null) {
+				error = "Member not found";
+				throw new InvalidInputException(error);
+			}
+
 			if (newPassword.isEmpty()) {
 				error = "The password cannot be empty";
 				throw new InvalidInputException(error);
@@ -172,9 +178,9 @@ public class ClimbSafeFeatureSet2Controller {
 				throw new InvalidInputException(error);
 			}
 
-			//empty emergency contact
+			//empty emergencE contact
 			if (newEmergencyContact.isEmpty()) {
-			error = "The emergency contact cannot be empty";
+			error = "The emergence contact cannot be empty";
 			throw new InvalidInputException(error);
 			}
 
@@ -190,16 +196,11 @@ public class ClimbSafeFeatureSet2Controller {
 			}
 
 			//requested item not found
-			if (Utility.bookableItemsExists(climbSafe, newItemNames)) {
+			if (!Utility.bookableItemsExists(climbSafe, newItemNames)) {
 				error = "Requested item not found";
 				throw new InvalidInputException(error);
 			}
 
-			//email already in use
-			if (Utility.findMember(email)==null) {
-				error = "Member not found";
-				throw new InvalidInputException(error);
-			}
 
 
 
