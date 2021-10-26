@@ -13,39 +13,6 @@ public class Utility {
 	
 	public static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	
-	
-	/**
-	 * @JoeyLiu
-	 * @param email is the unique email of the member which is wanted
-	 * @return the member with the specified email
-	 */
-	public static boolean dateIsValid(String date){
-		boolean validDate = true;
-		String month = "";
-		String day = "";
-		
-		for(int i=0;i<date.length();i++) {
-			if(i==5 || i==6) {
-				month += date.charAt(i);
-			}
-			if(i==8 || i==9) {
-				day += date.charAt(i);
-			}
-		}
-		
-		int monthNr = Integer.parseInt(month);
-		int dateOfDay = Integer.parseInt(day);
-		
-		if(!(monthNr <= 12 && monthNr >= 1)) {
-			validDate = false;
-		}
-		if(!(dateOfDay <= 31 && dateOfDay >= 1)) {
-			validDate = false;
-		}
-		
-		return validDate;
-	}
-	
 	/**
 	 * @JoeyLiu
 	 * @param email is the unique email of the member which is wanted
