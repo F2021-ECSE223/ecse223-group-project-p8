@@ -69,30 +69,30 @@ public class ClimbSafeFeatureSet2Controller {
 		//no space
 		//cannot start with @
 		//right format __@__.__
-		if(Utility.emailInvalidSyntax(email) == true) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
+		// if(Utility.emailInvalidSyntax(email) == true) {
+		// 	error="Invalid email";
+		// 	throw new InvalidInputException(error);
+		// }
 		
-		if(Utility.emailMissingSubstring(email) == true) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
+		// if(Utility.emailMissingSubstring(email) == true) {
+		// 	error="Invalid email";
+		// 	throw new InvalidInputException(error);
+		// }
 		
-		if(Utility.missingEmailDeclaration(email) == true) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
+		// if(Utility.missingEmailDeclaration(email) == true) {
+		// 	error="Invalid email";
+		// 	throw new InvalidInputException(error);
+		// }
 		
-		if(!email.contains(name.toLowerCase())) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
+		// if(!email.contains(name.toLowerCase())) {
+		// 	error="Invalid email";
+		// 	throw new InvalidInputException(error);
+		// }
 	   
-	   if(Utility.wrongEmailSyntax(email) == true) {
-		   error="Invalid email";
-		   throw new InvalidInputException(error);
-	   }
+	//    if(Utility.wrongEmailSyntax(email) == true) {
+	// 	   error="Invalid email";
+	// 	   throw new InvalidInputException(error);
+	//    }
 		
 		//empty password
 		if (password.isEmpty()) {
@@ -119,7 +119,7 @@ public class ClimbSafeFeatureSet2Controller {
 			throw new InvalidInputException(error);
 		}
 		
-		if (nrWeeks>=climbSafe.getNrWeeks()) {
+		if (nrWeeks>climbSafe.getNrWeeks()) {
 			error = "The number of weeks must be greater than zero and less than or equal to the number of climbing weeks in the climbing season";
 			throw new InvalidInputException(error);
 		}
@@ -136,7 +136,7 @@ public class ClimbSafeFeatureSet2Controller {
 			throw new InvalidInputException(error);
 		}
 		//requested item not found
-		if (Utility.bookableItemsExists(climbSafe, itemNames)) {
+		if (!Utility.bookableItemsExists(climbSafe, itemNames)) {
 			error = "Requested item not found";
 			throw new InvalidInputException(error);
 		}
