@@ -407,11 +407,11 @@ public class Utility {
 
   }
 
-
   public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {
 
 	for (BookedItem bookedItem: member.getBookedItems()) {
-		climbSafe.removeBookedItem(bookedItem);
+		// climbSafe.removeBookedItem(bookedItem);
+		member.removeBookedItem(bookedItem);
 	}
 
 	return true;
