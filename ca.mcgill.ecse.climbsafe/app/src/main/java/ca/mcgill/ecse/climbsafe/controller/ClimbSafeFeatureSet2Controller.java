@@ -16,6 +16,8 @@ public class ClimbSafeFeatureSet2Controller {
 	 * add javadoc
 	 * ask methods
 	 * check getNrWeeks
+	 * ADD GUIDE AND HOTEL
+	 * update equipment or add?
 	 */
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
@@ -195,10 +197,14 @@ public class ClimbSafeFeatureSet2Controller {
 
 
 			try {
-				// Member myMember;
-				// myMember=climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
-				// //add items too!!
-				// Utility.addItemList(climbSafe, itemNames, itemQuantities, myMember);
+				Member existingMember = Utility.findMember(email);
+				existingMember.setPassword(newPassword);
+				existingMember.setName(newName);
+				existingMember.setEmergencyContact(newEmergencyContact);
+				existingMember.setNrWeeks(newNrWeeks);
+				existingMember.setGuideRequired(newGuideRequired);
+				existingMember.setHotelRequired(newHotelRequired);
+				Utility.addItemList(climbSafe, newItemNames, newItemQuantities, existingMember);
 				
 			}catch (RuntimeException e) {
 				error = e.getMessage();
