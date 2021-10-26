@@ -196,6 +196,7 @@ public class ClimbSafeFeatureSet2Controller {
 				existingMember.setNrWeeks(newNrWeeks);
 				existingMember.setGuideRequired(newGuideRequired);
 				existingMember.setHotelRequired(newHotelRequired);
+				Utility.resetBookedItems(climbSafe, existingMember);
 				Utility.addItemList(climbSafe, newItemNames, newItemQuantities, existingMember);
 				
 			}catch (RuntimeException e) {

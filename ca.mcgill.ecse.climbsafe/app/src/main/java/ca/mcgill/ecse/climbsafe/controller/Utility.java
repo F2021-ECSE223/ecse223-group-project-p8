@@ -4,6 +4,7 @@ import java.util.List;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.BookableItem;
+import ca.mcgill.ecse.climbsafe.model.BookedItem;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
@@ -400,6 +401,17 @@ public class Utility {
 		climbSafe.addBookedItem(itemQuantities.get(index), member, foundItem);
 		index++;
 
+	}
+
+	return true;
+
+  }
+
+
+  public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {
+
+	for (BookedItem bookedItem: member.getBookedItems()) {
+		climbSafe.removeBookedItem(bookedItem);
 	}
 
 	return true;
