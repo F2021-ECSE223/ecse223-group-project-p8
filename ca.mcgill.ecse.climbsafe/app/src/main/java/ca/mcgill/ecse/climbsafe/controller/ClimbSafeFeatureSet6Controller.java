@@ -11,114 +11,101 @@ import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
-//@Mihail Calitoiu
+/*
+ * ==================================================
+ * ================ Mihail Calitoiu =================
+ * ==================================================
+ */
 
 public class ClimbSafeFeatureSet6Controller {
 
+    /**
+     *  deleteEquipment uses the name parameter to delete the corresponding equipment with the same name
+     *
+     * @param  name  the equipment's name that needs to be deleted
+     * @return none (void)
+     */
     public static void deleteEquipment(String name) throws InvalidInputException {
 
         Equipment equipment = null;
         List < Equipment > equipmentList = (ClimbSafeApplication.getClimbSafe()).getEquipment();
-
         for (Equipment temp: equipmentList) {
             if (temp.getName().equals(name)) {
                 equipment = temp;
                 break;
             }
         }
-
-        if (equipment != null) {
-            equipment.delete();
-        }
+        if (equipment != null) {equipment.delete();}
     }
 
+    /**
+     *  deleteEquipmentBundle uses the name parameter to delete the corresponding equipment bundle with the same name
+     *
+     * @param  name  the equipment bundle's name that needs to be deleted
+     * @return none (void)
+     */
     public static void deleteEquipmentBundle(String name) {
-        
-    	EquipmentBundle equipmentBundle = null;
+        EquipmentBundle equipmentBundle = null;
         List < EquipmentBundle > equipmentBundleList = (ClimbSafeApplication.getClimbSafe()).getBundles();
-
         for (EquipmentBundle temp: equipmentBundleList) {
-        	if (temp.getName().equals(name)) {
-        		equipmentBundle = temp;
-                break; 
+            if (temp.getName().equals(name)) {
+                equipmentBundle = temp;
+                break;
             }
         }
-
-        if (equipmentBundle != null) {
-            equipmentBundle.delete();
-        }
-        
+        if (equipmentBundle != null) {equipmentBundle.delete();}
     }
-
+    
+    /**
+     *  getAssignments gets the assignment object list inside ClimbSafe and converts the list into a ToAssignment object list
+     *
+     * @param  nome
+     * @return a TOAssignment list containing the converted assignments
+     */
     public static List < TOAssignment > getAssignments() {
-
-
         List < Assignment > assignmentInClimb = (ClimbSafeApplication.getClimbSafe()).getAssignments();
-        List < TOAssignment > assignment2ToAssignment = new ArrayList <>();
-
+        List < TOAssignment > assignment2ToAssignment = new ArrayList < > ();
         for (Assignment currentAssignment: assignmentInClimb) {
-        	
-        	String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName;
-        	aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = null;
-        	int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment;
-        	aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = 0;
-	    	aStartWeek = currentAssignment.getStartWeek();
-	        aEndWeek = currentAssignment.getEndWeek();
-        	stayedWeeks = (aEndWeek - aStartWeek)+1;
-        	aMemberEmail = currentAssignment.getMember().getEmail();
+            String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName;
+            aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = null;
+            int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment;
+            aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = 0;
+            aStartWeek = currentAssignment.getStartWeek();
+            aEndWeek = currentAssignment.getEndWeek();
+            stayedWeeks = (aEndWeek - aStartWeek) + 1;
+            aMemberEmail = currentAssignment.getMember().getEmail();
             aMemberName = currentAssignment.getMember().getName();
             Boolean hasGuide = currentAssignment.getMember().isGuideRequired();
             Boolean hasHotel = currentAssignment.getMember().isHotelRequired();
-            
             if (hasGuide) {
-			  aGuideEmail = currentAssignment.getGuide().getEmail();
-			  aGuideName = currentAssignment.getGuide().getName();
-			  TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks ;
+                aGuideEmail = currentAssignment.getGuide().getEmail();
+                aGuideName = currentAssignment.getGuide().getName();
+                TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks;
             }
-            if (hasHotel) {
-            	aHotelName = currentAssignment.getHotel().getName();
-            }
-            
-
+            if (hasHotel) {aHotelName = currentAssignment.getHotel().getName();}
             List < BookedItem > membersItems = currentAssignment.getMember().getBookedItems();
-
             for (BookedItem currentBooked: membersItems) {
-            	int quant = currentBooked.getQuantity();
+                int quant = currentBooked.getQuantity();
                 if (currentBooked.getItem() instanceof EquipmentBundle) {
-                	
-                	EquipmentBundle currentBundle = (EquipmentBundle) currentBooked.getItem();
+                    EquipmentBundle currentBundle = (EquipmentBundle) currentBooked.getItem();
                     List < BundleItem > storedEquipment = currentBundle.getBundleItems();
                     int costForBundle = 0;
-                    
                     for (BundleItem itemInBundle: storedEquipment) {
-                        
-                    	costForBundle += itemInBundle.getEquipment().getPricePerWeek() * stayedWeeks *itemInBundle.getQuantity();
-                    	
+                        costForBundle += itemInBundle.getEquipment().getPricePerWeek() * stayedWeeks * itemInBundle.getQuantity();
                     }
                     if (hasGuide) {
-                    
-                    	float discount = (float) currentBundle.getDiscount() / 100;
-                    	costForBundle =  (int) (costForBundle - costForBundle*discount);
-                    } 
-                   
-                    TotalCostForEquipment += quant*costForBundle;
-
-                } else{
-                	
+                        float discount = (float) currentBundle.getDiscount() / 100;
+                        costForBundle = (int)(costForBundle - costForBundle * discount);
+                    }
+                    TotalCostForEquipment += quant * costForBundle;
+                } else {
                     Equipment equipment = (Equipment) currentBooked.getItem();
-                    TotalCostForEquipment += equipment.getPricePerWeek() * stayedWeeks*quant;
-                    
+                    TotalCostForEquipment += equipment.getPricePerWeek() * stayedWeeks * quant;
                 }
-                
             }
-	        
-            assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide,  TotalCostForEquipment));
-
+            assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForEquipment));
         }
-
         return assignment2ToAssignment;
     }
-
-
 
 }
