@@ -341,7 +341,7 @@ public class Utility {
 	  
   }
 
-  public static boolean addItemList( ClimbSafe climbSafe, List<String> itemsToAdd, List<String> itemQuantities, Member member) {
+  public static boolean addItemList( ClimbSafe climbSafe, List<String> itemsToAdd, List<Integer> itemQuantities, Member member) {
 
 	int index=0;
 	BookableItem foundItem;
@@ -354,7 +354,7 @@ public class Utility {
 			foundItem= getBundle(climbSafe, item);
 		}
 
-		member.addBookedItem(Integer.parseInt(itemQuantities.get(index)), climbSafe, foundItem);
+		member.addBookedItem(itemQuantities.get(index), climbSafe, foundItem);
 		index++;
 
 	}
