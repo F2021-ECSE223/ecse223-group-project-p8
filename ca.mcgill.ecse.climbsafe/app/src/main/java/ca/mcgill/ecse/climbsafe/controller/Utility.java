@@ -354,7 +354,9 @@ public class Utility {
 			foundItem= getBundle(climbSafe, item);
 		}
 
-		member.addBookedItem(itemQuantities.get(index), climbSafe, foundItem);
+
+		//member.addBookedItem(itemQuantities.get(index), climbSafe, foundItem);
+		climbSafe.addBookedItem(itemQuantities.get(index), member, foundItem);
 		index++;
 
 	}

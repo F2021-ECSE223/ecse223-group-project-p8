@@ -201,9 +201,6 @@ public class ClimbSafeFeatureSet2Controller {
 				throw new InvalidInputException(error);
 			}
 
-
-
-
 			try {
 				Member existingMember = Utility.findMember(email);
 				existingMember.setPassword(newPassword);
