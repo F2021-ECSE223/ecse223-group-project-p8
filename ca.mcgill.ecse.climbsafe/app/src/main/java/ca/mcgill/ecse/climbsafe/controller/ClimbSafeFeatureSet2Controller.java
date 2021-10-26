@@ -69,30 +69,35 @@ public class ClimbSafeFeatureSet2Controller {
 		//no space
 		//cannot start with @
 		//right format __@__.__
-		// if(Utility.emailInvalidSyntax(email) == true) {
-		// 	error="Invalid email";
-		// 	throw new InvalidInputException(error);
-		// }
+
+		//works
+		if(Utility.emailInvalidSyntax(email) == true) {
+			error="Invalid email";
+			throw new InvalidInputException(error);
+		}
 		
-		// if(Utility.emailMissingSubstring(email) == true) {
-		// 	error="Invalid email";
-		// 	throw new InvalidInputException(error);
-		// }
+		if(Utility.emailMissingSubstring2(email) == true) {
+			error="Invalid email";
+			throw new InvalidInputException(error);
+		}
 		
-		// if(Utility.missingEmailDeclaration(email) == true) {
-		// 	error="Invalid email";
-		// 	throw new InvalidInputException(error);
-		// }
+		if(Utility.missingEmailDeclaration2(email) == true) {
+			error="Invalid email";
+			throw new InvalidInputException(error);
+		}
+
 		
 		// if(!email.contains(name.toLowerCase())) {
 		// 	error="Invalid email";
 		// 	throw new InvalidInputException(error);
 		// }
 	   
-	//    if(Utility.wrongEmailSyntax(email) == true) {
-	// 	   error="Invalid email";
-	// 	   throw new InvalidInputException(error);
-	//    }
+
+	   if(Utility.wrongEmailSyntax2(email) == true) {
+		   error="Invalid email";
+		   throw new InvalidInputException(error);
+	   }
+
 		
 		//empty password
 		if (password.isEmpty()) {
@@ -135,11 +140,13 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "A guide with this email already exists";
 			throw new InvalidInputException(error);
 		}
+		/*
 		//requested item not found
 		if (!Utility.bookableItemsExists(climbSafe, itemNames)) {
 			error = "Requested item not found";
 			throw new InvalidInputException(error);
 		}
+		*/
 
 		try {
 			Member myMember;

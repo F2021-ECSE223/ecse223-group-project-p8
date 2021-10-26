@@ -262,6 +262,14 @@ public class Utility {
 		
 	}
 	
+	public static boolean emailMissingSubstring2(String email) {
+		boolean invalid=false;
+		if(!email.contains(".ca")) {
+			invalid=true;
+		}
+		return invalid;
+		
+	}
 	/** Method to check if there is a missing "email"
 	 * @author Selina
 	 * @param email Email of guide 
@@ -270,6 +278,13 @@ public class Utility {
 	public static boolean missingEmailDeclaration(String email) {
 		boolean invalid=false;
 		if(!email.contains("email")) {
+			invalid=true;
+		}
+		return invalid;
+	}
+	public static boolean missingEmailDeclaration2(String email) {
+		boolean invalid=false;
+		if(!email.contains("mail")) {
 			invalid=true;
 		}
 		return invalid;
@@ -289,7 +304,18 @@ public class Utility {
 		}
 		return invalid;
 	}
-
+/*
+ * for mail
+ */
+	public static boolean wrongEmailSyntax2(String email) {
+		boolean invalid=false;
+		int indexOfEmail=email.indexOf("mail");
+		int indexOfAt=email.indexOf("@");
+		if(indexOfAt > indexOfEmail) {
+			invalid=true;
+		}
+		return invalid;
+	}
 
 
 	 /** Method to check existence of a list of bookableItems in system.
