@@ -177,7 +177,7 @@ public class ClimbSafeFeatureSet2Controller {
 				throw new InvalidInputException(error);
 			}
 		
-			if (newNrWeeks>=climbSafe.getNrWeeks()) {
+			if (newNrWeeks>climbSafe.getNrWeeks()) {
 				error = "The number of weeks must be greater than zero and less than or equal to the number of climbing weeks in the climbing season";
 				throw new InvalidInputException(error);
 			}
