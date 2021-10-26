@@ -94,8 +94,7 @@ public class ClimbSafeFeatureSet3Controller {
 	 }
 	 
 	 try {
-		Guide newGuide=climbSafe.addGuide(email, password, name, emergencyContact); 
-		climbSafe.addGuide(newGuide);
+		climbSafe.addGuide(email, password, name, emergencyContact); 
 	 }
 	 catch (RuntimeException e){
 		  error = e.getMessage();
