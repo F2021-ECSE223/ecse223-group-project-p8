@@ -18,10 +18,6 @@ public class ClimbSafeFeatureSet1Controller {
       throws InvalidInputException {
 	  
 	  var error = "";
-	  if(!Utility.dateIsValid(startDate.toString())){
-		  error = "Invalid date";
-		  throw new InvalidInputException(error);
-	  }
 	  if(nrWeeks <= 0){
 		  error = "The number of climbing weeks must be greater than or equal to zero";
 		  throw new InvalidInputException(error);
