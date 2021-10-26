@@ -139,9 +139,10 @@ public class ClimbSafeFeatureSet2Controller {
 		}
 
 		try {
-			climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
+			Member myMember;
+			myMember=climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
 			//add items too!!
-
+			Utility.addItemList(climbSafe, itemNames, itemQuantities, myMember);
 			
 		}catch (RuntimeException e) {
 			error = e.getMessage();

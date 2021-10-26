@@ -3,6 +3,7 @@ package ca.mcgill.ecse.climbsafe.controller;
 import java.util.List;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+import ca.mcgill.ecse.climbsafe.model.BookableItem;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
@@ -312,6 +313,54 @@ public class Utility {
 
 		}
 		return false;
+  }
+
+  //I'll add javadoc later -ke
+
+  public static EquipmentBundle getBundle( ClimbSafe climbSafe, String budle) {
+
+	List<EquipmentBundle> equipmentBundleInSystem = climbSafe.getBundles();
+	for(EquipmentBundle aBudle : equipmentBundleInSystem) {
+		if(aBudle.getName().equals(budle)) {
+			return aBudle;
+		}
+	}
+	return null;
+	  
+  }
+
+  public static Equipment getEquipment( ClimbSafe climbSafe, String equipment) {
+
+	List<Equipment> equipmentInSystem = climbSafe.getEquipment();
+	for (Equipment anEquipment : equipmentInSystem) {
+		if (anEquipment.getName().equals(equipment)) {
+			return anEquipment;
+		}
+	}
+	return null;
+	  
+  }
+
+  public static boolean addItemList( ClimbSafe climbSafe, List<String> itemsToAdd, List<String> itemQuantities, Member member) {
+
+	int index=0;
+	BookableItem foundItem;
+
+	for (String item: itemsToAdd) {
+
+		//should always work since we checked?
+		foundItem=getEquipment(climbSafe, item);
+		if (foundItem==null) {
+			foundItem= getBundle(climbSafe, item);
+		}
+
+		member.addBookedItem(Integer.parseInt(itemQuantities.get(index)), climbSafe, foundItem);
+		index++;
+
+	}
+
+	return true;
+
   }
 
 
