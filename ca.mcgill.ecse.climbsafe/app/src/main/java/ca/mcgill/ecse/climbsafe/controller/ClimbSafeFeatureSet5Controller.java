@@ -29,6 +29,58 @@ public class ClimbSafeFeatureSet5Controller {
 	public static void addEquipmentBundle(String name, int discount, List<String> equipmentNames,
 			List<Integer> equipmentQuantities) throws InvalidInputException {
 		var error = "";
+		
+		// check name
+		if (name.length() == 0) {
+			error = "Equipment bundle name cannot be empty";
+			throw new InvalidInputException(error);
+		}
+		if (Utility.bookableItemtHasSameNameAsNewBundleName(climbSafe, name)) {
+			error = "A bookable item called " + name + " already exists";
+			throw new InvalidInputException(error);
+		}
+
+		// check discount
+		if (newDiscount < 0) {
+			error = "Discount must be at least 0";
+			throw new InvalidInputException(error);
+		}
+		if (newDiscount > 100) {
+			error = "Discount must be no more than 100";
+			throw new InvalidInputException(error);
+		}
+
+		// check equipments in bundle
+		if (newEquipmentNames.size() <= 1 || !Utility.listHas2DistinctEquipment(newEquipmentNames)) {
+			error = "Equipment bundle must contain at least two distinct types of equipment";
+			throw new InvalidInputException(error);
+		}
+
+		List<Equipment> equipmentInSystem = climbSafe.getEquipment();
+		List<String> storesNames = new ArrayList<String>();
+		for (Equipment temp : equipmentInSystem) {
+			storesNames.add(temp.getName());
+		}
+
+		String missingEquipment = null;
+		for (String x : newEquipmentNames) {
+			if (!storesNames.contains(x)) {
+				missingEquipment = x;
+				break;
+			}
+		}
+
+		if (missingEquipment != null) {
+			error = "Equipment " + missingEquipment + " does not exist";
+			throw new InvalidInputException(error);
+		}
+
+		// check quantity of equipment
+		if (Utility.quantityIsNotValid(newEquipmentQuantities)) {
+			error = "Each bundle item must have quantity greater than or equal to 1";
+			throw new InvalidInputException(error);
+		}
+		
 		try {
 			// addBundle() creates a new equipment bundle and adds it to ClimbSafe
 			EquipmentBundle equipmentBundle = climbSafe.addBundle(name, discount);
@@ -120,7 +172,7 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 		
 		if(!(newName.equals(oldName)) && Utility.bundleExistsInSystem(climbSafe, newName)) {
-			error = "A bookable item called large bundle already exists";
+			error = "A bookable item called " + newName + " already exists";
 			throw new InvalidInputException(error);
 		}
 		
