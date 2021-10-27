@@ -148,6 +148,9 @@ public class P8StepDefinitions {
       assertNotNull(currentItem);
       assertEquals(quantity, currentItem.getQuantity());
     }
+
+     // check bundle size
+     assertEquals(itemNamesCleaned.size(), equipmentBundle.getBundleItems().size());
   }
 
   // @Ke
