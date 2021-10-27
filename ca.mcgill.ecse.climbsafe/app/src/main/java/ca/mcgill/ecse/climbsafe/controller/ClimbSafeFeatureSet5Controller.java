@@ -184,9 +184,10 @@ public class ClimbSafeFeatureSet5Controller {
 			//set new discount
 			equipmentBundle.setDiscount(newDiscount);
 			//remove all items in the bundle
-			for(int i = 0;i<equipmentBundle.getBundleItems().size();i++) {
-				equipmentBundle.removeBundleItem(equipmentBundle.getBundleItem(i));
-			}
+			// for(int i = 0;i<=equipmentBundle.getBundleItems().size();i++) {
+			// 	equipmentBundle.getBundleItem(0).delete();
+			// }
+			Utility.resetBundleItems(climbSafe, equipmentBundle);
 			
 			//add new items in bundle with corresponding quantity
 			for(int i = 0;i<newEquipmentNames.size();i++) {

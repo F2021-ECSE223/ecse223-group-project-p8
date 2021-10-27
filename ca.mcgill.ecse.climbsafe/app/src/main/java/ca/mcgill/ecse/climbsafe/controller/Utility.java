@@ -5,6 +5,7 @@ import java.util.List;
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.BookableItem;
 import ca.mcgill.ecse.climbsafe.model.BookedItem;
+import ca.mcgill.ecse.climbsafe.model.BundleItem;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
@@ -412,9 +413,9 @@ public class Utility {
 	
 	List<BookedItem> ItemInMember = member.getBookedItems();
 	
-	//the list resizes!!! nnot sure why <=, but only way it works:'))'
+	int counter=ItemInMember.size();
 
-  for (int i=0; i<=ItemInMember.size(); i++) {
+  for (int i=0; i<counter; i++) {
 	  // climbSafe.removeBookedItem(bookedItem);
 	  //member.removeBookedItem(bookedItem);
 	  //bookedItem.delete();
@@ -423,6 +424,16 @@ public class Utility {
 
   return true;
 
+}
+
+public static boolean resetBundleItems( ClimbSafe climbSafe, EquipmentBundle bundle) {
+	List<BundleItem> ItemInBundle = bundle.getBundleItems();
+	int counter=ItemInBundle.size();
+	for(int i = 0;i<counter;i++) {
+		ItemInBundle.get(0).delete();
+	  }
+	return true;
+	
 }
 
 
