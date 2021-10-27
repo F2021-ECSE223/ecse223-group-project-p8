@@ -408,15 +408,22 @@ public class Utility {
   }
 
   public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {
+	  
+	
+	List<BookedItem> ItemInMember = member.getBookedItems();
+	
+	//the list resizes!!! nnot sure why <=, but only way it works:'))'
 
-	for (BookedItem bookedItem: member.getBookedItems()) {
-		// climbSafe.removeBookedItem(bookedItem);
-		member.removeBookedItem(bookedItem);
-	}
-
-	return true;
-
+  for (int i=0; i<=ItemInMember.size(); i++) {
+	  // climbSafe.removeBookedItem(bookedItem);
+	  //member.removeBookedItem(bookedItem);
+	  //bookedItem.delete();
+	  ItemInMember.get(0).delete();
   }
+
+  return true;
+
+}
 
 
 }
