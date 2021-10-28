@@ -65,29 +65,29 @@ public class ClimbSafeFeatureSet4Controller {
       int newPricePerWeek) throws InvalidInputException {
     var error="";
     if (newName.equals("")) {
-      error= "The name must not be empty.";
+      error= "The name must not be empty";
       throw new InvalidInputException(error);
     }
     if (newWeight<=0) {
-      error = "The weight must be greater than 0.";
+      error = "The weight must be greater than 0";
       throw new InvalidInputException(error);
     }
     if (newPricePerWeek<0) {
-      error = "The price per week must be greater than or equal to 0.";
+      error = "The price per week must be greater than or equal to 0";
       throw new InvalidInputException(error);
     }
     if (!Utility.equipmentExists(oldName, Utility.climbSafe)) {
-      error = "The piece of equipment does not exist.";
+      error = "The piece of equipment does not exist";
       throw new InvalidInputException(error);
     }
     
-    if (Utility.equipmentExists(newName, Utility.climbSafe)) {
-      error= "The piece of equipment already exists.";
-      throw new InvalidInputException(error);
+    if (Utility.equipmentExists(newName, Utility.climbSafe) && !newName.equals(oldName)) {
+        error= "The piece of equipment already exists";
+        throw new InvalidInputException(error);
     }
     
     if (Utility.bundleExistsInSystem(Utility.climbSafe, newName)) {
-      error = "An equipment Bundle with the same name already exists.";
+      error = "An equipment bundle with the same name already exists";
       throw new InvalidInputException(error);
     }
     
