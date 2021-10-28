@@ -15,7 +15,7 @@ public class ClimbSafeFeatureSet5Controller {
 
 	/*
 	 * Creates a new equipment bundle with the given name and discount and adds it
-	 * to the ClimbSafe system
+	 * to the ClimbSafe system 
 	 * 
 	 * @author Aigiarn Cheuk
 	 * @param name Name of the equipment bundle
