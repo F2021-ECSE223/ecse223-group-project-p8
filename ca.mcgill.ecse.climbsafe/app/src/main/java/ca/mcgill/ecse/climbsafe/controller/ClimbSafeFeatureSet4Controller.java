@@ -63,8 +63,10 @@ public class ClimbSafeFeatureSet4Controller {
  */
   public static void updateEquipment(String oldName, String newName, int newWeight,
       int newPricePerWeek) throws InvalidInputException {
+	  
+	  
     var error="";
-    if (newName.equals("")) {
+    if (newName.isEmpty()) {
       error= "The name must not be empty";
       throw new InvalidInputException(error);
     }
@@ -76,7 +78,7 @@ public class ClimbSafeFeatureSet4Controller {
       error = "The price per week must be greater than or equal to 0";
       throw new InvalidInputException(error);
     }
-    if (!Utility.equipmentExists(oldName, Utility.climbSafe)) {
+    if (Utility.equipmentExists(oldName, Utility.climbSafe) == false) {
       error = "The piece of equipment does not exist";
       throw new InvalidInputException(error);
     }

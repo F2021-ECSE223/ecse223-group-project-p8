@@ -116,12 +116,12 @@ public class ClimbSafeFeatureSet3Controller {
 	  
 	  var error="";
 	  
-	  if(newPassword.isEmpty()) {
+	  if(newPassword.isEmpty() || newPassword.isBlank()) {
 		  error="Password cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(newName.isEmpty()) {
+	  if(newName.isEmpty() ) {
 		  error="Name cannot be empty";
 		  throw new InvalidInputException(error);
 	  }

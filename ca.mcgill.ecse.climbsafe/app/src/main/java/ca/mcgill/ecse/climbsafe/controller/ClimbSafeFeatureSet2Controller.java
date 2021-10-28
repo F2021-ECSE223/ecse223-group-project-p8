@@ -72,12 +72,12 @@ public class ClimbSafeFeatureSet2Controller {
 		   error="Invalid email";
 		   throw new InvalidInputException(error);
 	   }
+	   
 
 	   if(Utility.goodStart(email)==true) {
 			error="Invalid email";
 			throw new InvalidInputException(error);
 	   }
-
 		
 		//empty password
 		if (password.isEmpty()) {
@@ -126,7 +126,6 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "Requested item not found";
 			throw new InvalidInputException(error);
 		}
-		
 
 		try {
 			Member myMember;

@@ -197,6 +197,7 @@ public class Utility {
 		return invalid;
 	}
 	
+	
 	/**Method to find if there is an existing instance of equipment in the system.
 	 * 
 	 * @author Maya
@@ -205,14 +206,20 @@ public class Utility {
 	 * @param climbsafe ClimbSafe system
 	 * @return boolean indicating if the equipment entered was found in the system or not
 	 */
-	public static boolean equipmentExists( String name, ClimbSafe climbsafe) {
-	      List<Equipment> existingEquipment = climbsafe.getEquipment();
-	      for (Equipment equipment: existingEquipment) {
-	        if(equipment.getName().equals(name)) {
-	          return true;
-	        }
-	      }
-	      return false;
+	public static boolean equipmentExists(String name, ClimbSafe climbsafe) {
+		List<Equipment> equipmentsInSystem = climbSafe.getEquipment();
+		boolean found = false;
+		for(int i=0;i<equipmentsInSystem.size();i++) {
+			Equipment equipment = equipmentsInSystem.get(i);
+			if(equipment != null) {
+				String equipmentName = equipment.getName();
+				if(equipmentName.equals(name)) {
+					found=true;
+					break;
+				}
+			}
+		}
+		return found;
 	}
 	
 	/*
@@ -409,32 +416,24 @@ public class Utility {
   }
 
   public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {
-	  
-	
-	List<BookedItem> ItemInMember = member.getBookedItems();
-	
-	int counter=ItemInMember.size();
 
-  for (int i=0; i<counter; i++) {
-	  // climbSafe.removeBookedItem(bookedItem);
-	  //member.removeBookedItem(bookedItem);
-	  //bookedItem.delete();
-	  ItemInMember.get(0).delete();
-  }
+	for (BookedItem bookedItem: member.getBookedItems()) {
+		// climbSafe.removeBookedItem(bookedItem);
+		member.removeBookedItem(bookedItem);
+	}
 
-  return true;
-
-}
-
-public static boolean resetBundleItems( ClimbSafe climbSafe, EquipmentBundle bundle) {
-	List<BundleItem> ItemInBundle = bundle.getBundleItems();
-	int counter=ItemInBundle.size();
-	for(int i = 0;i<counter;i++) {
-		ItemInBundle.get(0).delete();
-	  }
 	return true;
-	
-}
+
+  }
+  public static boolean resetBundleItems( ClimbSafe climbSafe, EquipmentBundle bundle) {
+		List<BundleItem> ItemInBundle = bundle.getBundleItems();
+		int counter=ItemInBundle.size();
+		for(int i = 0;i<counter;i++) {
+			ItemInBundle.get(0).delete();
+		  }
+		return true;
+		
+	}
 
 
 }
