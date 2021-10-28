@@ -51,6 +51,11 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 
 		// check equipments in bundle
+		if (equipmentNames == null) {
+			error = "List of equipments cannot be null";
+			throw new InvalidInputException(error);
+		}
+		
 		if (equipmentNames.size() <= 1 || !Utility.listHas2DistinctEquipment(equipmentNames)) {
 			error = "Equipment bundle must contain at least two distinct types of equipment";
 			throw new InvalidInputException(error);
@@ -76,6 +81,16 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 
 		// check quantity of equipment
+		if (equipmentQuantities == null) {
+			error = "List of equipment quantities cannot be null";
+			throw new InvalidInputException(error);
+		}
+		
+		if (equipmentNames.size() != equipmentQuantities.size()) {
+			error = "List of equipments must have the same length as list of equipment quantities";
+			throw new InvalidInputException(error);
+		}
+		
 		if (Utility.quantityIsNotValid(equipmentQuantities)) {
 			error = "Each bundle item must have quantity greater than or equal to 1";
 			throw new InvalidInputException(error);
@@ -136,6 +151,11 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 		
 		//check equipments in bundle
+		if (newEquipmentNames == null) {
+			error = "List of new equipments cannot be null";
+			throw new InvalidInputException(error);
+		}
+		
 		if(newEquipmentNames.size() <= 1 || !Utility.listHas2DistinctEquipment(newEquipmentNames)) {
 			error = "Equipment bundle must contain at least two distinct types of equipment";	
 			throw new InvalidInputException(error);
@@ -162,6 +182,16 @@ public class ClimbSafeFeatureSet5Controller {
 		
 		
 		//check quantity of equipment
+		if (newEquipmentQuantities == null) {
+			error = "List of new equipment quantities cannot be null";
+			throw new InvalidInputException(error);
+		}
+		
+		if (newEquipmentNames.size() != newEquipmentQuantities.size()) {
+			error = "List of new equipments must have the same length as list of new equipment quantities";
+			throw new InvalidInputException(error);
+		}
+		
 		if(Utility.quantityIsNotValid(newEquipmentQuantities)) {
 			error = "Each bundle item must have quantity greater than or equal to 1";
 			throw new InvalidInputException(error);
