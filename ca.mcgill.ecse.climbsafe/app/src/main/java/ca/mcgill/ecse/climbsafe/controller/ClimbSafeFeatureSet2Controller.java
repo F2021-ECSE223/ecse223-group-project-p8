@@ -28,17 +28,30 @@ public class ClimbSafeFeatureSet2Controller {
      List<String> itemNames, List<Integer> itemQuantities) throws InvalidInputException {
 		
 		var error = "";
+		
+		//empty email
+		if (email.isEmpty()) {
+			error = "The email cannot be empty";
+			throw new InvalidInputException(error);
+		}
+		
 
 		//email already in use
 		if (Utility.findMember(email)!=null) {
 			error = "A member with this email already exists";
 			throw new InvalidInputException(error);
 		}
-
-		//empty email
-		if (email.isEmpty()) {
-			error = "The email cannot be empty";
+		
+		//same email as admin
+		if (email.equals("admin@nmc.nt")) {
+			error = "The email entered is not allowed for members";
 			throw new InvalidInputException(error);
+		}
+		
+		//same email as a guide
+		if (Utility.findGuide(email)!=null) {
+					error = "A guide with this email already exists";
+					throw new InvalidInputException(error);
 		}
 		
 		//space in email
@@ -104,18 +117,7 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "The number of weeks must be greater than zero and less than or equal to the number of climbing weeks in the climbing season";
 			throw new InvalidInputException(error);
 		}
-		
-		//same email as admin
-		if (email.equals("admin@nmc.nt")) {
-			error = "The email entered is not allowed for members";
-			throw new InvalidInputException(error);
-		}
 
-		//same email as a guide
-		if (Utility.findGuide(email)!=null) {
-			error = "A guide with this email already exists";
-			throw new InvalidInputException(error);
-		}
 		
 		//requested item not found
 		if (!Utility.bookableItemsExists(climbSafe, itemNames)) {
