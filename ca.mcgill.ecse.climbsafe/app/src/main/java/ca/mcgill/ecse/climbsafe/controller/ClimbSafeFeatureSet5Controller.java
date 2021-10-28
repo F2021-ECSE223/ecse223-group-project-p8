@@ -29,7 +29,7 @@ public class ClimbSafeFeatureSet5Controller {
 	public static void addEquipmentBundle(String name, int discount, List<String> equipmentNames,
 			List<Integer> equipmentQuantities) throws InvalidInputException {
 		var error = "";
-		
+
 		// check name
 		if (name.length() == 0) {
 			error = "Equipment bundle name cannot be empty";
