@@ -221,16 +221,7 @@ public class Utility {
 		}
 		return found;
 	}
-	
-	/*
-	 * I CREATED AN INSTANCE OF THE CLIMB SAFE APP SO EVERY CONTROLLER CAN ACCESS IT FROM HERE
-	 * (CALL for e.g Utility.climbSafe.setNrWeeks())
-	 * ADD HELPER METHODS IN THIS CLASS IF U WANT TO
-	 * I ADDED THE FINDGUIDE AND THE FINDMEMBER BECAUSE I NEEDED THEM IN THE CONTROLLER
-	 * U CAN USE THEM IF U WANT TO
-	 */
-	
-	
+		
 	/** Method to find whether two @ exist in the email declaration of the guide
 	 * @author Selina
 	 * @param email Email of guide 
