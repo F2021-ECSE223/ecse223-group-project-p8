@@ -9,20 +9,21 @@ import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
 public class ClimbSafeFeatureSet2Controller {
-	
-	/**
-	 * TO DO
-	 * Check import
-	 * add javadoc
-	 * ask methods
-	 * check getNrWeeks
-	 * ADD GUIDE AND HOTEL
-	 * update equipment or add?
-	 * fix errors
-	 */
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
- 
+	/** This method registers a new member in the climbSafe system
+	 * @Ke
+	 * @param email Email of the new member
+	 * @param password password of the new member
+	 * @param name name of the new member
+	 * @param emergencyContact phone number for the emergency contact of the new member
+	 * @param nrWeeks nuber of weeks Weeks of climbing of the new member
+	 * @param guideRequired whether or not the new member desires a guide
+	 * @param hotelRequired whether or not the new member desires a hotel stay
+	 * @param itemNames list of item the member desires to rent
+	 * @param itemQuantities list of quantities for each item the member desires to rent
+	 * @throws InvalidInputException
+	 */
 	public static void registerMember(String email, String password, String name,
      String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,    
      List<String> itemNames, List<Integer> itemQuantities) throws InvalidInputException {
@@ -139,6 +140,19 @@ public class ClimbSafeFeatureSet2Controller {
 	  }
 
  
+	  /** This method updates an existing memeber in the climbSafe system
+	   * @Ke
+	   * @param email Email of the member we wish to update
+	   * @param newPassword new password
+	   * @param newName new name
+	   * @param newEmergencyContact new emergency contact phone number
+	   * @param newNrWeeks new number of weeks of climbing
+	   * @param newGuideRequired new preference for guide (desired or not)
+	   * @param newHotelRequired new preference for hotel stay (desired or not)
+	   * @param newItemNames new list of items the member wishes to rent
+	   * @param newItemQuantities new quantities associated to the list of items the member wishes to rent
+	   * @throws InvalidInputException
+	   */
 	public static void updateMember(String email, String newPassword, String newName,
 		String newEmergencyContact, int newNrWeeks, boolean newGuideRequired,
 		boolean newHotelRequired, List<String> newItemNames, List<Integer> newItemQuantities) throws InvalidInputException {
