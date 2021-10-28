@@ -12,7 +12,7 @@ import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
 public class ClimbSafeFeatureSet6Controller {
-
+	//ww
     /**
      *  deleteEquipment uses the name parameter to delete the corresponding equipment with the same name
      *  
