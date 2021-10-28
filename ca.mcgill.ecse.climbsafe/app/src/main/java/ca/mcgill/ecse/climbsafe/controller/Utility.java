@@ -17,6 +17,7 @@ public class Utility {
 	public static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	
 	/**
+	 * Finds the corresponding member to the given name and returns it
 	 * @author Joey
 	 * @param email is the unique email of the member which is wanted
 	 * @return the member with the specified email
@@ -36,6 +37,7 @@ public class Utility {
 	}
 	
 	/**
+	 * Finds the corresponding Guide to the given name and returns it
 	 * @author Joey
 	 * @param email is the unique email of the guide which is wanted
 	 * @return the guide with the specified email
@@ -334,7 +336,7 @@ public class Utility {
 
 
 	/**
-	 * Method to check if there are characters before "@" in a string
+	 * checks if there are characters before "@" in a string
 	 * @author Ke
 	 * @param email string to check
 	 * @return true if there is no char, false otherwise
@@ -350,7 +352,7 @@ public class Utility {
 
 
 	 /**
-	  * Method to check existence of a list of bookableItems in system.
+	  * checks existence of a list of bookableItems in system.
 	  * @author Ke
 	  * @param climbSafe instance of a system
 	  * @param itemsToCheck list of bookableItems to check
@@ -374,7 +376,7 @@ public class Utility {
   }
 
   /**
-   * get an EquipmentBundle by name in an instance of ClimbSafe
+   * gets an EquipmentBundle by name in an instance of ClimbSafe
    * @author Ke Yan
    * @param climbSafe instance of system
    * @param budle name of the EquipmentBundle to search for
@@ -394,7 +396,7 @@ public class Utility {
   }
 
   /**
-   * get an equipment by name in an instance of ClimbSafe
+   * gets an equipment by name in an instance of ClimbSafe
    * @author Ke Yan
    * @param climbSafe instance of system
    * @param equipment name of the equipment to search for
@@ -415,7 +417,7 @@ public class Utility {
 
 
   /**
-   * method will add a list of item and their respective quantities (same index) to a member's bookedItems in an instance of ClimbSafe
+   * adds a list of item and their respective quantities (same index) to a member's bookedItems in an instance of ClimbSafe
    * @author Ke Yan
    * @param climbSafe instance of system
    * @param itemsToAdd list of items to add
@@ -448,7 +450,7 @@ public class Utility {
   }
 
 /**
- * method will delete all booked item of a member in an instance of ClimbSafe
+ * method deletes all booked item of a member in an instance of ClimbSafe
  * @author Ke Yan
  * @param climbSafe instance of system
  * @param member member who's booked item will be reset
@@ -471,7 +473,7 @@ public class Utility {
   }
 
   /**
-   * method will delete all bundle items of a bundle in an instance of ClimbSafe
+   * deletes all bundle items in a bundle in an instance of ClimbSafe
    * @author Ke Yan
    * @param climbSafe instance of system
    * @param bundle  Bundle for which booked item will be reset
