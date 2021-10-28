@@ -126,6 +126,16 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "Requested item not found";
 			throw new InvalidInputException(error);
 		}
+		//empty check
+		if (itemNames==null) {
+			error = "Inputs canot be null";
+			throw new InvalidInputException(error);
+		}
+
+		if (itemQuantities==null) {
+			error = "Inputs canot be null";
+			throw new InvalidInputException(error);
+		}
 
 		try {
 			Member myMember;
@@ -206,6 +216,21 @@ public class ClimbSafeFeatureSet2Controller {
 				error = "Requested item not found";
 				throw new InvalidInputException(error);
 			}
+
+			//empty check
+			if (newItemNames==null) {
+				error = "Inputs canot be null";
+				throw new InvalidInputException(error);
+			}
+
+			if (newItemQuantities==null) {
+				error = "Inputs canot be null";
+				throw new InvalidInputException(error);
+			}
+			
+
+
+
 
 			try {
 				Member existingMember = Utility.findMember(email);
