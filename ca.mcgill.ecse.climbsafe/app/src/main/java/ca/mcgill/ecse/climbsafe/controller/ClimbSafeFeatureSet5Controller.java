@@ -35,7 +35,7 @@ public class ClimbSafeFeatureSet5Controller {
 			error = "Equipment bundle name cannot be empty";
 			throw new InvalidInputException(error);
 		}
-		if (Utility.bookableItemtHasSameNameAsNewBundleName(climbSafe, name)) {
+		if (Utility.EquipmenttHasSameNameAsNewBundleName(climbSafe, name)) {
 			error = "A bookable item called " + name + " already exists";
 			throw new InvalidInputException(error);
 		}
@@ -135,7 +135,7 @@ public class ClimbSafeFeatureSet5Controller {
 			error = "Equipment bundle name cannot be empty";
 			throw new InvalidInputException(error);
 		}
-		if(Utility.bookableItemtHasSameNameAsNewBundleName(climbSafe, newName)){
+		if(Utility.EquipmenttHasSameNameAsNewBundleName(climbSafe, newName)){
 			error = "A bookable item called " + newName + " already exists";
 			throw new InvalidInputException(error);
 		}

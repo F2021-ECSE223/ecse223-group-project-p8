@@ -17,7 +17,7 @@ public class Utility {
 	public static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	
 	/**
-	 * @JoeyLiu
+	 * @author Joey
 	 * @param email is the unique email of the member which is wanted
 	 * @return the member with the specified email
 	 */
@@ -36,7 +36,7 @@ public class Utility {
 	}
 	
 	/**
-	 * @JoeyLiu
+	 * @author Joey
 	 * @param email is the unique email of the guide which is wanted
 	 * @return the guide with the specified email
 	 */
@@ -94,9 +94,9 @@ public class Utility {
 		return foundEquipment;
 	}
 	
-	/** @Joey
+	/** 
 	 * Finds whether a list contains 2 different kinds of equipment
-	 * 
+	 * @author Joey
 	 * @param equipmentList list of equipment 
 	 * 
 	 * @return boolean
@@ -114,9 +114,9 @@ public class Utility {
 	}
 	
 	
-	/** @Joey
+	/** 
 	 * Finds whether the equipment present in the list is available in the system
-	 * 
+	 * @author Joey
 	 * @param equipmentList list of equipment 
 	 * @param climbSafe instance of system
 	 * 
@@ -135,9 +135,9 @@ public class Utility {
 		return isIn;
 	}
 	
-	/** @Joey
+	/** 
 	 * Finds whether the bundle is available in the system
-	 * 
+	 * @author Joey
 	 * @param bundleName name of bundle
 	 * 
 	 * @return boolean
@@ -156,10 +156,10 @@ public class Utility {
 		return valid;
 	}
 	
-	/** @Joey
-	 * Finds whether the bundle is available in the system
-	 * 
-	 * @param bundleName name of bundle
+	/** 
+	 * Finds whether the quantity string is a valid one
+	 * @author Joey
+	 * @param list of quantity
 	 * 
 	 * @return boolean
 	 */
@@ -175,15 +175,15 @@ public class Utility {
 	}
 	
 	
-	/** @Joey
-	 * Finds whether the bundle is available in the system
-	 * 
+	/** 
+	 * Finds an equipment has the same name as the new bundle name
+	 * @author Joey
 	 * @param newBundleName new name of bundle
 	 * @param climbSafe instance of system
 	 * 
 	 * @return boolean
 	 */
-	public static boolean bookableItemtHasSameNameAsNewBundleName(ClimbSafe climbSafe,
+	public static boolean EquipmenttHasSameNameAsNewBundleName(ClimbSafe climbSafe,
 			String newBundleName) {
 		//checks whether a bookable item has the same name as the new bundle name
 		boolean invalid = false;
