@@ -64,7 +64,6 @@ public class ClimbSafeFeatureSet4Controller {
   public static void updateEquipment(String oldName, String newName, int newWeight,
       int newPricePerWeek) throws InvalidInputException {
 	  
-	  
     var error="";
     if (newName.isEmpty()) {
       error= "The name must not be empty";
