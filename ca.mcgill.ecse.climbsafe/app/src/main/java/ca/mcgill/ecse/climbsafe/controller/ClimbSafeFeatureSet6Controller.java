@@ -11,16 +11,14 @@ import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
-// By Mihail
-
 public class ClimbSafeFeatureSet6Controller {
 
     /**
      *  deleteEquipment uses the name parameter to delete the corresponding equipment with the same name
      *  
-     * @author Mihail
-     * @param  name  The equipment's name that needs to be deleted
-     * @return none (void)
+     * @author Mihail Calitoiu
+     * @param  name is the equipment's name that needs to be deleted
+     * @throws InvalidInputException for inputs when errors occur
      */
     public static void deleteEquipment(String name) throws InvalidInputException {
         Equipment equipment = null;
@@ -43,9 +41,9 @@ public class ClimbSafeFeatureSet6Controller {
     /**
      *  deleteEquipmentBundle uses the name parameter to delete the corresponding equipment bundle with the same name
      *
-     * @author Mihail
-     * @param  name  The equipment bundle's name that needs to be deleted
-     * @return none (void)
+     * @author Mihail Calitoiu
+     * @param  name is the equipment bundle's name that needs to be deleted
+     * @throws InvalidInputException for inputs when errors occur
      */
     public static void deleteEquipmentBundle(String name) {
         EquipmentBundle equipmentBundle = null;
@@ -59,8 +57,7 @@ public class ClimbSafeFeatureSet6Controller {
     /**
      *  getAssignments gets the assignment object list inside ClimbSafe and converts the list into a ToAssignment object list
      * 
-     * @author Mihail
-     * @param  none
+     * @author Mihail Calitoiu
      * @return a TOAssignment list containing the converted assignments
      */
     public static List < TOAssignment > getAssignments() {
