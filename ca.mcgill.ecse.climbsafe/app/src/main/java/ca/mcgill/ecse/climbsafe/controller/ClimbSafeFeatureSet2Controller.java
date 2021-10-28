@@ -28,11 +28,16 @@ public class ClimbSafeFeatureSet2Controller {
      List<String> itemNames, List<Integer> itemQuantities) throws InvalidInputException {
 		
 		var error = "";
-		
-		
+
 		//email already in use
 		if (Utility.findMember(email)!=null) {
 			error = "A member with this email already exists";
+			throw new InvalidInputException(error);
+		}
+
+		//empty email
+		if (email.isEmpty()) {
+			error = "The email cannot be empty";
 			throw new InvalidInputException(error);
 		}
 		
@@ -41,15 +46,6 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "The email must not contain any spaces";
 			throw new InvalidInputException(error);
 		}
-		
-		//rest of email check
-		
-		//only 1 @ per email
-		//need letter after @
-		//need .
-		//no space
-		//cannot start with @
-		//right format __@__.__
 
 		//works
 		if(Utility.emailInvalidSyntax(email) == true) {
@@ -146,6 +142,12 @@ public class ClimbSafeFeatureSet2Controller {
 		boolean newHotelRequired, List<String> newItemNames, List<Integer> newItemQuantities) throws InvalidInputException {
 
 			var error = "";
+
+			//empty email
+			if (email.isEmpty()) {
+				error = "The email cannot be empty";
+				throw new InvalidInputException(error);
+			}
 
 			//member not found
 			if (Utility.findMember(email)==null) {
