@@ -5,14 +5,16 @@ import java.sql.Date;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
-//@JoeyLiu
+
 
 public class ClimbSafeFeatureSet1Controller {
 	
   /**
+   * @author Joey
    * @param startDate is the starting date of the climbing season specified by the admin
    * @param nrWeeks is the number of weeks in the climbing season
    * @param priceOfGuidePerWeek is the weekly price of hiring a guide
+   * @throws InvalidInputException
    */
   public static void setup(Date startDate, int nrWeeks, int priceOfGuidePerWeek)
       throws InvalidInputException {
@@ -38,6 +40,7 @@ public class ClimbSafeFeatureSet1Controller {
   }
   
   /**
+   * @author Joey
    * @param email is the string which identifies the member to be deleted since each member has a unique email
    */
   public static void deleteMember(String email) {
@@ -51,6 +54,7 @@ public class ClimbSafeFeatureSet1Controller {
   }
 
   /**
+   * @author Joey
    * @param email is the string which identifies the guide to be deleted since each guide has a unique email
    */
   public static void deleteGuide(String email) {
