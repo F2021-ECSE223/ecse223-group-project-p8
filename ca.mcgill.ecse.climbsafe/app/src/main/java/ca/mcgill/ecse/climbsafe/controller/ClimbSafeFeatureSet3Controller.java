@@ -2,7 +2,6 @@ package ca.mcgill.ecse.climbsafe.controller;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
-
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
@@ -10,9 +9,8 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 public class ClimbSafeFeatureSet3Controller {
 	 private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 	 
-	 // idk how to do javadoc haha ha ha  aaaaaaaaa
 	 /** This method registers a new guide in the climbSafe system
-	  * 
+	  * @author Selina Gao
 	  * @param email Email of Guide that gets entered and that is registered in the climbSafe system
 	  * @param password Password of Guide that gets entered and that is registered in the climbSafe system
 	  * @param name First name of Guide that is entered and registered in the climbSafe system
@@ -24,6 +22,26 @@ public class ClimbSafeFeatureSet3Controller {
       String emergencyContact) throws InvalidInputException {
 	  
 	  var error="";
+	  
+	  if(email == null) {
+		  error="The email entered is null";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(password == null) {
+		  error="The password entered is null";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(name == null) {
+		  error="The name entered is null";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(emergencyContact == null) {
+		  error="The emergency contact is null";
+		  throw new InvalidInputException(error);
+	  }
 	  
 	  if(email.isEmpty()) {
 		  error="Email cannot be empty";
@@ -103,7 +121,7 @@ public class ClimbSafeFeatureSet3Controller {
   }
   
   /** This method updates the guide's relative information in the climbSafe system
-   * 
+   * @author Selina Gao
    * @param email Email of guide we wish to update information for
    * @param newPassword New password of guide that gets registered in the climbSafe system
    * @param newName New first name of guide that gets registered in the climbSafe system
@@ -116,17 +134,17 @@ public class ClimbSafeFeatureSet3Controller {
 	  
 	  var error="";
 	  
-	  if(newPassword.isEmpty() || newPassword.isBlank()) {
+	  if(newPassword.isEmpty() || newPassword.length()==0) {
 		  error="Password cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(newName.isEmpty() ) {
+	  if(newName.isEmpty() || newName.length()==0) {
 		  error="Name cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(newEmergencyContact.isEmpty()) {
+	  if(newEmergencyContact.isEmpty() || newEmergencyContact.length()==0) {
 		  error="Emergency contact cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
