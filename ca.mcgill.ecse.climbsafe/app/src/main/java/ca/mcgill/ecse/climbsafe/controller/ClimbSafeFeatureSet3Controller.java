@@ -43,22 +43,22 @@ public class ClimbSafeFeatureSet3Controller {
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(email.isEmpty()) {
+	  if(email.isEmpty() || email.isBlank()) {
 		  error="Email cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(password.isEmpty()) {
+	  if(password.isEmpty() || password.isBlank()) {
 		  error="Password cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(name.isEmpty()) {
+	  if(name.isEmpty() || name.isBlank()) {
 		  error="Name cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(emergencyContact.isEmpty()) {
+	  if(emergencyContact.isEmpty() || emergencyContact.isBlank()) {
 		  error="Emergency contact cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
@@ -134,17 +134,32 @@ public class ClimbSafeFeatureSet3Controller {
 	  
 	  var error="";
 	  
-	  if(newPassword.isEmpty() || newPassword.length()==0) {
+	  if(newPassword == null) {
+		  error="The new password entered is null";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(newName == null) {
+		  error="The new name entered is null";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(newEmergencyContact == null) {
+		  error="The new emergency contact is null";
+		  throw new InvalidInputException(error);
+	  }
+	  
+	  if(newPassword.isEmpty() || newPassword.isBlank()) {
 		  error="Password cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(newName.isEmpty() || newName.length()==0) {
+	  if(newName.isEmpty() || newName.isBlank()) {
 		  error="Name cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(newEmergencyContact.isEmpty() || newEmergencyContact.length()==0) {
+	  if(newEmergencyContact.isEmpty() || newEmergencyContact.isBlank()) {
 		  error="Emergency contact cannot be empty";
 		  throw new InvalidInputException(error);
 	  }
