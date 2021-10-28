@@ -8,6 +8,7 @@ import ca.mcgill.ecse.climbsafe.model.Equipment;
 public class ClimbSafeFeatureSet4Controller {
 /**Adds a piece of equipment to the system
  * 
+ * @author Maya Ajji
  * @param name name of the equipment to be added (it cannot already exist in the system)
  * @param weight weight of equipment to be added
  * @param pricePerWeek price of each piece of equipment, per week
@@ -55,6 +56,7 @@ public class ClimbSafeFeatureSet4Controller {
 
 /**Method to update a piece of equipment in the system
  * 
+ * @author Maya Ajji
  * @param oldName 
  * @param newName this cannot be an already existing name
  * @param newWeight 
