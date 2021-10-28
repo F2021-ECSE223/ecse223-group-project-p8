@@ -41,17 +41,17 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 
 		// check discount
-		if (newDiscount < 0) {
+		if (discount < 0) {
 			error = "Discount must be at least 0";
 			throw new InvalidInputException(error);
 		}
-		if (newDiscount > 100) {
+		if (discount > 100) {
 			error = "Discount must be no more than 100";
 			throw new InvalidInputException(error);
 		}
 
 		// check equipments in bundle
-		if (newEquipmentNames.size() <= 1 || !Utility.listHas2DistinctEquipment(newEquipmentNames)) {
+		if (equipmentNames.size() <= 1 || !Utility.listHas2DistinctEquipment(equipmentNames)) {
 			error = "Equipment bundle must contain at least two distinct types of equipment";
 			throw new InvalidInputException(error);
 		}
@@ -63,7 +63,7 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 
 		String missingEquipment = null;
-		for (String x : newEquipmentNames) {
+		for (String x : equipmentNames) {
 			if (!storesNames.contains(x)) {
 				missingEquipment = x;
 				break;
@@ -76,31 +76,27 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 
 		// check quantity of equipment
-		if (Utility.quantityIsNotValid(newEquipmentQuantities)) {
+		if (Utility.quantityIsNotValid(equipmentQuantities)) {
 			error = "Each bundle item must have quantity greater than or equal to 1";
+			throw new InvalidInputException(error);
+		}
+		
+		if(Utility.bundleExistsInSystem(climbSafe, name)) {
+			error = "A bookable item called " + name + " already exists";
 			throw new InvalidInputException(error);
 		}
 		
 		try {
 			// addBundle() creates a new equipment bundle and adds it to ClimbSafe
 			EquipmentBundle equipmentBundle = climbSafe.addBundle(name, discount);
-			// add items with the corresponding quantity to bundle
-			if (equipmentNames.size() != equipmentQuantities.size()) {
-				error = "The list of equipment names must have the same number of elements as the list of equipment quantities. ";
-			} else {
-				for (int i = 0; i < equipmentNames.size(); i++) {
-					int equipmentQuantity = equipmentQuantities.get(i);
-					String equipmentName = equipmentNames.get(i);
-					Equipment equipment = Utility.findEquipment(equipmentName);
-					climbSafe.addBundleItem(equipmentQuantity, equipmentBundle, equipment);
-				}
+			for (int i = 0; i < equipmentNames.size(); i++) {
+				int equipmentQuantity = equipmentQuantities.get(i);
+				String equipmentName = equipmentNames.get(i);
+				Equipment equipment = Utility.findEquipment(equipmentName);
+				climbSafe.addBundleItem(equipmentQuantity, equipmentBundle, equipment);
 			}
-			// not sure about the exception
 		} catch (RuntimeException e) {
 			error = e.getMessage();
-			if (error.startsWith("Cannot create due to duplicate name.")) {
-				error = "A bundle with this name already exists. Please use a different name.";
-			}
 			throw new InvalidInputException(error);
 		}
 	}
