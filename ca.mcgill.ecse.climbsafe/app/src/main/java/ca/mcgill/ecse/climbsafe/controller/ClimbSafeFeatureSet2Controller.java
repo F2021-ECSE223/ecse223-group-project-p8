@@ -12,7 +12,7 @@ public class ClimbSafeFeatureSet2Controller {
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
 	/** 
-	 * This method registers a new member in the climbSafe system
+	 * Adds a new member in the climbSafe system
 	 * @author Ke Yan
 	 * @param email Email of the new member
 	 * @param password password of the new member
@@ -22,7 +22,7 @@ public class ClimbSafeFeatureSet2Controller {
 	 * @param guideRequired whether or not the new member desires a guide
 	 * @param hotelRequired whether or not the new member desires a hotel stay
 	 * @param itemNames list of item the member desires to rent
-	 * @param itemQuantities list of quantities for each item the member desires to rent
+	 * @param itemQuantities list of quantities associated to each item the member desires to rent
 	 * @throws InvalidInputException for any invalid input
 	 */
 	public static void registerMember(String email, String password, String name,
@@ -36,7 +36,6 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "The email cannot be empty";
 			throw new InvalidInputException(error);
 		}
-		
 
 		//email already in use
 		if (Utility.findMember(email)!=null) {
@@ -150,9 +149,8 @@ public class ClimbSafeFeatureSet2Controller {
 
 	  }
 
- 
 	  /** 
-	   * This method updates an existing memeber in the climbSafe system
+	   * Updates an existing memeber in the climbSafe system
 	   * @author Ke Yan
 	   * @param email Email of the existing member we wish to update
 	   * @param newPassword new password
@@ -227,10 +225,6 @@ public class ClimbSafeFeatureSet2Controller {
 				error = "Inputs canot be null";
 				throw new InvalidInputException(error);
 			}
-			
-
-
-
 
 			try {
 				Member existingMember = Utility.findMember(email);
