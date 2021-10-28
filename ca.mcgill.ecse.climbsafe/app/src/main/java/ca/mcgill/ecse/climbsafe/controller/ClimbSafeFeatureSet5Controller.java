@@ -17,14 +17,11 @@ public class ClimbSafeFeatureSet5Controller {
 	 * Creates a new equipment bundle with the given name and discount and adds it
 	 * to the ClimbSafe system
 	 * 
+	 * @author Aigiarn Cheuk
 	 * @param name Name of the equipment bundle
-	 * 
 	 * @param discount Equipment bundle discount
-	 * 
 	 * @param equipmentNames List of all the names of the equipment in the bundle
-	 * 
-	 * @param equipmentQuantities List of all the quantities of the equipment in the
-	 * bundle
+	 * @param equipmentQuantities List of all the quantities of the equipment in the bundle
 	 */
 	public static void addEquipmentBundle(String name, int discount, List<String> equipmentNames,
 			List<Integer> equipmentQuantities) throws InvalidInputException {
@@ -116,6 +113,16 @@ public class ClimbSafeFeatureSet5Controller {
 		}
 	}
 	
+	/*
+	 * Updates an equipment bundle using its old name, and changes all the bundle's attributes
+	 * 
+	 * @author Aigiarn Cheuk
+	 * @param oldName Old bundle's name
+	 * @param newName Bundle's new name
+	 * @param newDiscount Bundle's new discount
+	 * @param newEquipmentNames Bundle's new list of all the names of the equipment in the bundle
+	 * @param newEquipmentQuantities Bundle's new list of all the quantities of the equipment in the bundle
+	 */
 	public static void updateEquipmentBundle(String oldName, String newName, int newDiscount,
 			List<String> newEquipmentNames, List<Integer> newEquipmentQuantities) throws InvalidInputException {
 		var error = "";
