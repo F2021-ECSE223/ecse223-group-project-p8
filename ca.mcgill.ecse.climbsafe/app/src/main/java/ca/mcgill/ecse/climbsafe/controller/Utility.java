@@ -327,10 +327,11 @@ public class Utility {
 	}
 
 
-	/** Method to check if there are characters before "@"
+	/**
 	 * @author Ke
-	 * @param email
-	 * @return boolean value that indicates whether the email entered is functional
+	 * Method to check if there are characters before "@" in a string
+	 * @param email string to check
+	 * @return true if there is no char, false otherwise
 	 */
 	public static boolean goodStart(String email) {
 		boolean invalid=false;
@@ -342,11 +343,12 @@ public class Utility {
 	}
 
 
-	 /** Method to check existence of a list of bookableItems in system.
+	 /**
 	  * @author Ke
-	  * @param climbSafe instace of a system
-	  * @param itemsToCheck list of items to check
-	  * @return boolean value that indicates the existance of the items in system
+	  * Method to check existence of a list of bookableItems in system.
+	  * @param climbSafe instance of a system
+	  * @param itemsToCheck list of bookableItems to check
+	  * @return true if every bookableItems in list exists, false otherwise
 	  */
 	public static boolean bookableItemsExists( ClimbSafe climbSafe, List<String> itemsToCheck) {
 		
@@ -365,7 +367,13 @@ public class Utility {
 		return false;
   }
 
-  //I'll add javadoc later -ke
+  /**
+   * @Ke
+   * get an EquipmentBundle by name in an instance of ClimbSafe
+   * @param climbSafe instance of system
+   * @param budle name of the EquipmentBundle to search for
+   * @return the EquipmentBundle if it is exists in climbSafe, otherwise null
+   */
 
   public static EquipmentBundle getBundle( ClimbSafe climbSafe, String budle) {
 
@@ -379,6 +387,14 @@ public class Utility {
 	  
   }
 
+  /**
+   * @Ke
+   * get an equipment by name in an instance of ClimbSafe
+   * @param climbSafe instance of system
+   * @param equipment name of the equipment to search for
+   * @return the equipment if it is exists in climbSafe, otherwise null
+   */
+
   public static Equipment getEquipment( ClimbSafe climbSafe, String equipment) {
 
 	List<Equipment> equipmentInSystem = climbSafe.getEquipment();
@@ -391,6 +407,16 @@ public class Utility {
 	  
   }
 
+
+  /**
+   * @Ke
+   * method will add a list of item and their respective quantities (same index) to a member's bookedItems in an instance of ClimbSafe
+   * @param climbSafe instance of system
+   * @param itemsToAdd list of items to add
+   * @param itemQuantities list of quantities for each item
+   * @param member member to whome the items will be assigned to (in bookedItems)
+   * @return true if the items are added successfully
+   */
   public static boolean addItemList( ClimbSafe climbSafe, List<String> itemsToAdd, List<Integer> itemQuantities, Member member) {
 
 	int index=0;
@@ -417,9 +443,14 @@ public class Utility {
 
 
 
-// 	return true;
-  public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {
-		  
+/**
+ * @Ke
+ * method will delete all booked item of a member in an instance of ClimbSafe
+ * @param climbSafe instance of system
+ * @param member member who's booked item will be reset
+ * @return true if the reset is successful
+ */
+  public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {  
 		
 		List<BookedItem> ItemInMember = member.getBookedItems();
 		
@@ -433,8 +464,15 @@ public class Utility {
 	 }
 	
 	 return true;
-
   }
+
+  /**
+   * @Ke
+   * method will delete all bundle items of a bundle in an instance of ClimbSafe
+   * @param climbSafe instance of system
+   * @param bundle  Bundle for which booked item will be reset
+   * @return true if the reset is successful
+   */
   public static boolean resetBundleItems( ClimbSafe climbSafe, EquipmentBundle bundle) {
 		List<BundleItem> ItemInBundle = bundle.getBundleItems();
 		int counter=ItemInBundle.size();
