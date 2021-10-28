@@ -415,14 +415,24 @@ public class Utility {
 
   }
 
+
+
+// 	return true;
   public static boolean resetBookedItems( ClimbSafe climbSafe, Member member) {
-
-	for (BookedItem bookedItem: member.getBookedItems()) {
-		// climbSafe.removeBookedItem(bookedItem);
-		member.removeBookedItem(bookedItem);
-	}
-
-	return true;
+		  
+		
+		List<BookedItem> ItemInMember = member.getBookedItems();
+		
+		int counter=ItemInMember.size();
+	
+	 for (int i=0; i<counter; i++) {
+		  // climbSafe.removeBookedItem(bookedItem);
+		  //member.removeBookedItem(bookedItem);
+		  //bookedItem.delete();
+		  ItemInMember.get(0).delete();
+	 }
+	
+	 return true;
 
   }
   public static boolean resetBundleItems( ClimbSafe climbSafe, EquipmentBundle bundle) {
