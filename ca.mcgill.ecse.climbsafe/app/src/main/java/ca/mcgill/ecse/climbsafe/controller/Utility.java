@@ -200,7 +200,7 @@ public class Utility {
 	
 	/**Method to find if there is an existing instance of equipment in the system.
 	 * 
-	 * @author Maya
+	 * @author Maya Selina
 	 * 
 	 * @param name equipment name entered
 	 * @param climbsafe ClimbSafe system
@@ -271,6 +271,12 @@ public class Utility {
 		
 	}
 	
+	/** Method to check if there is a missing ".ca"
+	 * @author Selina 
+	 * @param email Email of guide
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
+	
 	public static boolean emailMissingSubstring2(String email) {
 		boolean invalid=false;
 		if(!email.contains(".ca")) {
@@ -291,6 +297,12 @@ public class Utility {
 		}
 		return invalid;
 	}
+	
+	/** Method to check if there is a missing "mail"
+	 * @author Selina
+	 * @param email Email of guide
+	 * @return boolean value that indicates whether the email entered is functional
+	 */
 	public static boolean missingEmailDeclaration2(String email) {
 		boolean invalid=false;
 		if(!email.contains("mail")) {
@@ -299,9 +311,9 @@ public class Utility {
 		return invalid;
 	}
 	
-	/** Method to check if there "@" is in front of "email"
+	/** Method to check if there is "@" is in front of "email"
 	 * @author Selina
-	 * @param email
+	 * @param email Email of guide
 	 * @return boolean value that indicates whether the email entered is functional
 	 */
 	public static boolean wrongEmailSyntax(String email) {
@@ -313,9 +325,12 @@ public class Utility {
 		}
 		return invalid;
 	}
-/*
- * for mail
- */
+	
+	/** Method to check if there is "@" is in front of "mail"
+	 * @author Selina
+	 * @param email Email of guide
+	 * @return boolean value that indicates the email entered is functional
+	 */
 	public static boolean wrongEmailSyntax2(String email) {
 		boolean invalid=false;
 		int indexOfEmail=email.indexOf("mail");
