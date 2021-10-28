@@ -170,7 +170,7 @@ public class ClimbSafeFeatureSet2Controller {
 
 			//empty emergencE contact
 			if (newEmergencyContact.isEmpty()) {
-			error = "The emergence contact cannot be empty";
+			error = "The emergency contact cannot be empty";
 			throw new InvalidInputException(error);
 			}
 
