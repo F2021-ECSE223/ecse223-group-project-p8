@@ -43,7 +43,6 @@ public class ClimbSafeFeatureSet6Controller {
      *
      * @author Mihail Calitoiu
      * @param  name is the equipment bundle's name that needs to be deleted
-     * @throws InvalidInputException for inputs when errors occur
      */
     public static void deleteEquipmentBundle(String name) {
         EquipmentBundle equipmentBundle = null;
