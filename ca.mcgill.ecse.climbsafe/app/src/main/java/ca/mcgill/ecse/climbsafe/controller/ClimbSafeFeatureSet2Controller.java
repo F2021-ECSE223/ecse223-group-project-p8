@@ -11,8 +11,9 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 public class ClimbSafeFeatureSet2Controller {
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
-	/** This method registers a new member in the climbSafe system
-	 * @Ke
+	/** 
+	 * This method registers a new member in the climbSafe system
+	 * @author Ke Yan
 	 * @param email Email of the new member
 	 * @param password password of the new member
 	 * @param name name of the new member
@@ -22,7 +23,7 @@ public class ClimbSafeFeatureSet2Controller {
 	 * @param hotelRequired whether or not the new member desires a hotel stay
 	 * @param itemNames list of item the member desires to rent
 	 * @param itemQuantities list of quantities for each item the member desires to rent
-	 * @throws InvalidInputException
+	 * @throws InvalidInputException for any invalid input
 	 */
 	public static void registerMember(String email, String password, String name,
      String emergencyContact, int nrWeeks, boolean guideRequired, boolean hotelRequired,    
@@ -140,9 +141,10 @@ public class ClimbSafeFeatureSet2Controller {
 	  }
 
  
-	  /** This method updates an existing memeber in the climbSafe system
-	   * @Ke
-	   * @param email Email of the member we wish to update
+	  /** 
+	   * This method updates an existing memeber in the climbSafe system
+	   * @author Ke Yan
+	   * @param email Email of the existing member we wish to update
 	   * @param newPassword new password
 	   * @param newName new name
 	   * @param newEmergencyContact new emergency contact phone number
@@ -151,7 +153,7 @@ public class ClimbSafeFeatureSet2Controller {
 	   * @param newHotelRequired new preference for hotel stay (desired or not)
 	   * @param newItemNames new list of items the member wishes to rent
 	   * @param newItemQuantities new quantities associated to the list of items the member wishes to rent
-	   * @throws InvalidInputException
+	   * @throws InvalidInputException for any invalid input
 	   */
 	public static void updateMember(String email, String newPassword, String newName,
 		String newEmergencyContact, int newNrWeeks, boolean newGuideRequired,

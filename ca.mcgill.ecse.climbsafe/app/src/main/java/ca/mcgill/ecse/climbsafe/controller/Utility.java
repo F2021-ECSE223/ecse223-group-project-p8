@@ -334,8 +334,8 @@ public class Utility {
 
 
 	/**
-	 * @author Ke
 	 * Method to check if there are characters before "@" in a string
+	 * @author Ke
 	 * @param email string to check
 	 * @return true if there is no char, false otherwise
 	 */
@@ -350,8 +350,8 @@ public class Utility {
 
 
 	 /**
-	  * @author Ke
 	  * Method to check existence of a list of bookableItems in system.
+	  * @author Ke
 	  * @param climbSafe instance of a system
 	  * @param itemsToCheck list of bookableItems to check
 	  * @return true if every bookableItems in list exists, false otherwise
@@ -374,8 +374,8 @@ public class Utility {
   }
 
   /**
-   * @Ke
    * get an EquipmentBundle by name in an instance of ClimbSafe
+   * @author Ke Yan
    * @param climbSafe instance of system
    * @param budle name of the EquipmentBundle to search for
    * @return the EquipmentBundle if it is exists in climbSafe, otherwise null
@@ -394,8 +394,8 @@ public class Utility {
   }
 
   /**
-   * @Ke
    * get an equipment by name in an instance of ClimbSafe
+   * @author Ke Yan
    * @param climbSafe instance of system
    * @param equipment name of the equipment to search for
    * @return the equipment if it is exists in climbSafe, otherwise null
@@ -415,8 +415,8 @@ public class Utility {
 
 
   /**
-   * @Ke
    * method will add a list of item and their respective quantities (same index) to a member's bookedItems in an instance of ClimbSafe
+   * @author Ke Yan
    * @param climbSafe instance of system
    * @param itemsToAdd list of items to add
    * @param itemQuantities list of quantities for each item
@@ -447,11 +447,9 @@ public class Utility {
 
   }
 
-
-
 /**
- * @Ke
  * method will delete all booked item of a member in an instance of ClimbSafe
+ * @author Ke Yan
  * @param climbSafe instance of system
  * @param member member who's booked item will be reset
  * @return true if the reset is successful
@@ -473,8 +471,8 @@ public class Utility {
   }
 
   /**
-   * @Ke
    * method will delete all bundle items of a bundle in an instance of ClimbSafe
+   * @author Ke Yan
    * @param climbSafe instance of system
    * @param bundle  Bundle for which booked item will be reset
    * @return true if the reset is successful
