@@ -1,10 +1,29 @@
 package ca.mcgill.ecse.climbsafe.features;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
+
+import ca.mcgill.ecse.climbsafe.model.BookableItem;
+import ca.mcgill.ecse.climbsafe.model.BundleItem;
+import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+import ca.mcgill.ecse.climbsafe.model.Equipment;
+import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
+import ca.mcgill.ecse.climbsafe.model.Guide;
+import ca.mcgill.ecse.climbsafe.model.Member;
+import ca.mcgill.ecse.climbsafe.model.BookedItem;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+
 public class AssignmentFeatureStepDefinitions {
+
+private ClimbSafe climbSafe;
+private String error;
+
   @Given("the following ClimbSafe system exists:")
   public void the_following_climb_safe_system_exists(io.cucumber.datatable.DataTable dataTable) {
     // Write code here that turns the phrase above into concrete actions
@@ -14,7 +33,15 @@ public class AssignmentFeatureStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+    List<Map<String, String>> climbSafe1 = dataTable.asMaps(String.class, String.class);
+    var date = climbSafe1.get(0).get("startDate");
+    var weeks = climbSafe1.get(0).get("nrWeeks");
+    var price = climbSafe1.get(0).get("priceOfGuidePerWeek");
+    error = "";
+    climbSafe = ClimbSafeApplication.getClimbSafe();
+    climbSafe.setStartDate(java.sql.Date.valueOf(date));
+    climbSafe.setNrWeeks(Integer.parseInt(weeks));
+    climbSafe.setPriceOfGuidePerWeek(Integer.parseInt(price));
   }
 
   @Given("the following pieces of equipment exist in the system:")
@@ -27,7 +54,15 @@ public class AssignmentFeatureStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+
+    List<Map<String, String>> equipmentInfo = dataTable.asMaps(String.class, String.class);
+
+    for (Map<String, String> equipment : equipmentInfo) {
+      var name = equipment.get("name");
+      var weight = equipment.get("weight");
+      var pricePerWeek = equipment.get("pricePerWeek");
+      new Equipment(name, Integer.parseInt(weight), Integer.parseInt(pricePerWeek), climbSafe);
+    }
   }
 
   @Given("the following equipment bundles exist in the system:")
@@ -40,7 +75,21 @@ public class AssignmentFeatureStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+    List<Map<String, String>> equipmentBundleInfo = dataTable.asMaps(String.class, String.class);
+
+    for (Map<String, String> equipmentBundle : equipmentBundleInfo) {
+      var name = equipmentBundle.get("name");
+      var discount = equipmentBundle.get("discount");
+      List<String> equipmentsInBundle = Arrays.asList(equipmentBundle.get("items").split(","));
+      List<String> equipmentQuantity = Arrays.asList(equipmentBundle.get("quantities").split(","));
+      EquipmentBundle equipmentBundle1 =
+          new EquipmentBundle(name, Integer.parseInt(discount), climbSafe);
+
+      for (int i = 0; i < equipmentsInBundle.size(); i++) {
+        new BundleItem(Integer.parseInt(equipmentQuantity.get(i)), climbSafe, equipmentBundle1,
+            (Equipment) BookableItem.getWithName(equipmentsInBundle.get(i)));
+      }
+    }
   }
 
   @Given("the following guides exist in the system:")
@@ -52,7 +101,15 @@ public class AssignmentFeatureStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+    List<Map<String, String>> existingGuides = dataTable.asMaps();
+
+    for (var guides : existingGuides) {
+      var email = guides.get("email");
+      var password = guides.get("password");
+      var name = guides.get("name");
+      var emergencyContact = guides.get("emergencyContact");
+      new Guide(email, password, name, emergencyContact, climbSafe);
+    }
   }
 
   @Given("the following members exist in the system:")
@@ -64,7 +121,23 @@ public class AssignmentFeatureStepDefinitions {
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+    List<Map<String, String>> members = dataTable.asMaps();
+    for (var member : members) {
+      
+      List<String> bookedItems = Arrays.asList(member.get("bookedItems").split(","));
+      List<String> bookedQuantities = Arrays.asList(member.get("quantity").split(","));
+
+      var newMember = new Member(member.get("email"), member.get("password"), member.get("name"),
+          member.get("emergencyContact"),Integer.parseInt(member.get("nrWeeks")),
+          Boolean.parseBoolean(member.get("guideRequired")),
+          Boolean.parseBoolean(member.get("hotelRequired")), climbSafe);
+      
+      
+      for (int i = 0; i < bookedItems.size(); i++) {
+        new BookedItem(Integer.parseInt(bookedQuantities.get(i)), climbSafe, newMember,
+            BookableItem.getWithName(bookedItems.get(i)));
+      }
+    }
   }
 
   @When("the administrator attempts to initiate the assignment process")
