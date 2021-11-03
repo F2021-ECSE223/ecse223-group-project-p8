@@ -1,0 +1,18 @@
+class Assignment {
+    tripStatus {
+        Paid {
+            - > StartTrip;
+
+        }
+        StartTrip {
+            - > EndTrip;
+        }
+        EndTrip {
+            - > Final;
+
+        }
+        CancelTrip {
+
+        }
+    }
+}
