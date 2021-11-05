@@ -6,6 +6,8 @@ import java.util.Map;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.controller.AssignmentController;
+import ca.mcgill.ecse.climbsafe.controller.InvalidInputException;
+import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.BookableItem;
 import ca.mcgill.ecse.climbsafe.model.BundleItem;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
@@ -143,11 +145,14 @@ private String error;
   @When("the administrator attempts to initiate the assignment process")
   public void the_administrator_attempts_to_initiate_the_assignment_process() {
     // Write code here that turns the phrase above into concrete actions
-	  try {
-		  AssignmentController.initiateAssignmentProcess();
-	  }catch(RuntimeException e){
-		  
-	  }
+	  
+		try {
+			AssignmentController.initiateAssignmentProcess();
+		} catch (InvalidInputException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		  
+	  
   }
 
   @Then("the following assignments shall exist in the system:")
@@ -191,7 +196,14 @@ private String error;
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  List<Map<String, String>> equipmentInfo = dataTable.asMaps(String.class, String.class);
+
+	    for (Map<String, String> equipment : equipmentInfo) {
+	      var name = equipment.get("name");
+	      var weight = equipment.get("weight");
+	      var pricePerWeek = equipment.get("pricePerWeek");
+	      new Equipment(name, Integer.parseInt(weight), Integer.parseInt(pricePerWeek), climbSafe);
+	    }
   }
 
   @Given("the following assignments exist in the system:")
@@ -204,7 +216,18 @@ private String error;
     // Double, Byte, Short, Long, BigInteger or BigDecimal.
     //
     // For other transformations you can register a DataTableType.
-    throw new io.cucumber.java.PendingException();
+	  List<Map<String, String>> assignmentInfo = dataTable.asMaps(String.class, String.class);
+
+	    for (Map<String, String> assignment : assignmentInfo) {
+	      var memberEmail = assignment.get("memberEmail");
+	      var guideEmail = assignment.get("guideEmail");
+	      var startWeek = assignment.get("startWeek");
+	      var endWeek = assignment.get("endWeek");
+	      Assignment myAssignment = new Assignment(Integer.parseInt(startWeek), Integer.parseInt(endWeek), 
+	    		  (Member) Member.getWithEmail(memberEmail), climbSafe);
+	      myAssignment.setGuide((Guide)Guide.getWithEmail(guideEmail));
+	      
+	    }
   }
 
   @When("the administrator attempts to confirm payment for {string} using authorization code {string}")
@@ -213,7 +236,7 @@ private String error;
     // Write code here that turns the phrase above into concrete actions
 	  try {
 		  AssignmentController.confirmPayment(email,code);
-	  }catch(RuntimeException e){
+	  }catch(InvalidInputException e){
 		  
 	  }
   }
@@ -249,15 +272,17 @@ private String error;
 	  
 	  try {
 		  AssignmentController.cancelTrip(email);
-	  }catch(RuntimeException e){
+	  }catch(InvalidInputException e){
 		  
 	  }
   }
 
   @Given("the member with {string} has paid for their trip")
-  public void the_member_with_has_paid_for_their_trip(String string) {
+  public void the_member_with_has_paid_for_their_trip(String memberEmail) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  Member member = (Member) Member.getWithEmail(memberEmail);
+	  //member.hasPaidTrip
+    
   }
 
   @Then("the member with email address {string} shall receive a refund of {string} percent")
@@ -268,9 +293,9 @@ private String error;
   }
 
   @Given("the member with {string} has started their trip")
-  public void the_member_with_has_started_their_trip(String string) {
+  public void the_member_with_has_started_their_trip(String memberEmail) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    Member member = (Member) Member.getWithEmail(memberEmail);
   }
 
   @When("the administrator attempts to finish the trip for the member with email {string}")
@@ -279,15 +304,15 @@ private String error;
     // Write code here that turns the phrase above into concrete actions
 	  try {
 		  AssignmentController.finishTrip(email);
-	  }catch(RuntimeException e){
+	  }catch(InvalidInputException e){
 		  
 	  }
   }
 
   @Given("the member with {string} is banned")
-  public void the_member_with_is_banned(String string) {
+  public void the_member_with_is_banned(String memberEmail) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  Member member = (Member) Member.getWithEmail(memberEmail);
   }
 
   @Then("the member with email {string} shall be {string}")
@@ -300,22 +325,22 @@ private String error;
   public void the_administrator_attempts_to_start_the_trips_for_week(String weekNr) {
     // Write code here that turns the phrase above into concrete actions
 	  try {
-		  AssignmentController.startTrip(weekNr);
-	  }catch(RuntimeException e){
+		  AssignmentController.startTrip(Integer.parseInt(weekNr));
+	  }catch(InvalidInputException e){
 		  
 	  }
   }
 
   @Given("the member with {string} has cancelled their trip")
-  public void the_member_with_has_cancelled_their_trip(String string) {
+  public void the_member_with_has_cancelled_their_trip(String memberEmail) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  Member member = (Member) Member.getWithEmail(memberEmail);
   }
 
   @Given("the member with {string} has finished their trip")
-  public void the_member_with_has_finished_their_trip(String string) {
+  public void the_member_with_has_finished_their_trip(String memberEmail) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+    Member member = (Member) Member.getWithEmail(memberEmail);
   }
 
   @Then("the member with email {string} shall be banned")
