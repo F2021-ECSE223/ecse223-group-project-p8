@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
-
+import ca.mcgill.ecse.climbsafe.controller.AssignmentController;
 import ca.mcgill.ecse.climbsafe.model.BookableItem;
 import ca.mcgill.ecse.climbsafe.model.BundleItem;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
@@ -143,7 +143,11 @@ private String error;
   @When("the administrator attempts to initiate the assignment process")
   public void the_administrator_attempts_to_initiate_the_assignment_process() {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  try {
+		  AssignmentController.initiateAssignmentProcess();
+	  }catch(RuntimeException e){
+		  
+	  }
   }
 
   @Then("the following assignments shall exist in the system:")
@@ -205,9 +209,13 @@ private String error;
 
   @When("the administrator attempts to confirm payment for {string} using authorization code {string}")
   public void the_administrator_attempts_to_confirm_payment_for_using_authorization_code(
-      String string, String string2) {
+      String email, String code) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  try {
+		  AssignmentController.confirmPayment(email,code);
+	  }catch(RuntimeException e){
+		  
+	  }
   }
 
   @Then("the assignment for {string} shall record the authorization code {string}")
@@ -236,9 +244,14 @@ private String error;
   }
 
   @When("the administrator attempts to cancel the trip for {string}")
-  public void the_administrator_attempts_to_cancel_the_trip_for(String string) {
+  public void the_administrator_attempts_to_cancel_the_trip_for(String email) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  
+	  try {
+		  AssignmentController.cancelTrip(email);
+	  }catch(RuntimeException e){
+		  
+	  }
   }
 
   @Given("the member with {string} has paid for their trip")
@@ -262,9 +275,13 @@ private String error;
 
   @When("the administrator attempts to finish the trip for the member with email {string}")
   public void the_administrator_attempts_to_finish_the_trip_for_the_member_with_email(
-      String string) {
+      String email) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  try {
+		  AssignmentController.finishTrip(email);
+	  }catch(RuntimeException e){
+		  
+	  }
   }
 
   @Given("the member with {string} is banned")
@@ -280,9 +297,13 @@ private String error;
   }
 
   @When("the administrator attempts to start the trips for week {string}")
-  public void the_administrator_attempts_to_start_the_trips_for_week(String string) {
+  public void the_administrator_attempts_to_start_the_trips_for_week(String weekNr) {
     // Write code here that turns the phrase above into concrete actions
-    throw new io.cucumber.java.PendingException();
+	  try {
+		  AssignmentController.startTrip(weekNr);
+	  }catch(RuntimeException e){
+		  
+	  }
   }
 
   @Given("the member with {string} has cancelled their trip")
