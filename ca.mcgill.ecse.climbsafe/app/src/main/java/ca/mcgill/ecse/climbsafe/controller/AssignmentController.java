@@ -29,33 +29,43 @@ public class AssignmentController {
 		  */
 	 
 		  
-		  var climbInstance = Utility.climbSafe;
-		  List<Member> unassignedMembers = climbInstance.getMembers();
 		  
-		  for (Guide currGuide: climbInstance.getGuides()) {
-			  Boolean[] schedule = new Boolean[climbInstance.getNrWeeks()];
+		  List<Member> unassignedMembers = Utility.climbSafe.getMembers();
+		  
+		  for (Guide currGuide: Utility.climbSafe.getGuides()) {
+			  boolean[] schedule = new boolean[Utility.climbSafe.getNrWeeks()];
+			  
+		
+			  
+			//  1      2     3    4     5     6    7     8
+			 // false true false false false false true true 
+			  
 			  for (Member currentMember: unassignedMembers) {
-				  if (currentMember == null) {continue;};
+				  
+				  if (currentMember == null) { continue; };
+				  
 				  if (currentMember.getGuideRequired() == false) {
-					  Assignment assignmentForMember = new Assignment(1, currentMember.getNrWeeks(), currentMember, climbInstance);
-					  if (climbInstance.addAssignment(assignmentForMember) == false) {System.out.println("error / cant add assignment");}
+					  Assignment assignmentForMember = new Assignment(1, 1 + currentMember.getNrWeeks(), currentMember, Utility.climbSafe);
+					  Utility.climbSafe.addAssignment(assignmentForMember);
+					  continue;
 				  }			
 				  
 				  int memberStayWeeks = currentMember.getNrWeeks();
 				  int startDate, endDate = 0;
-				  for (int a = 0; a < (climbInstance.getNrWeeks()-memberStayWeeks); a++) {
+				  
+				  for (int a = 0; a < (Utility.climbSafe.getNrWeeks()-memberStayWeeks); a++) {
 					  
 					  boolean isRoom = true;
 					  for (int b = a; b<memberStayWeeks; b++) {
-						  if (schedule[b] == false) {isRoom = false;}
+						  if (schedule[b] == false) {isRoom = false; break;}
 
 					  }
 					  if (isRoom == true) {
 						  startDate = a;
 						  endDate = a + memberStayWeeks;
-						  Assignment assignmentForMember = new Assignment(startDate, endDate, currentMember, climbInstance);
-						  if (climbInstance.addAssignment(assignmentForMember) == false) {System.out.println("error / cant add assignment");}
-						  currentMember.getAssignment().setGuide(currGuide);
+						  Assignment assignmentForMember = new Assignment(startDate, endDate, currentMember, Utility.climbSafe);
+						  if (Utility.climbSafe.addAssignment(assignmentForMember) == false) {System.out.println("error / cant add assignment");}
+						  //currentMember.getAssignment().setGuide(currGuide);
 						  currentMember = null;
 						  break;
 					  }  

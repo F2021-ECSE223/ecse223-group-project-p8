@@ -83,7 +83,7 @@ private String error;
       var name = equipmentBundle.get("name");
       var discount = equipmentBundle.get("discount");
       List<String> equipmentsInBundle = Arrays.asList(equipmentBundle.get("items").split(","));
-      List<String> equipmentQuantity = Arrays.asList(equipmentBundle.get("quantities").split(","));
+      List<String> equipmentQuantity = Arrays.asList(equipmentBundle.get("quantity").split(","));
       EquipmentBundle equipmentBundle1 =
           new EquipmentBundle(name, Integer.parseInt(discount), climbSafe);
 
