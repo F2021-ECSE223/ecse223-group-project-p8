@@ -72,8 +72,8 @@ public class AssignmentController {
 				  }
 			  }
 		  }
-		  for (Member currentMember: Utility.climbSafe.getMembers()) { 
-			  if (currentMember.getAssignment() == null) {
+		  for (Member currentMember: unassignedMembers) { 
+			  if (currentMember.getName().equals("del")) {
 				  
 				  //System.out.println("joey");
 				  throw new InvalidInputException("Assignments could not be completed for all members");
