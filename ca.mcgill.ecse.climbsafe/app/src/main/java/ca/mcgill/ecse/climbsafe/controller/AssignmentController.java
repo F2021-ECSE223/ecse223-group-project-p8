@@ -11,8 +11,11 @@ import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
 
+
 public class AssignmentController {
 
+	//String[][] memberWithCodes = new String();
+	
     public static void initiateAssignmentProcess() throws InvalidInputException {
 
         List < Member > forShallow = Utility.climbSafe.getMembers();
@@ -21,6 +24,7 @@ public class AssignmentController {
             unassignedMembers.add(temp);
         }
         List < Assignment > assTemp = new ArrayList < Assignment > ();
+
 
 
         for (Guide currGuide: Utility.climbSafe.getGuides()) {
@@ -84,17 +88,20 @@ public class AssignmentController {
 
     public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
         var error = "";
-        Member member = (Member) Member.getWithEmail(memberEmail);
         
-        if (member == null) {
-            error = "Member with email address " + memberEmail + " does not exist ";
+        if (Member.getWithEmail(memberEmail) == null) {
+            error = "Member with email address " + memberEmail + " does not exist";
             throw new InvalidInputException(error);
         }
+        
+        Member member = (Member) Member.getWithEmail(memberEmail);
         Assignment assignment = member.getAssignment();
-        if (authorizationCode.equals(null)) {
+        
+        if (authorizationCode.isEmpty() && !member.equals(null)) {
             error = "Invalid authorization code";
             throw new InvalidInputException(error);
         }
+        
         if (assignment.getAssignmentStatus().equals(AssignmentStatus.Paid)) {
             error = "Trip has already been paid for";
             throw new InvalidInputException(error);
@@ -127,9 +134,9 @@ public class AssignmentController {
     public static void cancelTrip(String memberEmail) throws InvalidInputException {
         var error = "";
         Member member = (Member) Member.getWithEmail(memberEmail);
-        
-        if (member == null) {
-            error = "Member with email address " + memberEmail + " does not exist";
+       
+        if (member == null){
+            error = "Member with email address " + memberEmail + " does not exist ";
             throw new InvalidInputException(error);
         }
         Assignment assignment = member.getAssignment();
@@ -138,7 +145,7 @@ public class AssignmentController {
             throw new InvalidInputException(error);
         }
         if (assignment.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
-            error = "Cannot pay for a trip which has finished";
+            error = "Cannot cancel a trip which has finished";
             throw new InvalidInputException(error);
         }
         try {
@@ -152,11 +159,13 @@ public class AssignmentController {
     public static void finishTrip(String memberEmail) throws InvalidInputException {
         var error = "";
         Member member = (Member) Member.getWithEmail(memberEmail);
+        
         if (member == null) {
-            error = "Member with email address " + memberEmail + " does not exist";
+            error = "Member with email address " + memberEmail + " does not exist ";
             throw new InvalidInputException(error);
         }
         Assignment assignment = member.getAssignment();
+
         if (assignment.getAssignmentStatus().equals(AssignmentStatus.Assigned)) {
             error = "Cannot finish a trip which has not started";
             throw new InvalidInputException(error);
@@ -173,6 +182,7 @@ public class AssignmentController {
             error = "Cannot finish the trip due to a ban";
             throw new InvalidInputException(error);
         }
+        
         try {
             member.getAssignment().finishTrip();
         } catch (RuntimeException e) {
@@ -202,8 +212,7 @@ public class AssignmentController {
             try {
                 a.startTrip();
             } catch (RuntimeException e) {
-            	error += e.getMessage();
-            	throw new InvalidInputException(error);
+
             }
         }
     }
