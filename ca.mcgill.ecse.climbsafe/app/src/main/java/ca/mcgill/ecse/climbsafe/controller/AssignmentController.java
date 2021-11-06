@@ -12,26 +12,9 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 
 
 public class AssignmentController {
-	static boolean next = false;
+
 	 public static void initiateAssignmentProcess() throws InvalidInputException {
-		
-		 
-		 /*
-		  
-			Starting with the first guide registered in the application, go through each member starting with the first
-			member registered in the application. 
-			
-			If the member requested a guide and the guide is available for the number of weeks requested by the member, assign the guide
-			to the member at the earliest weeks for which the guide is available.
-			
-			Then continue with the next member until the guide does not have any availability anymore, at which point the process moves
-			on to the next guide (and again starts with the first member that has not yet been assigned).
-			
-			If a member did not request a guide, the member is always
-			assigned to the earliest weeks in the climbing season.
-			
-		  */
-	 
+			 
 		 List<Member> forShallow = Utility.climbSafe.getMembers();
 		 List<Member> unassignedMembers = new ArrayList<Member>();
 		 for (Member temp: forShallow) {
@@ -43,14 +26,11 @@ public class AssignmentController {
 		  
 		  for (Guide currGuide: Utility.climbSafe.getGuides()) {
 			  
-			 
-			  System.out.println("getting guide: " + currGuide.getName());
 			  boolean[] schedule = new boolean[Utility.climbSafe.getNrWeeks()];
 
 			  for (Member currentMember: unassignedMembers) { 
 				  
 				  if (currentMember.getName().equals("del")) { continue; };
-				  System.out.println("getting member: " + currentMember.getName());
 				  
 				  if (currentMember.getGuideRequired() == false) {
 					  Assignment assignmentForMember = new Assignment(1, currentMember.getNrWeeks(), currentMember, Utility.climbSafe);
@@ -71,9 +51,7 @@ public class AssignmentController {
 						  for (int b = a; b<memberStayWeeks+a; b++) {
 							  if (schedule[b] == true) {isRoom=false;
 							  break;}
-							  
-							  System.out.println(b);
-	
+
 						  }
 						  
 						  if (isRoom) {
@@ -93,11 +71,14 @@ public class AssignmentController {
 					  }					  
 				  }
 			  }
-			  //for (Assignment temp: assTemp) {
-				//  System.out.println("Name: " + temp.getMember().getName()+ " + Guide: " + temp.getGuide().getName());
-			  //}
 		  }
-		  System.out.println("Finished code");
+		  for (Member currentMember: Utility.climbSafe.getMembers()) { 
+			  if (currentMember.getAssignment() == null) {
+				  
+				  //System.out.println("joey");
+				  throw new InvalidInputException("Assignments could not be completed for all members");
+			  }
+		  }
 	 }
 	 
 	 public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
