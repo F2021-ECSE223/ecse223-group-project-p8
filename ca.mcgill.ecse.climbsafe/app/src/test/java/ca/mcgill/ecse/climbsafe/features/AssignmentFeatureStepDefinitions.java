@@ -122,6 +122,7 @@ private String error;
 		try {
 			AssignmentController.initiateAssignmentProcess();
 		} catch (InvalidInputException e) {
+			error+=e.getMessage();
 			
 		}		  
   }
