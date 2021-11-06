@@ -17,7 +17,7 @@ public class Assignment
   private int endWeek;
 
   //Assignment State Machines
-  public enum AssignmentStatus { Assigned, Paid, Started, Cancelled, Finished }
+  public enum AssignmentStatus { Assigned, Paid, Started, Cancelled, Finished, Banned }
   private AssignmentStatus assignmentStatus;
 
   //Assignment Associations
@@ -139,6 +139,10 @@ public class Assignment
     AssignmentStatus aAssignmentStatus = assignmentStatus;
     switch (aAssignmentStatus)
     {
+      case Assigned:
+        setAssignmentStatus(AssignmentStatus.Banned);
+        wasEventProcessed = true;
+        break;
       case Paid:
         setAssignmentStatus(AssignmentStatus.Started);
         wasEventProcessed = true;
@@ -312,6 +316,26 @@ public class Assignment
     {
       placeholderClimbSafe.removeAssignment(this);
     }
+  }
+
+
+  /**
+   * in which state do we include the ban is it in the assigned state when we cancel the trip? Or should we add a new state?
+   */
+  // line 24 "../../../../../ClimbSafeStates.ump"
+   private int getRefund(){
+    int refund = 100;
+	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
+		  refund = 50;
+	  }
+	  if(this.assignmentStatus.equals(AssignmentStatus.Started)) {
+		  refund = 10;
+	  }
+	  if(this.assignmentStatus.equals(AssignmentStatus.Finished)) {
+		  refund = 0;
+	  }
+	  
+	  return refund;
   }
 
 

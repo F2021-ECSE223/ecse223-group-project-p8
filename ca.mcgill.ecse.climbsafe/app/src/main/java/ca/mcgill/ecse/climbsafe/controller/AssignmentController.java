@@ -9,7 +9,6 @@ import ca.mcgill.ecse.climbsafe.model.Assignment.AssignmentStatus;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
-import ca.mcgill.ecse.climbsafe.model.Member.MemberStatus;
 
 public class AssignmentController {
 	
@@ -119,7 +118,7 @@ public class AssignmentController {
 			 error = "Cannot pay for a trip which has finished";
 			 throw new InvalidInputException(error);
 		 }
-		 if(member.getMemberStatus().equals(MemberStatus.Banned)) {
+		 if(assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
 			 error = "Cannot pay for the trip due to a ban";
 			 throw new InvalidInputException(error);
 		 }
@@ -140,7 +139,7 @@ public class AssignmentController {
 			 error = "Member with email address " + memberEmail +" does not exist ";
 			 throw new InvalidInputException(error);
 		 }
-		 if(member.getMemberStatus().equals(MemberStatus.Banned)) {
+		 if(assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
 			 error = "Cannot cancel the trip due to a ban";
 			 throw new InvalidInputException(error);
 		 }
@@ -172,7 +171,7 @@ public class AssignmentController {
 			 error = "Cannot finish a trip which has been cancelled";
 			 throw new InvalidInputException(error);
 		 }
-		 if(member.getMemberStatus().equals(MemberStatus.Banned)) {
+		 if(assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
 			 error = "Cannot finish the trip due to a ban";
 			 throw new InvalidInputException(error);
 		 }
@@ -193,7 +192,7 @@ public class AssignmentController {
 		 List<Assignment> assignmentInSystem = Utility.climbSafe.getAssignments();
 		 for(Assignment a : assignmentInSystem) {
 			 Member member = a.getMember();
-		 	if(member.getMemberStatus().equals(MemberStatus.Banned)) {
+		 	if(member.getAssignment().getAssignmentStatus().equals(AssignmentStatus.Banned)) {
 				error = "Cannot pay for the trip due to a ban";
 			 	throw new InvalidInputException(error);
 		 	}

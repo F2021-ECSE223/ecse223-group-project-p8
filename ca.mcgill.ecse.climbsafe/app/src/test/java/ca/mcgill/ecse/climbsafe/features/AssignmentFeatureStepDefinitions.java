@@ -246,6 +246,7 @@ private String error;
   public void the_member_with_email_address_shall_receive_a_refund_of_percent(String memberEmail,
       String percentageRefund) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
+	  
   }
 
   @Given("the member with {string} has started their trip")
