@@ -102,7 +102,7 @@ private String error;
     for (var member : members) {
       
       List<String> bookedItems = Arrays.asList(member.get("bookedItems").split(","));
-      List<String> bookedQuantities = Arrays.asList(member.get("quantity").split(","));
+      List<String> bookedQuantities = Arrays.asList(member.get("bookedItemQuantities").split(","));
 
       var newMember = new Member(member.get("email"), member.get("password"), member.get("name"),
           member.get("emergencyContact"),Integer.parseInt(member.get("nrWeeks")),
@@ -134,12 +134,12 @@ private String error;
 	  for (Map<String, String> assignment : assignmentInfo) {
 	      var memberEmail = assignment.get("memberEmail");
 	      var guideEmail = assignment.get("guideEmail");
-	      var startDate = assignment.get("startDate");
-	      var endDate = assignment.get("endDate");
+	      var startDate = assignment.get("startWeek");
+	      var endDate = assignment.get("endWeek");
 	      Member member = (Member) Member.getWithEmail(memberEmail);
 	      Guide guide = (Guide) Guide.getWithEmail(guideEmail);
 	      assertNotNull(member);
-	      assertNotNull(guide);
+	 
 	      assertEquals(member.getAssignment().getStartWeek(),Integer.parseInt(startDate));
 	      assertEquals(member.getAssignment().getEndWeek(),Integer.parseInt(endDate));
 	  }    

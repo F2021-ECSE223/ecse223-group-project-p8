@@ -10,8 +10,9 @@ import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
+
 public class AssignmentController {
-	
+	static boolean next = false;
 	 public static void initiateAssignmentProcess() throws InvalidInputException {
 		
 		 
@@ -36,38 +37,42 @@ public class AssignmentController {
 		 for (Member temp: forShallow) {
 			 unassignedMembers.add(temp);
 		 }
-		 
+		 List<Assignment> assTemp = new ArrayList<Assignment>();
 		  
 		  
 		  
 		  for (Guide currGuide: Utility.climbSafe.getGuides()) {
+			  
+			 
+			  System.out.println("getting guide: " + currGuide.getName());
 			  boolean[] schedule = new boolean[Utility.climbSafe.getNrWeeks()];
-			  
-		
-			  
-			//  1      2     3    4     5     6    7     8
-			 // false true false false false false true true 
-			  
-			  for (int m = 0; m<unassignedMembers.size();m++) { 
 
+			  for (Member currentMember: unassignedMembers) { 
 				  
-				  if (unassignedMembers.get(0).getGuideRequired() == false) {
-					  Assignment assignmentForMember = new Assignment(1, unassignedMembers.get(0).getNrWeeks(), unassignedMembers.get(0), Utility.climbSafe);
-					  //assignmentForMember.setGuide(currGuide);
+				  if (currentMember.getName().equals("del")) { continue; };
+				  System.out.println("getting member: " + currentMember.getName());
+				  
+				  if (currentMember.getGuideRequired() == false) {
+					  Assignment assignmentForMember = new Assignment(1, currentMember.getNrWeeks(), currentMember, Utility.climbSafe);
+					  assignmentForMember.setGuide(currGuide);
 					  Utility.climbSafe.addAssignment(assignmentForMember);
-					  unassignedMembers.remove(0);
+					  assTemp.add(assignmentForMember);
+					  currentMember.setName("del");
 					
 				  }	else {		
 				  
-					  int memberStayWeeks = unassignedMembers.get(0).getNrWeeks();
+					  int memberStayWeeks = currentMember.getNrWeeks();
 					  int startDate, endDate = 0;
 					  
-					  for (int a = 0; a < (Utility.climbSafe.getNrWeeks()-memberStayWeeks); a++) {
-						  
+					  for (int a = 0; a < (Utility.climbSafe.getNrWeeks()-memberStayWeeks+1); a++) {
+					  
 						  boolean isRoom = true;
 						  
 						  for (int b = a; b<memberStayWeeks+a; b++) {
-							  if (schedule[b] == true) {break;}
+							  if (schedule[b] == true) {isRoom=false;
+							  break;}
+							  
+							  System.out.println(b);
 	
 						  }
 						  
@@ -78,16 +83,21 @@ public class AssignmentController {
 								  schedule[z] = true;
 	
 							  }
-							  Assignment assignmentForMember = new Assignment(startDate, endDate, unassignedMembers.get(0), Utility.climbSafe);
+							  Assignment assignmentForMember = new Assignment(startDate, endDate, currentMember, Utility.climbSafe);
 							  assignmentForMember.setGuide(currGuide);
 							  Utility.climbSafe.addAssignment(assignmentForMember);
-							  //currentMember.getAssignment().setGuide(currGuide);
-							  unassignedMembers.remove(0);
+							  assTemp.add(assignmentForMember);
+							  currentMember.setName("del");
+							  break;
 						 }
-					  }
+					  }					  
 				  }
 			  }
+			  //for (Assignment temp: assTemp) {
+				//  System.out.println("Name: " + temp.getMember().getName()+ " + Guide: " + temp.getGuide().getName());
+			  //}
 		  }
+		  System.out.println("Finished code");
 	 }
 	 
 	 public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
