@@ -122,7 +122,7 @@ private String error;
 		try {
 			AssignmentController.initiateAssignmentProcess();
 		} catch (InvalidInputException e) {
-			
+			error += e.getMessage();
 		}		  
   }
 
@@ -139,9 +139,11 @@ private String error;
 	      Member member = (Member) Member.getWithEmail(memberEmail);
 	      Guide guide = (Guide) Guide.getWithEmail(guideEmail);
 	      assertNotNull(member);
-	      assertNotNull(guide);
 	      assertEquals(member.getAssignment().getStartWeek(),Integer.parseInt(startDate));
 	      assertEquals(member.getAssignment().getEndWeek(),Integer.parseInt(endDate));
+	      if(member.isGuideRequired()) {
+	    	  assertNotNull(guide);
+	      }
 	  }    
   }
 
@@ -199,7 +201,7 @@ private String error;
 	  try {
 		  AssignmentController.payTrip(memberEmail,authorizationCode);
 	  }catch(InvalidInputException e){
-		  
+		  error += e.getMessage();
 	  }
   }
 
@@ -232,7 +234,7 @@ private String error;
 	  try {
 		  AssignmentController.cancelTrip(memberEmail);
 	  }catch(InvalidInputException e){
-		  
+		  error += e.getMessage();
 	  }
   }
 
@@ -246,7 +248,8 @@ private String error;
   public void the_member_with_email_address_shall_receive_a_refund_of_percent(String memberEmail,
       String percentageRefund) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  
+	  int refund =  member.getAssignment().getRefund();
+	  assertEquals(refund,Integer.parseInt(percentageRefund));
   }
 
   @Given("the member with {string} has started their trip")
@@ -261,7 +264,7 @@ private String error;
 	  try {
 		  AssignmentController.finishTrip(memberEmail);
 	  }catch(InvalidInputException e){
-		  
+		  error += e.getMessage();
 	  }
   }
 
@@ -272,7 +275,8 @@ private String error;
 
   @Then("the member with email {string} shall be {string}")
   public void the_member_with_email_shall_be(String memberEmail, String memberStatus) {
-	  
+	  Member member = (Member) Member.getWithEmail(memberEmail);
+	  assertEquals(member.getAssignment().getAssignmentStatus().toString(),memberStatus);
   }
 
   @When("the administrator attempts to start the trips for week {string}")
@@ -280,7 +284,7 @@ private String error;
 	  try {
 		  AssignmentController.startTrips(Integer.parseInt(weekNr));
 	  }catch(InvalidInputException e){
-		  
+		  error += e.getMessage();
 	  }
   }
 

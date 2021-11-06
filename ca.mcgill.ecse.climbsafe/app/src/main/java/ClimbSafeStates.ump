@@ -1,26 +1,36 @@
 class Assignment {
-  AssignmentStatus{
+depend ca.mcgill.ecse.climbsafe.controller.AssignmentController;
+
+	AssignmentStatus{
     Assigned{
-      paidForTrip -> Paid;
-      cancelTrip -> Cancelled; //add refund method in that
+      paidForTrip[isValid(authorizationCode)] -> Paid;
+      cancelTrip -> Cancelled; 
       startTrip -> Banned;
     }
     Paid{
       startTrip -> Started;
-      cancelTrip -> Cancelled; //add refund method in that 
+      cancelTrip -> Cancelled; 
     }
     Started{
       finishTrip -> Finished;
-      cancelTrip -> Cancelled; //add refund method in that 
+      cancelTrip-> Cancelled; 
     }
     Cancelled{
     }
     Finished{
     }
+    Banned{
+    }
   }
-  //in which state do we include the ban is it in the assigned state when we cancel the trip? Or should we add a new state?
-
-  private int getRefund(){
+  
+  private boolean isValid(String code){
+  if(code.equals(null)) {
+    	return false;
+    }
+    return true;
+  }
+  
+  public int getRefund(){
     int refund = 100;
 	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
 		  refund = 50;
@@ -33,5 +43,5 @@ class Assignment {
 	  }
 	  
 	  return refund;
-  }
+	}
 }

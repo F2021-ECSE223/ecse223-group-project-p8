@@ -2,6 +2,7 @@
 /*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.ecse.climbsafe.model;
+import ca.mcgill.ecse.climbsafe.controller.AssignmentController;
 
 // line 1 "../../../../../ClimbSafeStates.ump"
 // line 83 "../../../../../ClimbSafe.ump"
@@ -96,8 +97,12 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        setAssignmentStatus(AssignmentStatus.Paid);
-        wasEventProcessed = true;
+        if (isValid(authorizationCode))
+        {
+          setAssignmentStatus(AssignmentStatus.Paid);
+          wasEventProcessed = true;
+          break;
+        }
         break;
       default:
         // Other states do respond to this event
@@ -318,12 +323,16 @@ public class Assignment
     }
   }
 
+  // line 27 "../../../../../ClimbSafeStates.ump"
+   private boolean isValid(String code){
+    if(code.equals(null)) {
+    	return false;
+    }
+    return true;
+  }
 
-  /**
-   * in which state do we include the ban is it in the assigned state when we cancel the trip? Or should we add a new state?
-   */
-  // line 24 "../../../../../ClimbSafeStates.ump"
-   private int getRefund(){
+  // line 34 "../../../../../ClimbSafeStates.ump"
+   public int getRefund(){
     int refund = 100;
 	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
 		  refund = 50;

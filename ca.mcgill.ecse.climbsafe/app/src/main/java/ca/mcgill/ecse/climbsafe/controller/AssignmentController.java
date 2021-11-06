@@ -205,6 +205,7 @@ public class AssignmentController {
 		 	
 		 	try {
 		 		a.startTrip();
+		 		
 		 	}catch(RuntimeException e){
 		 		
 		 	}
