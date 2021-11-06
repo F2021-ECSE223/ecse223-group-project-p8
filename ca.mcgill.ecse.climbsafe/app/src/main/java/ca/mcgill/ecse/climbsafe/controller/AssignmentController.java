@@ -60,30 +60,32 @@ public class AssignmentController {
 					
 				  }	else {		
 				  
-				  int memberStayWeeks = unassignedMembers.get(0).getNrWeeks();
-				  int startDate, endDate = 0;
-				  
-				  for (int a = 0; a < (Utility.climbSafe.getNrWeeks()-memberStayWeeks); a++) {
+					  int memberStayWeeks = unassignedMembers.get(0).getNrWeeks();
+					  int startDate, endDate = 0;
 					  
-					  boolean isRoom = true;
-					  for (int b = a; b<memberStayWeeks; b++) {
-						  if (schedule[b] == true) {isRoom = false; break;}
-
-					  }
-					  if (isRoom == true) {
-						  startDate = a+1;
-						  endDate = a + memberStayWeeks;
-						  for (int z = a; z<memberStayWeeks; z++) {
-							  schedule[z] = true;
-
+					  for (int a = 0; a < (Utility.climbSafe.getNrWeeks()-memberStayWeeks); a++) {
+						  
+						  boolean isRoom = true;
+						  
+						  for (int b = a; b<memberStayWeeks+a; b++) {
+							  if (schedule[b] == true) {break;}
+	
 						  }
-						  Assignment assignmentForMember = new Assignment(startDate, endDate, unassignedMembers.get(0), Utility.climbSafe);
-						  assignmentForMember.setGuide(currGuide);
-						  Utility.climbSafe.addAssignment(assignmentForMember);
-						  //currentMember.getAssignment().setGuide(currGuide);
-						  unassignedMembers.remove(0);
-					  }  
-				  }
+						  
+						  if (isRoom) {
+							  startDate = a+1;
+							  endDate = a + memberStayWeeks;
+							  for (int z = a; z<memberStayWeeks+a; z++) {
+								  schedule[z] = true;
+	
+							  }
+							  Assignment assignmentForMember = new Assignment(startDate, endDate, unassignedMembers.get(0), Utility.climbSafe);
+							  assignmentForMember.setGuide(currGuide);
+							  Utility.climbSafe.addAssignment(assignmentForMember);
+							  //currentMember.getAssignment().setGuide(currGuide);
+							  unassignedMembers.remove(0);
+						 }
+					  }
 				  }
 			  }
 		  }
