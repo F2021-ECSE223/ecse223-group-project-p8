@@ -5,9 +5,7 @@ package ca.mcgill.ecse.climbsafe.model;
 import java.sql.Date;
 import java.util.*;
 
-import ca.mcgill.ecse.climbsafe.controller.Utility;
-
-// line 3 "../../../../../ClimbSafe.ump"
+// line 5 "../../../../../ClimbSafe.ump"
 public class ClimbSafe
 {
 
@@ -35,8 +33,6 @@ public class ClimbSafe
   // CONSTRUCTOR
   //------------------------
 
- 
-  
   public ClimbSafe(Date aStartDate, int aNrWeeks, int aPriceOfGuidePerWeek)
   {
     startDate = aStartDate;
@@ -1015,7 +1011,6 @@ public class ClimbSafe
     }
     
   }
-
 
 
   public String toString()

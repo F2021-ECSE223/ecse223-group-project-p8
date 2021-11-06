@@ -3,7 +3,15 @@
 
 package ca.mcgill.ecse.climbsafe.model;
 
-// line 81 "../../../../../ClimbSafe.ump"
+/**
+ * Initiate the assignment for all members
+ * 2. Pay for a member’s trip
+ * 3. Start all trips for a specific week
+ * 4. Finish a member’s trip
+ * 5. Cancel a member’s trip
+ */
+// line 11 "../../../../../ClimbSafeStates.ump"
+// line 83 "../../../../../ClimbSafe.ump"
 public class Assignment
 {
 
@@ -14,6 +22,10 @@ public class Assignment
   //Assignment Attributes
   private int startWeek;
   private int endWeek;
+
+  //Assignment State Machines
+  public enum AssignmentStatus { Assigned, Paid, Started, Cancelled, Finished }
+  private AssignmentStatus assignmentStatus;
 
   //Assignment Associations
   private Member member;
@@ -39,6 +51,7 @@ public class Assignment
     {
       throw new RuntimeException("Unable to create assignment due to climbSafe. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
+    setAssignmentStatus(AssignmentStatus.Assigned);
   }
 
   //------------------------
@@ -69,6 +82,102 @@ public class Assignment
   public int getEndWeek()
   {
     return endWeek;
+  }
+
+  public String getAssignmentStatusFullName()
+  {
+    String answer = assignmentStatus.toString();
+    return answer;
+  }
+
+  public AssignmentStatus getAssignmentStatus()
+  {
+    return assignmentStatus;
+  }
+
+  public boolean paidForTrip()
+  {
+    boolean wasEventProcessed = false;
+    
+    AssignmentStatus aAssignmentStatus = assignmentStatus;
+    switch (aAssignmentStatus)
+    {
+      case Assigned:
+        setAssignmentStatus(AssignmentStatus.Paid);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean cancelTrip()
+  {
+    boolean wasEventProcessed = false;
+    
+    AssignmentStatus aAssignmentStatus = assignmentStatus;
+    switch (aAssignmentStatus)
+    {
+      case Assigned:
+        setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      case Paid:
+        setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      case Started:
+        setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean startTrip()
+  {
+    boolean wasEventProcessed = false;
+    
+    AssignmentStatus aAssignmentStatus = assignmentStatus;
+    switch (aAssignmentStatus)
+    {
+      case Paid:
+        setAssignmentStatus(AssignmentStatus.Started);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  public boolean finishTrip()
+  {
+    boolean wasEventProcessed = false;
+    
+    AssignmentStatus aAssignmentStatus = assignmentStatus;
+    switch (aAssignmentStatus)
+    {
+      case Started:
+        setAssignmentStatus(AssignmentStatus.Finished);
+        wasEventProcessed = true;
+        break;
+      default:
+        // Other states do respond to this event
+    }
+
+    return wasEventProcessed;
+  }
+
+  private void setAssignmentStatus(AssignmentStatus aAssignmentStatus)
+  {
+    assignmentStatus = aAssignmentStatus;
   }
   /* Code from template association_GetOne */
   public Member getMember()

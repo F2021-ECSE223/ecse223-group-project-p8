@@ -8,23 +8,21 @@ Initiate the assignment for all members
 
 */
 
-
-
 class Assignment {
-    tripStatus {
-        Paid {
-            - > StartTrip;
-
-        }
-        StartTrip {
-            - > EndTrip;
-        }
-        EndTrip {
-            - > Final;
-
-        }
-        CancelTrip {
-
-        }
+  AssignmentStatus{
+    Assigned{
+      paidForTrip -> Paid;
+      cancelTrip -> Cancelled;
     }
+    Paid{
+      startTrip -> Started;
+      cancelTrip -> Cancelled;
+    }
+    Started{
+      finishTrip -> Finished;
+      cancelTrip -> Cancelled;
+    }
+    Cancelled{
+    }
+  }
 }
