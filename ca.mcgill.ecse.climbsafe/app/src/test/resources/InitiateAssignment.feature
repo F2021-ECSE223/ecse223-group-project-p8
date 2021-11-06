@@ -23,7 +23,7 @@ Feature: Initiate assignment
       | bob@nmc.nt   | passw0rd1 | Bob Smith    | 2005555678       |
       | diana@nmc.nt | diana1991 | Diana Prince | 2005555432       |
     Given the following members exist in the system:
-      | email              | password | name             | emergencyContact | nrWeeks | guideRequired | hotelRequired | bookedItems          | quantity             |
+      | email              | password | name             | emergencyContact | nrWeeks | guideRequired | hotelRequired | bookedItems          | bookedItemQuantities |
       | alice@gmail.com    | pass123  | Alice Jones      | 2005551234       | 3       | true          | false         | small bundle,pickaxe | 2,1                  |
       | charlie@hotmail.ca | charlie  | Charles Tremblay | 2005559876       | 3       | false         | true          | large bundle         | 2                    |
       | john@hotmail.ca    | john123  | John Doe         | 2005551234       | 3       | true          | false         | small bundle,rope    | 2,1                  |

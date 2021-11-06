@@ -102,7 +102,7 @@ private String error;
     for (var member : members) {
       
       List<String> bookedItems = Arrays.asList(member.get("bookedItems").split(","));
-      List<String> bookedQuantities = Arrays.asList(member.get("quantity").split(","));
+      List<String> bookedQuantities = Arrays.asList(member.get("bookedItemQuantities").split(","));
 
       var newMember = new Member(member.get("email"), member.get("password"), member.get("name"),
           member.get("emergencyContact"),Integer.parseInt(member.get("nrWeeks")),
@@ -134,8 +134,8 @@ private String error;
 	  for (Map<String, String> assignment : assignmentInfo) {
 	      var memberEmail = assignment.get("memberEmail");
 	      var guideEmail = assignment.get("guideEmail");
-	      var startDate = assignment.get("startDate");
-	      var endDate = assignment.get("endDate");
+	      var startDate = assignment.get("startWeek");
+	      var endDate = assignment.get("endWeek");
 	      Member member = (Member) Member.getWithEmail(memberEmail);
 	      Guide guide = (Guide) Guide.getWithEmail(guideEmail);
 	      assertNotNull(member);
@@ -220,7 +220,7 @@ private String error;
   @Then("there are {string} members in the system")
   public void there_are_members_in_the_system(String nrOfMembers) {
 	  int memberCount = climbSafe.getMembers().size();
-	  assertEquals(memberCount,nrOfMembers);
+	  assertEquals(memberCount,Integer.parseInt(nrOfMembers));
   }
 
   @Then("the error {string} shall be raised")
