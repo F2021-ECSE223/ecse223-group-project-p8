@@ -197,7 +197,7 @@ private String error;
       String memberEmail, String authorizationCode) {
 
 	  try {
-		  AssignmentController.confirmPayment(memberEmail,authorizationCode);
+		  AssignmentController.payTrip(memberEmail,authorizationCode);
 	  }catch(InvalidInputException e){
 		  
 	  }
@@ -251,7 +251,7 @@ private String error;
   @Given("the member with {string} has started their trip")
   public void the_member_with_has_started_their_trip(String memberEmail) {
     Member member = (Member) Member.getWithEmail(memberEmail);
-    assertEquals(member.getAssignment().getAssignmentStatus().toString(),"Started");
+    member.getAssignment().startTrip();
   }
 
   @When("the administrator attempts to finish the trip for the member with email {string}")
@@ -277,7 +277,7 @@ private String error;
   @When("the administrator attempts to start the trips for week {string}")
   public void the_administrator_attempts_to_start_the_trips_for_week(String weekNr) {
 	  try {
-		  AssignmentController.startTrip(Integer.parseInt(weekNr));
+		  AssignmentController.startTrips(Integer.parseInt(weekNr));
 	  }catch(InvalidInputException e){
 		  
 	  }

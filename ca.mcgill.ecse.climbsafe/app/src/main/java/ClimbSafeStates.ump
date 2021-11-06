@@ -1,28 +1,31 @@
-/*
-
-Initiate the assignment for all members
-2. Pay for a member’s trip
-3. Start all trips for a specific week
-4. Finish a member’s trip
-5. Cancel a member’s trip
-
-*/
-
 class Assignment {
   AssignmentStatus{
     Assigned{
       paidForTrip -> Paid;
-      cancelTrip -> Cancelled;
+      cancelTrip -> Cancelled; //add refund method in that 
     }
     Paid{
       startTrip -> Started;
-      cancelTrip -> Cancelled;
+      cancelTrip -> Cancelled; //add refund method in that 
     }
     Started{
       finishTrip -> Finished;
-      cancelTrip -> Cancelled;
+      cancelTrip -> Cancelled; //add refund method in that 
     }
     Cancelled{
+    }
+    Finished{
+    }
+  }
+  //in which state do we include the ban is it in the assigned state when we cancel the trip? Or should we add a new state?
+}
+
+class Member{
+  MemberStatus{
+    NotBanned{
+      didNotPay -> Banned;
+    }
+    Banned{
     }
   }
 }

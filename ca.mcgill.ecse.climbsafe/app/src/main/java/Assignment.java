@@ -3,14 +3,7 @@
 
 
 
-/**
- * Initiate the assignment for all members
- * 2. Pay for a member’s trip
- * 3. Start all trips for a specific week
- * 4. Finish a member’s trip
- * 5. Cancel a member’s trip
- */
-// line 13 "ClimbSafeStates.ump"
+// line 1 "ClimbSafeStates.ump"
 public class Assignment
 {
 
@@ -46,7 +39,7 @@ public class Assignment
     return assignmentStatus;
   }
 
-  public boolean pay()
+  public boolean paidForTrip()
   {
     boolean wasEventProcessed = false;
     
@@ -64,7 +57,7 @@ public class Assignment
     return wasEventProcessed;
   }
 
-  public boolean cancel()
+  public boolean cancelTrip()
   {
     boolean wasEventProcessed = false;
     
@@ -90,7 +83,7 @@ public class Assignment
     return wasEventProcessed;
   }
 
-  public boolean start()
+  public boolean startTrip()
   {
     boolean wasEventProcessed = false;
     
@@ -108,7 +101,7 @@ public class Assignment
     return wasEventProcessed;
   }
 
-  public boolean finish()
+  public boolean finishTrip()
   {
     boolean wasEventProcessed = false;
     
@@ -116,10 +109,6 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Started:
-        setAssignmentStatus(AssignmentStatus.Finished);
-        wasEventProcessed = true;
-        break;
-      case Cancelled:
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;

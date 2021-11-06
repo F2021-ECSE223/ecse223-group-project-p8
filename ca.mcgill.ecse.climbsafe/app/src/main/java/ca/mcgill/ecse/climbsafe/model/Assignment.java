@@ -3,14 +3,7 @@
 
 package ca.mcgill.ecse.climbsafe.model;
 
-/**
- * Initiate the assignment for all members
- * 2. Pay for a member’s trip
- * 3. Start all trips for a specific week
- * 4. Finish a member’s trip
- * 5. Cancel a member’s trip
- */
-// line 11 "../../../../../ClimbSafeStates.ump"
+// line 1 "../../../../../ClimbSafeStates.ump"
 // line 83 "../../../../../ClimbSafe.ump"
 public class Assignment
 {
