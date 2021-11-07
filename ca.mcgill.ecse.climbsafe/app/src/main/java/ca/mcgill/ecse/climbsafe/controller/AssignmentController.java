@@ -138,7 +138,7 @@ public class AssignmentController {
             throw new InvalidInputException(error);
         }
         if (assignment.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
-            error = "Cannot pay for a trip which has finished";
+            error = "Cannot cancel a trip which has finished";
             throw new InvalidInputException(error);
         }
         try {
