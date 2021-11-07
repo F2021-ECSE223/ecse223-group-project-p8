@@ -243,15 +243,15 @@ private String error;
   @Given("the member with {string} has paid for their trip")
   public void the_member_with_has_paid_for_their_trip(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  member.getAssignment().paidForTrip();   
+	  member.getAssignment().setCodeIsValid(true);   
+	  member.getAssignment().paidForTrip();
   }
 
   @Then("the member with email address {string} shall receive a refund of {string} percent")
   public void the_member_with_email_address_shall_receive_a_refund_of_percent(String memberEmail,
       String percentageRefund) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  int refund = member.getAssignment().getRefund();
-	  assertEquals(Integer.parseInt(percentageRefund),refund);
+	  assertEquals(Integer.parseInt(percentageRefund),member.getAssignment().getRefund());
   }
 
   @Given("the member with {string} has started their trip")

@@ -1,18 +1,20 @@
 class Assignment {
 lazy String authorizationCode;
+lazy int refund;
+lazy boolean codeIsValid;
 	AssignmentStatus{
     Assigned{
-      paidForTrip[isValid()] -> Paid;
-      cancelTrip -> Cancelled; 
-      startTrip[!isValid()] -> Banned;
+      paidForTrip[codeIsValid] -> Paid;
+      cancelTrip -> /{modRefund();} Cancelled; 
+      startTrip -> Banned;
     }
     Paid{
       startTrip -> Started;
-      cancelTrip -> Cancelled; 
+      cancelTrip -> /{modRefund();} Cancelled; 
     }
     Started{
       finishTrip -> Finished;
-      cancelTrip-> Cancelled; 
+      cancelTrip-> /{modRefund();} Cancelled; 
     }
     Cancelled{
     }
@@ -22,25 +24,22 @@ lazy String authorizationCode;
     }
   }
   
-  private boolean isValid(){
+  public void isValid(){
   if(this.authorizationCode == null) {
-    	return false;
+    	this.codeIsValid = false;
     }
-    return true;
+    this.codeIsValid = true;
   }
   
-  public int getRefund(){
-    int refund = 100;
+  public void modRefund(){
 	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
-		  refund = 50;
+		  this.refund = 50;
 	  }
 	  if(this.assignmentStatus.equals(AssignmentStatus.Started)) {
-		  refund = 10;
+		  this.refund = 10;
 	  }
 	  if(this.assignmentStatus.equals(AssignmentStatus.Finished)) {
-		  refund = 0;
+		  this.refund = 0;
 	  }
-	  
-	  return refund;
 	}
 }

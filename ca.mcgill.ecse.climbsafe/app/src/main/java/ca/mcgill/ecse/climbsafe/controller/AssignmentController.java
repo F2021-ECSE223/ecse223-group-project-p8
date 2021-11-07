@@ -107,6 +107,7 @@ public class AssignmentController {
 
         try {
         	member.getAssignment().setAuthorizationCode(authorizationCode);
+        	member.getAssignment().isValid();
             member.getAssignment().paidForTrip();
         } catch (RuntimeException e) {
             error = e.getMessage();

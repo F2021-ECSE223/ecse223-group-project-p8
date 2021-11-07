@@ -14,6 +14,8 @@ public class Assignment
 
   //Assignment Attributes
   private String authorizationCode;
+  private int refund;
+  private boolean codeIsValid;
   private int startWeek;
   private int endWeek;
 
@@ -61,6 +63,22 @@ public class Assignment
     return wasSet;
   }
 
+  public boolean setRefund(int aRefund)
+  {
+    boolean wasSet = false;
+    refund = aRefund;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setCodeIsValid(boolean aCodeIsValid)
+  {
+    boolean wasSet = false;
+    codeIsValid = aCodeIsValid;
+    wasSet = true;
+    return wasSet;
+  }
+
   public boolean setStartWeek(int aStartWeek)
   {
     boolean wasSet = false;
@@ -80,6 +98,16 @@ public class Assignment
   public String getAuthorizationCode()
   {
     return authorizationCode;
+  }
+
+  public int getRefund()
+  {
+    return refund;
+  }
+
+  public boolean getCodeIsValid()
+  {
+    return codeIsValid;
   }
 
   public int getStartWeek()
@@ -111,7 +139,7 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        if (isValid())
+        if (getCodeIsValid())
         {
           setAssignmentStatus(AssignmentStatus.Paid);
           wasEventProcessed = true;
@@ -133,14 +161,20 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
+        // line 8 "../../../../../ClimbSafeStates.ump"
+        modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Paid:
+        // line 13 "../../../../../ClimbSafeStates.ump"
+        modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Started:
+        // line 17 "../../../../../ClimbSafeStates.ump"
+        modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
@@ -159,12 +193,8 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        if (!(isValid()))
-        {
-          setAssignmentStatus(AssignmentStatus.Banned);
-          wasEventProcessed = true;
-          break;
-        }
+        setAssignmentStatus(AssignmentStatus.Banned);
+        wasEventProcessed = true;
         break;
       case Paid:
         setAssignmentStatus(AssignmentStatus.Started);
@@ -341,28 +371,25 @@ public class Assignment
     }
   }
 
-  // line 26 "../../../../../ClimbSafeStates.ump"
-   private boolean isValid(){
+  // line 28 "../../../../../ClimbSafeStates.ump"
+   public void isValid(){
     if(this.authorizationCode == null) {
-    	return false;
+    	this.codeIsValid = false;
     }
-    return true;
+    this.codeIsValid = true;
   }
 
-  // line 33 "../../../../../ClimbSafeStates.ump"
-   public int getRefund(){
-    int refund = 100;
-	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
-		  refund = 50;
+  // line 35 "../../../../../ClimbSafeStates.ump"
+   public void modRefund(){
+    if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
+		  this.refund = 50;
 	  }
 	  if(this.assignmentStatus.equals(AssignmentStatus.Started)) {
-		  refund = 10;
+		  this.refund = 10;
 	  }
 	  if(this.assignmentStatus.equals(AssignmentStatus.Finished)) {
-		  refund = 0;
+		  this.refund = 0;
 	  }
-	  
-	  return refund;
   }
 
 
@@ -370,6 +397,8 @@ public class Assignment
   {
     return super.toString() + "["+
             "authorizationCode" + ":" + getAuthorizationCode()+ "," +
+            "refund" + ":" + getRefund()+ "," +
+            "codeIsValid" + ":" + getCodeIsValid()+ "," +
             "startWeek" + ":" + getStartWeek()+ "," +
             "endWeek" + ":" + getEndWeek()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "member = "+(getMember()!=null?Integer.toHexString(System.identityHashCode(getMember())):"null") + System.getProperties().getProperty("line.separator") +
