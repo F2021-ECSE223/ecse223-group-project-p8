@@ -1,12 +1,10 @@
 package ca.mcgill.ecse.climbsafe.controller;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.Assignment.AssignmentStatus;
-import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 

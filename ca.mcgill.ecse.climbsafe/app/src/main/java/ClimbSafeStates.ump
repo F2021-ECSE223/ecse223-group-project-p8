@@ -4,7 +4,7 @@ lazy String authorizationCode;
     Assigned{
       paidForTrip[isValid()] -> Paid;
       cancelTrip -> Cancelled; 
-      startTrip -> Banned;
+      startTrip[!isValid()] -> Banned;
     }
     Paid{
       startTrip -> Started;

@@ -159,8 +159,12 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        setAssignmentStatus(AssignmentStatus.Banned);
-        wasEventProcessed = true;
+        if (!(isValid()))
+        {
+          setAssignmentStatus(AssignmentStatus.Banned);
+          wasEventProcessed = true;
+          break;
+        }
         break;
       case Paid:
         setAssignmentStatus(AssignmentStatus.Started);

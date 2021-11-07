@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -151,13 +150,13 @@ private String error;
   @Then("the assignment for {string} shall be marked as {string}")
   public void the_assignment_for_shall_be_marked_as(String memberEmail, String assignmentStatus) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  assertEquals(member.getAssignment().getAssignmentStatus().toString(),assignmentStatus);
+	  assertEquals(assignmentStatus,member.getAssignment().getAssignmentStatus().toString());
   }
 
   @Then("the number of assignments in the system shall be {string}")
   public void the_number_of_assignments_in_the_system_shall_be(String nrOfAssignments) {
 	  int assignmentCount = climbSafe.getAssignments().size();
-	  assertEquals(assignmentCount,Integer.parseInt(nrOfAssignments));
+	  assertEquals(Integer.parseInt(nrOfAssignments),assignmentCount);
   }
 
   @Then("the system shall raise the error {string}")
@@ -211,7 +210,7 @@ private String error;
       String authorizationCode) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
 	  String code = member.getAssignment().getAuthorizationCode();
-	  assertEquals(code,authorizationCode);
+	  assertEquals(authorizationCode,code);
   }
 
   @Then("the member account with the email {string} does not exist")
@@ -223,7 +222,7 @@ private String error;
   @Then("there are {string} members in the system")
   public void there_are_members_in_the_system(String nrOfMembers) {
 	  int memberCount = climbSafe.getMembers().size();
-	  assertEquals(memberCount,Integer.parseInt(nrOfMembers));
+	  assertEquals(Integer.parseInt(nrOfMembers),memberCount);
   }
 
   @Then("the error {string} shall be raised")
@@ -252,7 +251,7 @@ private String error;
       String percentageRefund) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
 	  int refund = member.getAssignment().getRefund();
-	  assertEquals(refund,Integer.parseInt(percentageRefund));
+	  assertEquals(Integer.parseInt(percentageRefund),refund);
   }
 
   @Given("the member with {string} has started their trip")
@@ -274,13 +273,12 @@ private String error;
   @Given("the member with {string} is banned")
   public void the_member_with_is_banned(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  member.getAssignment();
   }
 
   @Then("the member with email {string} shall be {string}")
   public void the_member_with_email_shall_be(String memberEmail, String memberStatus) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  assertEquals(member.getAssignment().getAssignmentStatus().toString(),memberStatus);
+	  assertEquals(memberStatus,member.getAssignment().getAssignmentStatus().toString());
   }
 
   @When("the administrator attempts to start the trips for week {string}")
@@ -307,6 +305,6 @@ private String error;
   @Then("the member with email {string} shall be banned")
   public void the_member_with_email_shall_be_banned(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  assertEquals(member.getAssignment().getAssignmentStatus(),AssignmentStatus.Banned);
+	  assertEquals(AssignmentStatus.Banned,member.getAssignment().getAssignmentStatus());
   }
 }
