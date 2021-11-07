@@ -109,6 +109,7 @@ public class AssignmentController {
 
         try {
             member.getAssignment().paidForTrip();
+            member.getAssignment().setAuthorizationCode(authorizationCode);
         } catch (RuntimeException e) {
             error = e.getMessage();
             throw new InvalidInputException(error);
@@ -196,7 +197,8 @@ public class AssignmentController {
             try {
                 a.startTrip();
             } catch (RuntimeException e) {
-
+            	error = e.getMessage();
+                throw new InvalidInputException(error);
             }
         }
     }

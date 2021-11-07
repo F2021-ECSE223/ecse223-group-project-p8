@@ -2,7 +2,6 @@
 /*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.ecse.climbsafe.model;
-import ca.mcgill.ecse.climbsafe.controller.AssignmentController;
 
 // line 1 "../../../../../ClimbSafeStates.ump"
 // line 83 "../../../../../ClimbSafe.ump"
@@ -14,6 +13,7 @@ public class Assignment
   //------------------------
 
   //Assignment Attributes
+  private String authorizationCode;
   private int startWeek;
   private int endWeek;
 
@@ -33,6 +33,7 @@ public class Assignment
 
   public Assignment(int aStartWeek, int aEndWeek, Member aMember, ClimbSafe aClimbSafe)
   {
+    authorizationCode = null;
     startWeek = aStartWeek;
     endWeek = aEndWeek;
     boolean didAddMember = setMember(aMember);
@@ -52,6 +53,14 @@ public class Assignment
   // INTERFACE
   //------------------------
 
+  public boolean setAuthorizationCode(String aAuthorizationCode)
+  {
+    boolean wasSet = false;
+    authorizationCode = aAuthorizationCode;
+    wasSet = true;
+    return wasSet;
+  }
+
   public boolean setStartWeek(int aStartWeek)
   {
     boolean wasSet = false;
@@ -66,6 +75,11 @@ public class Assignment
     endWeek = aEndWeek;
     wasSet = true;
     return wasSet;
+  }
+
+  public String getAuthorizationCode()
+  {
+    return authorizationCode;
   }
 
   public int getStartWeek()
@@ -97,7 +111,7 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        if (isValid(authorizationCode))
+        if (isValid())
         {
           setAssignmentStatus(AssignmentStatus.Paid);
           wasEventProcessed = true;
@@ -323,15 +337,15 @@ public class Assignment
     }
   }
 
-  // line 27 "../../../../../ClimbSafeStates.ump"
-   private boolean isValid(String code){
-    if(code.equals(null)) {
+  // line 26 "../../../../../ClimbSafeStates.ump"
+   private boolean isValid(){
+    if(this.authorizationCode == null) {
     	return false;
     }
     return true;
   }
 
-  // line 34 "../../../../../ClimbSafeStates.ump"
+  // line 33 "../../../../../ClimbSafeStates.ump"
    public int getRefund(){
     int refund = 100;
 	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
@@ -351,6 +365,7 @@ public class Assignment
   public String toString()
   {
     return super.toString() + "["+
+            "authorizationCode" + ":" + getAuthorizationCode()+ "," +
             "startWeek" + ":" + getStartWeek()+ "," +
             "endWeek" + ":" + getEndWeek()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "member = "+(getMember()!=null?Integer.toHexString(System.identityHashCode(getMember())):"null") + System.getProperties().getProperty("line.separator") +

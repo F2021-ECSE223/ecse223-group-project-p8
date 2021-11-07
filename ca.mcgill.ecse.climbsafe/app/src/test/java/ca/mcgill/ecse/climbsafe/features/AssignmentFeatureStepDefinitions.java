@@ -124,7 +124,6 @@ private String error;
 			AssignmentController.initiateAssignmentProcess();
 		} catch (InvalidInputException e) {
 			error+=e.getMessage();
-			
 		}		  
   }
 
@@ -135,12 +134,15 @@ private String error;
 	  List<Map<String, String>> assignmentInfo = dataTable.asMaps();
 	  for (Map<String, String> assignment : assignmentInfo) {
 	      var memberEmail = assignment.get("memberEmail");
+	      var guideEmail = assignment.get("guideEmail");
 	      var startDate = assignment.get("startWeek");
 	      var endDate = assignment.get("endWeek");
 	      Member member = (Member) Member.getWithEmail(memberEmail);
-	      //if the member wants a guide make and if statement and check if guide is not null
+	      Guide guide = (Guide) Guide.getWithEmail(guideEmail);
 	      assertNotNull(member);
-	 
+	      if(member.isGuideRequired()) {
+	    	  assertNotNull(guide);
+	      }
 	      assertEquals(member.getAssignment().getStartWeek(),Integer.parseInt(startDate));
 	      assertEquals(member.getAssignment().getEndWeek(),Integer.parseInt(endDate));
 	  }    
@@ -206,8 +208,10 @@ private String error;
 
   @Then("the assignment for {string} shall record the authorization code {string}")
   public void the_assignment_for_shall_record_the_authorization_code(String memberEmail,
-      String assignmentStatus) {
-    
+      String authorizationCode) {
+	  Member member = (Member) Member.getWithEmail(memberEmail);
+	  String code = member.getAssignment().getAuthorizationCode();
+	  assertEquals(code,authorizationCode);
   }
 
   @Then("the member account with the email {string} does not exist")
@@ -219,8 +223,7 @@ private String error;
   @Then("there are {string} members in the system")
   public void there_are_members_in_the_system(String nrOfMembers) {
 	  int memberCount = climbSafe.getMembers().size();
-	  Integer turnIntoInt=Integer.parseInt(nrOfMembers);
-	  assertEquals(memberCount,turnIntoInt);
+	  assertEquals(memberCount,Integer.parseInt(nrOfMembers));
   }
 
   @Then("the error {string} shall be raised")
@@ -248,7 +251,8 @@ private String error;
   public void the_member_with_email_address_shall_receive_a_refund_of_percent(String memberEmail,
       String percentageRefund) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  
+	  int refund = member.getAssignment().getRefund();
+	  assertEquals(refund,Integer.parseInt(percentageRefund));
   }
 
   @Given("the member with {string} has started their trip")

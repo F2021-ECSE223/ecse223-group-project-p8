@@ -1,9 +1,8 @@
 class Assignment {
-depend ca.mcgill.ecse.climbsafe.controller.AssignmentController;
-
+lazy String authorizationCode;
 	AssignmentStatus{
     Assigned{
-      paidForTrip[isValid(authorizationCode)] -> Paid;
+      paidForTrip[isValid()] -> Paid;
       cancelTrip -> Cancelled; 
       startTrip -> Banned;
     }
@@ -23,8 +22,8 @@ depend ca.mcgill.ecse.climbsafe.controller.AssignmentController;
     }
   }
   
-  private boolean isValid(String code){
-  if(code.equals(null)) {
+  private boolean isValid(){
+  if(this.authorizationCode == null) {
     	return false;
     }
     return true;
