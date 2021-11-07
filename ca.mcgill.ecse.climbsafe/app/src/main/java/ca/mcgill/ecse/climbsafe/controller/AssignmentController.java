@@ -179,25 +179,27 @@ public class AssignmentController {
         var error = "";
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
-            Member member = a.getMember();
-            if (member.getAssignment().getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-                error = "Cannot start the trip due to a ban";
-                throw new InvalidInputException(error);
-            }
-            if (a.getAssignmentStatus().equals(AssignmentStatus.Cancelled)) {
-                error = "Cannot start a trip which has been cancelled";
-                throw new InvalidInputException(error);
-            }
-            if (a.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
-                error = "Cannot start a trip which has finished";
-                throw new InvalidInputException(error);
-            }
+        	if(weekNr == a.getStartWeek()) {
+        		Member member = a.getMember();
+                if (member.getAssignment().getAssignmentStatus().equals(AssignmentStatus.Banned)) {
+                    error = "Cannot start the trip due to a ban";
+                    throw new InvalidInputException(error);
+                }
+                if (a.getAssignmentStatus().equals(AssignmentStatus.Cancelled)) {
+                    error = "Cannot start a trip which has been cancelled";
+                    throw new InvalidInputException(error);
+                }
+                if (a.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
+                    error = "Cannot start a trip which has finished";
+                    throw new InvalidInputException(error);
+                }
 
-            try {
-                a.startTrip();
-            } catch (RuntimeException e) {
-            	error = e.getMessage();
-                throw new InvalidInputException(error);
+                try {
+                    a.startTrip();
+                } catch (RuntimeException e) {
+                	error = e.getMessage();
+                    throw new InvalidInputException(error);
+                }
             }
         }
     }
