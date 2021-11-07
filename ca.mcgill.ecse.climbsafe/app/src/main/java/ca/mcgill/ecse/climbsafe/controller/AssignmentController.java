@@ -14,71 +14,55 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 
 public class AssignmentController {
 
-	//String[][] memberWithCodes = new String();
-	
+	// Ke Yan / Selina Gao / Mihail Calitoiu
     public static void initiateAssignmentProcess() throws InvalidInputException {
 
         List < Member > forShallow = Utility.climbSafe.getMembers();
-        List < Member > unassignedMembers = new ArrayList < Member > ();
-        for (Member temp: forShallow) {
-            unassignedMembers.add(temp);
-        }
-        List < Assignment > assTemp = new ArrayList < Assignment > ();
-
-
-
-        for (Guide currGuide: Utility.climbSafe.getGuides()) {
-
+        List < Member > unassignedMembers = new ArrayList < Member >();
+        
+        // shallow copy of climbSafe's member array (we don't want to edit the original array)
+        for (Member temp: forShallow) { unassignedMembers.add(temp); }
+        
+        for (Guide currentGuide: Utility.climbSafe.getGuides()) {
+        	// boolean list stores the availability per week of a specific guide (for a week, false -> available, true -> unavailable)
             boolean[] schedule = new boolean[Utility.climbSafe.getNrWeeks()];
-
+            // visit each unassigned member
             for (Member currentMember: unassignedMembers) {
-
-                if (currentMember.getName().equals("del")) {
-                    continue;
-                };
-
+            	// already assigned, go to next member
+                if (currentMember.getName().equals("assigned")) { continue; }; 
+                // no guide required
                 if (currentMember.getGuideRequired() == false) {
                     Assignment assignmentForMember = new Assignment(1, currentMember.getNrWeeks(), currentMember, Utility.climbSafe);
-                    assignmentForMember.setGuide(currGuide);
+                    assignmentForMember.setGuide(currentGuide);
                     Utility.climbSafe.addAssignment(assignmentForMember);
-                    assTemp.add(assignmentForMember);
-                    currentMember.setName("del");
-
+                    currentMember.setName("assigned");
+                // guide is required
                 } else {
-
                     int memberStayWeeks = currentMember.getNrWeeks();
                     int startDate, endDate = 0;
-
-                    for (int a = 0; a < (Utility.climbSafe.getNrWeeks() - memberStayWeeks + 1); a++) {
-
+                    // code below finds earliest available consecutive weeks (number being the member's stayed weeks)
+                    for (int a = 0; a < (Utility.climbSafe.getNrWeeks()-memberStayWeeks+1); a++) {
                         boolean isRoom = true;
-
                         for (int b = a; b < memberStayWeeks + a; b++) {
-                            if (schedule[b] == true) {
-                                isRoom = false;
-                                break;
-                            }
-
+                            if (schedule[b] == true) { isRoom = false; break; }
                         }
-
                         if (isRoom) {
                             startDate = a + 1;
                             endDate = a + memberStayWeeks;
                             for (int z = a; z < memberStayWeeks + a; z++) {
                                 schedule[z] = true;
-
-                            }
-                            Assignment assignmentForMember = new Assignment(startDate, endDate, currentMember, Utility.climbSafe);
-                            assignmentForMember.setGuide(currGuide);
-                            Utility.climbSafe.addAssignment(assignmentForMember);
-                            assTemp.add(assignmentForMember);
-                            currentMember.setName("del");
-                            break;
+                        }
+                        Assignment assignmentForMember = new Assignment(startDate, endDate, currentMember, Utility.climbSafe);
+                        assignmentForMember.setGuide(currentGuide);
+                        Utility.climbSafe.addAssignment(assignmentForMember);
+                        currentMember.setName("assigned");
+                        break;
                         }
                     }
                 }
             }
         }
+        // visit each member in climbSafe's member array and if a member's assignment is null, throw error
         for (Member currentMember: Utility.climbSafe.getMembers()) {
             if (currentMember.getAssignment() == null) {
                 throw new InvalidInputException("Assignments could not be completed for all members");
