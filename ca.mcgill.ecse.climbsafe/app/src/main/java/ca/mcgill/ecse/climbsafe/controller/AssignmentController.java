@@ -181,7 +181,7 @@ public class AssignmentController {
         for (Assignment a: assignmentInSystem) {
             Member member = a.getMember();
             if (member.getAssignment().getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-                error = "Cannot pay for the trip due to a ban";
+                error = "Cannot start the trip due to a ban";
                 throw new InvalidInputException(error);
             }
             if (a.getAssignmentStatus().equals(AssignmentStatus.Cancelled)) {

@@ -275,6 +275,8 @@ private String error;
   @Given("the member with {string} is banned")
   public void the_member_with_is_banned(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
+	  member.getAssignment().setCodeIsValid(false);
+	  member.getAssignment().startTrip();
   }
 
   @Then("the member with email {string} shall be {string}")
