@@ -6,7 +6,7 @@ lazy boolean codeIsValid;
     Assigned{
       paidForTrip[codeIsValid] -> Paid;
       cancelTrip -> /{modRefund();} Cancelled; 
-      startTrip -> Banned;
+      startTrip[!codeIsValid] -> Banned;
     }
     Paid{
       startTrip -> Started;

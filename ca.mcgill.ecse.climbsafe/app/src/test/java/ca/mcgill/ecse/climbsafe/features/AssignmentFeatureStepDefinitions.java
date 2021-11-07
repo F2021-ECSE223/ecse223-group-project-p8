@@ -257,6 +257,8 @@ private String error;
   @Given("the member with {string} has started their trip")
   public void the_member_with_has_started_their_trip(String memberEmail) {
     Member member = (Member) Member.getWithEmail(memberEmail);
+    member.getAssignment().setCodeIsValid(true);
+    member.getAssignment().paidForTrip();
     member.getAssignment().startTrip();
   }
 
@@ -299,6 +301,9 @@ private String error;
   @Given("the member with {string} has finished their trip")
   public void the_member_with_has_finished_their_trip(String memberEmail) {
     Member member = (Member) Member.getWithEmail(memberEmail);
+    member.getAssignment().setCodeIsValid(true);
+    member.getAssignment().paidForTrip();
+    member.getAssignment().startTrip();
     member.getAssignment().finishTrip();
   }
 
