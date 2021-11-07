@@ -3,3 +3,56 @@
 For later
 
 */
+
+//ADD use in main umple once done!
+//not sure how to choose the serialVersionUID...
+
+external interface Serializable {}
+
+class ClimbSafe {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = -2683593616927798071L;
+  }
+}
+
+class Assigment {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 2315072607928790501L;
+
+    }
+  }
+}
+
+class Administrator {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 8896099581655989380L;
+  
+  public static void reinitializeUniqueNumber(List<Route> routes) {
+    routesByNumber = new HashMap<Integer, Route>();
+    for (Route route : routes) {
+      routesByNumber.put(route.getNumber(), route);
+    }
+  }
+}
+
+
+class BookableItem {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = -3900912597282882073L;
+}
+
+class BookedItem {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 2045406856025012133L;
+}
+
+class BundleItem {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = -7403802774454467836L;
+}
