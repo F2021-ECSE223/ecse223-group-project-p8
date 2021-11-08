@@ -35,7 +35,7 @@ public class ClimbSafeFeatureSet6Controller {
         for (Equipment temp: equipmentList) {
             if (temp.getName().equals(name)) {equipment = temp; break;}
         }
-        if (equipment != null) {equipment.delete();}
+        if (equipment != null) {equipment.delete(); ClimbsafePersistence.save();}
     }
 
     /**
@@ -50,7 +50,7 @@ public class ClimbSafeFeatureSet6Controller {
         for (EquipmentBundle temp: equipmentBundleList) {
             if (temp.getName().equals(name)) {equipmentBundle = temp; break;}
         }
-        if (equipmentBundle != null) {equipmentBundle.delete();}
+        if (equipmentBundle != null) {equipmentBundle.delete(); ClimbsafePersistence.save();}
     }
     
     /**
@@ -101,6 +101,7 @@ public class ClimbSafeFeatureSet6Controller {
                 }
             }
             assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForEquipment));
+	    ClimbsafePersistence.save();
         }
         return assignment2ToAssignment;
     }
