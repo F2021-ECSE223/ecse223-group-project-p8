@@ -46,6 +46,7 @@ public class ClimbSafeFeatureSet4Controller {
   
     try {
       equipmentEntered = Utility.climbSafe.addEquipment(name,weight,pricePerWeek);
+	    ClimbsafePersistence.save();
     }
     catch (RuntimeException e){
       error = e.getMessage();
@@ -99,6 +100,7 @@ public class ClimbSafeFeatureSet4Controller {
     eq_to_be_updated.setName(newName);
     eq_to_be_updated.setWeight(newWeight);
     eq_to_be_updated.setPricePerWeek(newPricePerWeek);
+    ClimbsafePersistence.save();
     
   
   }
