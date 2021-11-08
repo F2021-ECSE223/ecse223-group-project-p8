@@ -107,6 +107,7 @@ public class ClimbSafeFeatureSet5Controller {
 				Equipment equipment = Utility.findEquipment(equipmentName);
 				climbSafe.addBundleItem(equipmentQuantity, equipmentBundle, equipment);
 			}
+			ClimbsafePersistence.save();
 		} catch (RuntimeException e) {
 			error = e.getMessage();
 			throw new InvalidInputException(error);
@@ -226,7 +227,8 @@ public class ClimbSafeFeatureSet5Controller {
 			for(int i = 0;i<newEquipmentNames.size();i++) {
 				equipmentBundle.addBundleItem(newEquipmentQuantities.get(i), climbSafe,
 						(Equipment) Equipment.getWithName(newEquipmentNames.get(i)));				
-			}			
+			}
+			ClimbsafePersistence.save();
 			
 		}catch (RuntimeException e){
 			error = e.getMessage();
