@@ -33,6 +33,7 @@ public class ClimbSafeFeatureSet1Controller {
 		  Utility.climbSafe.setNrWeeks(nrWeeks);
 		  Utility.climbSafe.setStartDate(startDate);
 		  Utility.climbSafe.setPriceOfGuidePerWeek(priceOfGuidePerWeek);
+		  ClimbsafePersistence.save();
 	  }catch (RuntimeException e){
 		  error = e.getMessage();
 		  throw new InvalidInputException(error);
@@ -50,6 +51,7 @@ public class ClimbSafeFeatureSet1Controller {
 	  if(member != null) {
 		  //delete the member
 		  member.delete();
+		  ClimbsafePersistence.save();
 	  }
   }
 
@@ -64,6 +66,7 @@ public class ClimbSafeFeatureSet1Controller {
 	  if(guide != null) {
 		  //delete the guide
 		  guide.delete();
+		  ClimbsafePersistence.save();
 	  }
 	  
   }
