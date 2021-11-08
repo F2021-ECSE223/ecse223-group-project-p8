@@ -141,6 +141,7 @@ public class ClimbSafeFeatureSet2Controller {
 			myMember=climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
 			//add items too!!
 			Utility.addItemList(climbSafe, itemNames, itemQuantities, myMember);
+			ClimbsafePersistence.save();
 			
 		}catch (RuntimeException e) {
 			error = e.getMessage();
@@ -236,6 +237,7 @@ public class ClimbSafeFeatureSet2Controller {
 				existingMember.setHotelRequired(newHotelRequired);
 				Utility.resetBookedItems(climbSafe, existingMember);
 				Utility.addItemList(climbSafe, newItemNames, newItemQuantities, existingMember);
+				ClimbsafePersistence.save();
 				
 			}catch (RuntimeException e) {
 				error = e.getMessage();
