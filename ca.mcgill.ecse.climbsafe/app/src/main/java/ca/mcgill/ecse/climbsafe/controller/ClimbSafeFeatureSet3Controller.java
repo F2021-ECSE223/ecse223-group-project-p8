@@ -112,7 +112,8 @@ public class ClimbSafeFeatureSet3Controller {
 	 }
 	 
 	 try {
-		climbSafe.addGuide(email, password, name, emergencyContact); 
+		climbSafe.addGuide(email, password, name, emergencyContact);
+		 ClimbsafePersistence.save();
 	 }
 	 catch (RuntimeException e){
 		  error = e.getMessage();
@@ -169,6 +170,7 @@ public class ClimbSafeFeatureSet3Controller {
 		  existingGuide.setPassword(newPassword);
 		  existingGuide.setName(newName);
 		  existingGuide.setEmergencyContact(newEmergencyContact);
+		  ClimbsafePersistence.save();
 	  }
 	  catch (RuntimeException e) {
 		  error += e.getMessage();
