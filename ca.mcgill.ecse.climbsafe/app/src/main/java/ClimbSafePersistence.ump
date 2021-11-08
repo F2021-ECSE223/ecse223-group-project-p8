@@ -28,14 +28,6 @@ class User {
    }
 }
 
-
-class Administrator {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = 1L;
-}
-
-
 class Hotel {
   depend java.io.Serializable;
   isA Serializable;
@@ -49,7 +41,42 @@ class Hotel {
   }
 }
 
+class Equipment {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 5L;
+}
 
+class NamedUser {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = -2L ;
+}
+
+class EquipmentBundle {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 6L;
+}
+
+class Guide {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 7L;
+}
+
+class Member {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = -1L;
+}
+
+
+class Administrator {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 1L;
+}
 
 class Assignment {
   depend java.io.Serializable;
@@ -73,51 +100,6 @@ class BookableItem {
     }
    }
  }
- }
- 
-  
-
-class BookedItem {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = -4L;
-}
-
-class BundleItem {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = 4L;
-}
-
-class Equipment {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = 5L;
-}
 
 
-class EquipmentBundle {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = 6L;
-}
 
-
-class Guide {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = 7L;
-}
-
-class Member {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = -1L;
-}
-
-
-class NamedUser {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = -2L ;
-}
