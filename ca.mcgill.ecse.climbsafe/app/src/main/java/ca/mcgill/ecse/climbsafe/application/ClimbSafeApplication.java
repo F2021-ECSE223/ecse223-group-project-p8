@@ -17,10 +17,11 @@ public class ClimbSafeApplication {
     System.out.println(new ClimbSafeApplication().getGreeting());
   }
 
-  public static ClimbSafe getClimbSafe() {
+public static ClimbSafe getClimbSafe() {
     if (climbSafe == null) {
-      // these attributes are default, you should set them later with the setters
-      climbSafe = new ClimbSafe(new Date(0), 0, 0);
+     // these attributes are default, you should set them later with the setters
+    //climbSafe = new ClimbSafe(new Date(0), 0, 0);
+      climbSafe = ClimbsafePersistence.load();
     }
     
     return climbSafe;
