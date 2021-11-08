@@ -5,6 +5,7 @@ import java.util.List;
 
 import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.Assignment.AssignmentStatus;
+import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 
@@ -33,7 +34,9 @@ public class AssignmentController {
                     Assignment assignmentForMember = new Assignment(1, currentMember.getNrWeeks(), currentMember, Utility.climbSafe);
                     assignmentForMember.setGuide(currentGuide);
                     Utility.climbSafe.addAssignment(assignmentForMember);
+                    ClimbsafePersistence.save();
                     currentMember.setName("assigned");
+                    
                 // guide is required
                 } else {
                     int memberStayWeeks = currentMember.getNrWeeks();
@@ -53,6 +56,7 @@ public class AssignmentController {
                         Assignment assignmentForMember = new Assignment(startDate, endDate, currentMember, Utility.climbSafe);
                         assignmentForMember.setGuide(currentGuide);
                         Utility.climbSafe.addAssignment(assignmentForMember);
+                        ClimbsafePersistence.save();
                         currentMember.setName("assigned");
                         break;
                         }
@@ -109,6 +113,7 @@ public class AssignmentController {
         	member.getAssignment().setAuthorizationCode(authorizationCode);
         	member.getAssignment().isValid();
             member.getAssignment().paidForTrip();
+            ClimbsafePersistence.save();
         } catch (RuntimeException e) {
             error = e.getMessage();
             throw new InvalidInputException(error);
@@ -125,7 +130,8 @@ public class AssignmentController {
         }
         Assignment assignment = member.getAssignment();
         if (assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-            error = "Cannot cancel the trip due to a ban";
+            error
+            = "Cannot cancel the trip due to a ban";
             throw new InvalidInputException(error);
         }
         if (assignment.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
@@ -134,6 +140,7 @@ public class AssignmentController {
         }
         try {
             member.getAssignment().cancelTrip();
+            ClimbsafePersistence.save();
         } catch (RuntimeException e) {
             error = e.getMessage();
             throw new InvalidInputException(error);
@@ -169,6 +176,7 @@ public class AssignmentController {
         
         try {
             member.getAssignment().finishTrip();
+            ClimbsafePersistence.save();
         } catch (RuntimeException e) {
             error = e.getMessage();
             throw new InvalidInputException(error);
@@ -196,6 +204,7 @@ public class AssignmentController {
 
                 try {
                     a.startTrip();
+                    ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                 	error = e.getMessage();
                     throw new InvalidInputException(error);
@@ -204,3 +213,4 @@ public class AssignmentController {
         }
     }
 }
+
