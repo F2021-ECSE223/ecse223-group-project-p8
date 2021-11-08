@@ -4,20 +4,20 @@ class ClimbSafe {
   depend java.io.Serializable;
   isA Serializable;
   private static final long serialVersionUID = 0L;
-  
+
   public void reinitialize() {
     Hotel.reinitializeUniqueHotelName(this.getHotels());
     BookableItem.reinitializeUniqueEquipmentName(this.getEquipment(), this.getBundles());
     User.reinitializeUniqueEmail(this.getMembers(), this.getGuides());
+    }
   }
-}
+ 
 
 class User {
   depend java.io.Serializable;
   isA Serializable;
   private static final long serialVersionUID = -3L ;
-  public static void reinitializeUniqueEmail(List<Member> members, List<Guide> guides) 
-  {
+  public static void reinitializeUniqueEmail(List<Member> members, List<Guide> guides){
   usersByEmail = new HashMap<String, User>();
   for (User member : members) {
      usersByEmail.put(member.getEmail(), member);
@@ -27,6 +27,14 @@ class User {
      }
    }
 }
+
+
+class Administrator {
+  depend java.io.Serializable;
+  isA Serializable;
+  private static final long serialVersionUID = 1L;
+}
+
 
 class Hotel {
   depend java.io.Serializable;
@@ -41,11 +49,6 @@ class Hotel {
   }
 }
 
-class Administrator {
-  depend java.io.Serializable;
-  isA Serializable;
-  private static final long serialVersionUID = 1L;
-}
 
 
 class Assignment {
@@ -70,6 +73,8 @@ class BookableItem {
     }
    }
  }
+ }
+ 
   
 
 class BookedItem {
@@ -77,7 +82,6 @@ class BookedItem {
   isA Serializable;
   private static final long serialVersionUID = -4L;
 }
-  
 
 class BundleItem {
   depend java.io.Serializable;
@@ -105,13 +109,12 @@ class Guide {
   private static final long serialVersionUID = 7L;
 }
 
-
-
 class Member {
   depend java.io.Serializable;
   isA Serializable;
   private static final long serialVersionUID = -1L;
 }
+
 
 class NamedUser {
   depend java.io.Serializable;
