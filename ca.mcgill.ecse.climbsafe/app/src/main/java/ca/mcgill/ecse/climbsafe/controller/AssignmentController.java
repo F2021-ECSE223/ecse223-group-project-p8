@@ -160,7 +160,7 @@ public class AssignmentController {
                     if(error != null) {
                     	throw new InvalidInputException(error);
                     }
-                    ClimbsafePersistence.save();
+                    //ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                 	error = e.getMessage();
                     throw new InvalidInputException(error);
