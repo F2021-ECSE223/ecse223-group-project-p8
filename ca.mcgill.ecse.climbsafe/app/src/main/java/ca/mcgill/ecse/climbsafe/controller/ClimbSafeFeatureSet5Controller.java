@@ -8,6 +8,7 @@ import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
+import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 
 public class ClimbSafeFeatureSet5Controller {
 

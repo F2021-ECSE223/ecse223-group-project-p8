@@ -243,8 +243,7 @@ private String error;
   @Given("the member with {string} has paid for their trip")
   public void the_member_with_has_paid_for_their_trip(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  member.getAssignment().setCodeIsValid(true);   
-	  member.getAssignment().paidForTrip();
+	  member.getAssignment().changeAssignmentStatus(AssignmentStatus.Paid);
   }
 
   @Then("the member with email address {string} shall receive a refund of {string} percent")
@@ -257,9 +256,7 @@ private String error;
   @Given("the member with {string} has started their trip")
   public void the_member_with_has_started_their_trip(String memberEmail) {
     Member member = (Member) Member.getWithEmail(memberEmail);
-    member.getAssignment().setCodeIsValid(true);
-    member.getAssignment().paidForTrip();
-    member.getAssignment().startTrip();
+    member.getAssignment().changeAssignmentStatus(AssignmentStatus.Started);
   }
 
   @When("the administrator attempts to finish the trip for the member with email {string}")
@@ -275,8 +272,7 @@ private String error;
   @Given("the member with {string} is banned")
   public void the_member_with_is_banned(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  member.getAssignment().setCodeIsValid(false);
-	  member.getAssignment().startTrip();
+	  member.getAssignment().changeAssignmentStatus(AssignmentStatus.Banned);
   }
 
   @Then("the member with email {string} shall be {string}")
@@ -303,10 +299,7 @@ private String error;
   @Given("the member with {string} has finished their trip")
   public void the_member_with_has_finished_their_trip(String memberEmail) {
     Member member = (Member) Member.getWithEmail(memberEmail);
-    member.getAssignment().setCodeIsValid(true);
-    member.getAssignment().paidForTrip();
-    member.getAssignment().startTrip();
-    member.getAssignment().finishTrip();
+    member.getAssignment().changeAssignmentStatus(AssignmentStatus.Finished);
   }
 
   @Then("the member with email {string} shall be banned")

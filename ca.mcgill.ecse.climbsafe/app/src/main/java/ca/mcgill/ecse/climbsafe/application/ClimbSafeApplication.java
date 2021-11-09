@@ -5,6 +5,7 @@ package ca.mcgill.ecse.climbsafe.application;
 
 import java.sql.Date;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
+import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 
 public class ClimbSafeApplication {
   private static ClimbSafe climbSafe;

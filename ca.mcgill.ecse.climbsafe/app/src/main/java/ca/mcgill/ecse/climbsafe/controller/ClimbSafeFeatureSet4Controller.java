@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.climbsafe.controller;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
+import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 /**Methods to add equipment to the ClimbSafe system, and update existing ones
  * 
  * @author MayaAjji

@@ -73,46 +73,25 @@ public class AssignmentController {
     }
 
     public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
-        var error = "";
+        
         
         if (Member.getWithEmail(memberEmail) == null) {
-            error = "Member with email address " + memberEmail + " does not exist";
-            throw new InvalidInputException(error);
+            throw new InvalidInputException("Member with email address " + memberEmail + " does not exist");
         }
+        
         
         Member member = (Member) Member.getWithEmail(memberEmail);
         Assignment assignment = member.getAssignment();
-        
-        if (authorizationCode.isEmpty() && !member.equals(null)) {
-            error = "Invalid authorization code";
-            throw new InvalidInputException(error);
-        }
-        
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Paid)) {
-            error = "Trip has already been paid for";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Started)) {
-            error = "Trip has already been paid for";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Cancelled)) {
-            error = "Cannot pay for a trip which has been cancelled";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
-            error = "Cannot pay for a trip which has finished";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-            error = "Cannot pay for the trip due to a ban";
-            throw new InvalidInputException(error);
-        }
+        var error = "";
+     
 
         try {
-        	member.getAssignment().setAuthorizationCode(authorizationCode);
-        	member.getAssignment().isValid();
-            member.getAssignment().paidForTrip();
+        	assignment.setAuthorizationCode(authorizationCode);
+            assignment.paidForTrip();
+            error = assignment.getError();
+            if(error != null) {
+            	throw new InvalidInputException(error);
+            }
             ClimbsafePersistence.save();
         } catch (RuntimeException e) {
             error = e.getMessage();
@@ -121,25 +100,22 @@ public class AssignmentController {
     }
 
     public static void cancelTrip(String memberEmail) throws InvalidInputException {
-        var error = "";
+        
         Member member = (Member) Member.getWithEmail(memberEmail);
-       
+        
         if (member == null){
-            error = "Member with email address " + memberEmail + " does not exist ";
-            throw new InvalidInputException(error);
+            throw new InvalidInputException("Member with email address " + memberEmail + " does not exist ");
         }
         Assignment assignment = member.getAssignment();
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-            error
-            = "Cannot cancel the trip due to a ban";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
-            error = "Cannot cancel a trip which has finished";
-            throw new InvalidInputException(error);
-        }
+        var error = "";
+ 
+        
         try {
             member.getAssignment().cancelTrip();
+            error = assignment.getError();
+            if(error != null) {
+            	throw new InvalidInputException(error);
+            }
             ClimbsafePersistence.save();
         } catch (RuntimeException e) {
             error = e.getMessage();
@@ -148,34 +124,21 @@ public class AssignmentController {
     }
 
     public static void finishTrip(String memberEmail) throws InvalidInputException {
-        var error = "";
         Member member = (Member) Member.getWithEmail(memberEmail);
         
         if (member == null) {
-            error = "Member with email address " + memberEmail + " does not exist ";
-            throw new InvalidInputException(error);
+            throw new InvalidInputException("Member with email address " + memberEmail + " does not exist ");
         }
+        
         Assignment assignment = member.getAssignment();
-
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Assigned)) {
-            error = "Cannot finish a trip which has not started";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Paid)) {
-            error = "Cannot finish a trip which has not started";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Cancelled)) {
-            error = "Cannot finish a trip which has been cancelled";
-            throw new InvalidInputException(error);
-        }
-        if (assignment.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-            error = "Cannot finish the trip due to a ban";
-            throw new InvalidInputException(error);
-        }
+        var error = "";
         
         try {
             member.getAssignment().finishTrip();
+            error = assignment.getError();
+            if(error != null) {
+            	throw new InvalidInputException(error);
+            }
             ClimbsafePersistence.save();
         } catch (RuntimeException e) {
             error = e.getMessage();
@@ -184,26 +147,19 @@ public class AssignmentController {
     }
 
     public static void startTrips(int weekNr) throws InvalidInputException {
-        var error = "";
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
         	if(weekNr == a.getStartWeek()) {
-        		Member member = a.getMember();
-                if (member.getAssignment().getAssignmentStatus().equals(AssignmentStatus.Banned)) {
-                    error = "Cannot start the trip due to a ban";
-                    throw new InvalidInputException(error);
-                }
-                if (a.getAssignmentStatus().equals(AssignmentStatus.Cancelled)) {
-                    error = "Cannot start a trip which has been cancelled";
-                    throw new InvalidInputException(error);
-                }
-                if (a.getAssignmentStatus().equals(AssignmentStatus.Finished)) {
-                    error = "Cannot start a trip which has finished";
-                    throw new InvalidInputException(error);
-                }
-
+        		var error = "";
+                System.out.println(a.getAssignmentStatus().toString());
+               
                 try {
+                	
                     a.startTrip();
+                    error = a.getError();
+                    if(error != null) {
+                    	throw new InvalidInputException(error);
+                    }
                     ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                 	error = e.getMessage();

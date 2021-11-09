@@ -7,6 +7,7 @@ import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
+import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 
 public class ClimbSafeFeatureSet2Controller {
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();

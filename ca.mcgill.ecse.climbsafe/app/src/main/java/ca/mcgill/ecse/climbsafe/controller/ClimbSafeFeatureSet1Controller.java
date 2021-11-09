@@ -4,6 +4,7 @@ import java.sql.Date;
 
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
+import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 
 
 

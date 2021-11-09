@@ -2,10 +2,12 @@
 /*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.ecse.climbsafe.model;
+import java.io.Serializable;
 
 // line 1 "../../../../../ClimbSafeStates.ump"
-// line 83 "../../../../../ClimbSafe.ump"
-public class Assignment
+// line 81 "../../../../../ClimbSafePersistence.ump"
+// line 84 "../../../../../ClimbSafe.ump"
+public class Assignment implements Serializable
 {
 
   //------------------------
@@ -15,7 +17,7 @@ public class Assignment
   //Assignment Attributes
   private String authorizationCode;
   private int refund;
-  private boolean codeIsValid;
+  private String error;
   private int startWeek;
   private int endWeek;
 
@@ -36,6 +38,7 @@ public class Assignment
   public Assignment(int aStartWeek, int aEndWeek, Member aMember, ClimbSafe aClimbSafe)
   {
     authorizationCode = null;
+    error = null;
     startWeek = aStartWeek;
     endWeek = aEndWeek;
     boolean didAddMember = setMember(aMember);
@@ -71,10 +74,10 @@ public class Assignment
     return wasSet;
   }
 
-  public boolean setCodeIsValid(boolean aCodeIsValid)
+  public boolean setError(String aError)
   {
     boolean wasSet = false;
-    codeIsValid = aCodeIsValid;
+    error = aError;
     wasSet = true;
     return wasSet;
   }
@@ -105,9 +108,9 @@ public class Assignment
     return refund;
   }
 
-  public boolean getCodeIsValid()
+  public String getError()
   {
-    return codeIsValid;
+    return error;
   }
 
   public int getStartWeek()
@@ -139,12 +142,48 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        if (getCodeIsValid())
+        if (isValid())
         {
           setAssignmentStatus(AssignmentStatus.Paid);
           wasEventProcessed = true;
           break;
         }
+        if (!(isValid()))
+        {
+          setAssignmentStatus(AssignmentStatus.Assigned);
+          wasEventProcessed = true;
+          break;
+        }
+        break;
+      case Paid:
+        // line 18 "../../../../../ClimbSafeStates.ump"
+        error = "Trip has already been paid for";
+        setAssignmentStatus(AssignmentStatus.Paid);
+        wasEventProcessed = true;
+        break;
+      case Started:
+        // line 24 "../../../../../ClimbSafeStates.ump"
+        error = "Trip has already been paid for";
+        setAssignmentStatus(AssignmentStatus.Started);
+        wasEventProcessed = true;
+        break;
+      case Cancelled:
+        // line 29 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot pay for a trip which has been cancelled";
+        setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      case Finished:
+        // line 35 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot pay for a trip which has finished";
+        setAssignmentStatus(AssignmentStatus.Finished);
+        wasEventProcessed = true;
+        break;
+      case Banned:
+        // line 40 "../../../../../ClimbSafeStates.ump"
+        this.error = "Cannot pay for the trip due to a ban";
+        setAssignmentStatus(AssignmentStatus.Banned);
+        wasEventProcessed = true;
         break;
       default:
         // Other states do respond to this event
@@ -161,21 +200,33 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        // line 8 "../../../../../ClimbSafeStates.ump"
+        // line 10 "../../../../../ClimbSafeStates.ump"
         modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Paid:
-        // line 13 "../../../../../ClimbSafeStates.ump"
+        // line 16 "../../../../../ClimbSafeStates.ump"
         modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Started:
-        // line 17 "../../../../../ClimbSafeStates.ump"
+        // line 23 "../../../../../ClimbSafeStates.ump"
         modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      case Finished:
+        // line 34 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot cancel a trip which has finished";
+        setAssignmentStatus(AssignmentStatus.Finished);
+        wasEventProcessed = true;
+        break;
+      case Banned:
+        // line 41 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot cancel the trip due to a ban";
+        setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
         break;
       default:
@@ -193,15 +244,29 @@ public class Assignment
     switch (aAssignmentStatus)
     {
       case Assigned:
-        if (!getCodeIsValid())
-        {
-          setAssignmentStatus(AssignmentStatus.Banned);
-          wasEventProcessed = true;
-          break;
-        }
+        setAssignmentStatus(AssignmentStatus.Banned);
+        wasEventProcessed = true;
         break;
       case Paid:
         setAssignmentStatus(AssignmentStatus.Started);
+        wasEventProcessed = true;
+        break;
+      case Cancelled:
+        // line 27 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot start a trip which has been cancelled";
+        setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      case Finished:
+        // line 33 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot start a trip which has finished";
+        setAssignmentStatus(AssignmentStatus.Finished);
+        wasEventProcessed = true;
+        break;
+      case Banned:
+        // line 38 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot start the trip due to a ban";
+        setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
         break;
       default:
@@ -218,8 +283,32 @@ public class Assignment
     AssignmentStatus aAssignmentStatus = assignmentStatus;
     switch (aAssignmentStatus)
     {
+      case Assigned:
+        // line 12 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot finish a trip which has not started";
+        setAssignmentStatus(AssignmentStatus.Assigned);
+        wasEventProcessed = true;
+        break;
+      case Paid:
+        // line 17 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot finish a trip which has not started";
+        setAssignmentStatus(AssignmentStatus.Paid);
+        wasEventProcessed = true;
+        break;
       case Started:
         setAssignmentStatus(AssignmentStatus.Finished);
+        wasEventProcessed = true;
+        break;
+      case Cancelled:
+        // line 28 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot finish a trip which has been cancelled";
+        setAssignmentStatus(AssignmentStatus.Cancelled);
+        wasEventProcessed = true;
+        break;
+      case Banned:
+        // line 39 "../../../../../ClimbSafeStates.ump"
+        error = "Cannot finish the trip due to a ban";
+        setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
         break;
       default:
@@ -375,15 +464,16 @@ public class Assignment
     }
   }
 
-  // line 28 "../../../../../ClimbSafeStates.ump"
-   public void isValid(){
-    if(this.authorizationCode == null) {
-    	this.codeIsValid = false;
+  // line 46 "../../../../../ClimbSafeStates.ump"
+   public boolean isValid(){
+    if(this.authorizationCode == "") {
+  		this.error = "Invalid authorization code";
+    	return false;
     }
-    this.codeIsValid = true;
+    return true;
   }
 
-  // line 35 "../../../../../ClimbSafeStates.ump"
+  // line 54 "../../../../../ClimbSafeStates.ump"
    public void modRefund(){
     if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
 		  this.refund = 50;
@@ -396,18 +486,31 @@ public class Assignment
 	  }
   }
 
+  // line 66 "../../../../../ClimbSafeStates.ump"
+   public void changeAssignmentStatus(AssignmentStatus aAssignmentStatus){
+    this.assignmentStatus = aAssignmentStatus;
+  }
+
 
   public String toString()
   {
     return super.toString() + "["+
             "authorizationCode" + ":" + getAuthorizationCode()+ "," +
             "refund" + ":" + getRefund()+ "," +
-            "codeIsValid" + ":" + getCodeIsValid()+ "," +
+            "error" + ":" + getError()+ "," +
             "startWeek" + ":" + getStartWeek()+ "," +
             "endWeek" + ":" + getEndWeek()+ "]" + System.getProperties().getProperty("line.separator") +
             "  " + "member = "+(getMember()!=null?Integer.toHexString(System.identityHashCode(getMember())):"null") + System.getProperties().getProperty("line.separator") +
             "  " + "guide = "+(getGuide()!=null?Integer.toHexString(System.identityHashCode(getGuide())):"null") + System.getProperties().getProperty("line.separator") +
             "  " + "hotel = "+(getHotel()!=null?Integer.toHexString(System.identityHashCode(getHotel())):"null") + System.getProperties().getProperty("line.separator") +
             "  " + "climbSafe = "+(getClimbSafe()!=null?Integer.toHexString(System.identityHashCode(getClimbSafe())):"null");
-  }
+  }  
+  //------------------------
+  // DEVELOPER CODE - PROVIDED AS-IS
+  //------------------------
+  
+  // line 84 "../../../../../ClimbSafePersistence.ump"
+  private static final long serialVersionUID = 2L ;
+
+  
 }

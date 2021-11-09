@@ -1,34 +1,53 @@
 class Assignment {
 lazy String authorizationCode;
 lazy int refund;
-lazy boolean codeIsValid;
-	AssignmentStatus{
+lazy String error;
+
+AssignmentStatus{
     Assigned{
-      paidForTrip[codeIsValid] -> Paid;
+      paidForTrip[isValid()] -> Paid;
+      paidForTrip[!isValid()] -> Assigned;
       cancelTrip -> /{modRefund();} Cancelled; 
-      startTrip[!codeIsValid] -> Banned;
+      startTrip -> Banned;
+      finishTrip -> /{this.error = "Cannot finish a trip which has not started";} Assigned;
     }
     Paid{
       startTrip -> Started;
       cancelTrip -> /{modRefund();} Cancelled; 
+      finishTrip -> /{this.error = "Cannot finish a trip which has not started";} Paid;
+      paidForTrip -> /{this.error = "Trip has already been paid for";} Paid;
+      
     }
     Started{
       finishTrip -> Finished;
       cancelTrip-> /{modRefund();} Cancelled; 
+      paidForTrip ->/{this.error = "Trip has already been paid for";} Started;
     }
     Cancelled{
+      startTrip -> /{this.error = "Cannot start a trip which has been cancelled";} Cancelled;
+      finishTrip -> /{this.error = "Cannot finish a trip which has been cancelled";} Cancelled;
+      paidForTrip -> /{this.error = "Cannot pay for a trip which has been cancelled";} Cancelled;
+      
     }
     Finished{
+      startTrip -> /{this.error = "Cannot start a trip which has finished";} Finished;
+      cancelTrip -> /{this.error = "Cannot cancel a trip which has finished";} Finished;
+      paidForTrip -> /{this.error = "Cannot pay for a trip which has finished";} Finished;
     }
     Banned{
+      startTrip -> /{this.error = "Cannot start the trip due to a ban";} Banned;
+      finishTrip -> /{this.error = "Cannot finish the trip due to a ban";} Banned;
+      paidForTrip -> /{this.error = "Cannot pay for the trip due to a ban";} Banned;
+      cancelTrip -> /{this.error = "Cannot cancel the trip due to a ban";} Banned;
     }
   }
   
-  public void isValid(){
+  public boolean isValid(){
   if(this.authorizationCode == null) {
-    	this.codeIsValid = false;
+  		this.error = "Invalid authorization code";
+    	return false;
     }
-    this.codeIsValid = true;
+    return true;
   }
   
   public void modRefund(){
@@ -42,4 +61,8 @@ lazy boolean codeIsValid;
 		  this.refund = 0;
 	  }
 	}
+	
+  public void changeAssignmentStatus(AssignmentStatus aAssignmentStatus){
+    this.assignmentStatus = aAssignmentStatus;
+  }
 }

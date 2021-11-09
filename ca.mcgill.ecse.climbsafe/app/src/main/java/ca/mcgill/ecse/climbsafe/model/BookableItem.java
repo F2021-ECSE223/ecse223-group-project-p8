@@ -2,10 +2,12 @@
 /*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.ecse.climbsafe.model;
+import java.io.Serializable;
 import java.util.*;
 
-// line 54 "../../../../../ClimbSafe.ump"
-public abstract class BookableItem
+// line 88 "../../../../../ClimbSafePersistence.ump"
+// line 55 "../../../../../ClimbSafe.ump"
+public abstract class BookableItem implements Serializable
 {
 
   //------------------------
@@ -187,10 +189,29 @@ public abstract class BookableItem
     }
   }
 
+  // line 94 "../../../../../ClimbSafePersistence.ump"
+   public static  void reinitializeUniqueEquipmentName(List<Equipment> items, List<EquipmentBundle> items2){
+    bookableitemsByName = new HashMap<String, BookableItem>();
+    for (BookableItem item : items) {
+      bookableitemsByName.put(item.getName(), item);
+    }
+    for (BookableItem item2 : items2){
+    bookableitemsByName.put(item2.getName(), item2);
+    }
+  }
+
 
   public String toString()
   {
     return super.toString() + "["+
             "name" + ":" + getName()+ "]";
-  }
+  }  
+  //------------------------
+  // DEVELOPER CODE - PROVIDED AS-IS
+  //------------------------
+  
+  // line 91 "../../../../../ClimbSafePersistence.ump"
+  private static final long serialVersionUID = 3L ;
+
+  
 }
