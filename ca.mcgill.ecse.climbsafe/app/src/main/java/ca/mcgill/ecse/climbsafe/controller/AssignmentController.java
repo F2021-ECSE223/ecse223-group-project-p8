@@ -150,9 +150,7 @@ public class AssignmentController {
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
         	if(weekNr == a.getStartWeek()) {
-        		var error = "";
-                System.out.println(a.getAssignmentStatus().toString());
-               
+        		var error = "";               
                 try {
                 	
                     a.startTrip();
