@@ -157,25 +157,25 @@ public class Assignment implements Serializable
         break;
       case Paid:
         // line 18 "../../../../../ClimbSafeStates.ump"
-        error = "Trip has already been paid for";
+        this.error = "Trip has already been paid for";
         setAssignmentStatus(AssignmentStatus.Paid);
         wasEventProcessed = true;
         break;
       case Started:
         // line 24 "../../../../../ClimbSafeStates.ump"
-        error = "Trip has already been paid for";
+        this.error = "Trip has already been paid for";
         setAssignmentStatus(AssignmentStatus.Started);
         wasEventProcessed = true;
         break;
       case Cancelled:
         // line 29 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot pay for a trip which has been cancelled";
+        this.error = "Cannot pay for a trip which has been cancelled";
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Finished:
         // line 35 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot pay for a trip which has finished";
+        this.error = "Cannot pay for a trip which has finished";
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;
@@ -219,13 +219,13 @@ public class Assignment implements Serializable
         break;
       case Finished:
         // line 34 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot cancel a trip which has finished";
+        this.error = "Cannot cancel a trip which has finished";
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;
       case Banned:
         // line 41 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot cancel the trip due to a ban";
+        this.error = "Cannot cancel the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
         break;
@@ -253,19 +253,19 @@ public class Assignment implements Serializable
         break;
       case Cancelled:
         // line 27 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot start a trip which has been cancelled";
+        this.error = "Cannot start a trip which has been cancelled";
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Finished:
         // line 33 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot start a trip which has finished";
+        this.error = "Cannot start a trip which has finished";
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;
       case Banned:
         // line 38 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot start the trip due to a ban";
+        this.error = "Cannot start the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
         break;
@@ -285,13 +285,13 @@ public class Assignment implements Serializable
     {
       case Assigned:
         // line 12 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot finish a trip which has not started";
+        this.error = "Cannot finish a trip which has not started";
         setAssignmentStatus(AssignmentStatus.Assigned);
         wasEventProcessed = true;
         break;
       case Paid:
         // line 17 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot finish a trip which has not started";
+        this.error = "Cannot finish a trip which has not started";
         setAssignmentStatus(AssignmentStatus.Paid);
         wasEventProcessed = true;
         break;
@@ -301,13 +301,13 @@ public class Assignment implements Serializable
         break;
       case Cancelled:
         // line 28 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot finish a trip which has been cancelled";
+        this.error = "Cannot finish a trip which has been cancelled";
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Banned:
         // line 39 "../../../../../ClimbSafeStates.ump"
-        error = "Cannot finish the trip due to a ban";
+        this.error = "Cannot finish the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
         break;

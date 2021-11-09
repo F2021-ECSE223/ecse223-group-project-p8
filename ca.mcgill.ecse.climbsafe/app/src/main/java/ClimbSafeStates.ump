@@ -6,7 +6,6 @@ lazy String error;
 AssignmentStatus{
     Assigned{
       paidForTrip[isValid()] -> Paid;
-      paidForTrip[!isValid()] -> Assigned;
       cancelTrip -> /{modRefund();} Cancelled; 
       startTrip -> Banned;
       finishTrip -> /{this.error = "Cannot finish a trip which has not started";} Assigned;
