@@ -461,7 +461,7 @@ public class Assignment implements Serializable
 
   /**
    * 
-   * @author Joey
+   * @author Joey Liu
    * authorization Code is valid if it is not empty
    */
   // line 49 "../../../../../ClimbSafeStates.ump"
@@ -476,7 +476,7 @@ public class Assignment implements Serializable
 
   /**
    * 
-   * @author Joey
+   * @author Joey Liu
    * this method modifies the refund percentage depending on the status of the assignment
    */
   // line 61 "../../../../../ClimbSafeStates.ump"
@@ -495,7 +495,7 @@ public class Assignment implements Serializable
 
   /**
    * 
-   * @author Joey
+   * @author Joey Liu
    * sets the assignment status testing purposes
    */
   // line 77 "../../../../../ClimbSafeStates.ump"

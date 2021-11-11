@@ -184,6 +184,11 @@ public class AssignmentController {
      * @throws InvalidInputException for any invalid input
      */
     public static void startTrips(int weekNr) throws InvalidInputException {
+    	
+    	if(weekNr <= 0 ) {
+    		throw new InvalidInputException("Week number cannot be 0 or negative");
+    	}
+    	
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
             if (weekNr == a.getStartWeek()) {

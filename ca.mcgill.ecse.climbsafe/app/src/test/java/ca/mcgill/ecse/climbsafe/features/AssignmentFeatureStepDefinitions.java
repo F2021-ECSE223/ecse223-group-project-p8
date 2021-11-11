@@ -33,7 +33,7 @@ private ClimbSafe climbSafe;
 private String error;
 
 	/**
-	 * @author Joey
+	 * @author Joey Liu
 	 */
   @Given("the following ClimbSafe system exists:")
   public void the_following_climb_safe_system_exists(io.cucumber.datatable.DataTable dataTable) {
@@ -42,7 +42,6 @@ private String error;
     var date = climbSafe1.get(0).get("startDate");
     var weeks = climbSafe1.get(0).get("nrWeeks");
     var price = climbSafe1.get(0).get("priceOfGuidePerWeek");
-    error = "";
     climbSafe = ClimbSafeApplication.getClimbSafe();
     climbSafe.setStartDate(java.sql.Date.valueOf(date));
     climbSafe.setNrWeeks(Integer.parseInt(weeks));
@@ -50,7 +49,7 @@ private String error;
   }
 
   /**
-   * @author Mihail
+   * @author Mihail Calitou
    */
   @Given("the following pieces of equipment exist in the system:")
   public void the_following_pieces_of_equipment_exist_in_the_system(
@@ -67,7 +66,7 @@ private String error;
   }
 
   /**
-   * @author Ke
+   * @author Ke Yan
    */
   @Given("the following equipment bundles exist in the system:")
   public void the_following_equipment_bundles_exist_in_the_system(
@@ -92,7 +91,7 @@ private String error;
 
   
   /**
-   * @author Maya
+   * @author Maya Ajji
    */
   @Given("the following guides exist in the system:")
   public void the_following_guides_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
@@ -110,7 +109,7 @@ private String error;
 
   
   /**
-   * @author Selina
+   * @author Selina Gao
    */
   @Given("the following members exist in the system:")
   public void the_following_members_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
@@ -135,7 +134,7 @@ private String error;
   }
 
   /**
-   * @author Aigiarn
+   * @author Aigiarn Cheuk
    */
   @When("the administrator attempts to initiate the assignment process")
   public void the_administrator_attempts_to_initiate_the_assignment_process() {
@@ -147,7 +146,7 @@ private String error;
   }
 
   /**
-   * @author Joey
+   * @author Joey Liu
    */
   @Then("the following assignments shall exist in the system:")
   public void the_following_assignments_shall_exist_in_the_system(
@@ -171,7 +170,7 @@ private String error;
   }
 
   /**
-   * @author Mihail
+   * @author Mihail Calitou
    */
   @Then("the assignment for {string} shall be marked as {string}")
   public void the_assignment_for_shall_be_marked_as(String memberEmail, String assignmentStatus) {
@@ -180,7 +179,7 @@ private String error;
   }
   
   /**
-   * @author Ke
+   * @author Ke Yan
    */
   @Then("the number of assignments in the system shall be {string}")
   public void the_number_of_assignments_in_the_system_shall_be(String nrOfAssignments) {
@@ -190,7 +189,7 @@ private String error;
 
   
   /**
-   * @author Selina
+   * @author Selina Gao
    */
   @Then("the system shall raise the error {string}")
   public void the_system_shall_raise_the_error(String string) {
@@ -199,7 +198,7 @@ private String error;
 
   
   /**
-   * @author Maya
+   * @author Maya Ajji
    */
   @Given("the following assignments exist in the system:")
   public void the_following_assignments_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
@@ -219,7 +218,7 @@ private String error;
   }
 
   /**
-   * @author Aigiarn
+   * @author Aigiarn Cheuk
    */
   @When("the administrator attempts to confirm payment for {string} using authorization code {string}")
   public void the_administrator_attempts_to_confirm_payment_for_using_authorization_code(
@@ -234,7 +233,7 @@ private String error;
 
   
   /**
-   * @author Joey
+   * @author Joey Liu
    */
   @Then("the assignment for {string} shall record the authorization code {string}")
   public void the_assignment_for_shall_record_the_authorization_code(String memberEmail,
@@ -246,7 +245,7 @@ private String error;
 
   
   /**
-   * @author Mihail
+   * @author Mihail Calitou
    */
   @Then("the member account with the email {string} does not exist")
   public void the_member_account_with_the_email_does_not_exist(String memberEmail) {
@@ -256,7 +255,7 @@ private String error;
 
   
   /**
-   * @author Selina
+   * @author Selina Gao
    */
   @Then("there are {string} members in the system")
   public void there_are_members_in_the_system(String nrOfMembers) {
@@ -266,7 +265,7 @@ private String error;
 
   
   /**
-   * @author Ke
+   * @author Ke Yan
    */
   @Then("the error {string} shall be raised")
   public void the_error_shall_be_raised(String string) {
@@ -275,7 +274,7 @@ private String error;
 
   
   /**
-   * @author Aigiarn
+   * @author Aigiarn Cheuk
    */
   @When("the administrator attempts to cancel the trip for {string}")
   public void the_administrator_attempts_to_cancel_the_trip_for(String memberEmail) {
@@ -289,7 +288,7 @@ private String error;
 
   
   /**
-   * @author Maya
+   * @author Maya Ajji
    */
   @Given("the member with {string} has paid for their trip")
   public void the_member_with_has_paid_for_their_trip(String memberEmail) {
@@ -298,7 +297,7 @@ private String error;
   }
 
   /**
-   * @author Joey
+   * @author Joey Liu
    */
   @Then("the member with email address {string} shall receive a refund of {string} percent")
   public void the_member_with_email_address_shall_receive_a_refund_of_percent(String memberEmail,
@@ -308,7 +307,7 @@ private String error;
   }
 
   /**
-   * @author Mihail
+   * @author Mihail Calitou
    */
   @Given("the member with {string} has started their trip")
   public void the_member_with_has_started_their_trip(String memberEmail) {
@@ -317,7 +316,7 @@ private String error;
   }
 
   /**
-   * @author Ke
+   * @author Ke Yan
    */
   @When("the administrator attempts to finish the trip for the member with email {string}")
   public void the_administrator_attempts_to_finish_the_trip_for_the_member_with_email(
@@ -330,7 +329,7 @@ private String error;
   }
 
   /**
-   * @author Selina
+   * @author Selina Gao
    */
   @Given("the member with {string} is banned")
   public void the_member_with_is_banned(String memberEmail) {
@@ -340,7 +339,7 @@ private String error;
 
   
   /**
-   * @author Aigiarn
+   * @author Aigiarn Cheuk
    */
   @Then("the member with email {string} shall be {string}")
   public void the_member_with_email_shall_be(String memberEmail, String memberStatus) {
@@ -349,7 +348,7 @@ private String error;
   }
 
   /**
-   * @author Maya
+   * @author Maya Ajji
    */
   @When("the administrator attempts to start the trips for week {string}")
   public void the_administrator_attempts_to_start_the_trips_for_week(String weekNr) {
@@ -362,17 +361,17 @@ private String error;
 
   
   /**
-   * @author Joey
+   * @author Joey Liu
    */
   @Given("the member with {string} has cancelled their trip")
   public void the_member_with_has_cancelled_their_trip(String memberEmail) {
 	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  member.getAssignment().cancelTrip();
+	  member.getAssignment().changeAssignmentStatus(AssignmentStatus.Cancelled);
   }
 
   
   /**
-   * @author Ke
+   * @author Ke Yan
    */
   @Given("the member with {string} has finished their trip")
   public void the_member_with_has_finished_their_trip(String memberEmail) {
