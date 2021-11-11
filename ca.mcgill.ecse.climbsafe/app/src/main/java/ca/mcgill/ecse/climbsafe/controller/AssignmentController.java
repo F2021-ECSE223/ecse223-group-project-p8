@@ -144,6 +144,7 @@ public class AssignmentController {
     /** Finishes trip
    * @author Selina Gao
    * @author Aigiarn Cheuk
+   * @author Joey Liu 
    * @param memberEmail The email of the member
    * @throws InvalidInputException for any invalid input
    */
