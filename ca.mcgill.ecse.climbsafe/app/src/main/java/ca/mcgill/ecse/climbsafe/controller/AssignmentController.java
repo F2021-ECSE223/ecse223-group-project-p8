@@ -142,6 +142,7 @@ public class AssignmentController {
     }
     
     /** Finishes trip
+       * @author Joey Liu
 	   * @author Selina Gao
 	   * @param memberEmail The email of the member
 	   * @throws InvalidInputException for any invalid input
@@ -170,8 +171,8 @@ public class AssignmentController {
     }
 
     /** Starts the trip
-	   * @author Maya Ajji
-	   * @author Ke Yan
+	   * @author Aigiarn Cheuk
+	   * @author Joey Liu
 	   * @param weekNr The number of weeks
 	   * @throws InvalidInputException for any invalid input
 	   */
