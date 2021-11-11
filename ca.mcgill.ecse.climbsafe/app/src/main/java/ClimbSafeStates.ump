@@ -41,6 +41,10 @@ AssignmentStatus{
     }
   }
   
+  /**
+   * @author Joey
+   * authorization Code is valid if it is not empty
+   */
   public boolean isValid(){
   if(this.authorizationCode == "") {
   		this.error = "Invalid authorization code";
@@ -49,6 +53,10 @@ AssignmentStatus{
     return true;
   }
   
+  /**
+    * @author Joey
+    * this method modifies the refund percentage depending on the status of the assignment
+    */
   public void modRefund(){
 	  if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
 		  this.refund = 50;
@@ -60,7 +68,11 @@ AssignmentStatus{
 		  this.refund = 0;
 	  }
 	}
-	
+  
+  /**
+    * @author Joey
+    * sets the assignment status testing purposes
+    */	
   public void changeAssignmentStatus(AssignmentStatus aAssignmentStatus){
     this.assignmentStatus = aAssignmentStatus;
   }
