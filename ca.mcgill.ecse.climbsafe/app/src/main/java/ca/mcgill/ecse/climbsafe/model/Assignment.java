@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 // line 1 "../../../../../ClimbSafeStates.ump"
 // line 81 "../../../../../ClimbSafePersistence.ump"
-// line 84 "../../../../../ClimbSafe.ump"
+// line 91 "../../../../../ClimbSafe.ump"
 public class Assignment implements Serializable
 {
 
@@ -148,39 +148,33 @@ public class Assignment implements Serializable
           wasEventProcessed = true;
           break;
         }
-        if (!(isValid()))
-        {
-          setAssignmentStatus(AssignmentStatus.Assigned);
-          wasEventProcessed = true;
-          break;
-        }
         break;
       case Paid:
-        // line 18 "../../../../../ClimbSafeStates.ump"
+        // line 17 "../../../../../ClimbSafeStates.ump"
         this.error = "Trip has already been paid for";
         setAssignmentStatus(AssignmentStatus.Paid);
         wasEventProcessed = true;
         break;
       case Started:
-        // line 24 "../../../../../ClimbSafeStates.ump"
+        // line 23 "../../../../../ClimbSafeStates.ump"
         this.error = "Trip has already been paid for";
         setAssignmentStatus(AssignmentStatus.Started);
         wasEventProcessed = true;
         break;
       case Cancelled:
-        // line 29 "../../../../../ClimbSafeStates.ump"
+        // line 28 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot pay for a trip which has been cancelled";
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Finished:
-        // line 35 "../../../../../ClimbSafeStates.ump"
+        // line 34 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot pay for a trip which has finished";
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;
       case Banned:
-        // line 40 "../../../../../ClimbSafeStates.ump"
+        // line 39 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot pay for the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
@@ -200,31 +194,31 @@ public class Assignment implements Serializable
     switch (aAssignmentStatus)
     {
       case Assigned:
-        // line 10 "../../../../../ClimbSafeStates.ump"
+        // line 9 "../../../../../ClimbSafeStates.ump"
         modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Paid:
-        // line 16 "../../../../../ClimbSafeStates.ump"
+        // line 15 "../../../../../ClimbSafeStates.ump"
         modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Started:
-        // line 23 "../../../../../ClimbSafeStates.ump"
+        // line 22 "../../../../../ClimbSafeStates.ump"
         modRefund();
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Finished:
-        // line 34 "../../../../../ClimbSafeStates.ump"
+        // line 33 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot cancel a trip which has finished";
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;
       case Banned:
-        // line 41 "../../../../../ClimbSafeStates.ump"
+        // line 40 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot cancel the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
@@ -252,19 +246,19 @@ public class Assignment implements Serializable
         wasEventProcessed = true;
         break;
       case Cancelled:
-        // line 27 "../../../../../ClimbSafeStates.ump"
+        // line 26 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot start a trip which has been cancelled";
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Finished:
-        // line 33 "../../../../../ClimbSafeStates.ump"
+        // line 32 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot start a trip which has finished";
         setAssignmentStatus(AssignmentStatus.Finished);
         wasEventProcessed = true;
         break;
       case Banned:
-        // line 38 "../../../../../ClimbSafeStates.ump"
+        // line 37 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot start the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
@@ -284,13 +278,13 @@ public class Assignment implements Serializable
     switch (aAssignmentStatus)
     {
       case Assigned:
-        // line 12 "../../../../../ClimbSafeStates.ump"
+        // line 11 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot finish a trip which has not started";
         setAssignmentStatus(AssignmentStatus.Assigned);
         wasEventProcessed = true;
         break;
       case Paid:
-        // line 17 "../../../../../ClimbSafeStates.ump"
+        // line 16 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot finish a trip which has not started";
         setAssignmentStatus(AssignmentStatus.Paid);
         wasEventProcessed = true;
@@ -300,13 +294,13 @@ public class Assignment implements Serializable
         wasEventProcessed = true;
         break;
       case Cancelled:
-        // line 28 "../../../../../ClimbSafeStates.ump"
+        // line 27 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot finish a trip which has been cancelled";
         setAssignmentStatus(AssignmentStatus.Cancelled);
         wasEventProcessed = true;
         break;
       case Banned:
-        // line 39 "../../../../../ClimbSafeStates.ump"
+        // line 38 "../../../../../ClimbSafeStates.ump"
         this.error = "Cannot finish the trip due to a ban";
         setAssignmentStatus(AssignmentStatus.Banned);
         wasEventProcessed = true;
@@ -464,7 +458,7 @@ public class Assignment implements Serializable
     }
   }
 
-  // line 46 "../../../../../ClimbSafeStates.ump"
+  // line 45 "../../../../../ClimbSafeStates.ump"
    public boolean isValid(){
     if(this.authorizationCode == "") {
   		this.error = "Invalid authorization code";
@@ -473,7 +467,7 @@ public class Assignment implements Serializable
     return true;
   }
 
-  // line 54 "../../../../../ClimbSafeStates.ump"
+  // line 53 "../../../../../ClimbSafeStates.ump"
    public void modRefund(){
     if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
 		  this.refund = 50;
@@ -486,7 +480,7 @@ public class Assignment implements Serializable
 	  }
   }
 
-  // line 66 "../../../../../ClimbSafeStates.ump"
+  // line 65 "../../../../../ClimbSafeStates.ump"
    public void changeAssignmentStatus(AssignmentStatus aAssignmentStatus){
     this.assignmentStatus = aAssignmentStatus;
   }

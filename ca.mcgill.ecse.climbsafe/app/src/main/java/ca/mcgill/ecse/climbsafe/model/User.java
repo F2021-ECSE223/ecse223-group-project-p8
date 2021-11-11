@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 // line 16 "../../../../../ClimbSafePersistence.ump"
-// line 21 "../../../../../ClimbSafe.ump"
+// line 22 "../../../../../ClimbSafe.ump"
 public abstract class User implements Serializable
 {
 

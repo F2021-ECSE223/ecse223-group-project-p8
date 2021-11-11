@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 // line 31 "../../../../../ClimbSafePersistence.ump"
-// line 77 "../../../../../ClimbSafe.ump"
+// line 84 "../../../../../ClimbSafe.ump"
 public class Hotel implements Serializable
 {
 

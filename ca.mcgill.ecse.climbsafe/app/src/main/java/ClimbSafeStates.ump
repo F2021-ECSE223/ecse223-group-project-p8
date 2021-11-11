@@ -42,7 +42,7 @@ AssignmentStatus{
   }
   
   public boolean isValid(){
-  if(this.authorizationCode == null) {
+  if(this.authorizationCode == "") {
   		this.error = "Invalid authorization code";
     	return false;
     }

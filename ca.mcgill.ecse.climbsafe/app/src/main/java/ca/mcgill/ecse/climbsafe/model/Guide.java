@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 // line 62 "../../../../../ClimbSafePersistence.ump"
-// line 38 "../../../../../ClimbSafe.ump"
+// line 39 "../../../../../ClimbSafe.ump"
 public class Guide extends NamedUser implements Serializable
 {
 

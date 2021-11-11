@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.*;
 
 // line 88 "../../../../../ClimbSafePersistence.ump"
-// line 55 "../../../../../ClimbSafe.ump"
+// line 59 "../../../../../ClimbSafe.ump"
 public abstract class BookableItem implements Serializable
 {
 
