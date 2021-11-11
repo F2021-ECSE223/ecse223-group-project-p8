@@ -13,12 +13,12 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 
 public class AssignmentController {
 
-	 /** Initiates the assignment instances by assigning assignments to members 
-	   * @author Ke Yan
-	   * @author Selina Gao
-	   * @author Mihail Calitoiu
-	   * @throws InvalidInputException for any invalid input
-	   */
+ /** Initiates the assignment instances by assigning assignments to members 
+   * @author Ke Yan
+   * @author Selina Gao
+   * @author Mihail Calitoiu
+   * @throws InvalidInputException for any invalid input
+   */
     public static void initiateAssignmentProcess() throws InvalidInputException {
 
         List < Member > forShallow = Utility.climbSafe.getMembers();
@@ -78,12 +78,12 @@ public class AssignmentController {
     }
 
     /** Pays for the trip by checking whether authorizationCode is valid
-	   * @author Maya Ajji
-	   * @author Joey Liu
-	   * @param memberEmail The email of the member
-	   * @param authorizationCode The authorization code
-	   * @throws InvalidInputException for any invalid input
-	   */
+   * @author Maya Ajji
+   * @author Joey Liu
+   * @param memberEmail The email of the member
+   * @param authorizationCode The authorization code
+   * @throws InvalidInputException for any invalid input
+   */
     public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
         
         
@@ -112,11 +112,11 @@ public class AssignmentController {
     }
 
     /** Cancels trip
-	   * @author Ke Yan
-	   * @author Mihail Calitoiu
-	   * @param memberEmail The email of the member
-	   * @throws InvalidInputException for any invalid input
-	   */
+   * @author Maya Ajji
+   * @author Mihail Calitoiu
+   * @param memberEmail The email of the member
+   * @throws InvalidInputException for any invalid input
+   */
     public static void cancelTrip(String memberEmail) throws InvalidInputException {
         
         Member member = (Member) Member.getWithEmail(memberEmail);
@@ -142,11 +142,11 @@ public class AssignmentController {
     }
     
     /** Finishes trip
-       	   * @author Aigiarn Cheuk
-	   * @author Selina Gao
-	   * @param memberEmail The email of the member
-	   * @throws InvalidInputException for any invalid input
-	   */
+   * @author Selina Gao
+   * @author Aigiarn Cheuk
+   * @param memberEmail The email of the member
+   * @throws InvalidInputException for any invalid input
+   */
     public static void finishTrip(String memberEmail) throws InvalidInputException {
         Member member = (Member) Member.getWithEmail(memberEmail);
         
@@ -171,11 +171,11 @@ public class AssignmentController {
     }
 
     /** Starts the trip
-	   * @author Aigiarn Cheuk
-	   * @author Joey Liu
-	   * @param weekNr The number of weeks
-	   * @throws InvalidInputException for any invalid input
-	   */
+   * @author Aigiarn Cheuk
+   * @author Ke Yan
+   * @param weekNr The number of weeks
+   * @throws InvalidInputException for any invalid input
+   */
     public static void startTrips(int weekNr) throws InvalidInputException {
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
