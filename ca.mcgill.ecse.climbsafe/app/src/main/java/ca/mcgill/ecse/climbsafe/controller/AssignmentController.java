@@ -13,7 +13,12 @@ import ca.mcgill.ecse.climbsafe.model.Member;
 
 public class AssignmentController {
 
-	// Ke Yan / Selina Gao / Mihail Calitoiu
+	 /** Initiates the assignment instances by assigning assignments to members 
+	   * @author Ke Yan
+	   * @author Selina Gao
+	   * @author Mihail Calitoiu
+	   * @throws InvalidInputException for any invalid input
+	   */
     public static void initiateAssignmentProcess() throws InvalidInputException {
 
         List < Member > forShallow = Utility.climbSafe.getMembers();
@@ -72,6 +77,13 @@ public class AssignmentController {
         }
     }
 
+    /** Pays for the trip by checking whether authorizationCode is valid
+	   * @author Maya Ajji
+	   * @author Joey Liu
+	   * @param memberEmail The email of the member
+	   * @param authorizationCode The authorization code
+	   * @throws InvalidInputException for any invalid input
+	   */
     public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
         
         
@@ -99,6 +111,12 @@ public class AssignmentController {
         }
     }
 
+    /** Cancels trip
+	   * @author Ke Yan
+	   * @author Mihail Calitoiu
+	   * @param memberEmail The email of the member
+	   * @throws InvalidInputException for any invalid input
+	   */
     public static void cancelTrip(String memberEmail) throws InvalidInputException {
         
         Member member = (Member) Member.getWithEmail(memberEmail);
@@ -122,7 +140,12 @@ public class AssignmentController {
             throw new InvalidInputException(error);
         }
     }
-
+    
+    /** Finishes trip
+	   * @author Selina Gao
+	   * @param memberEmail The email of the member
+	   * @throws InvalidInputException for any invalid input
+	   */
     public static void finishTrip(String memberEmail) throws InvalidInputException {
         Member member = (Member) Member.getWithEmail(memberEmail);
         
@@ -146,6 +169,12 @@ public class AssignmentController {
         }
     }
 
+    /** Starts the trip
+	   * @author Maya Ajji
+	   * @author Ke Yan
+	   * @param weekNr The number of weeks
+	   * @throws InvalidInputException for any invalid input
+	   */
     public static void startTrips(int weekNr) throws InvalidInputException {
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
@@ -158,7 +187,7 @@ public class AssignmentController {
                     if(error != null) {
                     	throw new InvalidInputException(error);
                     }
-                    //ClimbsafePersistence.save();
+                    ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                 	error = e.getMessage();
                     throw new InvalidInputException(error);
