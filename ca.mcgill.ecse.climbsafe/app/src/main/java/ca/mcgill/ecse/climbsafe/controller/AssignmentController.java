@@ -92,7 +92,10 @@ public class AssignmentController {
      * @throws InvalidInputException for any invalid input
      */
     public static void payTrip(String memberEmail, String authorizationCode) throws InvalidInputException {
-
+    	
+    	if(authorizationCode == null) {
+    		throw new InvalidInputException("Authorization code cannot be null");
+    	}
 
         if (Member.getWithEmail(memberEmail) == null) {
             throw new InvalidInputException("Member with email address " + memberEmail + " does not exist");
