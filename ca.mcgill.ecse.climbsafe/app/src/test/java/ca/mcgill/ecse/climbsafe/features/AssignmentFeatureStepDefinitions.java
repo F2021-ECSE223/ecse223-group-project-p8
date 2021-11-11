@@ -164,19 +164,6 @@ private String error;
 	  assertTrue(error.contains(string));
   }
 
-  @Given("the following equipment exists in the system:")
-  public void the_following_equipment_exists_in_the_system(io.cucumber.datatable.DataTable dataTable) {
-    
-	  List<Map<String, String>> equipmentInfo = dataTable.asMaps(String.class, String.class);
-
-	    for (Map<String, String> equipment : equipmentInfo) {
-	      var name = equipment.get("name");
-	      var weight = equipment.get("weight");
-	      var pricePerWeek = equipment.get("pricePerWeek");
-	      new Equipment(name, Integer.parseInt(weight), Integer.parseInt(pricePerWeek), climbSafe);
-	    }
-  }
-
   @Given("the following assignments exist in the system:")
   public void the_following_assignments_exist_in_the_system(io.cucumber.datatable.DataTable dataTable) {
    
@@ -300,11 +287,5 @@ private String error;
   public void the_member_with_has_finished_their_trip(String memberEmail) {
     Member member = (Member) Member.getWithEmail(memberEmail);
     member.getAssignment().changeAssignmentStatus(AssignmentStatus.Finished);
-  }
-
-  @Then("the member with email {string} shall be banned")
-  public void the_member_with_email_shall_be_banned(String memberEmail) {
-	  Member member = (Member) Member.getWithEmail(memberEmail);
-	  assertEquals(AssignmentStatus.Banned,member.getAssignment().getAssignmentStatus());
   }
 }
