@@ -32,9 +32,9 @@ public class AssignmentFeatureStepDefinitions {
 private ClimbSafe climbSafe;
 private String error;
 
-	/**
-	 * @author Joey Liu
-	 */
+   /**
+   * @author Joey Liu
+   */
   @Given("the following ClimbSafe system exists:")
   public void the_following_climb_safe_system_exists(io.cucumber.datatable.DataTable dataTable) {
     
@@ -49,7 +49,7 @@ private String error;
   }
 
   /**
-   * @author Mihail Calitou
+   * @author Mihail Calitoiu
    */
   @Given("the following pieces of equipment exist in the system:")
   public void the_following_pieces_of_equipment_exist_in_the_system(
@@ -89,7 +89,6 @@ private String error;
     }
   }
 
-  
   /**
    * @author Maya Ajji
    */
@@ -106,8 +105,7 @@ private String error;
       new Guide(email, password, name, emergencyContact, climbSafe);
     }
   }
-
-  
+ 
   /**
    * @author Selina Gao
    */
@@ -170,7 +168,7 @@ private String error;
   }
 
   /**
-   * @author Mihail Calitou
+   * @author Mihail Calitoiu
    */
   @Then("the assignment for {string} shall be marked as {string}")
   public void the_assignment_for_shall_be_marked_as(String memberEmail, String assignmentStatus) {
@@ -187,7 +185,6 @@ private String error;
 	  assertEquals(Integer.parseInt(nrOfAssignments),assignmentCount);
   }
 
-  
   /**
    * @author Selina Gao
    */
@@ -196,7 +193,6 @@ private String error;
 	  assertTrue(error.contains(string));
   }
 
-  
   /**
    * @author Maya Ajji
    */
@@ -231,7 +227,6 @@ private String error;
 	  }
   }
 
-  
   /**
    * @author Joey Liu
    */
@@ -245,7 +240,7 @@ private String error;
 
   
   /**
-   * @author Mihail Calitou
+   * @author Mihail Calitoiu
    */
   @Then("the member account with the email {string} does not exist")
   public void the_member_account_with_the_email_does_not_exist(String memberEmail) {
@@ -307,7 +302,7 @@ private String error;
   }
 
   /**
-   * @author Mihail Calitou
+   * @author Mihail Calitoiu
    */
   @Given("the member with {string} has started their trip")
   public void the_member_with_has_started_their_trip(String memberEmail) {
@@ -337,7 +332,6 @@ private String error;
 	  member.getAssignment().changeAssignmentStatus(AssignmentStatus.Banned);
   }
 
-  
   /**
    * @author Aigiarn Cheuk
    */
@@ -359,7 +353,6 @@ private String error;
 	  }
   }
 
-  
   /**
    * @author Joey Liu
    */
