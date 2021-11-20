@@ -2,17 +2,16 @@ package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 
 import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.successful;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
-import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
-import ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils;
-import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.callController;
+
+
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet4Controller; 
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller; 
 
-import ca.mcgill.ecse.climbsafe.controller.Utility;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+
 import javafx.scene.control.TextField;
 
 public class EquipmentMenuPageController {
@@ -101,5 +100,6 @@ public void deleteEquipmentClicked(ActionEvent event) {
       }
 }
 }
+
   
 
