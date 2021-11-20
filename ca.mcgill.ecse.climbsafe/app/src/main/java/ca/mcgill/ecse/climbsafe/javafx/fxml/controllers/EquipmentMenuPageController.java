@@ -7,7 +7,7 @@ import ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils;
 import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.callController;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet4Controller; 
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller; 
-//import ca.mcgill.ecse.climbsafe.controller.TODriver;
+
 import ca.mcgill.ecse.climbsafe.controller.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,8 +29,7 @@ public class EquipmentMenuPageController {
   
   @FXML private TextField equipmentToDeleteTextField;
   @FXML private Button deleteEquipmentButton;
- // @FXML private Button addRouteButton;
-  //@FXML private Button addBusButton;
+
   
   // Event Listener on Button[#addDriverButton].onAction
   @FXML
@@ -102,56 +101,5 @@ public void deleteEquipmentClicked(ActionEvent event) {
       }
 }
 }
-  /*
-
-  @FXML
-  public void initialize() {
-    // the choice boxes listen to the refresh event
-    driverChoiceBox.addEventHandler(climbsafeFxmlView.REFRESH_EVENT, e -> {
-      driverChoiceBox.setItems(ViewUtils.getDrivers());
-      // reset the choice
-      driverChoiceBox.setValue(null);
-    });
-
-    busChoiceBox.addEventHandler(climbsafeFxmlView.REFRESH_EVENT, e -> {
-      busChoiceBox.setItems(ViewUtils.getBuses());
-      busChoiceBox.setValue(null);
-    });
-
-    // let the application be aware of the refreshable node
-    climbsafeFxmlView.getInstance().registerRefreshEvent(busChoiceBox, driverChoiceBox);
-  }
-
-  // Event Listener on Button[#toggleSickButton].onAction
-  @FXML
-  public void toggleSickClicked(ActionEvent event) {
-    TODriver driver = driverChoiceBox.getValue();
-    if (driver == null) {
-      ViewUtils.showError("Please select a valid driver");
-    } else {
-      callController(() -> climbsafeController.toggleSickStatus(driver.getId()));
-    }
-  }
-
-  // Event Listener on Button[#deleteDriverButton].onAction
-  @FXML
-  public void deleteDriverClicked(ActionEvent event) {
-    TODriver driver = driverChoiceBox.getValue();
-    if (driver == null) {
-      ViewUtils.showError("Please select a valid driver");
-    } else {
-      callController(() -> climbsafeController.deleteDriver(driver.getId()));
-    }
-  }
-
-  // Event Listener on Button[#toggleRepairButton].onAction
-  @FXML
-  public void toggleRepairClicked(ActionEvent event) {
-    TOBusVehicle bus = busChoiceBox.getValue();
-    if (bus == null) {
-      ViewUtils.showError("Please select a valid bus");
-    } else {
-      callController(() -> climbsafeController.toggleRepairStatus(bus.getLicencePlate()));
-    }
-  }*/
+  
 
