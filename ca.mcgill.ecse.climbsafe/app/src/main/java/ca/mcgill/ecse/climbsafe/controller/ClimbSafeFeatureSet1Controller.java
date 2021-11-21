@@ -71,4 +71,8 @@ public class ClimbSafeFeatureSet1Controller {
 	  }
 	  
   }
+  
+  public static void deleteHotel(String name) {
+	  
+  }
 }
