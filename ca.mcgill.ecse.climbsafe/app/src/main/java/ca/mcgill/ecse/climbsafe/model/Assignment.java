@@ -4,9 +4,9 @@
 package ca.mcgill.ecse.climbsafe.model;
 import java.io.Serializable;
 
+// line 107 "../../../../../ClimbSafePersistence.ump"
 // line 1 "../../../../../ClimbSafeStates.ump"
-// line 81 "../../../../../ClimbSafePersistence.ump"
-// line 91 "../../../../../ClimbSafe.ump"
+// line 93 "../../../../../ClimbSafe.ump"
 public class Assignment implements Serializable
 {
 
@@ -461,7 +461,7 @@ public class Assignment implements Serializable
 
   /**
    * 
-   * @author Joey Liu
+   * @author Joey
    * authorization Code is valid if it is not empty
    */
   // line 49 "../../../../../ClimbSafeStates.ump"
@@ -476,7 +476,7 @@ public class Assignment implements Serializable
 
   /**
    * 
-   * @author Joey Liu
+   * @author Joey
    * this method modifies the refund percentage depending on the status of the assignment
    */
   // line 61 "../../../../../ClimbSafeStates.ump"
@@ -495,7 +495,7 @@ public class Assignment implements Serializable
 
   /**
    * 
-   * @author Joey Liu
+   * @author Joey
    * sets the assignment status testing purposes
    */
   // line 77 "../../../../../ClimbSafeStates.ump"
@@ -521,8 +521,8 @@ public class Assignment implements Serializable
   // DEVELOPER CODE - PROVIDED AS-IS
   //------------------------
   
-  // line 84 "../../../../../ClimbSafePersistence.ump"
-  private static final long serialVersionUID = 2L ;
+  // line 110 "../../../../../ClimbSafePersistence.ump"
+  private static final long serialVersionUID = 11L ;
 
   
 }
