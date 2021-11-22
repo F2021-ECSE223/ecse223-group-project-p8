@@ -458,7 +458,13 @@ public class Assignment implements Serializable
     }
   }
 
-  // line 45 "../../../../../ClimbSafeStates.ump"
+
+  /**
+   * 
+   * @author Joey Liu
+   * authorization Code is valid if it is not empty
+   */
+  // line 49 "../../../../../ClimbSafeStates.ump"
    public boolean isValid(){
     if(this.authorizationCode == "") {
   		this.error = "Invalid authorization code";
@@ -467,7 +473,13 @@ public class Assignment implements Serializable
     return true;
   }
 
-  // line 53 "../../../../../ClimbSafeStates.ump"
+
+  /**
+   * 
+   * @author Joey Liu
+   * this method modifies the refund percentage depending on the status of the assignment
+   */
+  // line 61 "../../../../../ClimbSafeStates.ump"
    public void modRefund(){
     if(this.assignmentStatus.equals(AssignmentStatus.Paid)) {
 		  this.refund = 50;
@@ -480,7 +492,13 @@ public class Assignment implements Serializable
 	  }
   }
 
-  // line 65 "../../../../../ClimbSafeStates.ump"
+
+  /**
+   * 
+   * @author Joey Liu
+   * sets the assignment status testing purposes
+   */
+  // line 77 "../../../../../ClimbSafeStates.ump"
    public void changeAssignmentStatus(AssignmentStatus aAssignmentStatus){
     this.assignmentStatus = aAssignmentStatus;
   }
