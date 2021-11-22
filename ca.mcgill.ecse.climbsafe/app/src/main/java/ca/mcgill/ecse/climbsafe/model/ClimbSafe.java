@@ -1016,9 +1016,9 @@ public class ClimbSafe implements Serializable
 
   // line 9 "../../../../../ClimbSafePersistence.ump"
    public void reinitialize(){
-    Hotel.reinitializeUniqueHotelName(this.getHotels());
-    BookableItem.reinitializeUniqueEquipmentName(this.getEquipment(), this.getBundles());
-    User.reinitializeUniqueEmail(this.getMembers(), this.getGuides());
+    User.reinitializeUniqueEmail(this.getAdministrator(), this.getGuides(), this.getMembers());
+    BookableItem.reinitializeUniqueName(this.getEquipment(), this.getBundles());
+    Hotel.reinitializeUniqueName(this.getHotels());
   }
 
 
@@ -1035,7 +1035,7 @@ public class ClimbSafe implements Serializable
   //------------------------
   
   // line 6 "../../../../../ClimbSafePersistence.ump"
-  private static final long serialVersionUID = 0L ;
+  private static final long serialVersionUID = 1L ;
 
   
 }

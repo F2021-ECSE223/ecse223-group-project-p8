@@ -93,15 +93,16 @@ public abstract class User implements Serializable
     usersByEmail.remove(getEmail());
   }
 
-  // line 21 "../../../../../ClimbSafePersistence.ump"
-   public static  void reinitializeUniqueEmail(List<Member> members, List<Guide> guides){
+  // line 22 "../../../../../ClimbSafePersistence.ump"
+   public static  void reinitializeUniqueEmail(Administrator admin, List<Guide> guides, List<Member> members){
     usersByEmail = new HashMap<String, User>();
-  for (User member : members) {
-     usersByEmail.put(member.getEmail(), member);
-     }
-  for (User guide : guides){
-     usersByEmail.put(guide.getEmail(), guide);
-     }
+    usersByEmail.put(admin.getEmail(), admin);
+    for (Guide guide : guides) {
+      usersByEmail.put(guide.getEmail(), guide);
+    }
+    for (Member member : members) {
+      usersByEmail.put(member.getEmail(), member);
+    }
   }
 
 
@@ -116,7 +117,7 @@ public abstract class User implements Serializable
   //------------------------
   
   // line 19 "../../../../../ClimbSafePersistence.ump"
-  private static final long serialVersionUID = -3L ;
+  private static final long serialVersionUID = 2L ;
 
   
 }

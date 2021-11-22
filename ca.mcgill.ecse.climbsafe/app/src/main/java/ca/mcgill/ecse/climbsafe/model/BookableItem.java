@@ -5,8 +5,12 @@ package ca.mcgill.ecse.climbsafe.model;
 import java.io.Serializable;
 import java.util.*;
 
-// line 88 "../../../../../ClimbSafePersistence.ump"
-// line 59 "../../../../../ClimbSafe.ump"
+/**
+ * persistence for BookedItem needs to be specified in ClimbSafe.ump
+ * due to a bug in Umple (association classes cannot be defined in two files)
+ */
+// line 61 "../../../../../ClimbSafePersistence.ump"
+// line 60 "../../../../../ClimbSafe.ump"
 public abstract class BookableItem implements Serializable
 {
 
@@ -189,14 +193,14 @@ public abstract class BookableItem implements Serializable
     }
   }
 
-  // line 94 "../../../../../ClimbSafePersistence.ump"
-   public static  void reinitializeUniqueEquipmentName(List<Equipment> items, List<EquipmentBundle> items2){
+  // line 67 "../../../../../ClimbSafePersistence.ump"
+   public static  void reinitializeUniqueName(List<Equipment> equipment, List<EquipmentBundle> bundles){
     bookableitemsByName = new HashMap<String, BookableItem>();
-    for (BookableItem item : items) {
-      bookableitemsByName.put(item.getName(), item);
+    for (Equipment e : equipment) {
+      bookableitemsByName.put(e.getName(), e);
     }
-    for (BookableItem item2 : items2){
-    bookableitemsByName.put(item2.getName(), item2);
+    for (EquipmentBundle bundle : bundles) {
+      bookableitemsByName.put(bundle.getName(), bundle);
     }
   }
 
@@ -210,8 +214,8 @@ public abstract class BookableItem implements Serializable
   // DEVELOPER CODE - PROVIDED AS-IS
   //------------------------
   
-  // line 91 "../../../../../ClimbSafePersistence.ump"
-  private static final long serialVersionUID = 3L ;
+  // line 64 "../../../../../ClimbSafePersistence.ump"
+  private static final long serialVersionUID = 7L ;
 
   
 }
