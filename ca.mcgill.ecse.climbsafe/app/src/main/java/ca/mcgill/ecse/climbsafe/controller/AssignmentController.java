@@ -1,17 +1,7 @@
 package ca.mcgill.ecse.climbsafe.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import ca.mcgill.ecse.climbsafe.model.Assignment;
-import ca.mcgill.ecse.climbsafe.model.Assignment.AssignmentStatus;
-import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
-import ca.mcgill.ecse.climbsafe.model.Guide;
-import ca.mcgill.ecse.climbsafe.model.Member;
-
-
-
 public class AssignmentController {
+
 
     /** Initiates the assignment instances by assigning assignments to members 
      * @author Ke Yan
@@ -211,4 +201,5 @@ public class AssignmentController {
             }
         }
     }
+
 }
