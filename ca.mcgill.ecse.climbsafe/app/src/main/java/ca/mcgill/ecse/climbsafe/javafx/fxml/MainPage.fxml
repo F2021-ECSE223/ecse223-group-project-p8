@@ -9,11 +9,14 @@
    <children>
       <TabPane prefHeight="405.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Untitled Tab 1">
+          <Tab text="Setup">
                <content>
                   <fx:include source="pages/SetupNMCPage.fxml" />
                </content></Tab>
-          <Tab text="Untitled Tab 2" />
+          <Tab text="Member ">
+               <content>
+                  <fx:include source="pages/memberPage.fxml" />
+               </content></Tab>
             <Tab text="Equipment">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
