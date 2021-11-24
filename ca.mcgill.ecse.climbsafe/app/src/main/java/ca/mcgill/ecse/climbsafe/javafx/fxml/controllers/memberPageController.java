@@ -51,7 +51,18 @@ public class memberPageController {
 
 	
 	public void registerMemberClicked(ActionEvent event) {
-		
+		String memberName = this.rmName.getText();
+		if (memberName == null || memberName.trim().isEmpty()) {
+		      ViewUtils.showError("Please input a valid name");
+		}
+		String emergencyContact = this.rmContact.getText();
+		if (emergencyContact == null || emergencyContact.trim().isEmpty()) {
+		      ViewUtils.showError("Please input a valid name");
+		}
+		String password = this.rmPassword.getText();
+		if (password == null || password.trim().isEmpty()) {
+		      ViewUtils.showError("Please input a valid name");
+		}
 	}
 	
 	public void updateMemberClicked(ActionEvent event) {
