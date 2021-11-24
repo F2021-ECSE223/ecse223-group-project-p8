@@ -19,7 +19,7 @@
                         <Image url="@../../../../../../../../../../../../../../../Desktop/mountainbackground.png" />
                      </image>
                   </ImageView>
-                  <Pane layoutX="80.0" layoutY="39.0" opacity="0.54" prefHeight="235.0" prefWidth="450.0" style="-fx-background-color: white; -fx-border-radius: 2009;" />
+                  <Pane layoutX="80.0" layoutY="39.0" opacity="0.48" prefHeight="235.0" prefWidth="450.0" style="-fx-background-color: white; -fx-border-radius: 2009;" />
                </children>
             </AnchorPane>
          </content>
