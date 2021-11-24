@@ -14,7 +14,7 @@
          <children>
             <ImageView fitHeight="600.0" fitWidth="806.0" layoutX="-6.0">
                <image>
-                  <Image url="@../images/mountainbackground.png" />
+                  <Image url="@images/mountainbackground.png" />
                </image>
                <viewport>
                   <Rectangle2D />
