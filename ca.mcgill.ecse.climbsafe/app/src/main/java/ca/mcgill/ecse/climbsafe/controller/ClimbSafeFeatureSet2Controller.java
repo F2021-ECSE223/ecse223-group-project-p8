@@ -13,13 +13,13 @@ public class ClimbSafeFeatureSet2Controller {
 	private static ClimbSafe climbSafe = ClimbSafeApplication.getClimbSafe();
 
 	/** 
-	 * Adds a new member in the climbSafe system
+	 * Adds a new member in the climbSafe system 
 	 * @author Ke Yan
 	 * @param email Email of the new member
 	 * @param password password of the new member
 	 * @param name name of the new member
 	 * @param emergencyContact phone number for the emergency contact of the new member
-	 * @param nrWeeks nuber of weeks Weeks of climbing of the new member
+	 * @param nrWeeks number of weeks Weeks of climbing of the new member
 	 * @param guideRequired whether or not the new member desires a guide
 	 * @param hotelRequired whether or not the new member desires a hotel stay
 	 * @param itemNames list of item the member desires to rent
