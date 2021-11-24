@@ -22,7 +22,7 @@ public class MemberController {
   @FXML private ChoiceBox rmWeeks;
   @FXML private ChoiceBox rmWantGuide;
   @FXML private ChoiceBox rmGuide;
-  @FXML private Button addEquipmentButton;
+  @FXML private Button addEquipmentButton; //test
   
   @FXML private TextField oldEquipmentNameTextField;
   @FXML private TextField newEquipmentWeightTextField;

@@ -79,7 +79,7 @@
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Label>
-                  <TextField fx:id="rmEmailrmEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="rmEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1" />
                   <TextField fx:id="rmName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
                   <ChoiceBox fx:id="rmHotel" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                   <ChoiceBox fx:id="rmWantGuide" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="11" />
@@ -89,7 +89,7 @@
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Button>
                   <TextField fx:id="rmContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
-                  <TextField fx:id="rmPPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
+                  <TextField fx:id="rmPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
                   <ChoiceBox fx:id="rmWeeks" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="9" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
