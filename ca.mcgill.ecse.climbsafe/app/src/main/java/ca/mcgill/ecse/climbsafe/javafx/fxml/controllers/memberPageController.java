@@ -4,6 +4,7 @@ import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Hotel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
@@ -49,7 +50,17 @@ public class memberPageController {
 	private ChoiceBox<Guide> rmGuide;
 
 	
+	public void registerMemberClicked(ActionEvent event) {
+		
+	}
 	
+	public void updateMemberClicked(ActionEvent event) {
+		
+	}
+	
+	public void deleteMemberClicked(ActionEvent event) {
+		
+	}
 	
 	
 	
