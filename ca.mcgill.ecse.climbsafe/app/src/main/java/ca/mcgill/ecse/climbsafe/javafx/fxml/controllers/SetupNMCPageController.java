@@ -20,7 +20,7 @@ public class SetupNMCPageController {
 	  @FXML
 	  private TextField startDateTextField;
 	  @FXML
-	  private TextField endDateTextField;
+	  private TextField nrOfWeeksTextField;
 	  @FXML
 	  private TextField priceTextField;
 	  @FXML
@@ -44,15 +44,14 @@ public class SetupNMCPageController {
 		  try {
 			  
 			  int priceGuide = Integer.parseInt(pricesOfGuide);
-			  int nrOfWeeks = Integer.parseInt(this.endDateTextField.getText());
+			  int nrOfWeeks = Integer.parseInt(this.nrOfWeeksTextField.getText());
 			  Date startDate = Date.valueOf(this.startDateTextField.getText());
-			  
-			  
+			 
 			  if (successful(() -> ClimbSafeFeatureSet1Controller.setup(startDate, nrOfWeeks, priceGuide))) {
 			        this.adminEmailTextField.setText("");
 			        this.startDateTextField.setText("");
 			        this.passwordTextField.setText("");
-			        this.endDateTextField.setText("");
+			        this.nrOfWeeksTextField.setText("");
 			        this.priceTextField.setText("");
 			  }
 			  
