@@ -17,7 +17,7 @@
                <children>
                   <ImageView fitHeight="375.0" fitWidth="604.0" layoutX="-3.0" layoutY="-6.0">
                      <image>
-                        <Image url="@../../../../../../../../../../../../../../../Desktop/mountainbackground.png" />
+                        <Image url="@images/mountainbackground.png" />
                      </image>
                   </ImageView>
                   <Pane layoutX="75.0" layoutY="40.0" opacity="0.48" prefHeight="235.0" prefWidth="450.0" style="-fx-background-color: white; -fx-border-radius: 2009;">
