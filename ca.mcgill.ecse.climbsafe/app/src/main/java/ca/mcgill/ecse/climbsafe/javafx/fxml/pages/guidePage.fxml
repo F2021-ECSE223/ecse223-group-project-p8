@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="-5.0" layoutY="-5.0" prefHeight="433.0" prefWidth="647.0">
+         <children>
+            <ImageView fitHeight="426.0" fitWidth="638.0" layoutX="1.0" layoutY="2.0">
+               <image>
+                  <Image url="@images/mountainbackground.png" />
+               </image>
+            </ImageView>
+            <TabPane layoutX="4.0" layoutY="4.0" prefHeight="426.0" prefWidth="639.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Register a guide">
+                     <content>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Pane layoutX="104.0" layoutY="46.0" opacity="0.5" prefHeight="230.0" prefWidth="440.0" style="-fx-background-color: white;">
+                                 <children>
+                                    <TextField layoutX="39.0" layoutY="39.0" style="-fx-background-color: white;" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                     </content>
+                  </Tab>
+                <Tab text="Update a guide" />
+                  <Tab text="Delete a guide">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

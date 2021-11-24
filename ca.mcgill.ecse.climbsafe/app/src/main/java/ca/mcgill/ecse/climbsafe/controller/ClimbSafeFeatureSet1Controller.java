@@ -12,7 +12,7 @@ public class ClimbSafeFeatureSet1Controller {
 	
   /**
    * @author Joey
-   * @param startDate is the starting date of the climbing season specified by the admin
+   * @param startDate is the starting date of the climbing season specified by the admin 
    * @param nrWeeks is the number of weeks in the climbing season
    * @param priceOfGuidePerWeek is the weekly price of hiring a guide
    * @throws InvalidInputException
