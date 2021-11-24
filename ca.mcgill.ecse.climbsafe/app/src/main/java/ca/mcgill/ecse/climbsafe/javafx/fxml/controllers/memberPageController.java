@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 
+//k
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Guide;
