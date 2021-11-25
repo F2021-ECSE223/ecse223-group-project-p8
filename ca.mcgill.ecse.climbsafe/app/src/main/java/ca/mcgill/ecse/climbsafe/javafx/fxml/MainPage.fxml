@@ -24,7 +24,6 @@
       </AnchorPane>
       <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-<<<<<<< HEAD
           <Tab text="Setup">
                <content>
                   <fx:include source="pages/SetupNMCPage.fxml" />
@@ -33,7 +32,6 @@
                <content>
                   <fx:include source="pages/memberPage.fxml" />
                </content></Tab>
-=======
           <Tab text="Setup NMC">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
