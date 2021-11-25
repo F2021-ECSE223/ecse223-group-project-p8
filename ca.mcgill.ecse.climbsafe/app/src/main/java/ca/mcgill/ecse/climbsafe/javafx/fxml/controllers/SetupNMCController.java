@@ -58,6 +58,7 @@ public class SetupNMCController {
 			  }
 			  
 		  }catch (RuntimeException e) {
+			  ViewUtils.showError(e.getMessage());
 		  }
 	 }
 }
