@@ -80,7 +80,7 @@
                         <Font name="Comic Sans MS" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="Mountain Guide" GridPane.rowIndex="10">
+                  <Label text="Mountain Guide" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font>
@@ -95,29 +95,21 @@
                         <Font name="Comic Sans MS" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="Hotel Stay" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label text="Hotel Stay" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font>
                   </Label>
-                  <Label text="Select Hotel" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Comic Sans MS" size="12.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="rmEmail1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1" />
-                  <TextField fx:id="rmName1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
-                  <ChoiceBox fx:id="rmHotel1" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <ChoiceBox fx:id="rmWantGuide1" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="11" />
-                  <ChoiceBox fx:id="rmWantHotel1" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button fx:id="rmSubmit1" mnemonicParsing="false" onAction="#RegisterMemberRegisterSubmit" prefHeight="25.0" prefWidth="105.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                  <TextField fx:id="registerEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1" />
+                  <TextField fx:id="registerName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
+                  <Button fx:id="RegisterSubmit" mnemonicParsing="false" onAction="#RegisterMemberRegisterSubmit" prefHeight="25.0" prefWidth="105.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="rmContact1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
-                  <TextField fx:id="rmPassword1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
-                  <ChoiceBox fx:id="rmWeeks1" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="9" />
+                  <TextField fx:id="registerContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
+                  <TextField fx:id="registerPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
+                  <ChoiceBox fx:id="registerWeeks" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="9" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -128,9 +120,9 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Spinner fx:id="rmEquipmentQuantity1" GridPane.columnIndex="1" />
-                        <ChoiceBox fx:id="rmEquipment1" prefWidth="150.0" />
-                        <Button fx:id="rmEquipmentSubmit1" mnemonicParsing="false" onAction="#RegisterMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                        <Spinner fx:id="registerEquipmentQuantity" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="registerEquipmentChoice" prefWidth="150.0" />
+                        <Button fx:id="registerEquipmentSubmit" mnemonicParsing="false" onAction="#RegisterMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -143,13 +135,13 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Spinner fx:id="rmBundleQuantity1" GridPane.columnIndex="1" />
-                        <ChoiceBox fx:id="rmBudle1" prefWidth="150.0" />
-                        <Button fx:id="rmBundleSubmit1" mnemonicParsing="false" onAction="#RegisterMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                        <Spinner fx:id="registerBundleQuantity" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="registerBundleChoice" prefWidth="150.0" />
+                        <Button fx:id="registerBundleSubmit" mnemonicParsing="false" onAction="#RegisterMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
-                  <Label text="Select Mountain Guide" GridPane.rowIndex="12" />
-                  <ChoiceBox fx:id="rmGuide1" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="13" />
+                  <Button fx:id="registerHotelToggle" mnemonicParsing="false" prefHeight="24.0" prefWidth="38.0" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Button fx:id="registerGuideToggle" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
@@ -197,7 +189,7 @@
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Label>
-                  <Label text="Mountain Guide" GridPane.rowIndex="10">
+                  <Label text="Mountain Guide" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Label>
@@ -209,25 +201,18 @@
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Label>
-                  <Label text="Hotel Stay" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Label text="Hotel Stay" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Label>
-                  <Label text="Select Hotel" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                     <font>
-                        <Font name="Comic Sans MS" size="12.0" />
-                     </font></Label>
-                  <TextField fx:id="upName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
-                  <ChoiceBox fx:id="upHotel" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                  <ChoiceBox fx:id="upWantGuide" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="11" />
-                  <ChoiceBox fx:id="upWantHotel" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <Button fx:id="upSubmit" mnemonicParsing="false" onAction="#UpdateMemberSubmit" prefHeight="25.0" prefWidth="105.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                  <TextField fx:id="updateName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
+                  <Button fx:id="updateSubmit" mnemonicParsing="false" onAction="#updateMemberSubmit" prefHeight="25.0" prefWidth="105.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Comic Sans MS" size="12.0" />
                      </font></Button>
-                  <TextField fx:id="upContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
-                  <TextField fx:id="upPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
-                  <ChoiceBox fx:id="upWeeks" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="9" />
+                  <TextField fx:id="updateContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
+                  <TextField fx:id="updatePassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
+                  <ChoiceBox fx:id="updateWeeks" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="9" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -238,9 +223,9 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Spinner fx:id="upEquipmentQuantity" GridPane.columnIndex="1" />
-                        <ChoiceBox fx:id="upEquipment" prefWidth="150.0" />
-                        <Button fx:id="upEquipmentSubbmit" mnemonicParsing="false" onAction="#UpdateMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                        <Spinner fx:id="updateEquipmentQuantity" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="updateEquipmentChoice" prefWidth="150.0" />
+                        <Button fx:id="updateEquipmentSubmit" mnemonicParsing="false" onAction="#UpdateMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -253,15 +238,15 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Spinner fx:id="upBundleQuantity" GridPane.columnIndex="1" />
-                        <ChoiceBox fx:id="upBudle" prefWidth="150.0" />
-                        <Button fx:id="upBundleSubmit" mnemonicParsing="false" onAction="#UpdateMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                        <Spinner fx:id="updateBundleQuantity" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="updateBundleChoice" prefWidth="150.0" />
+                        <Button fx:id="updateBundleSubmit" mnemonicParsing="false" onAction="#UpdateMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
-                  <Label text="Select Mountain Guide" GridPane.rowIndex="12" />
-                  <ChoiceBox fx:id="upGuide" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="13" />
                   <Label text="Email (to find member, cannot be changed)" />
-                  <TextField fx:id="upEmail" GridPane.rowIndex="1" />
+                  <TextField fx:id="updateEmail" GridPane.rowIndex="1" />
+                  <Button fx:id="updateGuideToggle" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button fx:id="updateHotelToggle" mnemonicParsing="false" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
@@ -282,7 +267,7 @@
                </rowConstraints>
                <children>
                   <Label text="email" />
-                  <Button fx:id="deleteSend" mnemonicParsing="false" onAction="#deleteSubmit" text="delete" GridPane.rowIndex="2" />
+                  <Button fx:id="deleteSubmit" mnemonicParsing="false" onAction="#deleteSubmit" text="delete" GridPane.rowIndex="2" />
                   <TextField fx:id="deleteEmail" GridPane.rowIndex="1" />
                </children>
             </GridPane>
