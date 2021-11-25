@@ -1,16 +1,16 @@
 package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 
-import java.sql.Date;
-
-import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
-
-import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.successful;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
+import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.successful;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
+
+import java.sql.Date;
+
+import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
+import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
+import javafx.event.ActionEvent;
 
 public class SetupNMCController {
 	@FXML
@@ -25,14 +25,16 @@ public class SetupNMCController {
 	private TextField priceTextField;
 	@FXML
 	private Button startSeasonButton;
-	
+
+	// Event Listener on Button[#startSeasonButton].onAction
+	@FXML
 	public void startSeasonClicked(ActionEvent event) {
-		  String adminEmail = this.adminEmailTextField.getText();
-		  if (adminEmail == null || adminEmail.trim().isEmpty()) {
+		String adminEmail = this.adminEmailTextField.getText();
+		  if (adminEmail == null || adminEmail.trim().isEmpty() || !adminEmail.equals("admin@nmc.nt")) {
 		      ViewUtils.showError("Please input a valid email address");
 		  }
 		  String password = this.passwordTextField.getText();
-		  if (password == null || password.trim().isEmpty()) {
+		  if (password == null || password.trim().isEmpty() || !password.equals("admin")) {
 		      ViewUtils.showError("Please input a valid password");
 		  }
 		  String pricesOfGuide = this.priceTextField.getText();
@@ -52,10 +54,10 @@ public class SetupNMCController {
 			        this.passwordTextField.setText("");
 			        this.nrOfWeeksTextField.setText("");
 			        this.priceTextField.setText("");
+			        ClimbsafeFxmlView.getInstance().refresh();
 			  }
 			  
 		  }catch (RuntimeException e) {
 		  }
-	  }
-	
+	 }
 }
