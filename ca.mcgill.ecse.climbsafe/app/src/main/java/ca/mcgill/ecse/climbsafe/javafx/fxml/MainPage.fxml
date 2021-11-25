@@ -20,10 +20,7 @@
             </Tab>
           <Tab text="Guide">
                <content>
-                  <AnchorPane prefHeight="360.0" prefWidth="600.0">
-                     <children>
-                        <fx:include source="pages/guidePage.fxml" />
-                     </children></AnchorPane>
+                  <AnchorPane prefHeight="360.0" prefWidth="600.0" />
                </content></Tab>
             <Tab text="Equipment">
               <content>
