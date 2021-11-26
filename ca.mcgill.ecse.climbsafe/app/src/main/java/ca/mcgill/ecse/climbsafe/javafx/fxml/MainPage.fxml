@@ -20,7 +20,10 @@
             </Tab>
           <Tab text="Guide">
                <content>
-                  <AnchorPane prefHeight="360.0" prefWidth="600.0" />
+                  <AnchorPane prefHeight="360.0" prefWidth="600.0">
+                     <children>
+                        <fx:include source="pages/guidePage.fxml" />
+                     </children></AnchorPane>
                </content></Tab>
             <Tab text="Equipment">
               <content>
@@ -29,6 +32,16 @@
                         <fx:include source="pages/EquipmentMenuPage.fxml" />
                      </children>
                   </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Bundle">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+            <Tab text="Overview">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>
