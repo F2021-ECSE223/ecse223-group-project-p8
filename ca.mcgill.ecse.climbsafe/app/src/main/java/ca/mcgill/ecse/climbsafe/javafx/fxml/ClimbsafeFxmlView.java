@@ -28,8 +28,8 @@ public class ClimbsafeFxmlView extends Application {
       //root.setStyle(ClimbSafeApplication.DARK_MODE ? "-fx-base: rgba(20, 20, 20, 255);" : "");
       var scene = new Scene(root);
       primaryStage.setScene(scene);
-      primaryStage.setMinWidth(600);
-      primaryStage.setMinHeight(450);
+      primaryStage.setMinWidth(800);
+      primaryStage.setMinHeight(600);
       primaryStage.setTitle("ClimbSafe");
       primaryStage.show();
       refresh();

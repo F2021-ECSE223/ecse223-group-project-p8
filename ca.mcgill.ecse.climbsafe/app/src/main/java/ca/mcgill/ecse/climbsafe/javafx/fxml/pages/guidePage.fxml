@@ -13,15 +13,15 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.guidePageController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.guidePageController">
    <children>
-      <AnchorPane layoutX="-5.0" layoutY="-5.0" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane layoutX="-5.0" layoutY="-5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
          <children>
-            <TabPane layoutX="4.0" layoutY="4.0" prefHeight="400.0" prefWidth="999.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="4.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="801.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Register a guide">
                      <content>
-                        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+                        <AnchorPane prefHeight="571.0" prefWidth="814.0">
                            <children>
                               <Pane layoutX="36.0" layoutY="25.0" opacity="0.27" prefHeight="272.0" prefWidth="524.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" />
                               <GridPane layoutX="48.0" layoutY="32.0" prefHeight="267.0" prefWidth="497.0">
@@ -152,7 +152,7 @@
                      </content></Tab>
                   <Tab text="Delete a guide">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="818.0">
                            <children>
                               <Pane layoutX="39.0" layoutY="50.0" opacity="0.29" prefHeight="196.0" prefWidth="529.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" />
                               <GridPane layoutX="58.0" layoutY="72.0" prefHeight="188.0" prefWidth="487.0">
