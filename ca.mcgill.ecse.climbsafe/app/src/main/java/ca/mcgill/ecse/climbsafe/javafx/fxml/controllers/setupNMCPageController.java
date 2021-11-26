@@ -12,7 +12,7 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import javafx.event.ActionEvent;
 
-public class SetupNMCController {
+public class setupNMCPageController {
 	@FXML
 	private TextField adminEmailTextField;
 	@FXML
