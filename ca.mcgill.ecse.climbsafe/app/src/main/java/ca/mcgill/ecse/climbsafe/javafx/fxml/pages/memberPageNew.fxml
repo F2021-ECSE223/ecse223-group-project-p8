@@ -100,6 +100,7 @@
                      <children>
                         <ChoiceBox fx:id="registerEquipmentChoice" prefWidth="150.0" />
                         <TextField fx:id="registerEquipmentQuantity" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -114,6 +115,7 @@
                      <children>
                         <ChoiceBox fx:id="registerBundleChoice" prefWidth="150.0" />
                         <TextField fx:id="registerBundleQuantity" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -125,7 +127,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" text="Yes" />
+                        <Button fx:id="RGuideYes" mnemonicParsing="false" text="Yes" />
                         <Button mnemonicParsing="false" text="No" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
@@ -230,6 +232,7 @@
                      <children>
                         <ChoiceBox fx:id="updateEquipmentChoice" prefWidth="150.0" />
                         <TextField fx:id="updateEquipmentQuantity" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -244,6 +247,7 @@
                      <children>
                         <ChoiceBox fx:id="updateBundleChoice" prefWidth="150.0" />
                         <TextField fx:id="updateBundleQuantity" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" text="Add" GridPane.columnIndex="2" />
                      </children>
                   </GridPane>
                   <Label text="Email (to find member, cannot be changed)" />
