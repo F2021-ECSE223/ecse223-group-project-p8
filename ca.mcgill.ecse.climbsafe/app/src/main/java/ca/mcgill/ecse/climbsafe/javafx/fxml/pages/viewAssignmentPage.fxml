@@ -14,15 +14,16 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.viewAssignmentPageController">
    <children>
-      <TableView layoutX="45.0" layoutY="175.0" prefHeight="200.0" prefWidth="510.0">
+      <TableView layoutX="19.0" layoutY="176.0" prefHeight="215.0" prefWidth="562.0">
         <columns>
-          <TableColumn prefWidth="70.0" text="Member" />
-          <TableColumn prefWidth="70.0" text="Guide" />
-            <TableColumn prefWidth="70.0" text="Week Nr" />
-            <TableColumn text="Total Cost" />
-            <TableColumn prefWidth="70.0" text="Status" />
+          <TableColumn prefWidth="60.0" text="Member" />
+          <TableColumn prefWidth="60.0" text="Guide" />
+            <TableColumn text="From Week" />
+            <TableColumn text="To Week" />
+            <TableColumn prefWidth="60.0" text="Status" />
             <TableColumn text="Auth Code" />
-            <TableColumn prefWidth="70.0" text="Refund" />
+            <TableColumn prefWidth="60.0" text="Refund" />
+            <TableColumn text="Total Cost" />
         </columns>
       </TableView>
       <GridPane layoutX="19.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.0" prefWidth="562.0">

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -15,7 +14,7 @@
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.memberRetryController">
   <tabs>
-    <Tab text="Untitled Tab 1">
+    <Tab text="Register Member">
          <content>
             <GridPane hgap="10.0">
                <columnConstraints>
@@ -157,7 +156,7 @@
             </GridPane>
          </content>
     </Tab>
-    <Tab text="Untitled Tab 2">
+    <Tab text="Update Member">
          <content>
             <GridPane hgap="10.0">
                <columnConstraints>
@@ -296,7 +295,7 @@
             </GridPane>
          </content>
     </Tab>
-      <Tab text="Untitled Tab">
+      <Tab text="Delete Member">
          <content>
             <GridPane>
                <columnConstraints>
