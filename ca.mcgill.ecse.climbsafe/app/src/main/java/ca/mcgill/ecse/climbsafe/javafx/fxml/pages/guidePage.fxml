@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,7 +17,7 @@
    <children>
       <AnchorPane layoutX="-5.0" layoutY="-5.0" prefHeight="400.0" prefWidth="600.0">
          <children>
-            <TabPane layoutX="4.0" layoutY="4.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="4.0" layoutY="4.0" prefHeight="400.0" prefWidth="999.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab text="Register a guide">
                      <content>
@@ -70,17 +70,17 @@
                                           <Font name="Comic Sans MS" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="guideNameTextField" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
-                                    <TextField fx:id="guideEmailTextField" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
-                                    <TextField fx:id="guidePasswordTextField" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
-                                    <TextField fx:id="guideEmergencyTextField" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
+                                    <TextField fx:id="guideName" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
+                                    <TextField fx:id="guideEmail" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
+                                    <TextField fx:id="guidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
+                                    <TextField fx:id="guideEmergencyContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
-                              <ToggleButton fx:id="registerButton" layoutX="262.0" layoutY="305.0" mnemonicParsing="false" onAction="#registerClicked" style="-fx-background-color: #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Register">
+                              <Button fx:id="registerGuideButton" layoutX="262.0" layoutY="306.0" mnemonicParsing="false" onAction="#registerGuideClicked" prefHeight="21.0" prefWidth="77.0" style="-fx-background-color: #8FBC8F#8FBC8F #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Register">
                                  <font>
                                     <Font name="Comic Sans MS" size="13.0" />
                                  </font>
-                              </ToggleButton>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content>
@@ -136,17 +136,17 @@
                                           <Font name="Comic Sans MS" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="updateNameTextField" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
-                                    <TextField fx:id="updateEmailTextField" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
-                                    <TextField fx:id="updatePasswordTextField" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
-                                    <TextField fx:id="updateContactTextField" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
+                                    <TextField fx:id="updateGuideName" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
+                                    <TextField fx:id="updateGuideEmail" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
+                                    <TextField fx:id="updateGuidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
+                                    <TextField fx:id="updateGuideContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
-                              <ToggleButton fx:id="updateButton" contentDisplay="CENTER" layoutX="263.0" layoutY="296.0" mnemonicParsing="false" onAction="#updateClicked" style="-fx-background-color: #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Update " textAlignment="CENTER">
+                              <Button fx:id="updateGuideButton" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" onAction="#updateGuideClicked" style="-fx-background-color: #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Update">
                                  <font>
                                     <Font name="Comic Sans MS" size="13.0" />
                                  </font>
-                              </ToggleButton>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content></Tab>
@@ -191,14 +191,14 @@
                                           <Insets bottom="50.0" />
                                        </padding>
                                     </Label>
-                                    <TextField fx:id="deleteGuideTextField" prefHeight="26.0" prefWidth="509.0" GridPane.rowIndex="1" />
+                                    <TextField fx:id="deleteGuideEmail" prefHeight="26.0" prefWidth="509.0" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <ToggleButton fx:id="deleteButton" layoutX="266.0" layoutY="260.0" mnemonicParsing="false" onAction="#deleteClicked" style="-fx-background-color: #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Delete ">
+                              <Button fx:id="deleteGuideButton" layoutX="276.0" layoutY="260.0" mnemonicParsing="false" onAction="#deleteGuideClicked" style="-fx-background-color: #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Delete">
                                  <font>
-                                    <Font name="Comic Sans MS" size="14.0" />
+                                    <Font name="Comic Sans MS" size="13.0" />
                                  </font>
-                              </ToggleButton>
+                              </Button>
                            </children></AnchorPane>
                     </content>
                   </Tab>
