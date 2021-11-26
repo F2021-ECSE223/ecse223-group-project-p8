@@ -14,7 +14,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.viewAssignmentPageController">
    <children>
-      <TableView layoutX="38.0" layoutY="174.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="725.0">
+      <TableView fx:id="overviewTable" layoutX="38.0" layoutY="174.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="725.0">
         <columns>
           <TableColumn prefWidth="90.0" text="Member" />
           <TableColumn prefWidth="90.0" text="Guide" />
