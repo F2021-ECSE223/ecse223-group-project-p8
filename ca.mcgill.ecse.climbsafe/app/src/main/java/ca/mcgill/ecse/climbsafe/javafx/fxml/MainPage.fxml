@@ -15,10 +15,7 @@
                </content></Tab>
             <Tab text="Member">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <fx:include source="pages/memberPage.fxml" />
-                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
           <Tab text="Guide">
