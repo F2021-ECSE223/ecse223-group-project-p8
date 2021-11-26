@@ -64,10 +64,10 @@ public class ClimbSafeFeatureSet6Controller {
         List < Assignment > assignmentInClimb = (ClimbSafeApplication.getClimbSafe()).getAssignments();
         List < TOAssignment > assignment2ToAssignment = new ArrayList < > ();
         for (Assignment currentAssignment: assignmentInClimb) {
-            String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName;
-            aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = null;
-            int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment;
-            aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = 0;
+            String aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStatus, authorizationCode;
+            aMemberEmail = aMemberName = aGuideEmail = aGuideName = aHotelName = aStatus = authorizationCode = null;
+            int aStartWeek, aEndWeek, stayedWeeks, TotalCostForGuide, TotalCostForEquipment, refundedPercentageAmount;
+            aStartWeek = aEndWeek = stayedWeeks = TotalCostForGuide = TotalCostForEquipment = refundedPercentageAmount = 0;
             aStartWeek = currentAssignment.getStartWeek();
             aEndWeek = currentAssignment.getEndWeek();
             stayedWeeks = (aEndWeek - aStartWeek) + 1;
@@ -75,6 +75,9 @@ public class ClimbSafeFeatureSet6Controller {
             aMemberName = currentAssignment.getMember().getName();
             Boolean hasGuide = currentAssignment.getMember().isGuideRequired();
             Boolean hasHotel = currentAssignment.getMember().isHotelRequired();
+            aStatus = currentAssignment.getAssignmentStatusFullName();
+            authorizationCode = currentAssignment.getAuthorizationCode();
+            refundedPercentageAmount = currentAssignment.getRefund();
             if (hasGuide) {
                 aGuideEmail = currentAssignment.getGuide().getEmail();
                 aGuideName = currentAssignment.getGuide().getName();
@@ -101,8 +104,10 @@ public class ClimbSafeFeatureSet6Controller {
                     TotalCostForEquipment += equipment.getPricePerWeek() * stayedWeeks * quant;
                 }
             }
-            assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName, aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide, TotalCostForEquipment));
-	    ClimbsafePersistence.save();
+            assignment2ToAssignment.add(new TOAssignment(aMemberEmail, aMemberName,
+            		aGuideEmail, aGuideName, aHotelName, aStartWeek, aEndWeek, TotalCostForGuide,
+            		TotalCostForEquipment,aStatus,authorizationCode,refundedPercentageAmount));
+            ClimbsafePersistence.save();
         }
         return assignment2ToAssignment;
     }
