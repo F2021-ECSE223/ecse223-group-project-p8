@@ -26,13 +26,9 @@
                      </children></AnchorPane>
                </content></Tab>
             <Tab text="Equipment">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <fx:include source="pages/EquipmentMenuPage.fxml" />
-                     </children>
-                  </AnchorPane>
-              </content>
+               <content>
+                  <fx:include source="pages/equipmentPage.fxml" />
+               </content>
             </Tab>
             <Tab text="Equipment Bundle">
               <content>

@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
 
-public class EquipmentMenuPageController {
+public class equipmentPageController {
   @FXML private TextField EquipmentNameTextField;
   @FXML private TextField EquipmentWeightTextField;
   @FXML private TextField EquipmentPriceTextField;
