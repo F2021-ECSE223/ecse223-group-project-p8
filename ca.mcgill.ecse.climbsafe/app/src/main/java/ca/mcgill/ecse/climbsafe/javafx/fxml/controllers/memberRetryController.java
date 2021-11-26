@@ -99,43 +99,43 @@ public class memberRetryController {
 	private TextField deleteEmail;
 
 	
-//	@FXML
-//	public void initialize() {
-//        registerBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-//          registerBundleChoice.setItems(ViewUtils.getBundles());
-//          registerBundleChoice.setValue(null);
-//        });
-//        
-//        registerEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-//        	registerEquipmentChoice.setItems(ViewUtils.getEquipment());
-//        	registerEquipmentChoice.setValue(null);
-//          });
-//        
-//        registerWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-//        	registerWeeks.setItems(ViewUtils.getWeeks());
-//        	registerWeeks.setValue(1);
-//          });
-//        
-//        updateBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-//        	updateBundleChoice.setItems(ViewUtils.getBundles());
-//        	updateBundleChoice.setValue(null);
-//          });
-//          
-//        updateEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-//        	updateEquipmentChoice.setItems(ViewUtils.getEquipment());
-//        	updateEquipmentChoice.setValue(null);
-//            });
-//          
-//        updateWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-//        	updateWeeks.setItems(ViewUtils.getWeeks());
-//        	updateWeeks.setValue(1);
-//            });
-//        
-//        
-//        
-//        ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice, registerEquipmentChoice, registerWeeks, updateBundleChoice, updateEquipmentChoice, updateWeeks);
-//        
-//      }
+	@FXML
+	public void initialize() {
+        registerBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+          registerBundleChoice.setItems(ViewUtils.getBundles());
+          registerBundleChoice.setValue(null);
+        });
+        
+        registerEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	registerEquipmentChoice.setItems(ViewUtils.getEquipment());
+        	registerEquipmentChoice.setValue(null);
+          });
+        
+        registerWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	registerWeeks.setItems(ViewUtils.getWeeks());
+        	registerWeeks.setValue(1);
+          });
+        
+        updateBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	updateBundleChoice.setItems(ViewUtils.getBundles());
+        	updateBundleChoice.setValue(null);
+          });
+          
+        updateEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	updateEquipmentChoice.setItems(ViewUtils.getEquipment());
+        	updateEquipmentChoice.setValue(null);
+            });
+          
+        updateWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	updateWeeks.setItems(ViewUtils.getWeeks());
+        	updateWeeks.setValue(1);
+            });
+        
+        
+        
+        ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice, registerEquipmentChoice, registerWeeks, updateBundleChoice, updateEquipmentChoice, updateWeeks);
+        
+      }
 	
 	
 	// Event Listener on Button[#RegisterSubmit].onAction

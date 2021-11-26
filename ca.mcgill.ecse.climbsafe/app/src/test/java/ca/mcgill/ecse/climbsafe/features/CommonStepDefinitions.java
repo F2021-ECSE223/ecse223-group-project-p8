@@ -12,7 +12,6 @@ public class CommonStepDefinitions {
   @After
   public void tearDown() {
     ClimbSafeApplication.getClimbSafe().delete();
-    ClimbsafePersistence.save();
   }
 
 }

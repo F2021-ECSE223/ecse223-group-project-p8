@@ -1,4 +1,5 @@
 package ca.mcgill.ecse.climbsafe.application;
+import ca.mcgill.ecse.climbsafe.model.Administrator;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
@@ -24,9 +25,12 @@ public static ClimbSafe getClimbSafe() {
     if (climbSafe == null) {
      // these attributes are default, you should set them later with the setters
     //climbSafe = new ClimbSafe(new Date(0), 0, 0);
-      climbSafe = ClimbsafePersistence.load();
+        climbSafe = ClimbsafePersistence.load();
+    	if (climbSafe.getAdministrator()==null) {
+    		Administrator admin = new Administrator("admin@nmc.nt", "admin", climbSafe);
+    		climbSafe.setAdministrator(admin);
+    	}
     }
-    
     return climbSafe;
   }
 }
