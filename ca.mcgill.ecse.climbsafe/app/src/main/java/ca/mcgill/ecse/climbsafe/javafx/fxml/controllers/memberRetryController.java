@@ -1,5 +1,6 @@
 package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 
+//this file works
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
