@@ -113,12 +113,27 @@ public class memberRetryController {
         
         registerWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
         	registerWeeks.setItems(ViewUtils.getWeeks());
-        	registerWeeks.setValue(null);
+        	registerWeeks.setValue(1);
           });
         
+        updateBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	updateBundleChoice.setItems(ViewUtils.getBundles());
+        	updateBundleChoice.setValue(null);
+          });
+          
+        updateEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	updateEquipmentChoice.setItems(ViewUtils.getEquipment());
+        	updateEquipmentChoice.setValue(null);
+            });
+          
+        updateWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	updateWeeks.setItems(ViewUtils.getWeeks());
+        	updateWeeks.setValue(1);
+            });
         
         
-        ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice, registerEquipmentChoice, registerWeeks);
+        
+        ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice, registerEquipmentChoice, registerWeeks, updateBundleChoice, updateEquipmentChoice, updateWeeks);
         //ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice);
       }
 	
