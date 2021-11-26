@@ -15,7 +15,7 @@
                </content></Tab>
             <Tab text="Member">
                <content>
-                  <fx:include source="pages/memberPageNew.fxml" />
+                  <fx:include source="pages/memberRetry.fxml" />
                </content>
             </Tab>
           <Tab text="Guide">
