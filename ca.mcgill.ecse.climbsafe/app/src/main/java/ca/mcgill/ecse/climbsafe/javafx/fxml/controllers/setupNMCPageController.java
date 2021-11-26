@@ -3,10 +3,11 @@ package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 import javafx.fxml.FXML;
 import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.successful;
 import javafx.scene.control.Button;
-
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
@@ -18,7 +19,7 @@ public class setupNMCPageController {
 	@FXML
 	private TextField passwordTextField;
 	@FXML
-	private TextField startDateTextField;
+	private DatePicker datePicker;
 	@FXML
 	private TextField nrOfWeeksTextField;
 	@FXML
@@ -29,28 +30,28 @@ public class setupNMCPageController {
 	// Event Listener on Button[#startSeasonButton].onAction
 	@FXML
 	public void startSeasonClicked(ActionEvent event) {
+		var error = "";
 		String adminEmail = this.adminEmailTextField.getText();
 		  if (adminEmail == null || adminEmail.trim().isEmpty() || !adminEmail.equals("admin@nmc.nt")) {
-		      ViewUtils.showError("Please input a valid email address");
+		     error += "Please input a valid email address" + "\n";
 		  }
 		  String password = this.passwordTextField.getText();
 		  if (password == null || password.trim().isEmpty() || !password.equals("admin")) {
-		      ViewUtils.showError("Please input a valid password");
+			  error +=  "Please input a valid password" + "\n";
 		  }
 		  String pricesOfGuide = this.priceTextField.getText();
 		  if (pricesOfGuide == null || pricesOfGuide.trim().isEmpty()) {
-		      ViewUtils.showError("Please input a valid price for the guides");
+			  error += "Please input a valid price for the guides" + "\n";
 		  }
 		  
 		  try {
 			  
 			  int priceGuide = Integer.parseInt(pricesOfGuide);
 			  int nrOfWeeks = Integer.parseInt(this.nrOfWeeksTextField.getText());
-			  Date startDate = Date.valueOf(this.startDateTextField.getText());
+			  LocalDate startDate = this.datePicker.getValue();
 			 
-			  if (successful(() -> ClimbSafeFeatureSet1Controller.setup(startDate, nrOfWeeks, priceGuide))) {
+			  if (successful(() -> ClimbSafeFeatureSet1Controller.setup(Date.valueOf(startDate), nrOfWeeks, priceGuide))) {
 			        this.adminEmailTextField.setText("");
-			        this.startDateTextField.setText("");
 			        this.passwordTextField.setText("");
 			        this.nrOfWeeksTextField.setText("");
 			        this.priceTextField.setText("");
@@ -58,7 +59,8 @@ public class setupNMCPageController {
 			  }
 			  
 		  }catch (RuntimeException e) {
-			  ViewUtils.showError(e.getMessage());
+			  error += e.getMessage();
+			  ViewUtils.showError(error);
 		  }
 	 }
 }

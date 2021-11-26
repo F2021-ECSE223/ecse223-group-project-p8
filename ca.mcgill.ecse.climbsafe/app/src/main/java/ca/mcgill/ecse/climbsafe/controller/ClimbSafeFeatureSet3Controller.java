@@ -87,17 +87,17 @@ public class ClimbSafeFeatureSet3Controller {
 		  throw new InvalidInputException(error);
 	  }
 	 
-	  if(Utility.emailInvalidSyntax(email) == true) {
+	  if(!(email.indexOf("@") > 0)) {
 		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(Utility.emailMissingSubstring(email) == true) {
+	  if(!(email.indexOf("@") == email.lastIndexOf("@"))) {
 		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(Utility.missingEmailDeclaration(email) == true) {
+	  if(!(email.indexOf("@") < email.lastIndexOf(".") - 1)) {
 		  error="Invalid email";
 		  throw new InvalidInputException(error);
 	  }
@@ -107,7 +107,7 @@ public class ClimbSafeFeatureSet3Controller {
 		  throw new InvalidInputException(error);
 	  }
 	 
-	 if(Utility.wrongEmailSyntax(email) == true) {
+	 if(!(email.lastIndexOf(".") < email.length() - 1)) {
 		 error="Invalid email";
 		 throw new InvalidInputException(error);
 	 }
