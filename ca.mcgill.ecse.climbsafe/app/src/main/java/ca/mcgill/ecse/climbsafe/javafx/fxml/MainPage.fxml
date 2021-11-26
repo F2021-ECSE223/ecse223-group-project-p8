@@ -9,7 +9,7 @@
    <children>
       <TabPane prefHeight="405.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Setup">
+          <Tab text="Setup NMC">
                <content>
                   <fx:include source="pages/SetupNMC.fxml" />
                </content></Tab>
@@ -34,7 +34,7 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="Bundle">
+            <Tab text="Equipment Bundle">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
