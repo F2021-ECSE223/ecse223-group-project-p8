@@ -1,6 +1,8 @@
 package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 
 import java.util.List;
+
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 import ca.mcgill.ecse.climbsafe.controller.AssignmentController;
 import ca.mcgill.ecse.climbsafe.controller.InvalidInputException;
 import ca.mcgill.ecse.climbsafe.controller.TOAssignment;
@@ -13,6 +15,8 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet7Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
+import ca.mcgill.ecse.climbsafe.model.Equipment;
+import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -83,6 +87,34 @@ public class ViewUtils {
     // as javafx works with observable list, we need to convert the java.util.List to
     // javafx.collections.observableList
     return FXCollections.observableList(Assignments);
+  }
+  
+  //added for member, but not working:((
+  public static ObservableList<String> getBundles() {
+	  List<EquipmentBundle> bundles = ClimbSafeApplication.getClimbSafe().getBundles();
+      ObservableList<String> names = FXCollections.observableArrayList();
+      for (EquipmentBundle e: bundles) {
+          names.add(e.getName());
+      }
+      return names;
+  }
+  
+  public static ObservableList<String> getEquipment() {
+	  List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
+      ObservableList<String> names = FXCollections.observableArrayList();
+      for (Equipment e: equipment) {
+          names.add(e.getName());
+      }
+      return names;
+  }
+  
+  public static ObservableList<Integer> getWeeks() {
+	  int length = ClimbSafeApplication.getClimbSafe().getNrWeeks();
+      ObservableList<Integer> weeks = FXCollections.observableArrayList();
+      for (int i=1; i<length+1; i++) {
+    	  weeks.add(i);
+      }
+      return weeks;
   }
 
   /*public static ObservableList<TODriver> getDrivers() {

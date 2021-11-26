@@ -12,6 +12,7 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet2Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
 import javafx.fxml.FXML;
 import java.lang.*;
+import java.sql.Date;
 
 import javafx.scene.control.Button;
 
@@ -97,9 +98,35 @@ public class memberRetryController {
 	@FXML
 	private TextField deleteEmail;
 
+	
+	@FXML
+	public void initialize() {
+        registerBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+          registerBundleChoice.setItems(ViewUtils.getBundles());
+          registerBundleChoice.setValue(null);
+        });
+        
+        registerEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	registerEquipmentChoice.setItems(ViewUtils.getEquipment());
+        	registerEquipmentChoice.setValue(null);
+          });
+        
+        registerWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+        	registerWeeks.setItems(ViewUtils.getWeeks());
+        	registerWeeks.setValue(null);
+          });
+        
+        
+        
+        ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice, registerEquipmentChoice, registerWeeks);
+        //ClimbsafeFxmlView.getInstance().registerRefreshEvent(registerBundleChoice);
+      }
+	
+	
 	// Event Listener on Button[#RegisterSubmit].onAction
 	@FXML
 	public void RegisterMemberRegisterSubmit(ActionEvent event) {
+		
 		String email=registerEmail.getText();
 		String password=registerPassword.getText();
 		String name=registerName.getText();
@@ -126,17 +153,23 @@ public class memberRetryController {
 //		      ViewUtils.showError("Please input a valid nrWeeks");
 //		    }
 		else {
-			if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
-				registerEmail.setText("");
-				registerPassword.setText("");
-				registerName.setText("");
-				registerContact.setText("");
-				//cleanup? not sure if really needed
-				wantGuide=false;
-				wantHotel=false;
-				itemNames.clear();
-				itemQuantities.clear();
-		      }
+			try {				 
+				  if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
+						updateEmail.setText("");
+						updatePassword.setText("");
+						updateName.setText("");
+						updateContact.setText("");
+						//cleanup? not sure if really needed
+						wantGuide=false;
+						wantHotel=false;
+						itemNames.clear();
+						itemQuantities.clear();
+						
+				      }
+				  
+			  }catch (RuntimeException e) {
+				  ViewUtils.showError(e.getMessage());
+			  }
 			
 		}
 	}
@@ -217,18 +250,23 @@ public class memberRetryController {
 		    }
 
 		else {
-			if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
-				updateEmail.setText("");
-				updatePassword.setText("");
-				updateName.setText("");
-				updateContact.setText("");
-				//cleanup? not sure if really needed
-				wantGuide=false;
-				wantHotel=false;
-				itemNames.clear();
-				itemQuantities.clear();
-				
-		      }
+			try {				 
+				  if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
+						updateEmail.setText("");
+						updatePassword.setText("");
+						updateName.setText("");
+						updateContact.setText("");
+						//cleanup? not sure if really needed
+						wantGuide=false;
+						wantHotel=false;
+						itemNames.clear();
+						itemQuantities.clear();
+						
+				      }
+				  
+			  }catch (RuntimeException e) {
+				  ViewUtils.showError(e.getMessage());
+			  }
 			
 		}
 	}
@@ -301,4 +339,10 @@ public class memberRetryController {
 	      }
 	      }
 	}
+	
+//	@FXML
+////	public void selectEquipment(ActionEvent event) {
+////		registerEquipmentChoice.getValue()
+////	}
+	
 }
