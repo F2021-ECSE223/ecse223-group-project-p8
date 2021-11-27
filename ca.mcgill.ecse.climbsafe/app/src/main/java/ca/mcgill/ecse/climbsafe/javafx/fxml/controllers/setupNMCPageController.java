@@ -26,6 +26,10 @@ public class setupNMCPageController {
 	private TextField priceTextField;
 	@FXML
 	private Button startSeasonButton;
+	@FXML
+	private TextField newPasswordTextField;
+	@FXML
+	private Button updateButton;
 
 	// Event Listener on Button[#startSeasonButton].onAction
 	@FXML
@@ -62,5 +66,9 @@ public class setupNMCPageController {
 			  error += e.getMessage();
 			  ViewUtils.showError(error);
 		  }
+	 }
+	
+	public void updateClicked(ActionEvent event) {
+		
 	 }
 }
