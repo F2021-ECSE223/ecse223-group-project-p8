@@ -170,15 +170,16 @@ public class memberRetryController {
 		else {
 			try {				 
 				  if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
-						updateEmail.setText("");
-						updatePassword.setText("");
-						updateName.setText("");
-						updateContact.setText("");
+						registerEmail.setText("");
+						registerPassword.setText("");
+						registerName.setText("");
+						registerContact.setText("");
 						//cleanup? not sure if really needed
 						wantGuide=false;
 						wantHotel=false;
 						itemNames.clear();
 						itemQuantities.clear();
+						ClimbsafeFxmlView.getInstance().refresh();
 						
 				      }
 				  
@@ -197,7 +198,7 @@ public class memberRetryController {
 		      ViewUtils.showError("Please select a valid equipment");
 		      }
 	    //do we have to check if it's a number?
-	    if (quantity == null || quantity.trim().isEmpty()) {
+	    else if (quantity == null || quantity.trim().isEmpty()) {
 	    	ViewUtils.showError("Please enter a valid quantity");
 	    }
 	    else {
@@ -205,6 +206,7 @@ public class memberRetryController {
 	    	itemQuantities.add(Integer.parseInt(quantity));
 	    	registerEquipmentQuantity.setText("");
 	    	registerEquipmentChoice.setValue(null);
+	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
 	// Event Listener on Button[#registerBundleSubmit].onAction
@@ -216,7 +218,7 @@ public class memberRetryController {
 		      ViewUtils.showError("Please select a valid bundle");
 		      }
 	    //do we have to check if it's a number?
-	    if (quantity == null || quantity.trim().isEmpty()) {
+	    else if (quantity == null || quantity.trim().isEmpty()) {
 	    	ViewUtils.showError("Please enter a valid quantity");
 	    }
 	    else {
@@ -224,6 +226,7 @@ public class memberRetryController {
 	    	itemQuantities.add(Integer.parseInt(quantity));
 	    	registerBundleQuantity.setText("");
 	    	registerBundleChoice.setValue(null);
+	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
 	// Event Listener on Button[#registerGuideToggleY].onAction
@@ -270,7 +273,7 @@ public class memberRetryController {
 
 		else {
 			try {
-				  if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
+				  if (successful(() -> ClimbSafeFeatureSet2Controller.updateMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
 						updateEmail.setText("");
 						updatePassword.setText("");
 						updateName.setText("");
@@ -280,6 +283,7 @@ public class memberRetryController {
 						wantHotel=false;
 						itemNames.clear();
 						itemQuantities.clear();
+						ClimbsafeFxmlView.getInstance().refresh();
 						
 				      }
 				  
@@ -306,6 +310,7 @@ public class memberRetryController {
 	    	itemQuantities.add(Integer.parseInt(quantity));
 	    	updateEquipmentQuantity.setText("");
 	    	updateEquipmentChoice.setValue(null);
+	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
 	// Event Listener on Button[#updateBundleSubmit].onAction
@@ -325,6 +330,7 @@ public class memberRetryController {
 	    	itemQuantities.add(Integer.parseInt(quantity));
 	    	updateBundleQuantity.setText("");
 	    	updateBundleChoice.setValue(null);
+	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
 	// Event Listener on Button[#updateGuideToggleN].onAction
@@ -354,12 +360,19 @@ public class memberRetryController {
 	    if (email == null || email.trim().isEmpty()) {
 	      ViewUtils.showError("Please input a valid email");
 	    }
-	      else {
-	  
-	      if (successful(() -> ClimbSafeFeatureSet1Controller.deleteMember(email))) {
-	    	  deleteEmail.setText("");
-	        ClimbsafeFxmlView.getInstance().refresh();
-	      }
+	    
+	    if (!ViewUtils.memberInSystem(email)) ViewUtils.showError("Member does not exist in system");
+	    
+	    else {
+	    	  try {				 
+	    		  if (successful(() -> ClimbSafeFeatureSet1Controller.deleteMember(email))) {
+	    			  deleteEmail.setText("");
+	    			  ClimbsafeFxmlView.getInstance().refresh();
+				      }
+				  
+			  }catch (RuntimeException e) {
+				  ViewUtils.showError(e.getMessage());
+			  }
 	      }
 	}
 	

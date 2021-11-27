@@ -17,6 +17,7 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet7Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
+import ca.mcgill.ecse.climbsafe.model.Member;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -89,7 +90,7 @@ public class ViewUtils {
     return FXCollections.observableList(Assignments);
   }
   
-  //added for member, but not working:((
+  //added for member, pls don't touch!-ke
   public static ObservableList<String> getBundles() {
 	  List<EquipmentBundle> bundles = ClimbSafeApplication.getClimbSafe().getBundles();
       ObservableList<String> names = FXCollections.observableArrayList();
@@ -115,6 +116,14 @@ public class ViewUtils {
     	  weeks.add(i);
       }
       return weeks;
+  }
+  
+  public static boolean memberInSystem(String email) {
+	  List<Member> members = ClimbSafeApplication.getClimbSafe().getMembers();
+      for (Member e:members) {
+    	  if (e.getEmail().equals(email)) return true;
+      }
+      return false;
   }
 
   /*public static ObservableList<TODriver> getDrivers() {
