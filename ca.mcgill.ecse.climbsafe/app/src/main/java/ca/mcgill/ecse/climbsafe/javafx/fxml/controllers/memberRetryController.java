@@ -21,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 
 public class memberRetryController {
 	//Array lists to store
@@ -97,6 +98,24 @@ public class memberRetryController {
 	private Button deleteSubmit;
 	@FXML
 	private TextField deleteEmail;
+	@FXML
+	private TextField findEmail;
+	@FXML
+	private Button StartSearch;
+	@FXML
+	private Label findName;
+	@FXML
+	private Label findPassword;
+	@FXML
+	private Label findContact;
+	@FXML
+	private Label findWeek;
+	@FXML
+	private Label findHotel;
+	@FXML
+	private Label findItems;
+	@FXML
+	private Label findGuide;
 
 	
 	@FXML
@@ -375,6 +394,34 @@ public class memberRetryController {
 			  }
 	      }
 	}
+	
+	// Event Listener on Button[#StartSearch].onAction
+		@FXML
+		public void SearchClicked(ActionEvent event) {
+			String email=findEmail.getText();
+			if (email == null || email.trim().isEmpty()) {
+			      ViewUtils.showError("Please input a valid email");
+			    }
+			else {
+				if(ViewUtils.findMemberEmail(email)!=null) {
+					findName.setText(ViewUtils.getMemberName(email));
+					//taylorSwift@mail.ca
+					findPassword.setText(ViewUtils.getMemberPassword(email));
+					findContact.setText(ViewUtils.getMemberContact(email));
+					findWeek.setText(Integer.toString(ViewUtils.getMemberWeek(email)));
+					findHotel.setText(String.valueOf(ViewUtils.getMemberHotel(email)));
+					findItems.setText(ViewUtils.getMemberItems(email));
+					findGuide.setText(String.valueOf(ViewUtils.getMemberGuide(email)));
+					ClimbsafeFxmlView.getInstance().refresh();
+				}
+				else {
+					ViewUtils.showError("Member does not exist in system");
+				}
+		      }
+			//findPassword, findContact, findWeek, findHotel, findItems, findGuide
+		}
+	
+	
 	
 //	@FXML
 ////	public void selectEquipment(ActionEvent event) {
