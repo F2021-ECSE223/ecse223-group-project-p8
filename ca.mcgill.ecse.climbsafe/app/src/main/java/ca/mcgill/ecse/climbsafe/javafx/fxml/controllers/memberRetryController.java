@@ -203,14 +203,16 @@ public class memberRetryController {
 	    else {
 	    	itemNames.add(equipment);
 	    	itemQuantities.add(Integer.parseInt(quantity));
+	    	registerEquipmentQuantity.setText("");
+	    	registerEquipmentChoice.setValue(null);
 	    }
 	}
 	// Event Listener on Button[#registerBundleSubmit].onAction
 	@FXML
 	public void RegisterMemberBundleSubmit(ActionEvent event) {
-		String equipment= registerEquipmentChoice.getValue();
-		String quantity= registerEquipmentQuantity.getText();
-	    if (equipment == null || equipment.trim().isEmpty()) {
+		String bundle= registerBundleChoice.getValue();
+		String quantity= registerBundleQuantity.getText();
+	    if (bundle == null || bundle.trim().isEmpty()) {
 		      ViewUtils.showError("Please select a valid bundle");
 		      }
 	    //do we have to check if it's a number?
@@ -218,8 +220,10 @@ public class memberRetryController {
 	    	ViewUtils.showError("Please enter a valid quantity");
 	    }
 	    else {
-	    	itemNames.add(equipment);
+	    	itemNames.add(bundle);
 	    	itemQuantities.add(Integer.parseInt(quantity));
+	    	registerBundleQuantity.setText("");
+	    	registerBundleChoice.setValue(null);
 	    }
 	}
 	// Event Listener on Button[#registerGuideToggleY].onAction
@@ -265,7 +269,7 @@ public class memberRetryController {
 		    }
 
 		else {
-			try {				 
+			try {
 				  if (successful(() -> ClimbSafeFeatureSet2Controller.registerMember(email, password, name, emergencyContact, nrWeeks, wantGuide, wantHotel, itemNames, itemQuantities))) {
 						updateEmail.setText("");
 						updatePassword.setText("");
@@ -300,14 +304,16 @@ public class memberRetryController {
 	    else {
 	    	itemNames.add(equipment);
 	    	itemQuantities.add(Integer.parseInt(quantity));
+	    	updateEquipmentQuantity.setText("");
+	    	updateEquipmentChoice.setValue(null);
 	    }
 	}
 	// Event Listener on Button[#updateBundleSubmit].onAction
 	@FXML
 	public void UpdateMemberBundleSubmit(ActionEvent event) {
-		String equipment= updateEquipmentChoice.getValue();
-		String quantity= updateEquipmentQuantity.getText();
-	    if (equipment == null || equipment.trim().isEmpty()) {
+		String bundle= updateBundleChoice.getValue();
+		String quantity= updateBundleQuantity.getText();
+	    if (bundle == null || bundle.trim().isEmpty()) {
 		      ViewUtils.showError("Please select a valid bundle");
 		      }
 	    //do we have to check if it's a number?
@@ -315,8 +321,10 @@ public class memberRetryController {
 	    	ViewUtils.showError("Please enter a valid quantity");
 	    }
 	    else {
-	    	itemNames.add(equipment);
+	    	itemNames.add(bundle);
 	    	itemQuantities.add(Integer.parseInt(quantity));
+	    	updateBundleQuantity.setText("");
+	    	updateBundleChoice.setValue(null);
 	    }
 	}
 	// Event Listener on Button[#updateGuideToggleN].onAction
