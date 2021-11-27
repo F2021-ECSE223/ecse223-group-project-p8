@@ -122,26 +122,28 @@ public class ClimbSafeFeatureSet2Controller {
 
 		
 		//requested item not found
-		if (!Utility.bookableItemsExists(climbSafe, itemNames)) {
+		if (!itemNames.isEmpty() && !Utility.bookableItemsExists(climbSafe, itemNames)) {
 			error = "Requested item not found";
 			throw new InvalidInputException(error);
 		}
 		//empty check
-		if (itemNames==null) {
-			error = "Inputs canot be null";
-			throw new InvalidInputException(error);
-		}
-
-		if (itemQuantities==null) {
-			error = "Inputs canot be null";
-			throw new InvalidInputException(error);
-		}
+//		if (itemNames==null) {
+//			error = "Inputs canot be null";
+//			throw new InvalidInputException(error);
+//		}
+//
+//		if (itemQuantities==null) {
+//			error = "Inputs canot be null";
+//			throw new InvalidInputException(error);
+//		}
 
 		try {
 			Member myMember;
 			myMember=climbSafe.addMember(email, password, name, emergencyContact, nrWeeks, guideRequired, hotelRequired);
 			//add items too!!
-			Utility.addItemList(climbSafe, itemNames, itemQuantities, myMember);
+			if (!itemNames.isEmpty()) {
+				Utility.addItemList(climbSafe, itemNames, itemQuantities, myMember);
+			}
 			ClimbsafePersistence.save();
 			
 		}catch (RuntimeException e) {
@@ -212,21 +214,21 @@ public class ClimbSafeFeatureSet2Controller {
 			}
 
 			//requested item not found
-			if (!Utility.bookableItemsExists(climbSafe, newItemNames)) {
+			if (!newItemNames.isEmpty() &&!Utility.bookableItemsExists(climbSafe, newItemNames)) {
 				error = "Requested item not found";
 				throw new InvalidInputException(error);
 			}
 
 			//empty check
-			if (newItemNames==null) {
-				error = "Inputs canot be null";
-				throw new InvalidInputException(error);
-			}
-
-			if (newItemQuantities==null) {
-				error = "Inputs canot be null";
-				throw new InvalidInputException(error);
-			}
+//			if (newItemNames==null) {
+//				error = "Inputs canot be null";
+//				throw new InvalidInputException(error);
+//			}
+//
+//			if (newItemQuantities==null) {
+//				error = "Inputs canot be null";
+//				throw new InvalidInputException(error);
+//			}
 
 			try {
 				Member existingMember = Utility.findMember(email);
@@ -237,7 +239,9 @@ public class ClimbSafeFeatureSet2Controller {
 				existingMember.setGuideRequired(newGuideRequired);
 				existingMember.setHotelRequired(newHotelRequired);
 				Utility.resetBookedItems(climbSafe, existingMember);
-				Utility.addItemList(climbSafe, newItemNames, newItemQuantities, existingMember);
+				if (!newItemNames.isEmpty()) {
+					Utility.addItemList(climbSafe, newItemNames, newItemQuantities, existingMember);
+				}
 				ClimbsafePersistence.save();
 				
 			}catch (RuntimeException e) {
