@@ -59,7 +59,7 @@
             <Insets />
          </GridPane.margin>
       </Label>
-      <TextField fx:id="startDateTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+      <TextField fx:id="nrOfWeeksTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
       <Label text="Price Of Guides For Season" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
          <font>
             <Font name="Comic Sans MS" size="12.0" />
