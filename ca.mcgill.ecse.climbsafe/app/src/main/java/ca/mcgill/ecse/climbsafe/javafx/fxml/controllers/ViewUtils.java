@@ -15,6 +15,7 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet7Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
+import ca.mcgill.ecse.climbsafe.model.BookedItem;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Member;
@@ -125,6 +126,42 @@ public class ViewUtils {
       }
       return false;
   }
+  
+  public static Member findMemberEmail(String email) {
+	  return Utility.findMember(email);
+  }
+  public static String getMemberContact(String email) {
+	  return Utility.findMember(email).getEmergencyContact();
+  }
+  public static String getMemberPassword(String email) {
+	  return Utility.findMember(email).getPassword();
+  }
+  public static int getMemberWeek(String email) {
+	  return Utility.findMember(email).getNrWeeks();
+  }
+  public static boolean getMemberHotel(String email) {
+	  return Utility.findMember(email).getHotelRequired();
+  }
+  public static boolean getMemberGuide(String email) {
+	  return Utility.findMember(email).getGuideRequired();
+  }
+  public static String getMemberItems(String email) {
+	  List<BookedItem> items= Utility.findMember(email).getBookedItems();
+	  String itemList="";
+	  for (BookedItem e: items) {
+		  String pairing="";
+		  pairing+=e.getItem().getName();
+		  pairing+=" x";
+		  pairing+=e.getQuantity();
+		  pairing+=", ";
+		  itemList+=pairing;
+	  }
+	  return itemList;
+  }
+  public static String getMemberName(String email) {
+	  return Utility.findMember(email).getName();
+  }
+  
 
   /*public static ObservableList<TODriver> getDrivers() {
     List<TODriver> drivers = BtmsController.getDrivers();
