@@ -19,7 +19,7 @@
          <children>
             <TabPane layoutX="4.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="801.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Register a guide">
+                <Tab text="Register Guide">
                      <content>
                         <AnchorPane prefHeight="571.0" prefWidth="814.0">
                            <children>
@@ -84,7 +84,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                <Tab text="Update a guide">
+                <Tab text="Update Guide">
                      <content>
                         <AnchorPane prefHeight="400.0" prefWidth="600.0">
                            <children>
@@ -148,7 +148,7 @@
                            </children>
                         </AnchorPane>
                      </content></Tab>
-                  <Tab text="Delete a guide">
+                  <Tab text="Delete Guide">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="818.0">
                            <children>
