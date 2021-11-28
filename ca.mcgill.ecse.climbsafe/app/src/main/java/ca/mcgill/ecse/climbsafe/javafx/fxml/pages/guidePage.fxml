@@ -23,7 +23,6 @@
                      <content>
                         <AnchorPane prefHeight="571.0" prefWidth="814.0">
                            <children>
-                              <Pane layoutX="36.0" layoutY="25.0" opacity="0.27" prefHeight="272.0" prefWidth="524.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" />
                               <GridPane layoutX="48.0" layoutY="32.0" prefHeight="267.0" prefWidth="497.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -76,7 +75,7 @@
                                     <TextField fx:id="guideEmergencyContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
-                              <Button fx:id="registerGuideButton" layoutX="262.0" layoutY="306.0" mnemonicParsing="false" onAction="#registerGuideClicked" prefHeight="21.0" prefWidth="77.0" style="-fx-background-color: #8FBC8F#8FBC8F #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Register">
+                              <Button fx:id="registerGuideButton" layoutX="262.0" layoutY="306.0" mnemonicParsing="false" onAction="#registerGuideClicked" prefHeight="21.0" prefWidth="77.0" style="-fx-background-radius: 4;" text="Register">
                                  <font>
                                     <Font name="Comic Sans MS" size="13.0" />
                                  </font>
@@ -89,7 +88,6 @@
                      <content>
                         <AnchorPane prefHeight="400.0" prefWidth="600.0">
                            <children>
-                              <Pane layoutX="33.0" layoutY="24.0" opacity="0.27" prefHeight="264.0" prefWidth="528.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" />
                               <GridPane layoutX="46.0" layoutY="34.0" prefHeight="257.0" prefWidth="492.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -101,7 +99,7 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Label text="New Full Name">
+                                    <Label text="Email Address">
                                        <padding>
                                           <Insets bottom="50.0" />
                                        </padding>
@@ -112,7 +110,7 @@
                                           <Insets />
                                        </opaqueInsets>
                                     </Label>
-                                    <Label text="New Email Address" GridPane.rowIndex="1">
+                                    <Label text="New Full Name" GridPane.rowIndex="1">
                                        <padding>
                                           <Insets bottom="50.0" />
                                        </padding>
@@ -136,13 +134,13 @@
                                           <Font name="Comic Sans MS" size="13.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="updateGuideName" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
-                                    <TextField fx:id="updateGuideEmail" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
+                                    <TextField fx:id="updateGuideEmail" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
+                                    <TextField fx:id="updateGuideName" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
                                     <TextField fx:id="updateGuidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
                                     <TextField fx:id="updateGuideContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
-                              <Button fx:id="updateGuideButton" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" onAction="#updateGuideClicked" style="-fx-background-color: #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Update">
+                              <Button fx:id="updateGuideButton" layoutX="270.0" layoutY="300.0" mnemonicParsing="false" onAction="#updateGuideClicked" style="-fx-background-radius: 4;" text="Update">
                                  <font>
                                     <Font name="Comic Sans MS" size="13.0" />
                                  </font>
@@ -154,7 +152,6 @@
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="818.0">
                            <children>
-                              <Pane layoutX="39.0" layoutY="50.0" opacity="0.29" prefHeight="196.0" prefWidth="529.0" style="-fx-background-color: lightgrey; -fx-background-radius: 10;" />
                               <GridPane layoutX="58.0" layoutY="72.0" prefHeight="188.0" prefWidth="487.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -194,12 +191,17 @@
                                     <TextField fx:id="deleteGuideEmail" prefHeight="26.0" prefWidth="509.0" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <Button fx:id="deleteGuideButton" layoutX="276.0" layoutY="260.0" mnemonicParsing="false" onAction="#deleteGuideClicked" style="-fx-background-color: #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F #8FBC8F#8FBC8F; -fx-background-radius: 4;" text="Delete">
+                              <Button fx:id="deleteGuideButton" layoutX="276.0" layoutY="260.0" mnemonicParsing="false" onAction="#deleteGuideClicked" style="-fx-background-radius: 4;" text="Delete">
                                  <font>
                                     <Font name="Comic Sans MS" size="13.0" />
                                  </font>
                               </Button>
                            </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="View Guide">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
                   </Tab>
               </tabs>

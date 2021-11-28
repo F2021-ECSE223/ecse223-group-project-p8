@@ -43,39 +43,45 @@ public class guidePageController {
 	// Event Listener on Button[#registerGuideButton].onAction
 	@FXML
 	public void registerGuideClicked(ActionEvent event) {
-		String nameOfGuide=guideName.getText();
-		String emailOfGuide=guideEmail.getText();
-		String passwordOfGuide=guidePassword.getText();
-		String contactOfGuide=guideEmergencyContact.getText();
 		
-		if(nameOfGuide == null || nameOfGuide.trim().isEmpty()) {
-			String nameError="Please input a valid name";
-			ViewUtils.showError(nameError);
-		}
-		
-		if(emailOfGuide == null || emailOfGuide.trim().isEmpty()) {
-			String emailError="Please input a valid email address";
-			ViewUtils.showError(emailError);
-		}
-		
-	    if(passwordOfGuide == null || passwordOfGuide.trim().isEmpty()) {
-			String passwordError="Please input a valid password";
-			ViewUtils.showError(passwordError);
-		}
-		
-	    if(contactOfGuide == null || contactOfGuide.trim().isEmpty()) {
-			String contactError="Please input a valid emergency contact";
-			ViewUtils.showError(contactError);
-		}
 		try {
-			if(successful(() -> ClimbSafeFeatureSet3Controller.registerGuide(emailOfGuide, passwordOfGuide, nameOfGuide, contactOfGuide))){
-				guideName.setText("");
-				guideEmail.setText("");
-				guidePassword.setText("");
-				guideEmergencyContact.setText("");
-				ClimbsafeFxmlView.getInstance().refresh();
+			String nameOfGuide=guideName.getText();
+			String emailOfGuide=guideEmail.getText();
+			String passwordOfGuide=guidePassword.getText();
+			String contactOfGuide=guideEmergencyContact.getText();
+			
+			if(nameOfGuide == null || nameOfGuide.trim().isEmpty()) {
+				String nameError="Please input a valid name";
+				ViewUtils.showError(nameError);
 			}
+			
+			else if(emailOfGuide == null || emailOfGuide.trim().isEmpty()) {
+				String emailError="Please input a valid email address";
+				ViewUtils.showError(emailError);
+			}
+			
+			else if(passwordOfGuide == null || passwordOfGuide.trim().isEmpty()) {
+				String passwordError="Please input a valid password";
+				ViewUtils.showError(passwordError);
+			}
+			
+			else if(contactOfGuide == null || contactOfGuide.trim().isEmpty()) {
+				String contactError="Please input a valid emergency contact";
+				ViewUtils.showError(contactError);
+			}
+			else {
+				if(successful(() -> ClimbSafeFeatureSet3Controller.registerGuide(emailOfGuide, passwordOfGuide, nameOfGuide, contactOfGuide))){
+					guideName.setText("");
+					guideEmail.setText("");
+					guidePassword.setText("");
+					guideEmergencyContact.setText("");
+					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("", "Successfully Registered");
+				}
+			}
+			
 		}
+		
 		catch (RuntimeException e) {
 		      ViewUtils.showError(e.getMessage());
 		    }
@@ -83,40 +89,47 @@ public class guidePageController {
 	// Event Listener on Button[#updateGuideButton].onAction
 	@FXML
 	public void updateGuideClicked(ActionEvent event) {
-		String newNameOfGuide=updateGuideName.getText();
-		String newEmailOfGuide=updateGuideEmail.getText();
-		String newPasswordOfGuide=updateGuidePassword.getText();
-		String newContactOfGuide=updateGuideContact.getText();
 		
-		if(newNameOfGuide == null || newNameOfGuide.trim().isEmpty()) {
-			String nameError="Please input a valid name to update";
-			ViewUtils.showError(nameError);
-		}
-		
-		if(newEmailOfGuide == null || newEmailOfGuide.trim().isEmpty()) {
-			String emailError="Please input a valid email address to update";
-			ViewUtils.showError(emailError);
-		}
-		
-	    if(newPasswordOfGuide == null || newPasswordOfGuide.trim().isEmpty()) {
-			String passwordError="Please input a valid password to update";
-			ViewUtils.showError(passwordError);
-		}
-		
-	    if(newContactOfGuide == null || newContactOfGuide.trim().isEmpty()) {
-			String contactError="Please input a valid emergency contact to update";
-			ViewUtils.showError(contactError);
-		}
-	    
 		try {
-			if(successful(() -> ClimbSafeFeatureSet3Controller.updateGuide(newEmailOfGuide, newPasswordOfGuide, newNameOfGuide, newContactOfGuide))){
-				updateGuideName.setText("");
-				updateGuideEmail.setText("");
-				updateGuidePassword.setText("");
-				updateGuideContact.setText("");
-				ClimbsafeFxmlView.getInstance().refresh();
+			String newNameOfGuide=updateGuideName.getText();
+			String sameEmailOfGuide=updateGuideEmail.getText();
+			String newPasswordOfGuide=updateGuidePassword.getText();
+			String newContactOfGuide=updateGuideContact.getText();
+			
+			if(newNameOfGuide == null || newNameOfGuide.trim().isEmpty()) {
+				String nameError="Please input a valid name to update";
+				ViewUtils.showError(nameError);
 			}
+			
+			else if(sameEmailOfGuide == null || sameEmailOfGuide.trim().isEmpty()) {
+				String emailError="Please input a valid email address to update";
+				ViewUtils.showError(emailError);
+			}
+			
+			else if(newPasswordOfGuide == null || newPasswordOfGuide.trim().isEmpty()) {
+				String passwordError="Please input a valid password to update";
+				ViewUtils.showError(passwordError);
+			}
+			
+			else if(newContactOfGuide == null || newContactOfGuide.trim().isEmpty()) {
+				String contactError="Please input a valid emergency contact to update";
+				ViewUtils.showError(contactError);
+			}
+		    
+		    else {
+				if(successful(() -> ClimbSafeFeatureSet3Controller.updateGuide(sameEmailOfGuide, newPasswordOfGuide, newNameOfGuide, newContactOfGuide))){
+					updateGuideName.setText("");
+					updateGuideEmail.setText("");
+					updateGuidePassword.setText("");
+					updateGuideContact.setText("");
+					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("", "Successfully Updated");
+					
+				}
+			}
+			
 		}
+		
 		catch (RuntimeException e) {
 		      ViewUtils.showError(e.getMessage());
 		    }
@@ -125,22 +138,27 @@ public class guidePageController {
 	// Event Listener on Button[#deleteGuideButton].onAction
 	@FXML
 	public void deleteGuideClicked(ActionEvent event) {
-		String emailtoDelete=deleteGuideEmail.getText();
-		
-		if(emailtoDelete == null || emailtoDelete.trim().isEmpty()) {
-			String deleteGuideError="Please input a valid email to delete";
-			ViewUtils.showError(deleteGuideError);
-		}
 		try {
-			if(successful(() -> ClimbSafeFeatureSet1Controller.deleteGuide(emailtoDelete))){
-				deleteGuideEmail.setText("");
-				ClimbsafeFxmlView.getInstance().refresh();
+			String emailtoDelete=deleteGuideEmail.getText();
+			
+			if(emailtoDelete == null || emailtoDelete.trim().isEmpty()) {
+				String deleteGuideError="Please input a valid email to delete";
+				ViewUtils.showError(deleteGuideError);
 			}
+			else {
+				if(successful(() -> ClimbSafeFeatureSet1Controller.deleteGuide(emailtoDelete))){
+					deleteGuideEmail.setText("");
+					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("", "Successfully Deleted");
+					
+				}
+			}
+			
 		}
+		
 		catch (RuntimeException e) {
 		      ViewUtils.showError(e.getMessage());
 		    }
-		
 		
 	}
 }
