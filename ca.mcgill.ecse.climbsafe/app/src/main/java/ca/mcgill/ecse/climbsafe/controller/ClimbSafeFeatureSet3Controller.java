@@ -86,6 +86,7 @@ public class ClimbSafeFeatureSet3Controller {
 		  error="Email must not contain any spaces";
 		  throw new InvalidInputException(error);
 	  }
+	  
 	 
 	  if(!(email.indexOf("@") > 0)) {
 		  error="Invalid email";
@@ -102,11 +103,6 @@ public class ClimbSafeFeatureSet3Controller {
 		  throw new InvalidInputException(error);
 	  }
 	  
-	  if(!email.contains(name.toLowerCase())) {
-		  error="Invalid email";
-		  throw new InvalidInputException(error);
-	  }
-	 
 	 if(!(email.lastIndexOf(".") < email.length() - 1)) {
 		 error="Invalid email";
 		 throw new InvalidInputException(error);
