@@ -163,6 +163,11 @@ public class ViewUtils {
 	  return Utility.findMember(email).getName();
   }
   
+  /**
+   * 
+   * @param email
+   * @return
+   */
   public static Guide findGuideInSystem(String email) {
 	  return Utility.findGuide(email);
   }

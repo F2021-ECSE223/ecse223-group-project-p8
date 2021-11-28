@@ -115,6 +115,11 @@ public class guidePageController {
 				String contactError="Please input a valid emergency contact to update";
 				ViewUtils.showError(contactError);
 			}
+			
+			else if(ViewUtils.findGuideInSystem(sameEmailOfGuide) == null) {
+				String inexistantGuideError="Guide does not exist in the system";
+				ViewUtils.showError(inexistantGuideError);
+			}
 		    
 		    else {
 				if(successful(() -> ClimbSafeFeatureSet3Controller.updateGuide(sameEmailOfGuide, newPasswordOfGuide, newNameOfGuide, newContactOfGuide))){
@@ -147,8 +152,8 @@ public class guidePageController {
 			}
 			
 			else if(ViewUtils.findGuideInSystem(emailtoDelete) == null) {
-				String deleteGuideError2="Guide does not exist in the system";
-				ViewUtils.showError(deleteGuideError2);
+				String inexistantGuideError="Guide does not exist in the system";
+				ViewUtils.showError(inexistantGuideError);
 			}
 			
 			else {
