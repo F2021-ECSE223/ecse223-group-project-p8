@@ -145,6 +145,12 @@ public class guidePageController {
 				String deleteGuideError="Please input a valid email to delete";
 				ViewUtils.showError(deleteGuideError);
 			}
+			
+			else if(ViewUtils.findGuideInSystem(emailtoDelete) == null) {
+				String deleteGuideError2="Guide does not exist in the system";
+				ViewUtils.showError(deleteGuideError2);
+			}
+			
 			else {
 				if(successful(() -> ClimbSafeFeatureSet1Controller.deleteGuide(emailtoDelete))){
 					deleteGuideEmail.setText("");

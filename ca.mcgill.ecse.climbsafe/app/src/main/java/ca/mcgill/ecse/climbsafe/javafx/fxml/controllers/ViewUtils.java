@@ -18,6 +18,7 @@ import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import ca.mcgill.ecse.climbsafe.model.BookedItem;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
+import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Member;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -160,6 +161,10 @@ public class ViewUtils {
   }
   public static String getMemberName(String email) {
 	  return Utility.findMember(email).getName();
+  }
+  
+  public static Guide findGuideInSystem(String email) {
+	  return Utility.findGuide(email);
   }
 
   /*public static ObservableList<TODriver> getDrivers() {
