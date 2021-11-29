@@ -116,6 +116,21 @@ public class memberRetryController {
 	private Label findItems;
 	@FXML
 	private Label findGuide;
+	//toStatus toGuide toInterval toEquCost toGuideCost toCode toRefund
+	@FXML
+	private Label toStatus;
+	@FXML
+	private Label toGuide;
+	@FXML
+	private Label toInterval;
+	@FXML
+	private Label toEquCost;
+	@FXML
+	private Label toGuideCost;
+	@FXML
+	private Label toCode;
+	@FXML
+	private Label toRefund;
 
 	
 	@FXML
@@ -405,13 +420,21 @@ public class memberRetryController {
 			else {
 				if(ViewUtils.findMemberEmail(email)!=null) {
 					findName.setText(ViewUtils.getMemberName(email));
-					//taylorSwift@mail.ca
 					findPassword.setText(ViewUtils.getMemberPassword(email));
 					findContact.setText(ViewUtils.getMemberContact(email));
 					findWeek.setText(Integer.toString(ViewUtils.getMemberWeek(email)));
 					findHotel.setText(String.valueOf(ViewUtils.getMemberHotel(email)));
 					findItems.setText(ViewUtils.getMemberItems(email));
 					findGuide.setText(String.valueOf(ViewUtils.getMemberGuide(email)));
+					//toStatus toGuide toInterval toEquCost toGuideCost toCode toRefund
+					toGuide.setText(ViewUtils.getMemberAssigmentGuide(email));
+					toStatus.setText(ViewUtils.getMemberAssigmentStatus(email));
+					toInterval.setText(ViewUtils.getMemberAssigmentWeeks(email));
+					toEquCost.setText(ViewUtils.getMemberAssigmentEquipmentCost(email));
+					toGuideCost.setText(ViewUtils.getMemberAssigmentGuideCost(email));
+					toCode.setText(ViewUtils.getMemberAssigmentACode(email));
+					toRefund.setText(ViewUtils.getMemberAssigmentRefund(email));
+					
 					ClimbsafeFxmlView.getInstance().refresh();
 				}
 				else {

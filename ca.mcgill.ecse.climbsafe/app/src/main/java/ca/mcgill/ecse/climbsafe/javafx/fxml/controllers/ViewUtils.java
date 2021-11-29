@@ -15,6 +15,7 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet7Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
+import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.BookedItem;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
@@ -162,6 +163,75 @@ public class ViewUtils {
   public static String getMemberName(String email) {
 	  return Utility.findMember(email).getName();
   }
+  
+  
+  public static TOAssignment getTOAssignmentMemberEmail(String email) {
+	  List <TOAssignment> ass =ClimbSafeFeatureSet6Controller.getAssignments();
+	  
+	  for (TOAssignment e: ass) {
+		  if (e.getMemberEmail().equals(email)) return e;
+	  }
+	  return null;
+  }
+  
+  public static String getMemberAssigmentGuide(String email) {
+	  String output="";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+=ass.getGuideName();
+	  output+=" (";
+	  output+=ass.getGuideEmail();
+	  output+=")";
+	  return output;
+  }
+  
+  public static String getMemberAssigmentWeeks(String email) {
+	  String output="";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+=Integer.toString(ass.getStartWeek());
+	  output+="-";
+	  output+=Integer.toString(ass.getEndWeek());
+	  return output;
+  }
+  
+  public static String getMemberAssigmentGuideCost(String email) {
+	  String output="";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+="$";
+	  output+=Integer.toString(ass.getTotalCostForGuide());
+	  return output;
+  }
+  
+  public static String getMemberAssigmentEquipmentCost(String email) {
+	  String output="";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+="$";
+	  output+=Integer.toString(ass.getTotalCostForEquipment());
+	  return output;
+  }
+  
+  public static String getMemberAssigmentStatus(String email) {
+	  String output="";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+=ass.getStatus();
+	  return output;
+  }
+  
+  public static String getMemberAssigmentACode(String email) {
+	  String output="";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+=ass.getAuthorizationCode();
+	  return output;
+  }
+  
+  public static String getMemberAssigmentRefund(String email) {
+	  String output="%";
+	  TOAssignment ass= getTOAssignmentMemberEmail(email);
+	  output+=Integer.toString(ass.getRefundedPercentageAmount());
+	  return output;
+  }
+  
+  
+  
   
   /**
    * 
