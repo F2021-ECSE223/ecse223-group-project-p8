@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -15,13 +13,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.equipmentBundlePageController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="784.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.equipmentBundlePageController">
   <tabs>
     <Tab text="Create Bundle">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <GridPane layoutX="13.0" layoutY="21.0" prefHeight="338.0" prefWidth="570.0">
+                  <GridPane layoutX="50.0" layoutY="22.0" prefHeight="500.0" prefWidth="682.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.5810546875" minWidth="10.0" prefWidth="160.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.96468353271484" minWidth="10.0" prefWidth="210.0" />
@@ -43,32 +41,29 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label text="Name" />
-                        <TextField fx:id="bundleNameInput" onInputMethodTextChanged="#getBundleName" GridPane.columnIndex="1" />
+                        <TextField fx:id="bundleNameInput" GridPane.columnIndex="1" GridPane.columnSpan="2" />
                         <Label text="Guide Discount" GridPane.rowIndex="1" />
-                        <MenuButton fx:id="discountStatusMenu" mnemonicParsing="false" onMouseClicked="#getDiscountStatusMenuClick" prefHeight="26.0" prefWidth="228.0" text="Discount Status Menu" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                          <items>
-                            <MenuItem fx:id="discountStatusTrue" mnemonicParsing="false" onAction="#setDiscountStatusTrue" text="Yes" />
-                            <MenuItem fx:id="discountStatusFalse" mnemonicParsing="false" onAction="#setDiscountStatusFalse" text="No" />
-                          </items>
-                        </MenuButton>
                         <Label text="View Equipment in Bundle" GridPane.rowIndex="2" />
                         <TableView fx:id="bundleItemsTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3" GridPane.rowSpan="6">
                           <columns>
-                            <TableColumn fx:id="bundleEquipmentCB" prefWidth="360.0" text="Equipment" />
-                            <TableColumn fx:id="costCB" minWidth="0.0" prefWidth="70.0" text="Cost" />
-                              <TableColumn fx:id="weightCB" minWidth="0.0" prefWidth="70.0" text="Weight" />
-                              <TableColumn fx:id="quantityCB" minWidth="0.0" prefWidth="70.0" text="Quantity" />
+                            <TableColumn fx:id="bundleEquipmentCB" prefWidth="440.0" text="Equipment" />
+                            <TableColumn fx:id="costCB" minWidth="0.0" text="Cost" />
+                              <TableColumn fx:id="weightCB" minWidth="0.0" text="Weight" />
+                              <TableColumn fx:id="quantityCB" minWidth="0.0" text="Quantity" />
                           </columns>
                         </TableView>
                         <Label text="Select Equipment" GridPane.rowIndex="10" />
-                        <ChoiceBox fx:id="equipmentMenuCB" prefHeight="26.0" prefWidth="226.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <ChoiceBox fx:id="equipmentMenuCB" prefHeight="26.0" prefWidth="500.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="10" />
                         <Label text="Quantity" GridPane.rowIndex="11" />
-                        <TextField fx:id="equipmentQuanityInputCB" onInputMethodTextChanged="#getEquipmentQuanityCB" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                        <Button fx:id="addEquipmentToBundleButton" mnemonicParsing="false" onMouseClicked="#addEquipmentToBundle" prefWidth="170.0" text="Add Equipment to Bundle" GridPane.columnIndex="2" GridPane.rowIndex="11" />
-                        <Button fx:id="createEquipmentBundleButton" mnemonicParsing="false" onMouseClicked="#createEquipmentBundle" prefHeight="26.0" prefWidth="576.0" text="Create Equipment Bundle" GridPane.columnSpan="3" GridPane.rowIndex="13" />
+                        <TextField fx:id="equipmentQuantityInputCB" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                        <Button fx:id="addEquipmentToBundleButton" mnemonicParsing="false" onAction="#addEquipmentToBundle" prefHeight="26.0" prefWidth="266.0" text="Add Equipment to Bundle" GridPane.columnIndex="2" GridPane.rowIndex="11" />
+                        <Button fx:id="createEquipmentBundleButton" mnemonicParsing="false" onAction="#createEquipmentBundle" prefHeight="26.0" prefWidth="755.0" text="Create Equipment Bundle" GridPane.columnSpan="3" GridPane.rowIndex="13" />
+                        <TextField fx:id="guideDiscountCB" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
@@ -76,9 +71,9 @@
     </Tab>
     <Tab fx:id="updateDiscountStatusMenu" text="Edit Bundle">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="644.0">
                <children>
-                  <GridPane layoutX="13.0" layoutY="21.0" prefHeight="338.0" prefWidth="570.0">
+                  <GridPane layoutX="51.0" layoutY="22.0" prefHeight="500.0" prefWidth="682.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="279.5810546875" minWidth="10.0" prefWidth="160.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="497.96468353271484" minWidth="10.0" prefWidth="210.0" />
@@ -100,35 +95,31 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
                         <Label text="Name" GridPane.rowIndex="2" />
-                        <TextField fx:id="newBundleNameInput" onInputMethodTextChanged="#getNewBundleName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="newBundleNameInput" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
                         <Label text="Guide Discount" GridPane.rowIndex="3" />
                         <Label text="View Equipment in Bundle" GridPane.rowIndex="4" />
                         <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="6">
                            <columns>
-                              <TableColumn fx:id="bundleEquipmentEB" prefWidth="360.0" text="Equipment" />
-                              <TableColumn fx:id="costEB" minWidth="0.0" prefWidth="70.0" text="Cost" />
-                              <TableColumn fx:id="weightEB" minWidth="0.0" prefWidth="70.0" text="Weight" />
-                              <TableColumn fx:id="quanityEB" minWidth="0.0" prefWidth="70.0" text="Quantity" />
+                              <TableColumn fx:id="bundleEquipmentEB" prefWidth="440.0" text="Equipment" />
+                              <TableColumn fx:id="costEB" minWidth="0.0" text="Cost" />
+                              <TableColumn fx:id="weightEB" minWidth="0.0" text="Weight" />
+                              <TableColumn fx:id="QuantityEB" minWidth="0.0" text="Quantity" />
                            </columns>
                         </TableView>
                         <Label text="Select Equipment" GridPane.rowIndex="12" />
                         <Label text="Quantity" GridPane.rowIndex="13" />
-                        <TextField fx:id="equipmentQuanityInputEB" onInputMethodTextChanged="#getEquipmentQuanityEB" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-                        <Button fx:id="updateEquipmentInBundleButton" mnemonicParsing="false" onMouseClicked="#updateEquipmentInBundle" prefWidth="170.0" text="Update Equipment in Bundle" GridPane.columnIndex="2" GridPane.rowIndex="13" />
-                        <Button fx:id="updateBundleNameButton" mnemonicParsing="false" onMouseClicked="#updateBundleName" prefHeight="26.0" prefWidth="170.0" text="Update Bundle Name" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <MenuButton fx:id="newDiscountStatusMenu" mnemonicParsing="false" prefHeight="26.0" prefWidth="217.0" text="Discount Status Menu" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                          <items>
-                            <MenuItem fx:id="newDiscountStatusTrue" mnemonicParsing="false" onAction="#setNewDiscountStatusTrue" text="Yes" />
-                            <MenuItem fx:id="newDiscountStatusFalse" mnemonicParsing="false" onAction="#setNewDiscountStatusFalse" text="No" />
-                          </items>
-                        </MenuButton>
-                        <Button fx:id="updateDiscountStatusButton" mnemonicParsing="false" onMouseClicked="#updateDiscountStatus" prefWidth="170.0" text="Update Discount Status" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <ChoiceBox fx:id="equipmentMenuEB" prefHeight="26.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                        <TextField fx:id="equipmentQuantityInputEB" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+                        <Button fx:id="updateEquipmentInBundleButton" mnemonicParsing="false" onAction="#updateEquipmentInBundle" prefHeight="26.0" prefWidth="288.0" text="Update Equipment in Bundle" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+                        <ChoiceBox fx:id="equipmentMenuEB" prefHeight="26.0" prefWidth="594.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="12" />
                         <Label text="Select Bundle" />
-                        <ChoiceBox fx:id="selectBundleMenu" prefHeight="26.0" prefWidth="245.0" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="selectBundleMenu" prefHeight="26.0" prefWidth="486.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                        <Button fx:id="updateEquipmentBundleButton" mnemonicParsing="false" onAction="#updateEquipmentBundle" prefHeight="26.0" prefWidth="707.0" text="Update Equipment Bundle" GridPane.columnSpan="3" GridPane.rowIndex="15" />
+                        <TextField fx:id="guideDiscountEB" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
