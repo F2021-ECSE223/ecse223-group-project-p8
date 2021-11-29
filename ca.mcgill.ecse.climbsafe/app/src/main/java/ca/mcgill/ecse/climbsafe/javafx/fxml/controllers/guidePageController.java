@@ -244,6 +244,8 @@ public class guidePageController {
 			TableColumn membersAssigned = new TableColumn("Assigned Members");
 				  
 			guideAssignments.getColumns().addAll(weeks, membersAssigned);
+			
+			
 			guideAssignments.setItems(assignments);
 			guideAssignments.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> guideAssignments.setItems(assignments));
 			ClimbsafeFxmlView.getInstance().registerRefreshEvent(guideAssignments);

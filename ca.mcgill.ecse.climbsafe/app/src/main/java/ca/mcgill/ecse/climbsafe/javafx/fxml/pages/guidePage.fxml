@@ -274,7 +274,10 @@
                                     </Button>
                                  </children>
                               </GridPane>
-                              <TableView fx:id="guideAssignments" layoutX="54.0" layoutY="182.0" prefHeight="291.0" prefWidth="701.0" />
+                              <TableView fx:id="guideAssignments" layoutX="54.0" layoutY="182.0" prefHeight="291.0" prefWidth="701.0">
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy></TableView>
                            </children></AnchorPane>
                     </content>
                   </Tab>
