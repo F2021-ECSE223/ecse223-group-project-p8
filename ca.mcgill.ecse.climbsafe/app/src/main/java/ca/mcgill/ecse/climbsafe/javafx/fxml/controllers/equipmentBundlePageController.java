@@ -97,6 +97,12 @@ public class equipmentBundlePageController {
 		}
 		equipmentMenuCB.setItems(equipmentList);
 	}
+	
+	// Event Listener on Button[#equipmentMenuCB].onAction
+	@FXML
+	public void selectFromEquipmentMenuCB(ActionEvent event) {
+		
+	}
 
 	public Equipment getSelectedEquipmentCB() {
 		return Utility.getEquipment(climbSafe, equipmentMenuCB.getValue());
@@ -114,23 +120,23 @@ public class equipmentBundlePageController {
 	// Event Listener on Button[#createEquipmentBundleButton].onAction
 	@FXML
 	public void createEquipmentBundle(ActionEvent event) {
-		try {
-			String bundleName = this.bundleNameInput.getText();
-			int discount = Integer.parseInt(this.guideDiscountCB.getText());
-			if (bundleName == null || bundleName.trim().isEmpty()) {
-				ViewUtils.showError("Please input a valid bundle name");
-			} 
-			if (this.guideDiscountCB.getText() == null ||  bundleName.trim().isEmpty()) {
-				ViewUtils.showError("Please input a valid discount number");
-			}
-			else {
+		String bundleName = this.bundleNameInput.getText();
+		String discountStr = this.guideDiscountCB.getText();
+		if (bundleName == null || bundleName.trim().isEmpty()) {
+			ViewUtils.showError("Please input a valid bundle name");
+		} else if (discountStr == null || discountStr.trim().isEmpty()) {
+			ViewUtils.showError("Please input a valid discount number");
+		} else {
+			try {
+				int discount = Integer.parseInt(this.guideDiscountCB.getText());
 				if (successful(() -> ClimbSafeFeatureSet5Controller.addEquipmentBundle(bundleName, discount,
 						this.equipmentNamesCB, this.equipmentQuantitiesCB))) {
-					
+
 				}
+			} catch (NumberFormatException e) {
+				ViewUtils.showError("Please input a valid discount number");
 			}
-		} catch (NumberFormatException e) {
-			ViewUtils.showError("Please input a valid number");
+
 		}
 	}
 
