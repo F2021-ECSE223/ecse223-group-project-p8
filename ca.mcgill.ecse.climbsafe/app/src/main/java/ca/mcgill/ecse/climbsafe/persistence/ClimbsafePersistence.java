@@ -7,7 +7,7 @@ import java.sql.Date;
 
 public class ClimbsafePersistence {
 
-  private static String filename = "data.ClimbSafe";
+  private static String filename = "ClimbSafeDemo.data";
 
   public static void setFilename(String filename) {
     ClimbsafePersistence.filename = filename;

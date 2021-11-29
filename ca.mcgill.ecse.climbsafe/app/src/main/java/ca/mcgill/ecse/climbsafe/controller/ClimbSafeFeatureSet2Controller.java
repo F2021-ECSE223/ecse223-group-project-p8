@@ -61,28 +61,53 @@ public class ClimbSafeFeatureSet2Controller {
 			error = "The email must not contain any spaces";
 			throw new InvalidInputException(error);
 		}
+		
+//		if(email.contains(" ")) {
+//			  error="Email must not contain any spaces";
+//			  throw new InvalidInputException(error);
+//		  }
+		 
+		  if(!(email.indexOf("@") > 0)) {
+			  error="Invalid email";
+			  throw new InvalidInputException(error);
+		  }
+		  
+		  if(!(email.indexOf("@") == email.lastIndexOf("@"))) {
+			  error="Invalid email";
+			  throw new InvalidInputException(error);
+		  }
+		  
+		  if(!(email.indexOf("@") < email.lastIndexOf(".") - 1)) {
+			  error="Invalid email";
+			  throw new InvalidInputException(error);
+		  }
+		
+		 if(!(email.lastIndexOf(".") < email.length() - 1)) {
+			 error="Invalid email";
+			 throw new InvalidInputException(error);
+		 }
 
 		//works
-		if(Utility.emailInvalidSyntax(email) == true) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
-		
-		if(Utility.emailMissingSubstring2(email) == true) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
-		
-		if(Utility.missingEmailDeclaration2(email) == true) {
-			error="Invalid email";
-			throw new InvalidInputException(error);
-		}
-
-
-	   if(Utility.wrongEmailSyntax2(email) == true) {
-		   error="Invalid email";
-		   throw new InvalidInputException(error);
-	   }
+//		if(Utility.emailInvalidSyntax(email) == true) {
+//			error="Invalid email";
+//			throw new InvalidInputException(error);
+//		}
+//		
+//		if(Utility.emailMissingSubstring2(email) == true) {
+//			error="Invalid email";
+//			throw new InvalidInputException(error);
+//		}
+//		
+//		if(Utility.missingEmailDeclaration2(email) == true) {
+//			error="Invalid email";
+//			throw new InvalidInputException(error);
+//		}
+//
+//
+//	   if(Utility.wrongEmailSyntax2(email) == true) {
+//		   error="Invalid email";
+//		   throw new InvalidInputException(error);
+//	   }
 	   
 
 	   if(Utility.goodStart(email)==true) {
