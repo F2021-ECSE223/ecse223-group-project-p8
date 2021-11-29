@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.equipmentBundlePageController">
   <tabs>
     <Tab text="Create Bundle">
       <content>
@@ -128,7 +128,7 @@
                         <Button fx:id="updateDiscountStatusButton" mnemonicParsing="false" onMouseClicked="#updateDiscountStatus" prefWidth="170.0" text="Update Discount Status" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                         <ChoiceBox fx:id="equipmentMenuEB" prefHeight="26.0" prefWidth="214.0" GridPane.columnIndex="1" GridPane.rowIndex="12" />
                         <Label text="Select Bundle" />
-                        <ChoiceBox fx:id="selectBundleMenu" onInputMethodTextChanged="#getNewBundleName" prefHeight="26.0" prefWidth="245.0" GridPane.columnIndex="1" />
+                        <ChoiceBox fx:id="selectBundleMenu" prefHeight="26.0" prefWidth="245.0" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </children></AnchorPane>
