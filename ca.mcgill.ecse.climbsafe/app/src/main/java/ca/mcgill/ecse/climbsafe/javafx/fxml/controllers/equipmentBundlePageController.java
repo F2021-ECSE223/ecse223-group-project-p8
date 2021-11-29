@@ -34,17 +34,17 @@ public class equipmentBundlePageController {
 	@FXML
 	private MenuItem discountStatusFalse;
 	@FXML
-	private TableView bundleItemsTable;
+	private TableView<?> bundleItemsTable;
 	@FXML
-	private TableColumn bundleEquipmentCB;
+	private TableColumn<?, ?> bundleEquipmentCB;
 	@FXML
-	private TableColumn costCB;
+	private TableColumn<?, ?> costCB;
 	@FXML
-	private TableColumn weightCB;
+	private TableColumn<?, ?> weightCB;
 	@FXML
-	private TableColumn quantityCB;
+	private TableColumn<?, ?> quantityCB;
 	@FXML
-	private ChoiceBox equipmentMenuCB;
+	private ChoiceBox<?> equipmentMenuCB;
 	@FXML
 	private TextField equipmentQuanityInputCB;
 	@FXML
@@ -56,13 +56,13 @@ public class equipmentBundlePageController {
 	@FXML
 	private TextField newBundleNameInput;
 	@FXML
-	private TableColumn bundleEquipmentEB;
+	private TableColumn<?, ?> bundleEquipmentEB;
 	@FXML
-	private TableColumn costEB;
+	private TableColumn<?, ?> costEB;
 	@FXML
-	private TableColumn weightEB;
+	private TableColumn<?, ?> weightEB;
 	@FXML
-	private TableColumn quanityEB;
+	private TableColumn<?, ?> quanityEB;
 	@FXML
 	private TextField equipmentQuanityInputEB;
 	@FXML
