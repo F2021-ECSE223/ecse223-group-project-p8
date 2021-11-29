@@ -242,6 +242,20 @@ public class ViewUtils {
 	  return Utility.findGuide(email);
   }
 
+  public static String getGuideName(String email) {
+	  return findGuideInSystem(email).getName();
+  }
+
+  public static String getGuidePassword(String email) {
+	  return findGuideInSystem(email).getPassword();
+  }
+
+  public static String getGuideContact(String email) {
+	  return findGuideInSystem(email).getEmergencyContact();
+  }
+  
+
+
   /*public static ObservableList<TODriver> getDrivers() {
     List<TODriver> drivers = BtmsController.getDrivers();
     // as javafx works with observable list, we need to convert the java.util.List to
