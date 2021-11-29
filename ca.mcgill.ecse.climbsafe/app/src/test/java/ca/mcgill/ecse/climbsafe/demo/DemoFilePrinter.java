@@ -9,6 +9,7 @@ import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import ca.mcgill.ecse.climbsafe.model.Guide;
 import ca.mcgill.ecse.climbsafe.model.Hotel;
 import ca.mcgill.ecse.climbsafe.model.Member;
+import ca.mcgill.ecse.climbsafe.application.ClimbSafeApplication;
 
 public class DemoFilePrinter {
 
@@ -52,5 +53,10 @@ public class DemoFilePrinter {
       }
     }
   }
+  
+  public static void main(String[] args) {
+	  DemoFilePrinter.printClimbSafe(ClimbSafeApplication.getClimbSafe());  }
 
 }
+
+
