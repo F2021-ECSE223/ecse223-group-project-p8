@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="898.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="898.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.equipmentBundleController">
   <tabs>
     <Tab text="Create Bundle">
       <content>
@@ -65,14 +65,14 @@
                            <font>
                               <Font name="Comic Sans MS" size="12.0" />
                            </font></Label>
-                        <TextField fx:id="bundleNameInput" onInputMethodTextChanged="#getBundleName" prefHeight="26.0" prefWidth="284.0" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                        <TextField fx:id="bundleNameInput" onInputMethodTextChanged="#getBundleNameField" prefHeight="26.0" prefWidth="284.0" GridPane.columnSpan="3" GridPane.rowIndex="2" />
                         <Label text="Guide Discount" GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.rowIndex="1">
                            <font>
                               <Font name="Comic Sans MS" size="12.0" />
                            </font></Label>
                         <Label text="Guide Discount Checkbox" GridPane.columnIndex="4" GridPane.rowIndex="2">
                            <graphic>
-                              <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="145.0" />
+                              <CheckBox fx:id="discountCheckbox" mnemonicParsing="false" onMouseClicked="#hasDiscountToggle" prefHeight="18.0" prefWidth="145.0" />
                            </graphic>
                         </Label>
                         <Label text="Add Equipment to Bundle" GridPane.columnSpan="2" GridPane.rowIndex="13">
@@ -92,7 +92,7 @@
                            <font>
                               <Font name="Comic Sans MS" size="12.0" />
                            </font></Text>
-                        <TextField prefHeight="26.0" prefWidth="7.0" GridPane.columnIndex="4" GridPane.rowIndex="14" />
+                        <TextField onInputMethodTextChanged="#getQuantityField" prefHeight="26.0" prefWidth="7.0" GridPane.columnIndex="4" GridPane.rowIndex="14" />
                         <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="195.0" text="Add Equipment to Bundle" GridPane.columnIndex="3" GridPane.columnSpan="4" GridPane.rowIndex="16">
                            <font>
                               <Font name="Comic Sans MS" size="12.0" />
