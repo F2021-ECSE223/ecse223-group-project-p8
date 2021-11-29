@@ -127,7 +127,7 @@ public class viewAssignmentPageController {
 		    error += "Please input a valid member email" + "\n";
 		}
 		try {
-			if(successful(() -> AssignmentController.finishTrip(memberEmail))) {
+			if(successful(() -> AssignmentController.cancelTrip(memberEmail))) {
 				this.emailTextField.setText("");
 			}
 		}catch(RuntimeException e) {
