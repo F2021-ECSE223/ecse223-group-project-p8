@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.memberRetryController">
   <tabs>
@@ -259,7 +260,10 @@
                         <TextField fx:id="updateBundleQuantity" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
-                  <Label text="Email (to find member, cannot be changed)" />
+                  <Label text="Email (to find member, cannot be changed)">
+                     <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                     </font></Label>
                   <TextField fx:id="updateEmail" GridPane.rowIndex="1" />
                   <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <columnConstraints>
@@ -306,9 +310,20 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Label text="email" />
-                  <Button fx:id="deleteSubmit" mnemonicParsing="false" onAction="#deleteSubmit" text="delete" GridPane.rowIndex="2" />
-                  <TextField fx:id="deleteEmail" GridPane.rowIndex="1" />
+                  <Button fx:id="deleteSubmit" mnemonicParsing="false" onAction="#deleteSubmit" text="delete" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="deleteEmail" maxWidth="500.0" prefHeight="26.0" prefWidth="500.0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="12.0" />
+                     </font></TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Please enterthe account name (email adress) of the member you wish to delete" textAlignment="CENTER" wrappingWidth="325.92041015625" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </Text>
                </children>
             </GridPane>
          </content>
