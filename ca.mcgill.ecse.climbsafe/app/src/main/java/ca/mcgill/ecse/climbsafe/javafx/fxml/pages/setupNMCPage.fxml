@@ -5,80 +5,105 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.setupNMCPageController">
-  <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+
+<Pane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.setupNMCPageController">
    <children>
-      <TextField fx:id="adminEmailTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-      <Label text="Admin Email" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
-         <GridPane.margin>
+      <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
+         <image>
+            <Image url="@background.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="75.0" layoutY="80.0" prefHeight="308.0" prefWidth="630.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
+      <GridPane layoutX="88.0" layoutY="101.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="286.0" prefWidth="663.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="adminEmailTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
+            <Label text="Admin Email" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Password" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="passwordTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+            <Label text="Start Date" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <Label text="Number of Weeks" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="nrOfWeeksTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+            <Label text="Price Of Guides For Season" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="priceTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
+            <Button fx:id="startSeasonButton" mnemonicParsing="false" onAction="#startSeasonClicked" prefHeight="26.0" prefWidth="115.0" text="Start Season" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Button>
+            <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+         <opaqueInsets>
             <Insets />
-         </GridPane.margin>
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-      </Label>
-      <Label text="Password" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="passwordTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-      <Label text="Start Date" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <Label text="Number of Weeks" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="nrOfWeeksTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-      <Label text="Price Of Guides For Season" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font>
-         <GridPane.margin>
-            <Insets />
-         </GridPane.margin>
-      </Label>
-      <TextField fx:id="priceTextField" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
-      <Button fx:id="startSeasonButton" mnemonicParsing="false" onAction="#startSeasonClicked" prefHeight="26.0" prefWidth="115.0" text="Start Season" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
-         <font>
-            <Font name="Comic Sans MS" size="12.0" />
-         </font></Button>
-      <DatePicker fx:id="datePicker" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+      <Pane layoutX="323.0" layoutY="24.0" prefHeight="44.0" prefWidth="155.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+         <children>
+            <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Setup NMC">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <padding>
-      <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
-   </padding>
-</GridPane>
+</Pane>
