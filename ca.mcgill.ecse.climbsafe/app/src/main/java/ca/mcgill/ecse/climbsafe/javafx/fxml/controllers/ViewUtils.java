@@ -90,7 +90,6 @@ public class ViewUtils {
 		makePopupWindow("Error", message);
 	}
 
-<<<<<<< HEAD
 	public static ObservableList<TOAssignment> getAssignments() {
 		List<TOAssignment> Assignments = ClimbSafeFeatureSet6Controller.getAssignments();
 		// as javafx works with observable list, we need to convert the java.util.List
@@ -98,7 +97,7 @@ public class ViewUtils {
 		// javafx.collections.observableList
 		return FXCollections.observableList(Assignments);
 	}
-=======
+
   public static String getGuideName(String email) {
 	  return findGuideInSystem(email).getName();
   }
@@ -112,15 +111,15 @@ public class ViewUtils {
   }
   
 
-
-  /*public static ObservableList<TODriver> getDrivers() {
+/*
+  public static ObservableList<TODriver> getDrivers() {
     List<TODriver> drivers = BtmsController.getDrivers();
     // as javafx works with observable list, we need to convert the java.util.List to
     // javafx.collections.observableList
     return FXCollections.observableList(drivers);
   }
->>>>>>> branch 'works' of https://github.com/F2021-ECSE223/ecse223-group-project-p8.git
-
+*/
+  
 	// for bundles
 
 	public static Equipment getEquipmentFromName(String equipmentName) {
