@@ -16,7 +16,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.viewAssignmentPageController">
    <children>
-      <ImageView fitHeight="639.0" fitWidth="1141.0" layoutX="-303.0" layoutY="-19.0">
+      <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
          <image>
             <Image url="@background.png" />
          </image>

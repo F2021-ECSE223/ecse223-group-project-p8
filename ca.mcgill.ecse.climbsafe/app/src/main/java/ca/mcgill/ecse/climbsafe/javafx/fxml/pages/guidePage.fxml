@@ -19,331 +19,332 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.guidePageController">
    <children>
-      <AnchorPane layoutX="-5.0" layoutY="-5.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0">
-         <children>
-            <ImageView fitHeight="639.0" fitWidth="1141.0" layoutX="-334.0" layoutY="1.0">
-               <image>
-                  <Image url="@background.png" />
-               </image>
-            </ImageView>
-            <TabPane layoutX="4.0" layoutY="4.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="801.0" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab text="Register Guide">
-                     <content>
-                        <AnchorPane prefHeight="571.0" prefWidth="814.0">
+      <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
+         <image>
+            <Image url="@background.png" />
+         </image>
+      </ImageView>
+      <TabPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Register Guide">
+               <content>
+                  <AnchorPane prefHeight="571.0" prefWidth="814.0">
+                     <children>
+                        <Pane layoutX="125.0" layoutY="70.0" prefHeight="354.0" prefWidth="551.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <Pane layoutX="125.0" layoutY="70.0" prefHeight="354.0" prefWidth="551.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Button fx:id="registerGuideButton" layoutX="225.0" layoutY="289.0" mnemonicParsing="false" onAction="#registerGuideClicked" prefHeight="28.0" prefWidth="101.0" style="-fx-background-radius: 4;" text="Register">
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                              <GridPane layoutX="146.0" layoutY="86.0" prefHeight="267.0" prefWidth="497.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Label text="Full Name">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                    </Label>
-                                    <Label text="Email Address" GridPane.rowIndex="1">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Password" GridPane.rowIndex="2">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Emergency Contact" GridPane.rowIndex="3">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="guideName" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
-                                    <TextField fx:id="guideEmail" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
-                                    <TextField fx:id="guidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
-                                    <TextField fx:id="guideEmergencyContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <Pane layoutX="313.0" layoutY="14.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Guide">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </Pane>
+                              <Button fx:id="registerGuideButton" layoutX="225.0" layoutY="289.0" mnemonicParsing="false" onAction="#registerGuideClicked" prefHeight="28.0" prefWidth="101.0" style="-fx-background-radius: 4;" text="Register">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Button>
                            </children>
-                        </AnchorPane>
-                     </content>
-                  </Tab>
-                <Tab text="Update Guide">
-                     <content>
-                        <AnchorPane prefHeight="400.0" prefWidth="600.0">
+                        </Pane>
+                        <GridPane layoutX="146.0" layoutY="86.0" prefHeight="267.0" prefWidth="497.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
-                              <Pane layoutX="126.0" layoutY="78.0" prefHeight="337.0" prefWidth="551.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Button fx:id="updateGuideButton" layoutX="253.0" layoutY="277.0" mnemonicParsing="false" onAction="#updateGuideClicked" style="-fx-background-radius: 4;" text="Update">
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                              <GridPane layoutX="155.0" layoutY="92.0" prefHeight="257.0" prefWidth="492.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Label text="Email Address">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                    </Label>
-                                    <Label text="New Full Name" GridPane.rowIndex="1">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="New Password" GridPane.rowIndex="2">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="New Emergency Contact" GridPane.rowIndex="3">
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="updateGuideEmail" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
-                                    <TextField fx:id="updateGuideName" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
-                                    <TextField fx:id="updateGuidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
-                                    <TextField fx:id="updateGuideContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <Pane layoutX="311.0" layoutY="14.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Text layoutX="38.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Guide">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </Pane>
+                              <Label text="Full Name">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <Label text="Email Address" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Password" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Emergency Contact" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="guideName" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
+                              <TextField fx:id="guideEmail" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
+                              <TextField fx:id="guidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
+                              <TextField fx:id="guideEmergencyContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
                            </children>
-                        </AnchorPane>
-                     </content></Tab>
-                  <Tab text="Delete Guide">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="818.0">
+                        </GridPane>
+                        <Pane layoutX="313.0" layoutY="14.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <Pane layoutX="125.0" layoutY="82.0" prefHeight="276.0" prefWidth="551.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Button fx:id="deleteGuideButton" layoutX="233.0" layoutY="217.0" mnemonicParsing="false" onAction="#deleteGuideClicked" style="-fx-background-radius: 4;" text="Delete">
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </Pane>
-                              <GridPane layoutX="156.0" layoutY="133.0" prefHeight="155.0" prefWidth="502.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="114.88407897949219" minHeight="10.0" prefHeight="60.5" vgrow="SOMETIMES" />
-                                  <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Label prefHeight="61.0" prefWidth="464.0" text="Please enter the account name (email address) of the guide you ">
-                                       <padding>
-                                          <Insets bottom="50.0" left="40.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="wish to delete">
-                                       <padding>
-                                          <Insets left="190.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="14.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Account Name(email address)" GridPane.rowIndex="1">
-                                       <font>
-                                          <Font name="Comic Sans MS" size="14.0" />
-                                       </font>
-                                       <opaqueInsets>
-                                          <Insets />
-                                       </opaqueInsets>
-                                       <padding>
-                                          <Insets bottom="50.0" />
-                                       </padding>
-                                    </Label>
-                                    <TextField fx:id="deleteGuideEmail" prefHeight="26.0" prefWidth="224.0" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets right="100.0" />
-                                       </GridPane.margin></TextField>
-                                 </children>
-                              </GridPane>
-                              <Pane layoutX="311.0" layoutY="13.0" prefHeight="44.0" prefWidth="173.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Guide">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </Pane>
-                           </children></AnchorPane>
-                    </content>
-                  </Tab>
-                  <Tab text="View Guide">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Guide">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+          <Tab text="Update Guide">
+               <content>
+                  <AnchorPane prefHeight="400.0" prefWidth="600.0">
+                     <children>
+                        <Pane layoutX="126.0" layoutY="78.0" prefHeight="337.0" prefWidth="551.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <Pane layoutX="311.0" layoutY="14.0" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
-                                 <children>
-                                    <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Guide">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </Text>
-                                 </children>
-                              </Pane>
-                              <Pane layoutX="31.0" layoutY="76.0" prefHeight="158.0" prefWidth="708.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
-                              <GridPane layoutX="48.0" layoutY="112.0" prefHeight="143.0" prefWidth="704.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.60321044921875" minWidth="10.0" prefWidth="184.8495635986328" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.5247344970703" minWidth="10.0" prefWidth="97.69308471679688" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.8566436767578" minWidth="10.0" prefWidth="99.60928344726562" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.8566436767578" minWidth="10.0" prefWidth="151.39071655273438" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints maxHeight="328.8166961669922" minHeight="10.0" prefHeight="86.27279663085938" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="328.8166961669922" minHeight="10.0" prefHeight="86.27279663085938" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Label text="Email Address">
-                                       <padding>
-                                          <Insets bottom="65.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label prefHeight="82.0" prefWidth="127.0" text="Full Name" textAlignment="CENTER" GridPane.columnIndex="1">
-                                       <padding>
-                                          <Insets bottom="65.0" left="30.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label prefHeight="82.0" prefWidth="120.0" text="Password" GridPane.columnIndex="2">
-                                       <padding>
-                                          <Insets bottom="65.0" left="20.0" />
-                                       </padding>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <Label prefHeight="14.0" prefWidth="136.0" text="Emergency Contact" GridPane.columnIndex="3">
-                                       <GridPane.margin>
-                                          <Insets bottom="65.0" />
-                                       </GridPane.margin>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="viewGuideEmail" prefHeight="25.0" prefWidth="142.0">
-                                       <GridPane.margin>
-                                          <Insets />
-                                       </GridPane.margin>
-                                    </TextField>
-                                    <Label fx:id="viewGuideName" alignment="CENTER" text="--" textAlignment="CENTER" GridPane.columnIndex="1">
-                                       <GridPane.margin>
-                                          <Insets left="30.0" />
-                                       </GridPane.margin>
-                                    </Label>
-                                    <Label fx:id="viewGuidePassword" text="--" GridPane.columnIndex="2">
-                                       <padding>
-                                          <Insets left="20.0" />
-                                       </padding>
-                                    </Label>
-                                    <Label fx:id="viewGuideContact" text="--" GridPane.columnIndex="3" />
-                                    <Button fx:id="searchGuideButton" mnemonicParsing="false" onAction="#searchGuideClicked" style="-fx-background-radius: 4;" text="Search" GridPane.rowIndex="1">
-                                       <GridPane.margin>
-                                          <Insets bottom="50.0" />
-                                       </GridPane.margin>
-                                       <font>
-                                          <Font name="Comic Sans MS" size="13.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                              </GridPane>
-                              <TableView fx:id="guideAssignments" layoutX="99.0" layoutY="255.0" prefHeight="222.0" prefWidth="572.0" style="-fx-background-color: rgb(250,250,250, 0.8) rgb(250,250,250, 0.8); -fx-background-radius: 5; -fx-border-color: 5; -fx-border-radius: 5;">
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy></TableView>
-                           </children></AnchorPane>
-                    </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-         </children>
-      </AnchorPane>
+                              <Button fx:id="updateGuideButton" layoutX="253.0" layoutY="277.0" mnemonicParsing="false" onAction="#updateGuideClicked" style="-fx-background-radius: 4;" text="Update">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <GridPane layoutX="155.0" layoutY="92.0" prefHeight="257.0" prefWidth="492.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Email Address">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                              <Label text="New Full Name" GridPane.rowIndex="1">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label text="New Password" GridPane.rowIndex="2">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="New Emergency Contact" GridPane.rowIndex="3">
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="updateGuideEmail" prefHeight="26.0" prefWidth="469.0" style="-fx-background-radius: 4;" />
+                              <TextField fx:id="updateGuideName" style="-fx-background-radius: 4;" GridPane.rowIndex="1" />
+                              <TextField fx:id="updateGuidePassword" style="-fx-background-radius: 4;" GridPane.rowIndex="2" />
+                              <TextField fx:id="updateGuideContact" style="-fx-background-radius: 4;" GridPane.rowIndex="3" />
+                           </children>
+                        </GridPane>
+                        <Pane layoutX="311.0" layoutY="14.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="38.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Guide">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Delete Guide">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="571.0" prefWidth="818.0">
+                     <children>
+                        <Pane layoutX="125.0" layoutY="82.0" prefHeight="276.0" prefWidth="551.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Button fx:id="deleteGuideButton" layoutX="233.0" layoutY="217.0" mnemonicParsing="false" onAction="#deleteGuideClicked" style="-fx-background-radius: 4;" text="Delete">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <GridPane layoutX="156.0" layoutY="133.0" prefHeight="155.0" prefWidth="502.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="114.88407897949219" minHeight="10.0" prefHeight="60.5" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="128.0" minHeight="10.0" prefHeight="128.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="61.0" prefWidth="464.0" text="Please enter the account name (email address) of the guide you ">
+                                 <padding>
+                                    <Insets bottom="50.0" left="40.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="wish to delete">
+                                 <padding>
+                                    <Insets left="190.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Account Name(email address)" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets bottom="50.0" />
+                                 </padding>
+                              </Label>
+                              <TextField fx:id="deleteGuideEmail" prefHeight="26.0" prefWidth="224.0" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets right="100.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <Pane layoutX="311.0" layoutY="13.0" prefHeight="44.0" prefWidth="173.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Guide">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="View Guide">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Pane layoutX="311.0" layoutY="14.0" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Guide">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="31.0" layoutY="76.0" prefHeight="158.0" prefWidth="708.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
+                        <GridPane layoutX="48.0" layoutY="112.0" prefHeight="143.0" prefWidth="704.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.60321044921875" minWidth="10.0" prefWidth="184.8495635986328" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.5247344970703" minWidth="10.0" prefWidth="97.69308471679688" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.8566436767578" minWidth="10.0" prefWidth="99.60928344726562" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="556.8566436767578" minWidth="10.0" prefWidth="151.39071655273438" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="328.8166961669922" minHeight="10.0" prefHeight="86.27279663085938" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="328.8166961669922" minHeight="10.0" prefHeight="86.27279663085938" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Email Address">
+                                 <padding>
+                                    <Insets bottom="65.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="82.0" prefWidth="127.0" text="Full Name" textAlignment="CENTER" GridPane.columnIndex="1">
+                                 <padding>
+                                    <Insets bottom="65.0" left="30.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="82.0" prefWidth="120.0" text="Password" GridPane.columnIndex="2">
+                                 <padding>
+                                    <Insets bottom="65.0" left="20.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="14.0" prefWidth="136.0" text="Emergency Contact" GridPane.columnIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="65.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="viewGuideEmail" prefHeight="25.0" prefWidth="142.0">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </TextField>
+                              <Label fx:id="viewGuideName" alignment="CENTER" text="--" textAlignment="CENTER" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="viewGuidePassword" text="--" GridPane.columnIndex="2">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </Label>
+                              <Label fx:id="viewGuideContact" text="--" GridPane.columnIndex="3" />
+                              <Button fx:id="searchGuideButton" mnemonicParsing="false" onAction="#searchGuideClicked" style="-fx-background-radius: 4;" text="Search" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="50.0" />
+                                 </GridPane.margin>
+                                 <font>
+                                    <Font name="Comic Sans MS" size="13.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="guideAssignments" layoutX="99.0" layoutY="255.0" prefHeight="222.0" prefWidth="572.0" style="-fx-background-color: rgb(250,250,250, 0.8) rgb(250,250,250, 0.8); -fx-background-radius: 5; -fx-border-color: 5; -fx-border-radius: 5;">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </Pane>

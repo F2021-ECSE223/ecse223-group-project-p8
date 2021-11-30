@@ -18,7 +18,7 @@
 
 <Pane prefHeight="600.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.memberRetryController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1088.0" layoutX="-268.0">
+      <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
          <image>
             <Image url="@background.png" />
          </image>
