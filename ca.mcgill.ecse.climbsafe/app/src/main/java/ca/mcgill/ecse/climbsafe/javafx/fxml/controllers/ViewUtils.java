@@ -244,6 +244,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentGuide(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += ass.getGuideName();
 		output += " (";
 		output += ass.getGuideEmail();
@@ -254,6 +255,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentWeeks(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += Integer.toString(ass.getStartWeek());
 		output += "-";
 		output += Integer.toString(ass.getEndWeek());
@@ -263,6 +265,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentGuideCost(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += "$";
 		output += Integer.toString(ass.getTotalCostForGuide());
 		return output;
@@ -271,6 +274,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentEquipmentCost(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += "$";
 		output += Integer.toString(ass.getTotalCostForEquipment());
 		return output;
@@ -279,6 +283,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentStatus(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += ass.getStatus();
 		return output;
 	}
@@ -286,6 +291,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentACode(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += ass.getAuthorizationCode();
 		return output;
 	}
@@ -293,6 +299,7 @@ public class ViewUtils {
 	public static String getMemberAssigmentRefund(String email) {
 		String output = "%";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
+		if (ass==null) return "Assignment not assigned yet";
 		output += Integer.toString(ass.getRefundedPercentageAmount());
 		return output;
 	}
