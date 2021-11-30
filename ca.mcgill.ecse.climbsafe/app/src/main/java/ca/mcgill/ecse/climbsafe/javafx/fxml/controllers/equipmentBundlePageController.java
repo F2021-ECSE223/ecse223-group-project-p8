@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 
 import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.successful;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
@@ -34,12 +35,12 @@ import javafx.scene.control.TableColumn;
 public class equipmentBundlePageController {
 
 	// Storing Items
-	List<Equipment> equipmentsCB;
-	List<Equipment> equipmentsEB;
-	List<String> equipmentNamesCB;
-	List<String> equipmentNamesEB;
-	List<Integer> equipmentQuantitiesCB;
-	List<Integer> equipmentQuantitiesEB;
+	ArrayList<Equipment> equipmentsCB = new ArrayList<Equipment>();
+	ArrayList<Equipment> equipmentsEB = new ArrayList<Equipment>();
+	ArrayList<String> equipmentNamesCB = new ArrayList<String>();
+	ArrayList<String> equipmentNamesEB = new ArrayList<String>();
+	ArrayList<Integer> equipmentQuantitiesCB = new ArrayList<Integer>();
+	ArrayList<Integer> equipmentQuantitiesEB = new ArrayList<Integer>();
 
 	@FXML
 	private TextField bundleNameInput;
@@ -105,7 +106,7 @@ public class equipmentBundlePageController {
 
 		// initializeEquipmentMenuEB
 		equipmentMenuEB.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-			equipmentMenuEB.setItems(ViewUtils.getEquipmentFromBundle(selectBundleMenu.getValue()));
+			equipmentMenuEB.setItems(ViewUtils.getEquipment());
 			equipmentMenuEB.setValue(null);
 		});
 
@@ -195,7 +196,7 @@ public class equipmentBundlePageController {
 			ViewUtils.showError("Please input a valid discount number");
 		} else {
 			try {
-				int discount = Integer.parseInt(this.guideDiscountCB.getText());
+				int discount = Integer.parseInt(this.guideDiscountEB.getText());
 				if (successful(() -> ClimbSafeFeatureSet5Controller.updateEquipmentBundle(equipmentOldName, bundleName,
 						discount, this.equipmentNamesEB, this.equipmentQuantitiesEB))) {
 					this.selectBundleMenu.setValue(null);

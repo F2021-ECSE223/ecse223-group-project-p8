@@ -132,26 +132,6 @@ public class ViewUtils {
 		return null;
 	}
 
-	public static ObservableList<String> getEquipmentFromBundle(String bundleName) {
-		List<EquipmentBundle> bundles = ClimbSafeApplication.getClimbSafe().getBundles();
-		List<BundleItem> bundlesItem = null;
-		ObservableList<String> names = FXCollections.observableArrayList();
-		if (bundleName != null) {
-			for (EquipmentBundle bundle : bundles) {
-				if (bundle.getName() == bundleName) {
-					bundlesItem = bundle.getBundleItems();
-					break;
-				}
-			}
-			if (bundlesItem != null) {
-				for (BundleItem item : bundlesItem) {
-					names.add(item.getEquipment().getName());
-				}
-			}
-		}
-		return names;
-	}
-
 	// added for member, pls don't touch!-ke
 	public static ObservableList<String> getBundles() {
 		List<EquipmentBundle> bundles = ClimbSafeApplication.getClimbSafe().getBundles();
