@@ -9,6 +9,11 @@
    <children>
       <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
+            <Tab text="Welcome">
+               <content>
+                  <fx:include source="pages/welcome.fxml" />
+               </content>
+            </Tab>
           <Tab text="Setup NMC">
                <content>
                   <fx:include source="pages/setupNMCPage.fxml" />
