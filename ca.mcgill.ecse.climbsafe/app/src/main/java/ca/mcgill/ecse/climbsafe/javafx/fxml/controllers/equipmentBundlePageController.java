@@ -173,6 +173,7 @@ public class equipmentBundlePageController {
 					this.newBundleNameInput.setText("");
 					this.guideDiscountEB.setText("");
 					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("","Bundle deleted successfully");
 				}
 		}
 	}
@@ -195,6 +196,7 @@ public class equipmentBundlePageController {
 					equipmentMenuCB.setValue(null);
 					equipmentQuantityInputCB.setText("");
 					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("","Equipment added to bundle successfully");
 				}
 			} catch (NumberFormatException e) {
 				ViewUtils.showError("Please input a quantity");
@@ -223,6 +225,7 @@ public class equipmentBundlePageController {
 					equipmentNamesCB.clear();
 					equipmentQuantitiesCB.clear();
 					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("","Bundle succesfully created");
 				}
 			} catch (NumberFormatException e) {
 				ViewUtils.showError("Please input a valid discount number");
@@ -245,6 +248,7 @@ public class equipmentBundlePageController {
 				equipmentMenuEB.setValue(null);
 				equipmentQuantityInputEB.setText("");
 				ClimbsafeFxmlView.getInstance().refresh();
+				ViewUtils.makePopupWindow("","Equipment in bundle successfully updated");
 			} catch (NumberFormatException e) {
 				ViewUtils.showError("Please input a quantity before updating");
 			}
@@ -276,6 +280,7 @@ public class equipmentBundlePageController {
 					equipmentNamesEB.clear();
 					equipmentQuantitiesEB.clear();
 					ClimbsafeFxmlView.getInstance().refresh();
+					ViewUtils.makePopupWindow("","Bundle successfully updated");
 				}
 			} catch (NumberFormatException e) {
 				ViewUtils.showError("Please input a valid discount number");
