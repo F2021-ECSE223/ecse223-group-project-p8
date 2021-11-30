@@ -56,6 +56,7 @@ public class setupNMCPageController {
 			        this.nrOfWeeksTextField.setText("");
 			        this.priceTextField.setText("");
 			        ClimbsafeFxmlView.getInstance().refresh();
+			        ViewUtils.makePopupWindow("", "Successfully started season");
 			  }
 			  
 		  }catch (RuntimeException e) {
