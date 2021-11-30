@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
@@ -14,8 +16,22 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.viewAssignmentPageController">
    <children>
-      <Pane layoutX="80.0" layoutY="392.0" prefHeight="134.0" prefWidth="202.0" style="-fx-border-radius: 20; -fx-border-color: grey;" />
-      <Pane layoutX="320.0" layoutY="362.0" prefHeight="178.0" prefWidth="401.0" style="-fx-border-radius: 20; -fx-border-color: grey;">
+      <ImageView fitHeight="639.0" fitWidth="1141.0" layoutX="-303.0" layoutY="-19.0">
+         <image>
+            <Image url="@background.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="228.0" layoutY="16.0" prefHeight="52.0" prefWidth="378.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: white;">
+         <children>
+            <Text layoutX="25.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Assignments &amp; Manage Trips">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="80.0" layoutY="392.0" prefHeight="134.0" prefWidth="202.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: rgb(250,250,250,0.8); -fx-border-color: white;" />
+      <Pane layoutX="320.0" layoutY="362.0" prefHeight="178.0" prefWidth="401.0" style="-fx-border-radius: 20; -fx-border-color: white; -fx-background-color: rgb(250,250,250,0.8); -fx-background-radius: 20;">
          <children>
             <Text layoutX="152.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Trip">
                <font>
@@ -104,12 +120,7 @@
             <Insets top="5.0" />
          </padding>
       </GridPane>
-      <TableView fx:id="overviewTable" layoutX="24.0" layoutY="77.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="751.0" />
-      <Text layoutX="251.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Assignments &amp; Manage Trips">
-         <font>
-            <Font size="23.0" />
-         </font>
-      </Text>
+      <TableView fx:id="overviewTable" layoutX="24.0" layoutY="84.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="751.0" style="-fx-background-color: rgb(250,250,250, 0.8); -fx-background-radius: 5; -fx-border-color: white; -fx-border-radius: 5;" />
       <Button fx:id="initiateButton" layoutX="713.0" layoutY="21.0" mnemonicParsing="false" onAction="#initiateClicked" prefHeight="42.0" prefWidth="62.0" text="Refresh">
          <font>
             <Font name="Comic Sans MS" size="12.0" />
