@@ -180,7 +180,9 @@ public class viewAssignmentPageController {
 		List<TOAssignment> temp = ClimbSafeFeatureSet6Controller.getAssignments();
 		
 		for (TOAssignment current: temp) {
-			assignment.add(current);
+				assignment.add(current);
+			
+			
 		}
 		return assignment;
 	

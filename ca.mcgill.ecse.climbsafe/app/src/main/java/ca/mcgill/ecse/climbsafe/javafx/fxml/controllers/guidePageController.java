@@ -169,26 +169,25 @@ public class guidePageController {
 	@FXML
 	public void deleteGuideClicked(ActionEvent event) {
 	
-			String emailtoDelete=deleteGuideEmail.getText();
-			
-			if(emailtoDelete == null || emailtoDelete.trim().isEmpty()) {
-				String deleteGuideError="Please input a valid email to delete";
-				ViewUtils.showError(deleteGuideError);
-			}
-			
-			else if(ViewUtils.findGuideInSystem(emailtoDelete) == null) {
-				String inexistantGuideError="Guide does not exist in the system";
-				ViewUtils.showError(inexistantGuideError);
-			}
-			
-			else {
-				if(successful(() -> ClimbSafeFeatureSet1Controller.deleteGuide(emailtoDelete))){
-					deleteGuideEmail.setText("");
-					ClimbsafeFxmlView.getInstance().refresh();
-					ViewUtils.makePopupWindow("", "Successfully Deleted");
-					
-				}
-			}
+		String emailtoDelete=deleteGuideEmail.getText();
+	    if (emailtoDelete == null || emailtoDelete.trim().isEmpty()) {
+	      ViewUtils.showError("Please input a valid email");
+	    }
+	    
+	    else if (!ViewUtils.guideInSystem(emailtoDelete)) ViewUtils.showError("Guide does not exist in system");
+	    
+	    else {
+	    	  try {				 
+	    		  if (successful(() -> ClimbSafeFeatureSet1Controller.deleteGuide(emailtoDelete))) {
+	    			  deleteGuideEmail.setText("");
+	    			  ClimbsafeFxmlView.getInstance().refresh();
+	    			  ViewUtils.makePopupWindow("", "Successfully Deleted");
+				      }
+				  
+			  }catch (RuntimeException e) {
+				  ViewUtils.showError(e.getMessage());
+			  }
+	      }
 		
 	}
 	
@@ -215,7 +214,7 @@ public class guidePageController {
 					List<TOAssignment> guidesAss = ClimbSafeFeatureSet6Controller.getAssignments();
 					assignments = FXCollections.observableArrayList();
 					for (TOAssignment a : guidesAss) {
-						if (a.getGuideEmail()!=null && a.getGuideEmail().equals(email)) {
+						if (a.getGuideEmail()!=null && a.getGuideEmail().equals(email) && a != null) {
 								assignments.add(a);	
 					   }
 					}

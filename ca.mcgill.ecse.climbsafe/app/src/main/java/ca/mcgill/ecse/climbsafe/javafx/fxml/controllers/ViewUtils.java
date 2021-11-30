@@ -188,6 +188,15 @@ public class ViewUtils {
 		}
 		return false;
 	}
+	
+	public static boolean guideInSystem(String email) {
+		List<Guide> guides = ClimbSafeApplication.getClimbSafe().getGuides();
+		for (Guide g : guides) {
+			if (g.getEmail().equals(email))
+				return true;
+		}
+		return false;
+	}
 
 	public static Member findMemberEmail(String email) {
 		return Utility.findMember(email);
