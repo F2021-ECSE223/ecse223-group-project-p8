@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="600.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.memberRetryController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
+         <image>
+            <Image url="@background.png" />
+         </image>
+      </ImageView>
+      <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Register Member">
+               <content>
+                  <Pane prefWidth="810.0">
+                     <children>
+                        <Pane layoutX="53.0" layoutY="82.0" prefHeight="355.0" prefWidth="683.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
+                        <GridPane hgap="10.0" layoutX="89.0" layoutY="95.0" prefHeight="390.0" prefWidth="631.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="25.622283935546875" minHeight="10.0" prefHeight="25.622283935546875" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="14.377716064453125" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="32.622314453125" minHeight="10.0" prefHeight="32.622314453125" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="23.251800537109375" minHeight="10.0" prefHeight="21.377685546875" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Full Name" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Email">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Emergency Contact" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Password" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Length of Climb (weeks)" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Mountain Guide" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Select Equipment" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Select Bundle" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Hotel Stay" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="registerEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="1" />
+                              <TextField fx:id="registerName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
+                              <Button fx:id="RegisterSubmit" mnemonicParsing="false" onAction="#RegisterMemberRegisterSubmit" prefHeight="25.0" prefWidth="105.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="registerContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
+                              <TextField fx:id="registerPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
+                              <ChoiceBox fx:id="registerWeeks" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="9" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ChoiceBox fx:id="registerEquipmentChoice" prefWidth="150.0" />
+                                    <Button fx:id="registerEquipmentSubmit" mnemonicParsing="false" onAction="#RegisterMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <TextField fx:id="registerEquipmentQuantity" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ChoiceBox fx:id="registerBundleChoice" prefWidth="150.0" />
+                                    <Button fx:id="registerBundleSubmit" mnemonicParsing="false" onAction="#RegisterMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <TextField fx:id="registerBundleQuantity" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button fx:id="registerGuideToggleY" mnemonicParsing="false" onAction="#registerGuideYes" text="Yes" />
+                                    <Button fx:id="registerGuideToggleN" mnemonicParsing="false" onAction="#registerGuideNo" text="No" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button fx:id="registerHotelToggleY" mnemonicParsing="false" onAction="#registerHotelYes" prefHeight="24.0" prefWidth="38.0" text="Yes" />
+                                    <Button fx:id="registerHotelToggleN" mnemonicParsing="false" onAction="#registerHotelNo" text="No" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                        <Pane layoutX="304.0" layoutY="23.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Register Member">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+          <Tab text="Update Member">
+               <content>
+                  <Pane>
+                     <children>
+                        <Pane layoutX="41.0" layoutY="85.0" prefHeight="355.0" prefWidth="705.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
+                        <Pane layoutX="305.0" layoutY="26.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="31.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Member" wrappingWidth="138.87612915039062">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <GridPane hgap="10.0" layoutX="69.0" layoutY="103.0" prefHeight="478.0" prefWidth="655.0">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="25.31475830078125" minHeight="0.951446533203125" prefHeight="0.951446533203125" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="59.048553466796875" minHeight="10.0" prefHeight="22.017974853515625" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="77.78958129882812" minHeight="10.0" prefHeight="39.38848876953125" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="58.11151123046875" minHeight="10.0" prefHeight="58.11151123046875" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Full Name" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Emergency Contact" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Password" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Length of Climb (weeks)" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Mountain Guide" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Select Equipment" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Select Bundle" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Hotel Stay" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="updateName" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="3" />
+                              <Button fx:id="updateSubmit" mnemonicParsing="false" onAction="#updateMemberSubmit" prefHeight="26.0" prefWidth="186.0" text="Update" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Button>
+                              <TextField fx:id="updateContact" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="5" />
+                              <TextField fx:id="updatePassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.rowIndex="7" />
+                              <ChoiceBox fx:id="updateWeeks" prefHeight="26.0" prefWidth="250.0" GridPane.rowIndex="10" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ChoiceBox fx:id="updateEquipmentChoice" prefWidth="150.0" />
+                                    <Button fx:id="updateEquipmentSubmit" mnemonicParsing="false" onAction="#UpdateMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <TextField fx:id="updateEquipmentQuantity" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <ChoiceBox fx:id="updateBundleChoice" prefWidth="150.0" />
+                                    <Button fx:id="updateBundleSubmit" mnemonicParsing="false" onAction="#UpdateMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <TextField fx:id="updateBundleQuantity" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <Label text="Email (to find member, cannot be changed)">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="updateEmail" GridPane.rowIndex="1" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button fx:id="updateGuideToggleN" mnemonicParsing="false" onAction="#updateGuideNo" text="No" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                              <Button fx:id="updateGuideToggleY" mnemonicParsing="false" onAction="#updateGuideYes" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Button fx:id="updateHotelToggleY" mnemonicParsing="false" onAction="#updateHotelYes" text="Yes" />
+                                    <Button fx:id="updateHotelToggleN" mnemonicParsing="false" onAction="#updateHotelNo" text="No" GridPane.columnIndex="1" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </Pane>
+               </content>
+          </Tab>
+            <Tab text="Delete Member">
+               <content>
+                  <Pane>
+                     <children>
+                        <Pane layoutX="136.0" layoutY="103.0" prefHeight="207.0" prefWidth="543.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <GridPane layoutX="100.0" layoutY="107.0" prefHeight="91.0" prefWidth="245.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="25.31475830078125" minHeight="10.0" prefHeight="15.944244384765625" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="44.055755615234375" minHeight="10.0" prefHeight="44.055755615234375" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <TextField fx:id="deleteEmail" maxWidth="500.0" prefHeight="26.0" prefWidth="500.0" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font size="12.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </GridPane>
+                              <Button fx:id="deleteSubmit" layoutX="355.0" layoutY="130.0" mnemonicParsing="false" onAction="#deleteSubmit" prefHeight="30.0" prefWidth="99.0" text="delete">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                              </Button>
+                              <Text layoutX="106.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please enter the account name (email address) of the member you wish to delete" textAlignment="CENTER" wrappingWidth="325.92041015625">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="307.0" layoutY="29.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="31.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Member" wrappingWidth="138.87612915039062">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+            <Tab text="View Member">
+               <content>
+                  <Pane>
+                     <children>
+                        <Pane layoutX="307.0" layoutY="31.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <Text layoutX="31.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Member" wrappingWidth="138.87612915039062">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="54.0" layoutY="88.0" prefHeight="327.0" prefWidth="705.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                           <children>
+                              <GridPane hgap="10.0" layoutX="27.0" layoutY="44.0" prefHeight="228.0" prefWidth="811.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="402.9834289550781" minWidth="10.0" prefWidth="270.3289794921875" />
+                                    <ColumnConstraints hgrow="ALWAYS" maxWidth="507.93377685546875" minWidth="10.0" prefWidth="506.1710205078125" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="92.73216247558594" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="113.71330261230469" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="124.30325317382812" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="150.30953979492188" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="102.3660888671875" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.rowIndex="1">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="176.37240600585938" minWidth="10.0" prefWidth="74.46688842773438" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.39305114746094" minWidth="10.0" prefWidth="194.53311157226562" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Full Name:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="findName" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="2">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.84689331054688" minWidth="10.0" prefWidth="74.32273864746094" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="322.6813201904297" minWidth="10.0" prefWidth="194.67726135253906" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="58.0" text="Password:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="findPassword" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.54345703125" minWidth="10.0" prefWidth="126.551025390625" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="386.5765380859375" minWidth="10.0" prefWidth="379.948974609375" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Emergency Contact:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="findContact" prefHeight="17.0" prefWidth="147.0" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.76248168945312" minWidth="10.0" prefWidth="95.75613403320312" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.2537841796875" minWidth="10.0" prefWidth="24.418426513671875" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.78070068359375" minWidth="10.0" prefWidth="91.41204833984375" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.08795166015625" minWidth="10.0" prefWidth="293.08795166015625" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Length of Climb:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="findWeek" prefHeight="17.0" prefWidth="19.0" text="--" GridPane.columnIndex="1" />
+                                          <Label prefHeight="18.0" prefWidth="174.0" text="Week Interval:" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toInterval" prefHeight="17.0" prefWidth="74.0" text="--" GridPane.columnIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.5255126953125" minWidth="10.0" prefWidth="121.524169921875" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.975830078125" minWidth="10.0" prefWidth="380.975830078125" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Equipment/Bundles:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="findItems" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="3">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="111.08551025390625" minWidth="10.0" prefWidth="111.08551025390625" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="76.71171569824219" minWidth="10.0" prefWidth="51.932403564453125" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.94137573242188" minWidth="10.0" prefWidth="90.94137573242188" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="77.4744873046875" minWidth="10.0" prefWidth="54.558624267578125" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label fx:id="findGuide" text="--" GridPane.columnIndex="1" />
+                                          <Label text="Mountain Guide:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label prefHeight="18.0" prefWidth="77.0" text="Hotel Stay:" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="findHotel" text="--" GridPane.columnIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="4">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.49102783203125" minWidth="10.0" prefWidth="84.22964477539062" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.74891662597656" minWidth="10.0" prefWidth="184.77035522460938" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="87.0" text="Guide Info:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toGuide" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="5">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.4744873046875" minWidth="10.0" prefWidth="63.491058349609375" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.50897216796875" minWidth="10.0" prefWidth="110.50897216796875" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.4744873046875" minWidth="10.0" prefWidth="72.49102783203125" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Guide Cost:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toGuideCost" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.4234619140625" minWidth="10.0" prefWidth="54.761566162109375" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="451.7384338378906" minWidth="10.0" prefWidth="451.7384338378906" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Status:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toStatus" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.71173095703125" minWidth="10.0" prefWidth="67.59173583984375" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.40826416015625" minWidth="10.0" prefWidth="94.024169921875" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.373779296875" minWidth="10.0" prefWidth="52.96417236328125" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.03582763671875" minWidth="10.0" prefWidth="283.03582763671875" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Auth Code:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toCode" prefHeight="17.0" prefWidth="86.0" text="--" GridPane.columnIndex="1" />
+                                          <Label text="Refund:" GridPane.columnIndex="2">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toRefund" prefHeight="17.0" prefWidth="119.0" text="--" GridPane.columnIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane prefHeight="35.0" prefWidth="254.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.0" minWidth="10.0" prefWidth="44.37377166748047" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="341.0" minWidth="10.0" prefWidth="225.62622833251953" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label prefWidth="94.0" text="Email:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="findEmail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="322.0" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="StartSearch" mnemonicParsing="false" onAction="#SearchClicked" prefHeight="25.0" prefWidth="105.0" text="Search" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="140.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </GridPane>
+                              <Label layoutX="48.0" layoutY="274.0" prefHeight="18.0" prefWidth="100.0" text="Equipment Cost:">
+                                 <font>
+                                    <Font name="Comic Sans MS" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="toEquCost" layoutX="151.0" layoutY="277.0" prefHeight="17.0" prefWidth="53.0" text="--" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

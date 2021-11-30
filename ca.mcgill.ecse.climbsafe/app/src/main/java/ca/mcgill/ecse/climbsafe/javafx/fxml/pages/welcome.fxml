@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="600.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
+         <image>
+            <Image url="@background.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="259.0" layoutY="82.0" prefHeight="72.0" prefWidth="290.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+         <children>
+            <Text layoutX="35.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ClimbSafe">
+               <font>
+                  <Font size="51.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</Pane>
