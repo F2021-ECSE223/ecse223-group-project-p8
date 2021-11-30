@@ -164,7 +164,6 @@ public class viewAssignmentPageController {
 	
 	@FXML
 	public void initiateClicked1(ActionEvent event) {
-		System.out.println("gen ass");
 		try {
 			AssignmentController.initiateAssignmentProcess();
 		} catch (InvalidInputException e) {
