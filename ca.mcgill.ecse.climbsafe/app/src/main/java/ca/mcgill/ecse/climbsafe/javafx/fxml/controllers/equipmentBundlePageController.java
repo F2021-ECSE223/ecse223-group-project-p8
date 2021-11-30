@@ -13,6 +13,9 @@ import java.util.List;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet5Controller;
 import ca.mcgill.ecse.climbsafe.controller.InvalidInputException;
 import ca.mcgill.ecse.climbsafe.controller.Utility;
+import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
+import ca.mcgill.ecse.climbsafe.model.BookedItem;
+import ca.mcgill.ecse.climbsafe.model.BundleItem;
 import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
 import ca.mcgill.ecse.climbsafe.model.Equipment;
 import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
@@ -30,16 +33,13 @@ import javafx.scene.control.TableColumn;
 
 public class equipmentBundlePageController {
 
-	ClimbSafe climbSafe;
-
-	// ChoiceBox Items
-	ObservableList<String> equipmentList = FXCollections.observableArrayList();
-	ObservableList<String> bundleEquipmentList = FXCollections.observableArrayList();
-	ObservableList<String> bundlesList = FXCollections.observableArrayList();
-
 	// Storing Items
+	List<Equipment> equipmentsCB;
+	List<Equipment> equipmentsEB;
 	List<String> equipmentNamesCB;
+	List<String> equipmentNamesEB;
 	List<Integer> equipmentQuantitiesCB;
+	List<Integer> equipmentQuantitiesEB;
 
 	@FXML
 	private TextField bundleNameInput;
@@ -88,33 +88,53 @@ public class equipmentBundlePageController {
 	@FXML
 	private TextField guideDiscountEB;
 
-	// Create Bundle Methods
-
 	@FXML
-	public void initializeEquipmentMenuCB() {
-		for (Equipment equipment : climbSafe.getEquipment()) {
-			equipmentList.add(equipment.getName());
-		}
-		equipmentMenuCB.setItems(equipmentList);
-	}
-	
-	// Event Listener on Button[#equipmentMenuCB].onAction
-	@FXML
-	public void selectFromEquipmentMenuCB(ActionEvent event) {
-		
-	}
+	public void initialize() {
 
-	public Equipment getSelectedEquipmentCB() {
-		return Utility.getEquipment(climbSafe, equipmentMenuCB.getValue());
+		// initializeEquipmentMenuCB
+		equipmentMenuCB.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+			equipmentMenuCB.setItems(ViewUtils.getEquipment());
+			equipmentMenuCB.setValue(null);
+		});
+
+		// initializeSelectBundleMenu
+		selectBundleMenu.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+			selectBundleMenu.setItems(ViewUtils.getBundles());
+			selectBundleMenu.setValue(null);
+		});
+
+		// initializeEquipmentMenuEB
+		equipmentMenuEB.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
+			equipmentMenuEB.setItems(ViewUtils.getEquipmentFromBundle(selectBundleMenu.getValue()));
+			equipmentMenuEB.setValue(null);
+		});
+
+		ClimbsafeFxmlView.getInstance().registerRefreshEvent(equipmentMenuCB, selectBundleMenu, equipmentMenuEB);
+
 	}
 
 	// Event Listener on Button[#addEquipmentToBundleButton].onAction
 	@FXML
 	public void addEquipmentToBundle(ActionEvent event) {
-		Equipment equipment = this.getSelectedEquipmentCB();
-		int quantity = Integer.parseInt(this.equipmentQuantityInputCB.getText());
-		this.equipmentNamesCB.add(equipment.getName());
-		this.equipmentQuantitiesCB.add(quantity);
+		String equipmentName = equipmentMenuCB.getValue();
+		if (equipmentName == null) {
+			ViewUtils.showError("Please select an equipment before adding");
+		} else {
+			try {
+				int quantity = Integer.parseInt(this.equipmentQuantityInputCB.getText());
+				if (quantity == 0) {
+					ViewUtils.showError("Please input a valid quantity");
+				} else {
+					equipmentsCB.add(ViewUtils.getEquipmentFromName(equipmentName));
+					equipmentNamesCB.add(equipmentName);
+					equipmentQuantitiesCB.add(quantity);
+					equipmentMenuCB.setValue(null);
+					equipmentQuantityInputCB.setText("");
+				}
+			} catch (NumberFormatException e) {
+				ViewUtils.showError("Please input a quantity");
+			}
+		}
 	}
 
 	// Event Listener on Button[#createEquipmentBundleButton].onAction
@@ -131,47 +151,62 @@ public class equipmentBundlePageController {
 				int discount = Integer.parseInt(this.guideDiscountCB.getText());
 				if (successful(() -> ClimbSafeFeatureSet5Controller.addEquipmentBundle(bundleName, discount,
 						this.equipmentNamesCB, this.equipmentQuantitiesCB))) {
-
+					this.bundleNameInput.setText("");
+					this.guideDiscountCB.setText("");
+					// update tables
 				}
 			} catch (NumberFormatException e) {
 				ViewUtils.showError("Please input a valid discount number");
 			}
-
 		}
-	}
-
-	// Edit Bundle Methods
-
-	@FXML
-	public void initializeSelectBundleMenu() {
-		for (EquipmentBundle bundle : climbSafe.getBundles()) {
-			bundlesList.add(bundle.getName());
-		}
-		selectBundleMenu.setItems(bundlesList);
-	}
-
-	public EquipmentBundle getSelectedBundle() {
-		return Utility.getBundle(climbSafe, selectBundleMenu.getValue());
-	}
-
-	@FXML
-	public void initializeEquipmentMenuEB() {
-		for (Equipment equipment : climbSafe.getEquipment()) {
-			bundleEquipmentList.add(equipment.getName());
-		}
-		selectBundleMenu.setItems(bundleEquipmentList);
 	}
 
 	// Event Listener on Button[#updateEquipmentInBundleButton].onAction
 	@FXML
 	public void updateEquipmentInBundle(ActionEvent event) {
-		// TODO Autogenerated
+		String equipmentName = equipmentMenuEB.getValue();
+		if (equipmentName == null) {
+			ViewUtils.showError("Please select an equipment before updating it");
+		} else {
+			try {
+				int quantity = Integer.parseInt(this.equipmentQuantityInputEB.getText());
+				equipmentsEB.add(ViewUtils.getEquipmentFromName(equipmentName));
+				equipmentNamesEB.add(equipmentName);
+				equipmentQuantitiesEB.add(quantity);
+				equipmentMenuEB.setValue(null);
+				equipmentQuantityInputEB.setText("");
+			} catch (NumberFormatException e) {
+				ViewUtils.showError("Please input a quantity before updating");
+			}
+		}
 	}
 
 	// Event Listener on Button[#updateEquipmentBundleButton].onAction
 	@FXML
 	public void updateEquipmentBundle(ActionEvent event) {
-		// TODO Autogenerated
+		String equipmentOldName = selectBundleMenu.getValue();
+		String bundleName = this.newBundleNameInput.getText();
+		String discountStr = this.guideDiscountEB.getText();
+		if (equipmentOldName == null) {
+			ViewUtils.showError("Please select a bundle to edit");
+		} else if (bundleName == null || bundleName.trim().isEmpty()) {
+			ViewUtils.showError("Please input a valid bundle name");
+		} else if (discountStr == null || discountStr.trim().isEmpty()) {
+			ViewUtils.showError("Please input a valid discount number");
+		} else {
+			try {
+				int discount = Integer.parseInt(this.guideDiscountCB.getText());
+				if (successful(() -> ClimbSafeFeatureSet5Controller.updateEquipmentBundle(equipmentOldName, bundleName,
+						discount, this.equipmentNamesEB, this.equipmentQuantitiesEB))) {
+					this.selectBundleMenu.setValue(null);
+					this.newBundleNameInput.setText("");
+					this.guideDiscountEB.setText("");
+					// update tables
+				}
+			} catch (NumberFormatException e) {
+				ViewUtils.showError("Please input a valid discount number");
+			}
+		}
 	}
 
 }
