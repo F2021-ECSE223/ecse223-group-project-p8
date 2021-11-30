@@ -192,9 +192,7 @@ public class AssignmentController {
     	
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
         for (Assignment a: assignmentInSystem) {
-            if (weekNr == a.getStartWeek() && 
-            		!a.getAssignmentStatus().equals(AssignmentStatus.Cancelled)
-            		&& !a.getAssignmentStatus().equals(AssignmentStatus.Banned)) {
+            if (weekNr == a.getStartWeek()) {
                 var error = "";
                 try {
 
