@@ -168,7 +168,7 @@ public class guidePageController {
 	// Event Listener on Button[#deleteGuideButton].onAction
 	@FXML
 	public void deleteGuideClicked(ActionEvent event) {
-		try {
+	
 			String emailtoDelete=deleteGuideEmail.getText();
 			
 			if(emailtoDelete == null || emailtoDelete.trim().isEmpty()) {
@@ -189,12 +189,6 @@ public class guidePageController {
 					
 				}
 			}
-			
-		}
-		
-		catch (RuntimeException e) {
-		      ViewUtils.showError(e.getMessage());
-		    }
 		
 	}
 	
@@ -217,38 +211,38 @@ public class guidePageController {
 					viewGuideName.setText(ViewUtils.getGuideName(email));
 					viewGuidePassword.setText(ViewUtils.getGuidePassword(email));
 					viewGuideContact.setText(ViewUtils.getGuideContact(email));
-					if(successful(() -> AssignmentController.initiateAssignmentProcess())) {
-						boolean guideFound=false;
-						List<Assignment> tempAss = ClimbSafeApplication.getClimbSafe().getAssignments();
-						for(Assignment ass: tempAss) {
-							if(ass.getGuide().equals(ViewUtils.findGuideInSystem(email))) {
-								guideFound=true;
-							}
-						}
-						if(guideFound) {
-							List<TOAssignment> guidesAssignment = ClimbSafeFeatureSet6Controller.getAssignments();
-						    assignments = FXCollections.observableArrayList();
-						    for (TOAssignment ass: guidesAssignment) {
-						        assignments.add(ass);
-						    } 	
-						}     
+					
+					List<TOAssignment> guidesAss = ClimbSafeFeatureSet6Controller.getAssignments();
+					assignments = FXCollections.observableArrayList();
+					for (TOAssignment a : guidesAss) {
+						if (a.getGuideEmail()!=null && a.getGuideEmail().equals(email)) {
+								assignments.add(a);	
+					   }
 					}
+					
+					guideAssignments.setItems(assignments);
+					guideAssignments.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> guideAssignments.setItems(assignments));
+					ClimbsafeFxmlView.getInstance().registerRefreshEvent(guideAssignments);
+					ClimbsafeFxmlView.getInstance().refresh();
+				
 				}
 			}
 			
 		}
-
+		
 		@FXML
 		  public void initialize() {
-			TableColumn weeks = new TableColumn("Week Interval");
+			TableColumn start = new TableColumn("Start Week");
+			TableColumn end = new TableColumn("End Week");
 			TableColumn membersAssigned = new TableColumn("Assigned Members");
 				  
-			guideAssignments.getColumns().addAll(weeks, membersAssigned);
+			guideAssignments.getColumns().addAll(start,end,membersAssigned);
 			
+			membersAssigned.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("memberName"));
+			start.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("startWeek"));
+			end.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("endWeek"));  
 			
-			guideAssignments.setItems(assignments);
-			guideAssignments.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> guideAssignments.setItems(assignments));
-			ClimbsafeFxmlView.getInstance().registerRefreshEvent(guideAssignments);
+
 		}
 		
 		
