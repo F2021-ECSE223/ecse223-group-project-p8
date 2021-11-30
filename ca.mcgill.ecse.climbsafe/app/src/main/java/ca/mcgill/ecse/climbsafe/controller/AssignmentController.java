@@ -35,7 +35,7 @@ public class AssignmentController {
             // visit each unassigned member
             for (Member currentMember: unassignedMembers) {
                 // already assigned, go to next member
-                if (currentMember.getName().equals("assigned")) {
+                if (currentMember.getAssignment() != null) {
                     continue;
                 };
                 // no guide required
@@ -44,8 +44,7 @@ public class AssignmentController {
                     assignmentForMember.setGuide(currentGuide);
                     Utility.climbSafe.addAssignment(assignmentForMember);
                     ClimbsafePersistence.save();
-                    currentMember.setName("assigned");
-
+                    
                     // guide is required
                 } else {
                     int memberStayWeeks = currentMember.getNrWeeks();
@@ -69,7 +68,6 @@ public class AssignmentController {
                             assignmentForMember.setGuide(currentGuide);
                             Utility.climbSafe.addAssignment(assignmentForMember);
                             ClimbsafePersistence.save();
-                            currentMember.setName("assigned");
                             break;
                         }
                     }

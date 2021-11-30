@@ -49,6 +49,8 @@ public class viewAssignmentPageController {
 	private Button payButton;
 	@FXML
 	private Button initiateButton;
+	@FXML
+	private Button initiateButton1;
 	ObservableList<TOAssignment> data;
 	
 	@FXML
@@ -72,7 +74,7 @@ public class viewAssignmentPageController {
 		tWeek.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("endWeek"));
 		status.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("status"));
 		authCode.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("authorizationCode"));
-		refund.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("fundedPercentageAmount"));
+		refund.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("refundedPercentageAmount"));
 		guideCost.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("totalCostForGuide"));
 		totalCost.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("totalCostForEquipment"));
 		   
@@ -125,7 +127,7 @@ public class viewAssignmentPageController {
 		    error += "Please input a valid member email" + "\n";
 		}
 		try {
-			if(successful(() -> AssignmentController.finishTrip(memberEmail))) {
+			if(successful(() -> AssignmentController.cancelTrip(memberEmail))) {
 				this.emailTextField.setText("");
 			}
 		}catch(RuntimeException e) {
@@ -156,6 +158,19 @@ public class viewAssignmentPageController {
 	@FXML
 	public void initiateClicked(ActionEvent event) {
 
+		ClimbsafeFxmlView.getInstance().refresh();
+		
+	}
+	
+	@FXML
+	public void initiateClicked1(ActionEvent event) {
+		System.out.println("gen ass");
+		try {
+			AssignmentController.initiateAssignmentProcess();
+		} catch (InvalidInputException e) {
+	
+			e.printStackTrace();
+		}
 		ClimbsafeFxmlView.getInstance().refresh();
 		
 	}

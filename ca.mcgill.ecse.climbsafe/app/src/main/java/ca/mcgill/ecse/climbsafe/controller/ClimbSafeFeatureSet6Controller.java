@@ -83,7 +83,7 @@ public class ClimbSafeFeatureSet6Controller {
                 aGuideName = currentAssignment.getGuide().getName();
                 TotalCostForGuide = (ClimbSafeApplication.getClimbSafe()).getPriceOfGuidePerWeek() * stayedWeeks;
             }
-            if (hasHotel) {aHotelName = currentAssignment.getHotel().getName();}
+            if (hasHotel && currentAssignment.getHotel() != null) {aHotelName = currentAssignment.getHotel().getName();}
             List < BookedItem > membersItems = currentAssignment.getMember().getBookedItems();
             for (BookedItem currentBooked: membersItems) {
                 int quant = currentBooked.getQuantity();
