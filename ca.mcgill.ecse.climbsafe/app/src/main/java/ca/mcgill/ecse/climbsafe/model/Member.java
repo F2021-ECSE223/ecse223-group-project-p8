@@ -15,7 +15,7 @@ public class Member extends NamedUser implements Serializable
   //------------------------
 
   //Member Attributes
-  private int prizeDiscount;
+  private double prizeDiscount;
   private int nrWeeks;
   private boolean guideRequired;
   private boolean hotelRequired;
@@ -48,7 +48,7 @@ public class Member extends NamedUser implements Serializable
   // INTERFACE
   //------------------------
 
-  public boolean setPrizeDiscount(int aPrizeDiscount)
+  public boolean setPrizeDiscount(double aPrizeDiscount)
   {
     boolean wasSet = false;
     prizeDiscount = aPrizeDiscount;
@@ -80,7 +80,7 @@ public class Member extends NamedUser implements Serializable
     return wasSet;
   }
 
-  public int getPrizeDiscount()
+  public double getPrizeDiscount()
   {
     return prizeDiscount;
   }

@@ -24,13 +24,13 @@ public class TOAssignment
   private String status;
   private String authorizationCode;
   private int refundedPercentageAmount;
-  private int prizeDiscount;
+  private double prizeDiscount;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public TOAssignment(String aMemberEmail, String aMemberName, String aGuideEmail, String aGuideName, String aHotelName, int aStartWeek, int aEndWeek, int aTotalCostForGuide, int aTotalCostForEquipment, String aStatus, String aAuthorizationCode, int aRefundedPercentageAmount, int aPrizeDiscount)
+  public TOAssignment(String aMemberEmail, String aMemberName, String aGuideEmail, String aGuideName, String aHotelName, int aStartWeek, int aEndWeek, int aTotalCostForGuide, int aTotalCostForEquipment, String aStatus, String aAuthorizationCode, int aRefundedPercentageAmount, double aPrizeDiscount)
   {
     memberEmail = aMemberEmail;
     memberName = aMemberName;
@@ -147,7 +147,7 @@ public class TOAssignment
     return wasSet;
   }
 
-  public boolean setPrizeDiscount(int aPrizeDiscount)
+  public boolean setPrizeDiscount(double aPrizeDiscount)
   {
     boolean wasSet = false;
     prizeDiscount = aPrizeDiscount;
@@ -215,7 +215,7 @@ public class TOAssignment
     return refundedPercentageAmount;
   }
 
-  public int getPrizeDiscount()
+  public double getPrizeDiscount()
   {
     return prizeDiscount;
   }

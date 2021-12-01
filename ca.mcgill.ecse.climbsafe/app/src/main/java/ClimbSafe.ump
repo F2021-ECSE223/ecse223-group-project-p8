@@ -42,7 +42,7 @@ class Guide {
 
 class Member {
   isA NamedUser;
-  lazy Integer prizeDiscount;
+  lazy Double prizeDiscount;
   Integer nrWeeks;
   Boolean guideRequired;
   Boolean hotelRequired;
