@@ -62,6 +62,7 @@ public class AwardsController {
     			
     			ViewUtils.findMemberEmail(email).setPrizeDiscount(Integer.parseInt(spinNum.getText()));
     			foundmember = false;
+    			ViewUtils.makePopupWindow("","Prize Discount has been applied");
     		}
     }
 
