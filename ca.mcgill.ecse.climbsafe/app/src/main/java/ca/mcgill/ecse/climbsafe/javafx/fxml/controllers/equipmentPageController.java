@@ -49,6 +49,7 @@ public class equipmentPageController {
           EquipmentWeightTextField.setText("");
           EquipmentPriceTextField.setText("");
           ClimbsafeFxmlView.getInstance().refresh();
+          ViewUtils.makePopupWindow("","Equipment added successfully");
         }
         }
       
@@ -78,6 +79,7 @@ public void updateEquipmentClicked(ActionEvent event) {
           newEquipmentWeightTextField.setText("");
           newEquipmentPriceTextField.setText("");
           ClimbsafeFxmlView.getInstance().refresh();
+          ViewUtils.makePopupWindow("","Equipment updated succesfully");
         }
         }
       
@@ -96,6 +98,7 @@ public void deleteEquipmentClicked(ActionEvent event) {
       if (successful(() -> ClimbSafeFeatureSet6Controller.deleteEquipment(name))) {
         equipmentToDeleteTextField.setText("");
         ClimbsafeFxmlView.getInstance().refresh();
+        ViewUtils.makePopupWindow("","Equipment succesfully deleted");
       }
       }
 }

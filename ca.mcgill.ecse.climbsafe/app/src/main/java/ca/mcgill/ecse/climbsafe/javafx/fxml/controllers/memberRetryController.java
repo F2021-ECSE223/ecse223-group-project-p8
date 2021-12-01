@@ -214,6 +214,7 @@ public class memberRetryController {
 						itemNames.clear();
 						itemQuantities.clear();
 						ClimbsafeFxmlView.getInstance().refresh();
+						ViewUtils.makePopupWindow("","Member registered successfully");
 						
 				      }
 				  
@@ -318,6 +319,7 @@ public class memberRetryController {
 						itemNames.clear();
 						itemQuantities.clear();
 						ClimbsafeFxmlView.getInstance().refresh();
+						ViewUtils.makePopupWindow("","Member updated successfully");
 						
 				      }
 				  
@@ -345,6 +347,7 @@ public class memberRetryController {
 	    	updateEquipmentQuantity.setText("");
 	    	updateEquipmentChoice.setValue(null);
 	    	ClimbsafeFxmlView.getInstance().refresh();
+	    	ViewUtils.makePopupWindow("","Bundle deleted successfully");
 	    }
 	}
 	// Event Listener on Button[#updateBundleSubmit].onAction
@@ -402,6 +405,7 @@ public class memberRetryController {
 	    		  if (successful(() -> ClimbSafeFeatureSet1Controller.deleteMember(email))) {
 	    			  deleteEmail.setText("");
 	    			  ClimbsafeFxmlView.getInstance().refresh();
+	    			  ViewUtils.makePopupWindow("","Member deleted successfully");
 				      }
 				  
 			  }catch (RuntimeException e) {
