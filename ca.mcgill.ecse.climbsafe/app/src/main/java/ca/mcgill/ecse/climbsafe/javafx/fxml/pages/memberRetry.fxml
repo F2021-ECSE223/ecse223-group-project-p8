@@ -31,7 +31,7 @@
                   <Pane prefWidth="810.0">
                      <children>
                         <Pane layoutX="53.0" layoutY="82.0" prefHeight="355.0" prefWidth="683.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
-                        <GridPane hgap="10.0" layoutX="89.0" layoutY="95.0" prefHeight="390.0" prefWidth="631.0">
+                        <GridPane hgap="10.0" layoutX="89.0" layoutY="95.0" prefHeight="330.0" prefWidth="631.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -48,8 +48,6 @@
                               <RowConstraints maxHeight="32.622314453125" minHeight="10.0" prefHeight="32.622314453125" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="23.251800537109375" minHeight="10.0" prefHeight="21.377685546875" vgrow="SOMETIMES" />
                               <RowConstraints minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <Label text="Full Name" GridPane.rowIndex="2">
@@ -118,7 +116,10 @@
                                  </rowConstraints>
                                  <children>
                                     <ChoiceBox fx:id="registerEquipmentChoice" prefWidth="150.0" />
-                                    <Button fx:id="registerEquipmentSubmit" mnemonicParsing="false" onAction="#RegisterMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <Button fx:id="registerEquipmentSubmit" mnemonicParsing="false" onAction="#RegisterMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></Button>
                                     <TextField fx:id="registerEquipmentQuantity" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
@@ -133,7 +134,10 @@
                                  </rowConstraints>
                                  <children>
                                     <ChoiceBox fx:id="registerBundleChoice" prefWidth="150.0" />
-                                    <Button fx:id="registerBundleSubmit" mnemonicParsing="false" onAction="#RegisterMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <Button fx:id="registerBundleSubmit" mnemonicParsing="false" onAction="#RegisterMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></Button>
                                     <TextField fx:id="registerBundleQuantity" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
@@ -146,7 +150,10 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <ToggleButton mnemonicParsing="false" onAction="#regGuideToggleClicked" text="Yes" />
+                                    <ToggleButton fx:id="regGuideToggleButton" mnemonicParsing="false" onAction="#regGuideToggleClicked" text="Yes">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></ToggleButton>
                                  </children>
                               </GridPane>
                               <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
@@ -158,7 +165,10 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <ToggleButton mnemonicParsing="false" onAction="#regHotelToggleClicked" text="Yes" />
+                                    <ToggleButton fx:id="regHotelToggleButton" mnemonicParsing="false" onAction="#regHotelToggleClicked" text="Yes">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></ToggleButton>
                                  </children>
                               </GridPane>
                            </children>
@@ -193,7 +203,7 @@
                               </Text>
                            </children>
                         </Pane>
-                        <GridPane hgap="10.0" layoutX="69.0" layoutY="103.0" prefHeight="478.0" prefWidth="655.0">
+                        <GridPane hgap="10.0" layoutX="69.0" layoutY="103.0" prefHeight="320.0" prefWidth="655.0">
                            <columnConstraints>
                               <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                               <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -210,10 +220,6 @@
                               <RowConstraints maxHeight="25.31475830078125" minHeight="0.951446533203125" prefHeight="0.951446533203125" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="59.048553466796875" minHeight="10.0" prefHeight="22.017974853515625" vgrow="SOMETIMES" />
                               <RowConstraints maxHeight="77.78958129882812" minHeight="10.0" prefHeight="39.38848876953125" vgrow="SOMETIMES" />
-                              <RowConstraints maxHeight="58.11151123046875" minHeight="10.0" prefHeight="58.11151123046875" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                              <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
                               <Label text="Full Name" GridPane.rowIndex="2">
@@ -276,7 +282,10 @@
                                  </rowConstraints>
                                  <children>
                                     <ChoiceBox fx:id="updateEquipmentChoice" prefWidth="150.0" />
-                                    <Button fx:id="updateEquipmentSubmit" mnemonicParsing="false" onAction="#UpdateMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <Button fx:id="updateEquipmentSubmit" mnemonicParsing="false" onAction="#UpdateMemberEquipmentSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></Button>
                                     <TextField fx:id="updateEquipmentQuantity" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
@@ -291,7 +300,10 @@
                                  </rowConstraints>
                                  <children>
                                     <ChoiceBox fx:id="updateBundleChoice" prefWidth="150.0" />
-                                    <Button fx:id="updateBundleSubmit" mnemonicParsing="false" onAction="#UpdateMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2" />
+                                    <Button fx:id="updateBundleSubmit" mnemonicParsing="false" onAction="#UpdateMemberBundleSubmit" prefHeight="26.0" prefWidth="60.0" text="submit" GridPane.columnIndex="2">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></Button>
                                     <TextField fx:id="updateBundleQuantity" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
@@ -310,7 +322,15 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <ToggleButton mnemonicParsing="false" onAction="#upGuideToggleClicked" text="Yes" />
+                                    <ToggleButton fx:id="upGuideYToggleButton" mnemonicParsing="false" onAction="#upGuideYToggleClicked" text="Yes">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></ToggleButton>
+                                    <ToggleButton fx:id="upGuideNToggleButton" mnemonicParsing="false" onAction="#upGuideNToggleClicked" text="No" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font>
+                                    </ToggleButton>
                                  </children>
                               </GridPane>
                               <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
@@ -322,7 +342,15 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <ToggleButton mnemonicParsing="false" onAction="#upHotelToggleClicked" text="Yes" />
+                                    <ToggleButton fx:id="upHotelYToggleButton" mnemonicParsing="false" onAction="#upHotelYToggleClicked" text="Yes">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font></ToggleButton>
+                                    <ToggleButton fx:id="upHotelNToggleButton" mnemonicParsing="false" onAction="#upHotelNToggleClicked" text="No" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font>
+                                    </ToggleButton>
                                  </children>
                               </GridPane>
                            </children>

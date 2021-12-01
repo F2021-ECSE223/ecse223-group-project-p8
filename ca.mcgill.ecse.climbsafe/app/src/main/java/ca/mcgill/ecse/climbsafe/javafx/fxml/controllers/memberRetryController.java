@@ -17,7 +17,7 @@ import java.sql.Date;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.ToggleButton;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.ChoiceBox;
@@ -115,6 +115,18 @@ public class memberRetryController {
 	private Label toCode;
 	@FXML
 	private Label toRefund;
+	@FXML
+	private ToggleButton upHotelNToggleButton;
+	@FXML
+	private ToggleButton upHotelYToggleButton;
+	@FXML
+	private ToggleButton upGuideNToggleButton;
+	@FXML
+	private ToggleButton upGuideYToggleButton;
+	@FXML
+	private ToggleButton regGuideToggleButton;
+	@FXML
+	private ToggleButton regHotelToggleButton;
 
 	
 	@FXML
@@ -192,6 +204,8 @@ public class memberRetryController {
 						registerPassword.setText("");
 						registerName.setText("");
 						registerContact.setText("");
+						this.regGuideToggleButton.setSelected(false);
+						this.regHotelToggleButton.setSelected(false);
 						//cleanup? not sure if really needed
 						wantGuide=false;
 						wantHotel=false;
@@ -199,7 +213,6 @@ public class memberRetryController {
 						itemQuantities.clear();
 						ClimbsafeFxmlView.getInstance().refresh();
 						ViewUtils.makePopupWindow("","Member registered successfully");
-						
 				      }
 				  
 			  }catch (RuntimeException e) {
@@ -270,23 +283,23 @@ public class memberRetryController {
 	}
 	// Event Listener on Button[#upGuideToggleClicked].onAction
 	@FXML
-	public void upGuideToggleClicked(ActionEvent event) {
-		if(wantGuide==true) {
-			wantGuide = false;
-		}
-		if(wantGuide==false) {
-			wantGuide = true;
-		}
+	public void upGuideYToggleClicked(ActionEvent event) {
+		wantGuide = true;
 	}
 	// Event Listener on Button[#upHoteloggleClicked].onAction
 	@FXML
-	public void upHotelToggleClicked(ActionEvent event) {
-		if(wantHotel==true) {
-			wantHotel = false;
-		}
-		if(wantHotel==false) {
-			wantHotel = true;
-		}
+	public void upHotelYToggleClicked(ActionEvent event) {
+		wantHotel = true;
+	}
+	// Event Listener on Button[#upGuideToggleClicked].onAction
+	@FXML
+	public void upGuideNToggleClicked(ActionEvent event) {
+		wantGuide = false;
+	}
+	// Event Listener on Button[#upHoteloggleClicked].onAction
+	@FXML
+	public void upHotelNToggleClicked(ActionEvent event) {
+		wantHotel = false;
 	}
 	// Event Listener on Button[#updateSubmit].onAction
 	@FXML
@@ -317,6 +330,10 @@ public class memberRetryController {
 						updatePassword.setText("");
 						updateName.setText("");
 						updateContact.setText("");
+						this.upGuideNToggleButton.setSelected(false);
+						this.upGuideYToggleButton.setSelected(false);
+						this.upHotelNToggleButton.setSelected(false);
+						this.upHotelYToggleButton.setSelected(false);
 						//cleanup? not sure if really needed
 						wantGuide=false;
 						wantHotel=false;
