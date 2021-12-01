@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="600.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.memberRetryController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.memberRetryController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1064.0" layoutX="-257.0">
          <image>
@@ -150,10 +150,15 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <ToggleButton fx:id="regGuideToggleButton" mnemonicParsing="false" onAction="#regGuideToggleClicked" text="Yes">
+                                    <ToggleButton fx:id="regGuideYToggleButton" mnemonicParsing="false" onAction="#regGuideYToggleClicked" text="Yes">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font></ToggleButton>
+                                    <ToggleButton fx:id="regGuideNToggleButton" mnemonicParsing="false" onAction="#regGuideNToggleClicked" text="No" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font>
+                                    </ToggleButton>
                                  </children>
                               </GridPane>
                               <GridPane GridPane.columnIndex="1" GridPane.rowIndex="7">
@@ -165,7 +170,12 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <ToggleButton fx:id="regHotelToggleButton" mnemonicParsing="false" onAction="#regHotelToggleClicked" text="Yes">
+                                    <ToggleButton fx:id="regHotelYToggleButton" mnemonicParsing="false" onAction="#regHotelYToggleClicked" text="Yes">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font>
+                                    </ToggleButton>
+                                    <ToggleButton fx:id="regHotelNToggleButton" mnemonicParsing="false" onAction="#regHotelNToggleClicked" text="No" GridPane.columnIndex="1">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font></ToggleButton>
@@ -191,7 +201,7 @@
           </Tab>
           <Tab text="Update Member">
                <content>
-                  <Pane>
+                  <Pane prefWidth="807.0">
                      <children>
                         <Pane layoutX="41.0" layoutY="85.0" prefHeight="355.0" prefWidth="705.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;" />
                         <Pane layoutX="305.0" layoutY="26.0" prefHeight="44.0" prefWidth="180.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">

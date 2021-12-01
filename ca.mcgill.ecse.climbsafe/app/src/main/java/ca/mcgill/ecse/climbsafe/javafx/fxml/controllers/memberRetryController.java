@@ -124,9 +124,13 @@ public class memberRetryController {
 	@FXML
 	private ToggleButton upGuideYToggleButton;
 	@FXML
-	private ToggleButton regGuideToggleButton;
+	private ToggleButton regGuideYToggleButton;
 	@FXML
-	private ToggleButton regHotelToggleButton;
+	private ToggleButton regHotelYToggleButton;
+	@FXML
+	private ToggleButton regGuideNToggleButton;
+	@FXML
+	private ToggleButton regHotelNToggleButton;
 
 	
 	@FXML
@@ -204,8 +208,10 @@ public class memberRetryController {
 						registerPassword.setText("");
 						registerName.setText("");
 						registerContact.setText("");
-						this.regGuideToggleButton.setSelected(false);
-						this.regHotelToggleButton.setSelected(false);
+						this.regGuideYToggleButton.setSelected(false);
+						this.regHotelYToggleButton.setSelected(false);
+						this.regGuideNToggleButton.setSelected(false);
+						this.regHotelNToggleButton.setSelected(false);
 						//cleanup? not sure if really needed
 						wantGuide=false;
 						wantHotel=false;
@@ -263,42 +269,51 @@ public class memberRetryController {
 	}
 	// Event Listener on Button[#regGuideToggleClicked].onAction
 	@FXML
-	public void regGuideToggleClicked(ActionEvent event) {
-		if(wantGuide==true) {
-			wantGuide = false;
-		}
-		if(wantGuide==false) {
-			wantGuide = true;
-		}
+	public void regGuideYToggleClicked(ActionEvent event) {
+		this.regGuideNToggleButton.setSelected(false);
+		wantGuide = true;
+		
 	}
 	// Event Listener on Button[#regHotelToggleClicked].onAction
 	@FXML
-	public void regHotelToggleClicked(ActionEvent event) {
-		if(wantHotel==true) {
-			wantHotel = false;
-		}
-		if(wantHotel==false) {
-			wantHotel = true;
-		}
+	public void regHotelYToggleClicked(ActionEvent event) {
+		this.regHotelNToggleButton.setSelected(false);
+		wantHotel = true;
+	}
+	// Event Listener on Button[#regGuideToggleClicked].onAction
+	@FXML
+	public void regGuideNToggleClicked(ActionEvent event) {
+		this.regGuideYToggleButton.setSelected(false);
+		wantGuide = false;
+	}
+	// Event Listener on Button[#regHotelToggleClicked].onAction
+	@FXML
+	public void regHotelNToggleClicked(ActionEvent event) {
+		this.regHotelYToggleButton.setSelected(false);
+		wantHotel = false;
 	}
 	// Event Listener on Button[#upGuideToggleClicked].onAction
 	@FXML
 	public void upGuideYToggleClicked(ActionEvent event) {
+		this.upGuideNToggleButton.setSelected(false);
 		wantGuide = true;
 	}
 	// Event Listener on Button[#upHoteloggleClicked].onAction
 	@FXML
 	public void upHotelYToggleClicked(ActionEvent event) {
+		this.upHotelNToggleButton.setSelected(false);
 		wantHotel = true;
 	}
 	// Event Listener on Button[#upGuideToggleClicked].onAction
 	@FXML
 	public void upGuideNToggleClicked(ActionEvent event) {
+		this.upGuideYToggleButton.setSelected(false);
 		wantGuide = false;
 	}
 	// Event Listener on Button[#upHoteloggleClicked].onAction
 	@FXML
 	public void upHotelNToggleClicked(ActionEvent event) {
+		this.upGuideYToggleButton.setSelected(false);
 		wantHotel = false;
 	}
 	// Event Listener on Button[#updateSubmit].onAction
