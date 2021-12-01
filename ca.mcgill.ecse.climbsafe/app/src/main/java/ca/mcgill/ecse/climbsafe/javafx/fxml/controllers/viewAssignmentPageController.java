@@ -64,8 +64,9 @@ public class viewAssignmentPageController {
 		TableColumn refund = new TableColumn("Refund");
 		TableColumn guideCost = new TableColumn("Guide Cost");
 		TableColumn totalCost = new TableColumn("Total Cost");
+		TableColumn prizeDiscount = new TableColumn("Discount");
 		
-		overviewTable.getColumns().addAll(member, guide, fWeek, tWeek, status, authCode, refund, guideCost, totalCost);
+		overviewTable.getColumns().addAll(member, guide, fWeek, tWeek, status, authCode, refund, guideCost, totalCost, prizeDiscount);
 		data = getAss();
 			   
 		member.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("memberName"));
@@ -77,7 +78,7 @@ public class viewAssignmentPageController {
 		refund.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("refundedPercentageAmount"));
 		guideCost.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("totalCostForGuide"));
 		totalCost.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("totalCostForEquipment"));
-		   
+		prizeDiscount.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("prizeDiscount"));  
 	           
 	        //Step 4: add data inside table
         overviewTable.setItems(data);

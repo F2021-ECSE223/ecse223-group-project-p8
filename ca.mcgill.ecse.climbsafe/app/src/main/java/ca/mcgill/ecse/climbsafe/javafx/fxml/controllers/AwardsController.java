@@ -35,10 +35,12 @@ public class AwardsController {
 
     @FXML
     private Text spinNum;
-	
+    String email;
     int num = 0;
     int repeat = 0;
+    private int discount = 0;
     private int increment = 0;
+    private boolean foundmember = false;
     @FXML
 	public void initialize() {
     	spinNum.setText("*");
@@ -46,31 +48,57 @@ public class AwardsController {
     }
     @FXML
     void applyClick(ActionEvent event) {
+    		if (email == null) {
+    			ViewUtils.showError("Please select a member first!");
+    		} 
 
+    		else if (ViewUtils.findMemberEmail(email).getPrizeDiscount() != 0){
+    			ViewUtils.showError("Already spun for this member!");
+    			
+    			
+    		} else if (discount == 0) {
+    			ViewUtils.showError("Please spin first!");
+    		}else {
+    			
+    			ViewUtils.findMemberEmail(email).setPrizeDiscount(Integer.parseInt(spinNum.getText()));
+    			foundmember = false;
+    		}
     }
 
     @FXML
     void clickSpin(ActionEvent event) {
-    	increment = 0;
-    	repeat = 0;
-    	animator();
+    	if (foundmember) {
+	    	increment = 0;
+	    	repeat = 0;
+	    	animator();
+    	}
+	    else {
+			ViewUtils.showError("Please select a member first!");
+		}
     }
 
     @FXML
     void searchButton(ActionEvent event) {
     	
-    	String email=memberTextField.getText();
+    	email=memberTextField.getText();
 		if (email == null || email.trim().isEmpty()) {
+				foundmember = false;
 		      ViewUtils.showError("Please input a valid email");
-		    }
+		}
 		else {
 			if(ViewUtils.findMemberEmail(email)!=null) {
-				memberName.setText(ViewUtils.getMemberName(email));
+				if (ViewUtils.findMemberEmail(email).getPrizeDiscount() == 0) {
+					foundmember = true;
+					memberName.setText(ViewUtils.getMemberName(email));
+					ClimbsafeFxmlView.getInstance().refresh();
+				} else {
+					memberName.setText("Already spun!");	
+				}
 	
 				
-				ClimbsafeFxmlView.getInstance().refresh();
 			}
 			else {
+				foundmember = false;
 				ViewUtils.showError("Member does not exist in system");
 			}
 	      }
@@ -86,7 +114,7 @@ public class AwardsController {
         		FadeTransition ft = new FadeTransition(Duration.millis(100), spinNum);
         		if (increment > 31) {
         			spinNum.setFill(Color.rgb(0,0,0,1));
-
+        			discount = Integer.parseInt(spinNum.getText());
             	} else {
             		Random rng = new Random();
             	    int c = rng.nextInt();
@@ -102,7 +130,8 @@ public class AwardsController {
             	}
             	if (repeat<=2) {
                     pause.play();
-                } repeat++;
+                }
+            	repeat++;
                 increment++;
                 
                 ft.stop();
