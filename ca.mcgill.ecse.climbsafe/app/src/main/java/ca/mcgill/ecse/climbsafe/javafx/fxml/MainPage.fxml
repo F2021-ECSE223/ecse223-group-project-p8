@@ -44,6 +44,11 @@
                <content>
                   <fx:include source="pages/viewAssignmentPage.fxml" />
                </content></Tab>
+            <Tab text="Discount">
+               <content>
+                  <fx:include source="pages/awards.fxml" />
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
