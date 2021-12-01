@@ -247,7 +247,6 @@ public class equipmentBundlePageController {
 				equipmentMenuEB.setValue(null);
 				equipmentQuantityInputEB.setText("");
 				ClimbsafeFxmlView.getInstance().refresh();
-				ViewUtils.makePopupWindow("","Equipment in bundle successfully updated");
 			} catch (NumberFormatException e) {
 				ViewUtils.showError("Please input a quantity before updating");
 			}
