@@ -78,9 +78,9 @@
                               <TableView fx:id="bundleItemsTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="4" GridPane.rowSpan="6">
                                  <columns>
                                     <TableColumn fx:id="bundleEquipmentCB" prefWidth="440.0" text="Equipment" />
-                                    <TableColumn fx:id="costCB" minWidth="0.0" text="Cost" />
-                                    <TableColumn fx:id="weightCB" minWidth="0.0" text="Weight" />
-                                    <TableColumn fx:id="quantityCB" minWidth="0.0" text="Quantity" />
+                                    <TableColumn fx:id="costCB" minWidth="0.0" prefWidth="120.0" text="Cost" />
+                                    <TableColumn fx:id="weightCB" minWidth="0.0" prefWidth="120.0" text="Weight" />
+                                    <TableColumn fx:id="quantityCB" minWidth="0.0" prefWidth="0.0" text="Quantity" />
                                  </columns>
                               </TableView>
                               <Label text="Select Equipment" GridPane.rowIndex="11">
@@ -168,8 +168,8 @@
                               <TableView fx:id="bundleNewItemsTable" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="5" GridPane.rowSpan="6">
                                  <columns>
                                     <TableColumn fx:id="bundleEquipmentEB" prefWidth="440.0" text="Equipment" />
-                                    <TableColumn fx:id="costEB" minWidth="0.0" text="Cost" />
-                                    <TableColumn fx:id="weightEB" minWidth="0.0" text="Weight" />
+                                    <TableColumn fx:id="costEB" minWidth="0.0" prefWidth="120.0" text="Cost" />
+                                    <TableColumn fx:id="weightEB" minWidth="0.0" prefWidth="120.0" text="Weight" />
                                     <TableColumn fx:id="QuantityEB" minWidth="0.0" text="Quantity" />
                                  </columns>
                               </TableView>
