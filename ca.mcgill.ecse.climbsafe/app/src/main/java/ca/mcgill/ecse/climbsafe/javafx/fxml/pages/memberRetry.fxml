@@ -435,7 +435,7 @@
                         </Pane>
                         <Pane layoutX="54.0" layoutY="88.0" prefHeight="327.0" prefWidth="705.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <GridPane hgap="10.0" layoutX="27.0" layoutY="44.0" prefHeight="228.0" prefWidth="811.0">
+                              <GridPane hgap="10.0" layoutX="27.0" layoutY="6.0" prefHeight="316.0" prefWidth="811.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="ALWAYS" maxWidth="402.9834289550781" minWidth="10.0" prefWidth="270.3289794921875" />
                                     <ColumnConstraints hgrow="ALWAYS" maxWidth="507.93377685546875" minWidth="10.0" prefWidth="506.1710205078125" />
@@ -443,10 +443,11 @@
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                                     <RowConstraints maxHeight="92.73216247558594" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="113.71330261230469" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="124.30325317382812" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="150.30953979492188" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                                    <RowConstraints maxHeight="102.3660888671875" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="113.71330261230469" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="124.30325317382812" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="150.30953979492188" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="102.3660888671875" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="102.3660888671875" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
                                     <GridPane GridPane.rowIndex="1">
@@ -569,27 +570,25 @@
                                     </GridPane>
                                     <GridPane GridPane.rowIndex="4">
                                        <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.49102783203125" minWidth="10.0" prefWidth="84.22964477539062" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.74891662597656" minWidth="10.0" prefWidth="184.77035522460938" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.49102783203125" minWidth="10.0" prefWidth="85.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.74891662597656" minWidth="10.0" prefWidth="180.0" />
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label prefHeight="18.0" prefWidth="87.0" text="Guide Info:">
+                                          <Label prefHeight="18.0" prefWidth="68.0" text="Guide Info:">
                                              <font>
                                                 <Font name="Comic Sans MS" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="toGuide" text="--" GridPane.columnIndex="1" />
+                                          <Label fx:id="toGuide" prefHeight="17.0" prefWidth="150.0" text="--" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
-                                    <GridPane GridPane.rowIndex="5">
+                                    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="254.0" GridPane.rowIndex="5">
                                        <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="78.4744873046875" minWidth="10.0" prefWidth="63.491058349609375" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.50897216796875" minWidth="10.0" prefWidth="110.50897216796875" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="87.4744873046875" minWidth="10.0" prefWidth="72.49102783203125" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="85.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="169.0" />
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -600,13 +599,13 @@
                                                 <Font name="Comic Sans MS" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="toGuideCost" text="--" GridPane.columnIndex="1" />
+                                          <Label fx:id="toGuideCost" prefHeight="17.0" prefWidth="150.0" text="--" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
-                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <GridPane maxWidth="-Infinity" prefHeight="45.0" prefWidth="363.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                                        <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.4234619140625" minWidth="10.0" prefWidth="54.761566162109375" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="451.7384338378906" minWidth="10.0" prefWidth="451.7384338378906" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.4234619140625" minWidth="10.0" prefWidth="80.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="451.7384338378906" minWidth="10.0" prefWidth="310.0" />
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -617,32 +616,24 @@
                                                 <Font name="Comic Sans MS" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="toStatus" text="--" GridPane.columnIndex="1" />
+                                          <Label fx:id="toStatus" prefHeight="17.0" prefWidth="150.0" text="--" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
-                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <GridPane maxWidth="-Infinity" prefHeight="34.0" prefWidth="324.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                                        <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="118.71173095703125" minWidth="10.0" prefWidth="67.59173583984375" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.40826416015625" minWidth="10.0" prefWidth="94.024169921875" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.373779296875" minWidth="10.0" prefWidth="52.96417236328125" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.03582763671875" minWidth="10.0" prefWidth="283.03582763671875" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="159.0" minWidth="10.0" prefWidth="80.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0" minWidth="10.0" prefWidth="251.0" />
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                        </rowConstraints>
                                        <children>
-                                          <Label text="Auth Code:">
+                                          <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Auth Code:">
                                              <font>
                                                 <Font name="Comic Sans MS" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="toCode" prefHeight="17.0" prefWidth="86.0" text="--" GridPane.columnIndex="1" />
-                                          <Label text="Refund:" GridPane.columnIndex="2">
-                                             <font>
-                                                <Font name="Comic Sans MS" size="12.0" />
-                                             </font>
-                                          </Label>
-                                          <Label fx:id="toRefund" prefHeight="17.0" prefWidth="119.0" text="--" GridPane.columnIndex="3" />
+                                          <Label fx:id="toCode" prefHeight="17.0" prefWidth="150.0" text="--" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
                                     <GridPane prefHeight="35.0" prefWidth="254.0">
@@ -670,17 +661,38 @@
                                           <Insets left="140.0" />
                                        </GridPane.margin>
                                     </Button>
+                                    <Label prefHeight="18.0" prefWidth="100.0" text="Equipment Cost:" GridPane.rowIndex="6">
+                                       <font>
+                                          <Font name="Comic Sans MS" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="toEquCost" prefHeight="17.0" prefWidth="150.0" text="--" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="90.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="368.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.373779296875" minWidth="10.0" prefWidth="60.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="314.0" minWidth="10.0" prefWidth="314.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Refund:">
+                                             <font>
+                                                <Font name="Comic Sans MS" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="toRefund1" prefHeight="17.0" prefWidth="119.0" text="--" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
                                  </padding>
                               </GridPane>
-                              <Label layoutX="48.0" layoutY="274.0" prefHeight="18.0" prefWidth="100.0" text="Equipment Cost:">
-                                 <font>
-                                    <Font name="Comic Sans MS" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="toEquCost" layoutX="151.0" layoutY="277.0" prefHeight="17.0" prefWidth="53.0" text="--" />
                            </children>
                         </Pane>
                      </children>
