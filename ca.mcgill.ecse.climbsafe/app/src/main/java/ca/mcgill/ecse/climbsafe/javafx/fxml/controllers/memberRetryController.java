@@ -55,14 +55,6 @@ public class memberRetryController {
 	@FXML
 	private TextField registerBundleQuantity;
 	@FXML
-	private Button registerGuideToggleY;
-	@FXML
-	private Button registerGuideToggleN;
-	@FXML
-	private Button registerHotelToggleY;
-	@FXML
-	private Button registerHotelToggleN;
-	@FXML
 	private TextField updateName;
 	@FXML
 	private Button updateSubmit;
@@ -86,14 +78,6 @@ public class memberRetryController {
 	private TextField updateBundleQuantity;
 	@FXML
 	private TextField updateEmail;
-	@FXML
-	private Button updateGuideToggleN;
-	@FXML
-	private Button updateGuideToggleY;
-	@FXML
-	private Button updateHotelToggleY;
-	@FXML
-	private Button updateHotelToggleN;
 	@FXML
 	private Button deleteSubmit;
 	@FXML
@@ -264,25 +248,45 @@ public class memberRetryController {
 	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
-	// Event Listener on Button[#registerGuideToggleY].onAction
+	// Event Listener on Button[#regGuideToggleClicked].onAction
 	@FXML
-	public void registerGuideYes(ActionEvent event) {
-		wantGuide=true;
+	public void regGuideToggleClicked(ActionEvent event) {
+		if(wantGuide==true) {
+			wantGuide = false;
+		}
+		if(wantGuide==false) {
+			wantGuide = true;
+		}
 	}
-	// Event Listener on Button[#registerGuideToggleN].onAction
+	// Event Listener on Button[#regHotelToggleClicked].onAction
 	@FXML
-	public void registerGuideNo(ActionEvent event) {
-		wantGuide=false;
+	public void regHotelToggleClicked(ActionEvent event) {
+		if(wantHotel==true) {
+			wantHotel = false;
+		}
+		if(wantHotel==false) {
+			wantHotel = true;
+		}
 	}
-	// Event Listener on Button[#registerHotelToggleY].onAction
+	// Event Listener on Button[#upGuideToggleClicked].onAction
 	@FXML
-	public void registerHotelYes(ActionEvent event) {
-		wantHotel=true;
+	public void upGuideToggleClicked(ActionEvent event) {
+		if(wantGuide==true) {
+			wantGuide = false;
+		}
+		if(wantGuide==false) {
+			wantGuide = true;
+		}
 	}
-	// Event Listener on Button[#registerHotelToggleN].onAction
+	// Event Listener on Button[#upHoteloggleClicked].onAction
 	@FXML
-	public void registerHotelNo(ActionEvent event) {
-		wantHotel=false;
+	public void upHotelToggleClicked(ActionEvent event) {
+		if(wantHotel==true) {
+			wantHotel = false;
+		}
+		if(wantHotel==false) {
+			wantHotel = true;
+		}
 	}
 	// Event Listener on Button[#updateSubmit].onAction
 	@FXML
@@ -347,7 +351,6 @@ public class memberRetryController {
 	    	updateEquipmentQuantity.setText("");
 	    	updateEquipmentChoice.setValue(null);
 	    	ClimbsafeFxmlView.getInstance().refresh();
-	    	ViewUtils.makePopupWindow("","Bundle deleted successfully");
 	    }
 	}
 	// Event Listener on Button[#updateBundleSubmit].onAction
@@ -369,26 +372,6 @@ public class memberRetryController {
 	    	updateBundleChoice.setValue(null);
 	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
-	}
-	// Event Listener on Button[#updateGuideToggleN].onAction
-	@FXML
-	public void updateGuideNo(ActionEvent event) {
-		wantGuide=false;
-	}
-	// Event Listener on Button[#updateGuideToggleY].onAction
-	@FXML
-	public void updateGuideYes(ActionEvent event) {
-		wantGuide=true;
-	}
-	// Event Listener on Button[#updateHotelToggleY].onAction
-	@FXML
-	public void updateHotelYes(ActionEvent event) {
-		wantHotel=true;
-	}
-	// Event Listener on Button[#updateHotelToggleN].onAction
-	@FXML
-	public void updateHotelNo(ActionEvent event) {
-		wantHotel=false;
 	}
 	// Event Listener on Button[#deleteSubmit].onAction
 	@FXML

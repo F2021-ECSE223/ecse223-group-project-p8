@@ -24,12 +24,13 @@ public class TOAssignment
   private String status;
   private String authorizationCode;
   private int refundedPercentageAmount;
+  private int prizeDiscount;
 
   //------------------------
   // CONSTRUCTOR
   //------------------------
 
-  public TOAssignment(String aMemberEmail, String aMemberName, String aGuideEmail, String aGuideName, String aHotelName, int aStartWeek, int aEndWeek, int aTotalCostForGuide, int aTotalCostForEquipment, String aStatus, String aAuthorizationCode, int aRefundedPercentageAmount)
+  public TOAssignment(String aMemberEmail, String aMemberName, String aGuideEmail, String aGuideName, String aHotelName, int aStartWeek, int aEndWeek, int aTotalCostForGuide, int aTotalCostForEquipment, String aStatus, String aAuthorizationCode, int aRefundedPercentageAmount, int aPrizeDiscount)
   {
     memberEmail = aMemberEmail;
     memberName = aMemberName;
@@ -43,6 +44,7 @@ public class TOAssignment
     status = aStatus;
     authorizationCode = aAuthorizationCode;
     refundedPercentageAmount = aRefundedPercentageAmount;
+    prizeDiscount = aPrizeDiscount;
   }
 
   //------------------------
@@ -145,6 +147,14 @@ public class TOAssignment
     return wasSet;
   }
 
+  public boolean setPrizeDiscount(int aPrizeDiscount)
+  {
+    boolean wasSet = false;
+    prizeDiscount = aPrizeDiscount;
+    wasSet = true;
+    return wasSet;
+  }
+
   public String getMemberEmail()
   {
     return memberEmail;
@@ -205,6 +215,11 @@ public class TOAssignment
     return refundedPercentageAmount;
   }
 
+  public int getPrizeDiscount()
+  {
+    return prizeDiscount;
+  }
+
   public void delete()
   {}
 
@@ -223,6 +238,7 @@ public class TOAssignment
             "totalCostForEquipment" + ":" + getTotalCostForEquipment()+ "," +
             "status" + ":" + getStatus()+ "," +
             "authorizationCode" + ":" + getAuthorizationCode()+ "," +
-            "refundedPercentageAmount" + ":" + getRefundedPercentageAmount()+ "]";
+            "refundedPercentageAmount" + ":" + getRefundedPercentageAmount()+ "," +
+            "prizeDiscount" + ":" + getPrizeDiscount()+ "]";
   }
 }

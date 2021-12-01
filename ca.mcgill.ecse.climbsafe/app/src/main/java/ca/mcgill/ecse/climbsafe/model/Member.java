@@ -15,6 +15,7 @@ public class Member extends NamedUser implements Serializable
   //------------------------
 
   //Member Attributes
+  private int prizeDiscount;
   private int nrWeeks;
   private boolean guideRequired;
   private boolean hotelRequired;
@@ -31,6 +32,7 @@ public class Member extends NamedUser implements Serializable
   public Member(String aEmail, String aPassword, String aName, String aEmergencyContact, int aNrWeeks, boolean aGuideRequired, boolean aHotelRequired, ClimbSafe aClimbSafe)
   {
     super(aEmail, aPassword, aName, aEmergencyContact);
+    prizeDiscount = 0;
     nrWeeks = aNrWeeks;
     guideRequired = aGuideRequired;
     hotelRequired = aHotelRequired;
@@ -45,6 +47,14 @@ public class Member extends NamedUser implements Serializable
   //------------------------
   // INTERFACE
   //------------------------
+
+  public boolean setPrizeDiscount(int aPrizeDiscount)
+  {
+    boolean wasSet = false;
+    prizeDiscount = aPrizeDiscount;
+    wasSet = true;
+    return wasSet;
+  }
 
   public boolean setNrWeeks(int aNrWeeks)
   {
@@ -68,6 +78,11 @@ public class Member extends NamedUser implements Serializable
     hotelRequired = aHotelRequired;
     wasSet = true;
     return wasSet;
+  }
+
+  public int getPrizeDiscount()
+  {
+    return prizeDiscount;
   }
 
   public int getNrWeeks()
@@ -285,6 +300,7 @@ public class Member extends NamedUser implements Serializable
   public String toString()
   {
     return super.toString() + "["+
+            "prizeDiscount" + ":" + getPrizeDiscount()+ "," +
             "nrWeeks" + ":" + getNrWeeks()+ "," +
             "guideRequired" + ":" + getGuideRequired()+ "," +
             "hotelRequired" + ":" + getHotelRequired()+ "]" + System.getProperties().getProperty("line.separator") +

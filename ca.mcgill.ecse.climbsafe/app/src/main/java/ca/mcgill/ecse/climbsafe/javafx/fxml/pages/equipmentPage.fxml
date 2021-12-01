@@ -28,7 +28,7 @@
                <content>
                   <Pane>
                      <children>
-                        <Pane layoutX="138.0" layoutY="97.0" prefHeight="306.0" prefWidth="539.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                        <Pane layoutX="131.0" layoutY="97.0" prefHeight="306.0" prefWidth="539.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
                               <GridPane layoutX="29.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="600.0">
                                 <columnConstraints>
@@ -42,19 +42,19 @@
                                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="Enter Equipment Name :" GridPane.halignment="CENTER">
+                                    <Label text="Enter Equipment Name" GridPane.halignment="CENTER">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="EquipmentNameTextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
-                                    <Label text="Enter Equipment Weight :" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    <Label text="Enter Equipment Weight" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="EquipmentWeightTextField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Label text="Enter Equipment Price :" textFill="#282828" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                    <Label text="Enter Equipment Price " textFill="#282828" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
@@ -69,9 +69,9 @@
                               </GridPane>
                            </children>
                         </Pane>
-                        <Pane layoutX="303.0" layoutY="36.0" prefHeight="44.0" prefWidth="195.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                        <Pane layoutX="303.0" layoutY="37.0" prefHeight="44.0" prefWidth="195.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Equipment">
+                              <Text layoutX="36.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Equipment">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -101,22 +101,22 @@
                                     <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Label text="Enter Equipment Name :" GridPane.halignment="CENTER">
+                                    <Label text="Enter Equipment Name " GridPane.halignment="CENTER">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Enter new name :" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                    <Label text="Enter new name" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Enter new weight :" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                    <Label text="Enter new weight" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label text="Enter new price :" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                    <Label text="Enter new price" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>
@@ -182,7 +182,7 @@
                                     <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Label prefHeight="18.0" prefWidth="150.0" text="Enter Equipment Name:" GridPane.halignment="CENTER">
+                                    <Label prefHeight="18.0" prefWidth="150.0" text="Enter Equipment Name" GridPane.halignment="CENTER">
                                        <font>
                                           <Font name="Comic Sans MS" size="12.0" />
                                        </font>

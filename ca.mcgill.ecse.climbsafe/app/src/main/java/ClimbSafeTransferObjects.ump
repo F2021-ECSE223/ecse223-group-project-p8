@@ -13,4 +13,5 @@ class TOAssignment {
   status;
   authorizationCode;
   Integer refundedPercentageAmount;
+  Integer prizeDiscount;
 }

@@ -238,9 +238,9 @@
                               </TextField>
                            </children>
                         </GridPane>
-                        <Pane layoutX="311.0" layoutY="13.0" prefHeight="44.0" prefWidth="173.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
+                        <Pane layoutX="314.0" layoutY="14.0" prefHeight="44.0" prefWidth="173.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Guide">
+                              <Text layoutX="35.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Delete Guide" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -257,7 +257,7 @@
                      <children>
                         <Pane layoutX="311.0" layoutY="14.0" prefHeight="44.0" prefWidth="168.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-border-color: white; -fx-background-radius: 20;">
                            <children>
-                              <Text layoutX="35.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Guide">
+                              <Text layoutX="39.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Guide" textAlignment="CENTER">
                                  <font>
                                     <Font size="18.0" />
                                  </font>

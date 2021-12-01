@@ -23,7 +23,7 @@
       </ImageView>
       <Pane layoutX="228.0" layoutY="16.0" prefHeight="52.0" prefWidth="378.0" style="-fx-background-color: rgb(250,250,250,0.8); -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: white;">
          <children>
-            <Text layoutX="25.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Assignments &amp; Manage Trips">
+            <Text layoutX="13.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View Assignments &amp; Manage Trips" textAlignment="CENTER">
                <font>
                   <Font size="23.0" />
                </font>
@@ -91,7 +91,7 @@
             </Button>
             <Button fx:id="CancelButton" alignment="CENTER" mnemonicParsing="false" onAction="#cancelClicked" prefHeight="26.0" prefWidth="84.0" text="Cancel Trip" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets bottom="40.0" right="20.0" top="10.0" />
+                  <Insets bottom="40.0" left="10.0" right="20.0" top="10.0" />
                </GridPane.margin>
                <font>
                   <Font name="Comic Sans MS" size="12.0" />
