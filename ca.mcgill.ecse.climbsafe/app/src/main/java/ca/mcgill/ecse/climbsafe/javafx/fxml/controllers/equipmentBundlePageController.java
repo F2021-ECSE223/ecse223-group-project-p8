@@ -19,11 +19,6 @@ import ca.mcgill.ecse.climbsafe.controller.InvalidInputException;
 import ca.mcgill.ecse.climbsafe.controller.TOAssignment;
 import ca.mcgill.ecse.climbsafe.controller.Utility;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
-import ca.mcgill.ecse.climbsafe.model.BookedItem;
-import ca.mcgill.ecse.climbsafe.model.BundleItem;
-import ca.mcgill.ecse.climbsafe.model.ClimbSafe;
-import ca.mcgill.ecse.climbsafe.model.Equipment;
-import ca.mcgill.ecse.climbsafe.model.EquipmentBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -39,8 +34,8 @@ import javafx.scene.control.TableColumn;
 public class equipmentBundlePageController {
 
 	// Storing Items
-	ObservableList<Equipment> equipmentsCB = FXCollections.observableArrayList();
-	ObservableList<Equipment> equipmentsEB = FXCollections.observableArrayList();
+	ObservableList<String> equipmentsCB = FXCollections.observableArrayList();
+	ObservableList<String> equipmentsEB = FXCollections.observableArrayList();
 	ArrayList<String> equipmentNamesCB = new ArrayList<String>();
 	ArrayList<String> equipmentNamesEB = new ArrayList<String>();
 	ArrayList<Integer> equipmentQuantitiesCB = new ArrayList<Integer>();
@@ -49,17 +44,17 @@ public class equipmentBundlePageController {
 	@FXML
 	private TextField bundleNameInput;
 	@FXML
-	private TableView<Equipment> bundleItemsTable;
+	private TableView<String> bundleItemsTable;
 	@FXML
-	private TableView<Equipment> bundleNewItemsTable;
+	private TableView<String> bundleNewItemsTable;
 	@FXML
-	private TableColumn<Equipment, String> bundleEquipmentCB;
+	private TableColumn<String, String> bundleEquipmentCB;
 	@FXML
-	private TableColumn<Equipment, Double> costCB;
+	private TableColumn<String, Double> costCB;
 	@FXML
-	private TableColumn<Equipment, Double> weightCB;
+	private TableColumn<String, Double> weightCB;
 	@FXML
-	private TableColumn<Equipment, Integer> quantityCB;
+	private TableColumn<String, Integer> quantityCB;
 	@FXML
 	private ChoiceBox<String> equipmentMenuCB;
 	@FXML
@@ -75,13 +70,13 @@ public class equipmentBundlePageController {
 	@FXML
 	private TextField newBundleNameInput;
 	@FXML
-	private TableColumn<Equipment, String> bundleEquipmentEB;
+	private TableColumn<String, String> bundleEquipmentEB;
 	@FXML
-	private TableColumn<Equipment, Double> costEB;
+	private TableColumn<String, Double> costEB;
 	@FXML
-	private TableColumn<Equipment, Double> weightEB;
+	private TableColumn<String, Double> weightEB;
 	@FXML
-	private TableColumn<Equipment, Integer> QuantityEB;
+	private TableColumn<String, Integer> QuantityEB;
 	@FXML
 	private TextField equipmentQuantityInputEB;
 	@FXML
@@ -125,18 +120,18 @@ public class equipmentBundlePageController {
 		ClimbsafeFxmlView.getInstance().registerRefreshEvent(equipmentMenuCB, selectBundleMenu, equipmentMenuEB);
 
 		// initialize bundleItemsTable
-		bundleEquipmentCB.setCellValueFactory(new PropertyValueFactory<Equipment, String>("name"));
-		costCB.setCellValueFactory(new PropertyValueFactory<Equipment, Double>("pricePerWeek"));
-		weightCB.setCellValueFactory(new PropertyValueFactory<Equipment, Double>("weight"));
+		bundleEquipmentCB.setCellValueFactory(new PropertyValueFactory<String, String>("name"));
+		costCB.setCellValueFactory(new PropertyValueFactory<String, Double>("pricePerWeek"));
+		weightCB.setCellValueFactory(new PropertyValueFactory<String, Double>("weight"));
 
 		bundleItemsTable.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> bundleItemsTable.setItems(equipmentsCB));
 
 		ClimbsafeFxmlView.getInstance().registerRefreshEvent(bundleItemsTable);
 		
 		//initialize bundleNewItemsTable
-		bundleEquipmentEB.setCellValueFactory(new PropertyValueFactory<Equipment, String>("name"));
-		costEB.setCellValueFactory(new PropertyValueFactory<Equipment, Double>("pricePerWeek"));
-		weightEB.setCellValueFactory(new PropertyValueFactory<Equipment, Double>("weight"));
+		bundleEquipmentEB.setCellValueFactory(new PropertyValueFactory<String, String>("name"));
+		costEB.setCellValueFactory(new PropertyValueFactory<String, Double>("pricePerWeek"));
+		weightEB.setCellValueFactory(new PropertyValueFactory<String, Double>("weight"));
 
 		bundleNewItemsTable.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> bundleNewItemsTable.setItems(equipmentsEB));
 

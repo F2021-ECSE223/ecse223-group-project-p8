@@ -666,11 +666,11 @@ public class Utility {
 			  return findGuideInSystem(email).getEmergencyContact();
 		  }
 		  
-		  public static Equipment getEquipmentFromName(String equipmentName) {
+		  public static String getEquipmentFromName(String equipmentName) {
 				List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
 				for (Equipment e : equipment) {
 					if (e.getName() == equipmentName) {
-						return e;
+						return e.getName();
 					}
 				}
 				return null;

@@ -77,7 +77,6 @@ public void updateEquipmentClicked(ActionEvent event) {
           oldEquipmentNameTextField.setText("");
           newEquipmentNameTextField.setText("");
           newEquipmentWeightTextField.setText("");
-          //test
           newEquipmentPriceTextField.setText("");
           ClimbsafeFxmlView.getInstance().refresh();
           ViewUtils.makePopupWindow("","Equipment updated succesfully");
