@@ -10,10 +10,6 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller;
 import ca.mcgill.ecse.climbsafe.controller.InvalidInputException;
 import ca.mcgill.ecse.climbsafe.controller.TOAssignment;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
-import ca.mcgill.ecse.climbsafe.controller.AssignmentController;
-import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller;
-import ca.mcgill.ecse.climbsafe.controller.TOAssignment;
-import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import static ca.mcgill.ecse.climbsafe.javafx.fxml.controllers.ViewUtils.successful;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -22,8 +18,6 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -97,6 +91,7 @@ public class viewAssignmentPageController {
 			int startWeek = Integer.parseInt(this.weekTextField.getText());
 			if(successful(() -> AssignmentController.startTrips(startWeek))) {
 				this.weekTextField.setText("");
+				ClimbsafeFxmlView.getInstance().refresh();
 			}
 			
 		}catch(RuntimeException e) {
@@ -150,6 +145,7 @@ public class viewAssignmentPageController {
 		try {
 			if(successful(() -> AssignmentController.payTrip(memberEmail,authorizationCode))) {
 				this.emailTextField.setText("");
+				this.codeTextField.setText("");
 			}
 		}catch(RuntimeException e) {
 			error += e.getMessage();

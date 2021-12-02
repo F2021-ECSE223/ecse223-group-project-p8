@@ -11,10 +11,6 @@ import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet2Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
 import ca.mcgill.ecse.climbsafe.controller.Utility;
-import javafx.fxml.FXML;
-import java.lang.*;
-import java.sql.Date;
-
 import javafx.scene.control.Button;
 
 import javafx.scene.control.TextField;
