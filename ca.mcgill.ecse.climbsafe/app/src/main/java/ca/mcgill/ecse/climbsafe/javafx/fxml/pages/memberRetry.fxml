@@ -685,7 +685,7 @@
                                                 <Font name="Comic Sans MS" size="12.0" />
                                              </font>
                                           </Label>
-                                          <Label fx:id="toRefund1" prefHeight="17.0" prefWidth="119.0" text="--" GridPane.columnIndex="1" />
+                                          <Label fx:id="toRefund" prefHeight="17.0" prefWidth="119.0" text="--" GridPane.columnIndex="1" />
                                        </children>
                                     </GridPane>
                                  </children>
