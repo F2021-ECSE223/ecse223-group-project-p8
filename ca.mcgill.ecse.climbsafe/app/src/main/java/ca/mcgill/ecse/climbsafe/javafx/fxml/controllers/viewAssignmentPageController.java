@@ -55,8 +55,8 @@ public class viewAssignmentPageController {
 	
 	@FXML
 	  public void initialize() {
-		TableColumn member = new TableColumn("Member");
-		TableColumn guide = new TableColumn("Guide");
+		TableColumn member = new TableColumn("Member Email");
+		TableColumn guide = new TableColumn("Guide Email");
 		TableColumn fWeek = new TableColumn("From Week");
 		TableColumn tWeek = new TableColumn("To Week"); 
 		TableColumn status = new TableColumn("Status"); 
@@ -69,8 +69,8 @@ public class viewAssignmentPageController {
 		overviewTable.getColumns().addAll(member, guide, fWeek, tWeek, status, authCode, refund, guideCost, totalCost, prizeDiscount);
 		data = getAss();
 			   
-		member.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("memberName"));
-		guide.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("guideName"));
+		member.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("memberEmail"));
+		guide.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("guideEmail"));
 		fWeek.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("startWeek"));
 		tWeek.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("endWeek"));
 		status.setCellValueFactory(new PropertyValueFactory<TOAssignment,String>("status"));
