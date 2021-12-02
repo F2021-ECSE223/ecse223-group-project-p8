@@ -10,6 +10,7 @@ import java.util.List;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet2Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
+import ca.mcgill.ecse.climbsafe.controller.Utility;
 import javafx.fxml.FXML;
 import java.lang.*;
 import java.sql.Date;
@@ -136,32 +137,32 @@ public class memberRetryController {
 	@FXML
 	public void initialize() {
         registerBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-          registerBundleChoice.setItems(ViewUtils.getBundles());
+          registerBundleChoice.setItems(Utility.getBundles());
           registerBundleChoice.setValue(null);
         });
         
         registerEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-        	registerEquipmentChoice.setItems(ViewUtils.getEquipment());
+        	registerEquipmentChoice.setItems(Utility.getEquipment());
         	registerEquipmentChoice.setValue(null);
           });
         
         registerWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-        	registerWeeks.setItems(ViewUtils.getWeeks());
+        	registerWeeks.setItems(Utility.getWeeks());
         	registerWeeks.setValue(1);
           });
         
         updateBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-        	updateBundleChoice.setItems(ViewUtils.getBundles());
+        	updateBundleChoice.setItems(Utility.getBundles());
         	updateBundleChoice.setValue(null);
           });
           
         updateEquipmentChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-        	updateEquipmentChoice.setItems(ViewUtils.getEquipment());
+        	updateEquipmentChoice.setItems(Utility.getEquipment());
         	updateEquipmentChoice.setValue(null);
             });
           
         updateWeeks.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-        	updateWeeks.setItems(ViewUtils.getWeeks());
+        	updateWeeks.setItems(Utility.getWeeks());
         	updateWeeks.setValue(1);
             });
         
@@ -413,7 +414,7 @@ public class memberRetryController {
 	      ViewUtils.showError("Please input a valid email");
 	    }
 	    
-	    if (!ViewUtils.memberInSystem(email)) ViewUtils.showError("Member does not exist in system");
+	    if (!Utility.memberInSystem(email)) ViewUtils.showError("Member does not exist in system");
 	    
 	    else {
 	    	  try {				 
@@ -437,22 +438,22 @@ public class memberRetryController {
 			      ViewUtils.showError("Please input a valid email");
 			    }
 			else {
-				if(ViewUtils.findMemberEmail(email)!=null) {
-					findName.setText(ViewUtils.getMemberName(email));
-					findPassword.setText(ViewUtils.getMemberPassword(email));
-					findContact.setText(ViewUtils.getMemberContact(email));
-					findWeek.setText(Integer.toString(ViewUtils.getMemberWeek(email)));
-					findHotel.setText(String.valueOf(ViewUtils.getMemberHotel(email)));
-					findItems.setText(ViewUtils.getMemberItems(email));
-					findGuide.setText(String.valueOf(ViewUtils.getMemberGuide(email)));
+				if(Utility.findMemberEmail(email)!=null) {
+					findName.setText(Utility.getMemberName(email));
+					findPassword.setText(Utility.getMemberPassword(email));
+					findContact.setText(Utility.getMemberContact(email));
+					findWeek.setText(Integer.toString(Utility.getMemberWeek(email)));
+					findHotel.setText(String.valueOf(Utility.getMemberHotel(email)));
+					findItems.setText(Utility.getMemberItems(email));
+					findGuide.setText(String.valueOf(Utility.getMemberGuide(email)));
 					//toStatus toGuide toInterval toEquCost toGuideCost toCode toRefund
-					toGuide.setText(ViewUtils.getMemberAssigmentGuide(email));
-					toStatus.setText(ViewUtils.getMemberAssigmentStatus(email));
-					toInterval.setText(ViewUtils.getMemberAssigmentWeeks(email));
-					toEquCost.setText(ViewUtils.getMemberAssigmentEquipmentCost(email));
-					toGuideCost.setText(ViewUtils.getMemberAssigmentGuideCost(email));
-					toCode.setText(ViewUtils.getMemberAssigmentACode(email));
-					toRefund.setText(ViewUtils.getMemberAssigmentRefund(email));
+					toGuide.setText(Utility.getMemberAssigmentGuide(email));
+					toStatus.setText(Utility.getMemberAssigmentStatus(email));
+					toInterval.setText(Utility.getMemberAssigmentWeeks(email));
+					toEquCost.setText(Utility.getMemberAssigmentEquipmentCost(email));
+					toGuideCost.setText(Utility.getMemberAssigmentGuideCost(email));
+					toCode.setText(Utility.getMemberAssigmentACode(email));
+					toRefund.setText(Utility.getMemberAssigmentRefund(email));
 					
 					ClimbsafeFxmlView.getInstance().refresh();
 				}

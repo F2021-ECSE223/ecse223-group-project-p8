@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import ca.mcgill.ecse.climbsafe.controller.Utility;
 
 	
 
@@ -52,7 +53,7 @@ public class AwardsController {
     			ViewUtils.showError("Please select a member first!");
     		} 
 
-    		else if (ViewUtils.findMemberEmail(email).getPrizeDiscount() != 0){
+    		else if (Utility.findMemberEmail(email).getPrizeDiscount() != 0){
     			ViewUtils.showError("Already spun for this member!");
     			
     			
@@ -60,7 +61,7 @@ public class AwardsController {
     			ViewUtils.showError("Please spin first!");
     		}else {
     			
-    			ViewUtils.findMemberEmail(email).setPrizeDiscount(Integer.parseInt(spinNum.getText()));
+    			Utility.findMemberEmail(email).setPrizeDiscount(Integer.parseInt(spinNum.getText()));
     			foundmember = false;
     			ViewUtils.makePopupWindow("","Prize Discount has been applied");
     		}
@@ -87,10 +88,10 @@ public class AwardsController {
 		      ViewUtils.showError("Please input a valid email");
 		}
 		else {
-			if(ViewUtils.findMemberEmail(email)!=null) {
-				if (ViewUtils.findMemberEmail(email).getPrizeDiscount() == 0) {
+			if(Utility.findMemberEmail(email)!=null) {
+				if (Utility.findMemberEmail(email).getPrizeDiscount() == 0) {
 					foundmember = true;
-					memberName.setText(ViewUtils.getMemberName(email));
+					memberName.setText(Utility.getMemberName(email));
 					ClimbsafeFxmlView.getInstance().refresh();
 				} else {
 					memberName.setText("Already spun!");	

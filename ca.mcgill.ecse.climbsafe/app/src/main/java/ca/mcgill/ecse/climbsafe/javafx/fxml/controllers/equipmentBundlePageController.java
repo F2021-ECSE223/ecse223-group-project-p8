@@ -106,19 +106,19 @@ public class equipmentBundlePageController {
 
 		// initializeEquipmentMenuCB
 		equipmentMenuCB.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-			equipmentMenuCB.setItems(ViewUtils.getEquipment());
+			equipmentMenuCB.setItems(Utility.getEquipment());
 			equipmentMenuCB.setValue(null);
 		});
 
 		// initializeSelectBundleMenu
 		selectBundleMenu.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-			selectBundleMenu.setItems(ViewUtils.getBundles());
+			selectBundleMenu.setItems(Utility.getBundles());
 			selectBundleMenu.setValue(null);
 		});
 
 		// initializeEquipmentMenuEB
 		equipmentMenuEB.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
-			equipmentMenuEB.setItems(ViewUtils.getEquipment());
+			equipmentMenuEB.setItems(Utility.getEquipment());
 			equipmentMenuEB.setValue(null);
 		});
 
@@ -190,7 +190,7 @@ public class equipmentBundlePageController {
 				if (quantity == 0) {
 					ViewUtils.showError("Please input a valid quantity");
 				} else {
-					equipmentsCB.add(ViewUtils.getEquipmentFromName(equipmentName));
+					equipmentsCB.add(Utility.getEquipmentFromName(equipmentName));
 					equipmentNamesCB.add(equipmentName);
 					equipmentQuantitiesCB.add(quantity);
 					equipmentMenuCB.setValue(null);
@@ -241,7 +241,7 @@ public class equipmentBundlePageController {
 		} else {
 			try {
 				int quantity = Integer.parseInt(this.equipmentQuantityInputEB.getText());
-				equipmentsEB.add(ViewUtils.getEquipmentFromName(equipmentName));
+				equipmentsEB.add(Utility.getEquipmentFromName(equipmentName));
 				equipmentNamesEB.add(equipmentName);
 				equipmentQuantitiesEB.add(quantity);
 				equipmentMenuEB.setValue(null);

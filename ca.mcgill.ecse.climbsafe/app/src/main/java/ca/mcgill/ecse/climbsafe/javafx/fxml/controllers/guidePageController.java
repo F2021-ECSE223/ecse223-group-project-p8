@@ -1,6 +1,7 @@
 package ca.mcgill.ecse.climbsafe.javafx.fxml.controllers;
 
 import javafx.fxml.FXML;
+import ca.mcgill.ecse.climbsafe.controller.Utility;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,8 +23,7 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet3Controller;
 import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet6Controller;
 import ca.mcgill.ecse.climbsafe.controller.TOAssignment;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
-import ca.mcgill.ecse.climbsafe.model.Assignment;
-import ca.mcgill.ecse.climbsafe.model.Guide;
+
 
 public class guidePageController {
 	@FXML
@@ -141,7 +141,7 @@ public class guidePageController {
 				ViewUtils.showError(contactError);
 			}
 			
-			else if(ViewUtils.findGuideInSystem(sameEmailOfGuide) == null) {
+			else if(Utility.findGuideInSystem(sameEmailOfGuide) == null) {
 				String inexistantGuideError="Guide does not exist in the system";
 				ViewUtils.showError(inexistantGuideError);
 			}
@@ -174,7 +174,7 @@ public class guidePageController {
 	      ViewUtils.showError("Please input a valid email");
 	    }
 	    
-	    else if (!ViewUtils.guideInSystem(emailtoDelete)) ViewUtils.showError("Guide does not exist in system");
+	    else if (!Utility.guideInSystem(emailtoDelete)) ViewUtils.showError("Guide does not exist in system");
 	    
 	    else {
 	    	  try {				 
@@ -200,16 +200,16 @@ public class guidePageController {
 				ViewUtils.showError(error);
 			}
 			
-			else if(ViewUtils.findGuideInSystem(email) == null) {
+			else if(Utility.findGuideInSystem(email) == null) {
 				String error="Guide does not exist in the system";
 				ViewUtils.showError(error);
 			}
 			
 			else {
-				if(ViewUtils.findGuideInSystem(email) != null) {
-					viewGuideName.setText(ViewUtils.getGuideName(email));
-					viewGuidePassword.setText(ViewUtils.getGuidePassword(email));
-					viewGuideContact.setText(ViewUtils.getGuideContact(email));
+				if(Utility.findGuideInSystem(email) != null) {
+					viewGuideName.setText(Utility.getGuideName(email));
+					viewGuidePassword.setText(Utility.getGuidePassword(email));
+					viewGuideContact.setText(Utility.getGuideContact(email));
 					
 					List<TOAssignment> guidesAss = ClimbSafeFeatureSet6Controller.getAssignments();
 					assignments = FXCollections.observableArrayList();
