@@ -191,16 +191,11 @@ public class AssignmentController {
     	}
     	
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
-        for (Assignment a: assignmentInSystem) {
+        for (Assignment a : assignmentInSystem) {
             if (weekNr == a.getStartWeek()) {
                 var error = "";
                 try {
-
-                    a.startTrip();
-                    error = a.getError();
-                    if (error != null) {
-                        throw new InvalidInputException(error);
-                    }
+                	a.startTrip();
                     ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                     error = e.getMessage();

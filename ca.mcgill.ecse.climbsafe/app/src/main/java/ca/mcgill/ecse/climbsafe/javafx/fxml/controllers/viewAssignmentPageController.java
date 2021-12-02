@@ -91,9 +91,8 @@ public class viewAssignmentPageController {
 			int startWeek = Integer.parseInt(this.weekTextField.getText());
 			if(successful(() -> AssignmentController.startTrips(startWeek))) {
 				this.weekTextField.setText("");
-				ClimbsafeFxmlView.getInstance().refresh();
 			}
-			
+			ClimbsafeFxmlView.getInstance().refresh();
 		}catch(RuntimeException e) {
 			error += e.getMessage();
 		}
