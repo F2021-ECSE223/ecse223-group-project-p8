@@ -666,26 +666,36 @@ public class Utility {
 			  return findGuideInSystem(email).getEmergencyContact();
 		  }
 		  
-		  public static String getEquipmentFromName(String equipmentName) {
+		  public static TOEquipment getEquipmentFromName(String equipmentName) {
 				List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
 				for (Equipment e : equipment) {
 					if (e.getName() == equipmentName) {
-						return e.getName();
+						return new TOEquipment(e.getName(), e.getWeight(), e.getPricePerWeek());
 					}
 				}
 				return null;
 			}
 
-			
-			/**
-			 * 
-			 * @param email
-			 * @return
-			 */
 			public static Guide findGuideInSystem(String email) {
 				return Utility.findGuide(email);
 			}
-
-
+			
+			//TOEquipment
+			public static TOEquipment getEquipmentTO(String equipmentName) {
+				Equipment equipment=findEquipment(equipmentName);
+				TOEquipment transfer=null;
+				//if (equipment==null) return transfer;
+				//else {
+					int price= equipment.getPricePerWeek();
+					int weight=equipment.getWeight();
+					String name=equipment.getName();
+					transfer = new TOEquipment(name, weight, price);
+					return transfer;
+					
+				//}
+				
+				
+			}
+			
 
 }
