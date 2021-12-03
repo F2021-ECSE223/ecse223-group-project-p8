@@ -415,7 +415,7 @@ public class Utility {
 	/**
 	 * gets an equipment by name in an instance of ClimbSafe
 	 * 
-	 * @author Ke Yan
+	 * @author Maya Aji
 	 * @param climbSafe instance of system
 	 * @param equipment name of the equipment to search for
 	 * @return the equipment if it is exists in climbSafe, otherwise null
@@ -643,6 +643,15 @@ public class Utility {
 		return Utility.findMember(email).getName();
 	}
 
+	////////////////////////////////////////////////////////
+	
+	/**
+	 * get a member's respective TOAssignment instance
+	 * 
+	 * @author Mihail Calitoiu
+	 * @param email	member email address
+	 * @return TOAssignment member's respective TOAssignment instance
+	 */
 	public static TOAssignment getTOAssignmentMemberEmail(String email) {
 		List<TOAssignment> ass = ClimbSafeFeatureSet6Controller.getAssignments();
 
@@ -653,6 +662,13 @@ public class Utility {
 		return null;
 	}
 
+	/**
+	 * get a member's assignment guide
+	 * 
+	 * @author Mihail Calitoiu
+	 * @param email	member email address
+	 * @return String member's assignment guide in parenthesis
+	 */
 	public static String getMemberAssigmentGuide(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -665,6 +681,13 @@ public class Utility {
 		return output;
 	}
 
+	/**
+	 * get a member's assignment weeks
+	 * 
+	 * @author Mihail Calitoiu
+	 * @param email	member email address
+	 * @return String member's assignment weeks
+	 */
 	public static String getMemberAssigmentWeeks(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -676,6 +699,13 @@ public class Utility {
 		return output;
 	}
 
+	/**
+	 * get a member's assignment guide cost
+	 * 
+	 * @author Mihail Calitoiu
+	 * @param email	member email address
+	 * @return String member's assignment guide cost
+	 */
 	public static String getMemberAssigmentGuideCost(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -686,6 +716,13 @@ public class Utility {
 		return output;
 	}
 
+	/**
+	 * get a member's equipment cost in assignment
+	 * 
+	 * @author Mihail Calitoiu
+	 * @param email	member email address
+	 * @return String member's equipment cost
+	 */
 	public static String getMemberAssigmentEquipmentCost(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -696,6 +733,13 @@ public class Utility {
 		return output;
 	}
 
+	/**
+	 * get a member's assignment status
+	 * 
+	 * @author Mihail Calitoiu
+	 * @param email	member email address
+	 * @return String member's assignment status
+	 */
 	public static String getMemberAssigmentStatus(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -705,6 +749,15 @@ public class Utility {
 		return output;
 	}
 
+	////// JAVADOC TO EDIT
+	
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static String getMemberAssigmentACode(String email) {
 		String output = "";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -714,6 +767,13 @@ public class Utility {
 		return output;
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static String getMemberAssigmentRefund(String email) {
 		String output = "%";
 		TOAssignment ass = getTOAssignmentMemberEmail(email);
@@ -723,7 +783,13 @@ public class Utility {
 		return output;
 	}
 
-	// added for member, pls don't touch!-ke
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static ObservableList<String> getBundles() {
 		List<EquipmentBundle> bundles = ClimbSafeApplication.getClimbSafe().getBundles();
 		ObservableList<String> names = FXCollections.observableArrayList();
@@ -733,6 +799,13 @@ public class Utility {
 		return names;
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static ObservableList<String> getEquipment() {
 		List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
 		ObservableList<String> names = FXCollections.observableArrayList();
@@ -742,6 +815,13 @@ public class Utility {
 		return names;
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static ObservableList<Integer> getWeeks() {
 		int length = ClimbSafeApplication.getClimbSafe().getNrWeeks();
 		ObservableList<Integer> weeks = FXCollections.observableArrayList();
@@ -751,18 +831,46 @@ public class Utility {
 		return weeks;
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static String getGuideName(String email) {
 		return findGuideInSystem(email).getName();
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static String getGuidePassword(String email) {
 		return findGuideInSystem(email).getPassword();
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static String getGuideContact(String email) {
 		return findGuideInSystem(email).getEmergencyContact();
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static TOEquipment getEquipmentFromName(String equipmentName) {
 		List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
 		for (Equipment e : equipment) {
@@ -773,11 +881,25 @@ public class Utility {
 		return null;
 	}
 
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static Guide findGuideInSystem(String email) {
 		return Utility.findGuide(email);
 	}
 
 	// TOEquipment
+	/**
+	 * get a member's name from its email
+	 * 
+	 * @author Ke Yan
+	 * @param email	member email address
+	 * @return String member's name
+	 */
 	public static TOEquipment getEquipmentTO(String equipmentName) {
 		Equipment equipment = findEquipment(equipmentName);
 		TOEquipment transfer = null;
@@ -788,7 +910,6 @@ public class Utility {
 		String name = equipment.getName();
 		transfer = new TOEquipment(name, weight, price);
 		return transfer;
-
 		// }
 
 	}
