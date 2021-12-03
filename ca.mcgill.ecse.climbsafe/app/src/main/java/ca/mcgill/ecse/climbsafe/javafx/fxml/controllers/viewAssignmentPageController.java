@@ -46,7 +46,11 @@ public class viewAssignmentPageController {
 	@FXML
 	private Button initiateButton1;
 	ObservableList<TOAssignment> data;
-	
+	/**
+	 * controller for initializing the fxml page
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	@FXML
 	  public void initialize() {
 		TableColumn member = new TableColumn("Member Email");
@@ -82,7 +86,11 @@ public class viewAssignmentPageController {
         // register refreshable nodes
         ClimbsafeFxmlView.getInstance().registerRefreshEvent(overviewTable);
 	}
-	
+	/**
+	 * method called when start button is clicked and starts the trips
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	// Event Listener on Button[#startButton].onAction
 	@FXML
 	public void startClicked(ActionEvent event) {
@@ -97,6 +105,11 @@ public class viewAssignmentPageController {
 		}
 		ClimbsafeFxmlView.getInstance().refresh();
 	}
+	/**
+	 * method called when finish button is clicked and finishes respective trips
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	// Event Listener on Button[#finishButton].onAction
 	@FXML
 	public void finishClicked(ActionEvent event) {
@@ -113,6 +126,11 @@ public class viewAssignmentPageController {
 			error += e.getMessage();
 		}
 	}
+	/**
+	 * method called when cancel button is clicked and cancels the respective trips
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	// Event Listener on Button[#CancelButton].onAction
 	@FXML
 	public void cancelClicked(ActionEvent event) {
@@ -129,6 +147,11 @@ public class viewAssignmentPageController {
 			error += e.getMessage();
 		}
 	}
+	/**
+	 * method called when pay button is clicked and pays respective trips
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	// Event Listener on Button[#payButton].onAction
 	@FXML
 	public void payClicked(ActionEvent event) {
@@ -150,6 +173,11 @@ public class viewAssignmentPageController {
 			error += e.getMessage();
 		}
 	}
+	/**
+	 * method called when refreshes button is clicked and refreshes the view assignment table
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	// Event Listener on Button[#initiateButton].onAction
 	@FXML
 	public void initiateClicked(ActionEvent event) {
@@ -157,7 +185,11 @@ public class viewAssignmentPageController {
 		ClimbsafeFxmlView.getInstance().refresh();
 		
 	}
-	
+	/**
+	 * method called when initiate trips button is clicked and initiates respective trips
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
 	@FXML
 	public void initiateClicked1(ActionEvent event) {
 		try {
@@ -169,7 +201,10 @@ public class viewAssignmentPageController {
 		ClimbsafeFxmlView.getInstance().refresh();
 		
 	}
-	
+	/**
+	 * gets the assignments and returns an array of ToAssignment in ObservableList format
+	 * @author Mihail Calitoiu
+	 */
 	ObservableList<TOAssignment> getAss(){
 		
 		ObservableList<TOAssignment> assignment = FXCollections.observableArrayList();
@@ -183,7 +218,5 @@ public class viewAssignmentPageController {
 		return assignment;
 	
 	}
-
-	
 
 }
