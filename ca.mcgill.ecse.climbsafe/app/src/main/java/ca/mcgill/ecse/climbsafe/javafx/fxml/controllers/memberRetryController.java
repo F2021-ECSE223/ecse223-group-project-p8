@@ -137,6 +137,11 @@ public class memberRetryController {
 	 */
 	
 	
+	/**
+	 * set-up choice boxes
+	 * @author Ke Yan
+	 * @param event
+	 */
 	@FXML
 	public void initialize() {
         registerBundleChoice.addEventHandler(ClimbsafeFxmlView.REFRESH_EVENT, e -> {
@@ -176,6 +181,11 @@ public class memberRetryController {
       }
 	
 	
+	/**
+	 * register member with input email with inputed information
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#RegisterSubmit].onAction
 	@FXML
 	public void RegisterMemberRegisterSubmit(ActionEvent event) {
@@ -231,6 +241,12 @@ public class memberRetryController {
 			
 		}
 	}
+	
+	/**
+	 * Add input equipment to member's BookableItem list
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#registerEquipmentSubmit].onAction
 	@FXML
 	public void RegisterMemberEquipmentSubmit(ActionEvent event) {
@@ -251,6 +267,12 @@ public class memberRetryController {
 	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
+	
+	/**
+	 * Add input bundle to member's BookableItem list
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#registerBundleSubmit].onAction
 	@FXML
 	public void RegisterMemberBundleSubmit(ActionEvent event) {
@@ -271,6 +293,12 @@ public class memberRetryController {
 	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
+	
+	/**
+	 * set guide to true
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#regGuideToggleClicked].onAction
 	@FXML
 	public void regGuideYToggleClicked(ActionEvent event) {
@@ -278,48 +306,97 @@ public class memberRetryController {
 		wantGuide = true;
 		
 	}
+	
+	
+	/**
+	 * set hotel to true
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#regHotelToggleClicked].onAction
 	@FXML
 	public void regHotelYToggleClicked(ActionEvent event) {
 		this.regHotelNToggleButton.setSelected(false);
 		wantHotel = true;
 	}
+	
+	/**
+	 * set guide to false
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#regGuideToggleClicked].onAction
 	@FXML
 	public void regGuideNToggleClicked(ActionEvent event) {
 		this.regGuideYToggleButton.setSelected(false);
 		wantGuide = false;
 	}
+	
+	/**
+	 * set hotel to false
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#regHotelToggleClicked].onAction
 	@FXML
 	public void regHotelNToggleClicked(ActionEvent event) {
 		this.regHotelYToggleButton.setSelected(false);
 		wantHotel = false;
 	}
+	
+	/**
+	 * set guide to true
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#upGuideToggleClicked].onAction
 	@FXML
 	public void upGuideYToggleClicked(ActionEvent event) {
 		this.upGuideNToggleButton.setSelected(false);
 		wantGuide = true;
 	}
+	
+	/**
+	 * set hotel to true
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#upHoteloggleClicked].onAction
 	@FXML
 	public void upHotelYToggleClicked(ActionEvent event) {
 		this.upHotelNToggleButton.setSelected(false);
 		wantHotel = true;
 	}
+	
+	/**
+	 * set guide to false
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#upGuideToggleClicked].onAction
 	@FXML
 	public void upGuideNToggleClicked(ActionEvent event) {
 		this.upGuideYToggleButton.setSelected(false);
 		wantGuide = false;
 	}
+	
+	/**
+	 * set hotel to false
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#upHoteloggleClicked].onAction
 	@FXML
 	public void upHotelNToggleClicked(ActionEvent event) {
 		this.upGuideYToggleButton.setSelected(false);
 		wantHotel = false;
 	}
+	
+	/**
+	 * update member with input email with new information from input boxes
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#updateSubmit].onAction
 	@FXML
 	public void updateMemberSubmit(ActionEvent event) {
@@ -369,6 +446,12 @@ public class memberRetryController {
 			
 		}
 	}
+	
+	/**
+	 * Add input bundle to member's updated BookableItem list
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#updateEquipmentSubmit].onAction
 	@FXML
 	public void UpdateMemberEquipmentSubmit(ActionEvent event) {
@@ -389,6 +472,12 @@ public class memberRetryController {
 	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
+	
+	/**
+	 * Add input bundle to member's updated BookableItem list
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#updateBundleSubmit].onAction
 	@FXML
 	public void UpdateMemberBundleSubmit(ActionEvent event) {
@@ -409,6 +498,12 @@ public class memberRetryController {
 	    	ClimbsafeFxmlView.getInstance().refresh();
 	    }
 	}
+	
+	/**
+	 * delete member with input email
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#deleteSubmit].onAction
 	@FXML
 	public void deleteSubmit(ActionEvent event) {
@@ -433,6 +528,11 @@ public class memberRetryController {
 	      }
 	}
 	
+	/**
+	 * search for member with input email
+	 * @author Ke Yan
+	 * @param event
+	 */
 	// Event Listener on Button[#StartSearch].onAction
 		@FXML
 		public void SearchClicked(ActionEvent event) {
