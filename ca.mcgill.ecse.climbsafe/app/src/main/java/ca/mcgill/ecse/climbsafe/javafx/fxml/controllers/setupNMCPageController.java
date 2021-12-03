@@ -27,7 +27,11 @@ public class setupNMCPageController {
 	@FXML
 	private Button startSeasonButton;
 
-	// Event Listener on Button[#startSeasonButton].onAction
+	/**
+	 * method called when start button is clicked and starts the climbing season
+	 * @author Joey Liu
+	 * @param event
+	 */
 	@FXML
 	public void startSeasonClicked(ActionEvent event) {
 		var error = "";
