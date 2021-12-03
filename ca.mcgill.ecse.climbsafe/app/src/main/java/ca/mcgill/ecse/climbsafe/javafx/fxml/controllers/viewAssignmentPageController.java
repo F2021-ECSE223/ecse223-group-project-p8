@@ -25,6 +25,16 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TableView;
 
 public class viewAssignmentPageController {
+	
+	/**
+	 * @author Mihail Calitoiu
+	 * controller for the view assignment and manage trips page
+	 * allows user to:
+	 * a) initiate the assignment for all members / View assignments
+	 * b) pay for a member’s trip
+	 * c) start all trips for a specific week / Finish a member’s trip / Cancel a member’s trip
+	 */
+	
 	@FXML
 	private TableView<TOAssignment> overviewTable;
 	@FXML

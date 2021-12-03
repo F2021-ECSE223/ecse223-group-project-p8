@@ -13,7 +13,15 @@ import ca.mcgill.ecse.climbsafe.controller.ClimbSafeFeatureSet1Controller;
 import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import javafx.event.ActionEvent;
 
+
 public class setupNMCPageController {
+	
+
+	/**
+	 * @author Joey Liu
+	 * controller for the setup NMC page
+	 * allows admin to setup NMC program information
+	 */
 	@FXML
 	private TextField adminEmailTextField;
 	@FXML
