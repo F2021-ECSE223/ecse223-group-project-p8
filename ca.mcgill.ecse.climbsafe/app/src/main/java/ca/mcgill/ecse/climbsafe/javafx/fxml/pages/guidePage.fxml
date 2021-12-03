@@ -335,7 +335,7 @@
                               </Button>
                            </children>
                         </GridPane>
-                        <TableView fx:id="guideAssignments" layoutX="99.0" layoutY="255.0" prefHeight="222.0" prefWidth="572.0" style="-fx-background-color: rgb(250,250,250, 0.8) rgb(250,250,250, 0.8); -fx-background-radius: 5; -fx-border-color: 5; -fx-border-radius: 5;">
+                        <TableView fx:id="guideAssignments" layoutX="99.0" layoutY="255.0" prefHeight="222.0" prefWidth="572.0" style="-fx-background-color: rgb(250,250,250, 0.8) rgb(250,250,250, 0.8); -fx-background-radius: 5; -fx-border-radius: 5;">
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
