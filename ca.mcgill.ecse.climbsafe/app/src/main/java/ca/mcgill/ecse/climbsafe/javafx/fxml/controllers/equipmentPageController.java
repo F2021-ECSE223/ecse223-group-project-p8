@@ -15,6 +15,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 public class equipmentPageController {
+	
+	/**
+	 * @author Maya Ajji
+	 * controller for the equipment page
+	 * allows user to:
+	 * Add equipment / Update equipment / Delete equipment
+	 */
   @FXML private TextField EquipmentNameTextField;
   @FXML private TextField EquipmentWeightTextField;
   @FXML private TextField EquipmentPriceTextField;
@@ -29,7 +36,11 @@ public class equipmentPageController {
   @FXML private TextField equipmentToDeleteTextField;
   @FXML private Button deleteEquipmentButton;
 
-  
+  /**
+   * method called when respective button is clicked and adds the equipment to the app
+   * @author Maya Ajji
+   * @param event
+   */
   // Event Listener on Button[#addDriverButton].onAction
   @FXML
   public void addEquipmentClicked(ActionEvent event) {
@@ -57,6 +68,12 @@ public class equipmentPageController {
       ViewUtils.showError("Please input a valid number");
     }
   }
+  
+  /**
+   * method called when respective button is clicked and updates the chosen equipment 
+   * @author Maya Ajji
+   * @param event
+   */
 public void updateEquipmentClicked(ActionEvent event) {
     
     
@@ -87,7 +104,11 @@ public void updateEquipmentClicked(ActionEvent event) {
       ViewUtils.showError("Please input a valid number");
     }
   }
-
+/**
+ * method called when respective button is clicked and deletes the chosen equipment
+ * @author Maya Ajji
+ * @param event
+ */
 public void deleteEquipmentClicked(ActionEvent event) {
     String name = equipmentToDeleteTextField.getText();
     if (name == null || name.trim().isEmpty()) {
