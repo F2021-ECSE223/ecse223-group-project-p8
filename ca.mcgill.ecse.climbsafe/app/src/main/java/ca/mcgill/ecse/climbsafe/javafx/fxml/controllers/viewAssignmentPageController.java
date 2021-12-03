@@ -59,7 +59,6 @@ public class viewAssignmentPageController {
 	/**
 	 * controller for initializing the fxml page
 	 * @author Mihail Calitoiu
-	 * @param event
 	 */
 	@FXML
 	  public void initialize() {

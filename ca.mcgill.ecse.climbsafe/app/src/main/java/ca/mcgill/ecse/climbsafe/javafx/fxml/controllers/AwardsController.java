@@ -18,7 +18,16 @@ import ca.mcgill.ecse.climbsafe.controller.Utility;
 	
 
 public class AwardsController {
-
+	
+	/**
+	 * @author Mihail Calitoiu
+	 * controller for the view assignment and manage trips page
+	 * allows user to:
+	 * a) initiate the assignment for all members / View assignments
+	 * b) pay for a member’s trip
+	 * c) start all trips for a specific week / Finish a member’s trip / Cancel a member’s trip
+	 */
+	
     @FXML
     private Button apply;
 
@@ -42,11 +51,22 @@ public class AwardsController {
     private int discount = 0;
     private int increment = 0;
     private boolean foundmember = false;
+    
+    /**
+	 * controller for initializing the fxml page
+	 * @author Mihail Calitoiu
+	 */
     @FXML
 	public void initialize() {
     	spinNum.setText("*");
     
     }
+    
+    /**
+	 * method called when apply button is clicked and applies the discount
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
     @FXML
     void applyClick(ActionEvent event) {
     		if (email == null) {
@@ -66,7 +86,11 @@ public class AwardsController {
     			ViewUtils.makePopupWindow("","Prize Discount has been applied");
     		}
     }
-
+    /**
+	 * method called when spin button is clicked and spins for a discount
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
     @FXML
     void clickSpin(ActionEvent event) {
     	if (foundmember) {
@@ -78,7 +102,11 @@ public class AwardsController {
 			ViewUtils.showError("Please select a member first!");
 		}
     }
-
+    /**
+	 * method called when search button is clicked and searches for a member (without roulette discount already)
+	 * @author Mihail Calitoiu
+	 * @param event
+	 */
     @FXML
     void searchButton(ActionEvent event) {
     	
@@ -105,7 +133,10 @@ public class AwardsController {
 			}
 	      }
     }
-    
+    /**
+	 * text animator method, adds animation to spin discount text
+	 * @author Mihail Calitoiu
+	 */
     void animator() {
     
     	double delay = 0.05;
