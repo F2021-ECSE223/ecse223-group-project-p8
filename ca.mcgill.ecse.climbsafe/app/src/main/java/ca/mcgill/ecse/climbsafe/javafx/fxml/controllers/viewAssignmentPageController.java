@@ -95,6 +95,7 @@ public class viewAssignmentPageController {
 		}catch(RuntimeException e) {
 			error += e.getMessage();
 		}
+		ClimbsafeFxmlView.getInstance().refresh();
 	}
 	// Event Listener on Button[#finishButton].onAction
 	@FXML

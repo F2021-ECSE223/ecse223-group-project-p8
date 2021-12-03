@@ -203,7 +203,6 @@ public class AssignmentController {
                 	if(error != null) {
                 		hasError = true;
                 	}
-                	ClimbsafeFxmlView.getInstance().refresh();
                     ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                     error = e.getMessage();
@@ -212,6 +211,5 @@ public class AssignmentController {
             }
         }
         if(hasError)throw new InvalidInputException(error);
-        
     }
 }
