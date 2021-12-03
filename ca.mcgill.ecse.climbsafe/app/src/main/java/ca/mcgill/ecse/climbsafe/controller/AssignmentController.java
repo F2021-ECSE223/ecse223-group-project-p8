@@ -3,6 +3,7 @@ package ca.mcgill.ecse.climbsafe.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import ca.mcgill.ecse.climbsafe.javafx.fxml.ClimbsafeFxmlView;
 import ca.mcgill.ecse.climbsafe.model.Assignment;
 import ca.mcgill.ecse.climbsafe.model.Assignment.AssignmentStatus;
 import ca.mcgill.ecse.climbsafe.persistence.ClimbsafePersistence;
@@ -191,11 +192,18 @@ public class AssignmentController {
     	}
     	
         List < Assignment > assignmentInSystem = Utility.climbSafe.getAssignments();
+        boolean hasError = false;
+        var error = "";
         for (Assignment a : assignmentInSystem) {
             if (weekNr == a.getStartWeek()) {
-                var error = "";
+                
                 try {
                 	a.startTrip();
+                	error = a.getError();
+                	if(error != null) {
+                		hasError = true;
+                	}
+                	ClimbsafeFxmlView.getInstance().refresh();
                     ClimbsafePersistence.save();
                 } catch (RuntimeException e) {
                     error = e.getMessage();
@@ -203,5 +211,7 @@ public class AssignmentController {
                 }
             }
         }
+        if(hasError)throw new InvalidInputException(error);
+        
     }
 }
