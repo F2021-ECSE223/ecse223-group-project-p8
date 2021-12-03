@@ -22,7 +22,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 
 public class equipmentBundlePageController {
-
+	
+	/**
+	 * @author Aigiarn Cheuk
+	 * controller for the equipment bundle page
+	 * allows user to:
+	 * Add equipment bundle / Update equipment bundle / Delete equipment bundle
+	 */
+	
 	// Storing Items
 	ObservableList<TOEquipment> equipmentsCB = FXCollections.observableArrayList();
 	ObservableList<TOEquipment> equipmentsEB = FXCollections.observableArrayList();
@@ -85,6 +92,11 @@ public class equipmentBundlePageController {
 	private Button clearEquipmentEBButton;
 	@FXML
 	private Button deleteBundleButton;
+	
+	/**
+	 * controller for initializing the fxml page
+	 * @author Aigiarn Cheuk
+	 */
 
 	@FXML
 	public void initialize() {
@@ -127,7 +139,11 @@ public class equipmentBundlePageController {
 
 		ClimbsafeFxmlView.getInstance().registerRefreshEvent(bundleNewItemsTable);
 	}
-
+	/**
+	 * method called when respective button is clicked and clears the equipment in the bundle
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#clearEquipmentCBclicked].onAction
 	@FXML
 	public void clearEquipmentCBclicked(ActionEvent event) {
@@ -136,7 +152,11 @@ public class equipmentBundlePageController {
 		equipmentNamesCB.clear();
 		equipmentQuantitiesCB.clear();
 	}
-
+	/**
+	 * method called when respective button is clicked and clears the equipment in the bundle
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#clearEquipmentEBclicked].onAction
 	@FXML
 	public void clearEquipmentEBclicked(ActionEvent event) {
@@ -145,7 +165,11 @@ public class equipmentBundlePageController {
 		equipmentNamesEB.clear();
 		equipmentQuantitiesEB.clear();
 	}
-
+	/**
+	 * method called when respective button is clicked and deletes the selected bundle
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#deleteBundle].onAction
 	@FXML
 	public void deleteBundle(ActionEvent event) {
@@ -162,7 +186,11 @@ public class equipmentBundlePageController {
 				}
 		}
 	}
-
+	/**
+	 * method called when respective button is clicked and adds equipment to a bundle
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#addEquipmentToBundleButton].onAction
 	@FXML
 	public void addEquipmentToBundle(ActionEvent event) {
@@ -187,7 +215,11 @@ public class equipmentBundlePageController {
 			}
 		}
 	}
-
+	/**
+	 * method called when respective button is clicked and creates a new bundle
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#createEquipmentBundleButton].onAction
 	@FXML
 	public void createEquipmentBundle(ActionEvent event) {
@@ -216,7 +248,11 @@ public class equipmentBundlePageController {
 			}
 		}
 	}
-
+	/**
+	 * method called when respective button is clicked and updates the equipment inside the bundle
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#updateEquipmentInBundleButton].onAction
 	@FXML
 	public void updateEquipmentInBundle(ActionEvent event) {
@@ -237,7 +273,11 @@ public class equipmentBundlePageController {
 			}
 		}
 	}
-
+	/**
+	 * method called when respective button is clicked and updates the bundle to the new info
+	 * @author Aigiarn Cheuk
+	 * @param event
+	 */
 	// Event Listener on Button[#updateEquipmentBundleButton].onAction
 	@FXML
 	public void updateEquipmentBundle(ActionEvent event) {
