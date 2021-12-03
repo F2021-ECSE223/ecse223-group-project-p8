@@ -832,44 +832,44 @@ public class Utility {
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get name of guide with that email
 	 * 
 	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @param email	guide email address
+	 * @return String name of guide
 	 */
 	public static String getGuideName(String email) {
 		return findGuideInSystem(email).getName();
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get password of guide
 	 * 
 	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @param email	guide email address
+	 * @return String password of guide
 	 */
 	public static String getGuidePassword(String email) {
 		return findGuideInSystem(email).getPassword();
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get emergency contact of guide with that email
 	 * 
 	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @param email	guide email address
+	 * @return String emergency contact of guide
 	 */
 	public static String getGuideContact(String email) {
 		return findGuideInSystem(email).getEmergencyContact();
 	}
 
 	/**
-	 * get a member's name from its email
+	 * gets attribute of equipment in system and creates a new TOEquipment with those attribute
 	 * 
-	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @author Ke Yan 
+	 * @param equipmentName TOEquipment instance with that name
+	 * @return TOEquipment returns transfer object TOEquipment with specific name
 	 */
 	public static TOEquipment getEquipmentFromName(String equipmentName) {
 		List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
@@ -882,11 +882,11 @@ public class Utility {
 	}
 
 	/**
-	 * get a member's name from its email
+	 * Guide returns instance of guide with that email address
 	 * 
 	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @param email	guide email address
+	 * @return Guide returns instance of guide with that email address
 	 */
 	public static Guide findGuideInSystem(String email) {
 		return Utility.findGuide(email);
@@ -894,11 +894,11 @@ public class Utility {
 
 	// TOEquipment
 	/**
-	 * get a member's name from its email
+	 * gets a TOEquipment instance with that name
 	 * 
-	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @author Ke Yan 
+	 * @param equipmentName TOEquipment instance with that name
+	 * @return TOEquipment returns transfer object TOEquipment with specific name
 	 */
 	public static TOEquipment getEquipmentTO(String equipmentName) {
 		Equipment equipment = findEquipment(equipmentName);
