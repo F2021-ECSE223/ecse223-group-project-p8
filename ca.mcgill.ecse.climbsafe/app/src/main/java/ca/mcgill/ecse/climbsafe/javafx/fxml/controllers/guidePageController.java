@@ -61,6 +61,14 @@ public class guidePageController {
 	ObservableList<TOAssignment> assignments;
 
 
+	
+	/**
+	 * controller for register guide tab
+	 * @author Selina Gao
+	 * @param event
+	 */
+	
+	
 	// Event Listener on Button[#registerGuideButton].onAction
 	@FXML
 	public void registerGuideClicked(ActionEvent event) {
@@ -107,6 +115,12 @@ public class guidePageController {
 		      ViewUtils.showError(e.getMessage());
 		    }
 	}
+	
+	/**
+	 * controller for update guide tab
+	 * @author Selina Gao
+	 * @param event
+	 */
 	// Event Listener on Button[#updateGuideButton].onAction
 	@FXML
 	public void updateGuideClicked(ActionEvent event) {
@@ -161,6 +175,12 @@ public class guidePageController {
 		    }
 		
 	}
+	
+	/**
+	 * controller for delete guide tab
+	 * @author Selina Gao
+	 * @param event
+	 */
 	// Event Listener on Button[#deleteGuideButton].onAction
 	@FXML
 	public void deleteGuideClicked(ActionEvent event) {
@@ -187,6 +207,12 @@ public class guidePageController {
 		
 	}
 	
+	
+	/**
+	 * controller for view guide tab
+	 * @author Selina Gao
+	 * @param event
+	 */
 	// Event Listener on Button[#searchGuideButton].onAction
 		@FXML
 		public void searchGuideClicked(ActionEvent event) {
@@ -224,6 +250,12 @@ public class guidePageController {
 			}
 			
 		}
+		
+		
+		/**
+		 * initialize the table in view guide tab
+		 * @author Selina Gao
+		 */
 		
 		@FXML
 		  public void initialize() {
