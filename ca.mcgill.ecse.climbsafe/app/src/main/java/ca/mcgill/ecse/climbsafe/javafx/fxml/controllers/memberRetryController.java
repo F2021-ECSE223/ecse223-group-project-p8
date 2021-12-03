@@ -129,6 +129,13 @@ public class memberRetryController {
 	@FXML
 	private ToggleButton regHotelNToggleButton;
 
+
+	/**
+	 * @author Ke Yan
+	 * controller for the member page
+	 * allows user to register, update, delete ad view members
+	 */
+	
 	
 	@FXML
 	public void initialize() {
