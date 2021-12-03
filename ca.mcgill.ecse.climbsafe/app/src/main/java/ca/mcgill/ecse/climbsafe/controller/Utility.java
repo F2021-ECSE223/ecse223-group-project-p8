@@ -749,14 +749,12 @@ public class Utility {
 		return output;
 	}
 
-	////// JAVADOC TO EDIT
-	
 	/**
-	 * get a member's name from its email
+	 * get a member's assignment code
 	 * 
-	 * @author Ke Yan
+	 * @author Mihail Calitoiu
 	 * @param email	member email address
-	 * @return String member's name
+	 * @return String member's assignment code
 	 */
 	public static String getMemberAssigmentACode(String email) {
 		String output = "";
@@ -768,11 +766,11 @@ public class Utility {
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get a member's assignment refund percentage amount
 	 * 
-	 * @author Ke Yan
+	 * @author Mihail Calitoiu
 	 * @param email	member email address
-	 * @return String member's name
+	 * @return String member's assignment refund percentage amount
 	 */
 	public static String getMemberAssigmentRefund(String email) {
 		String output = "%";
@@ -784,11 +782,10 @@ public class Utility {
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get an observable list of bundles in climbsafe
 	 * 
 	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @return ObservableList<String> observable list of bundles in climbsafe
 	 */
 	public static ObservableList<String> getBundles() {
 		List<EquipmentBundle> bundles = ClimbSafeApplication.getClimbSafe().getBundles();
@@ -800,11 +797,10 @@ public class Utility {
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get an observable list of equipments in climbsafe
 	 * 
 	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @return ObservableList<String> observable list of equipments in climbsafe
 	 */
 	public static ObservableList<String> getEquipment() {
 		List<Equipment> equipment = ClimbSafeApplication.getClimbSafe().getEquipment();
@@ -816,11 +812,10 @@ public class Utility {
 	}
 
 	/**
-	 * get a member's name from its email
+	 * get an observable list of weeks present in climbsafe
 	 * 
-	 * @author Ke Yan
-	 * @param email	member email address
-	 * @return String member's name
+	 * @author Mihail Calitoiu
+	 * @return ObservableList<Integer> observable list of weeks present in climbsafe
 	 */
 	public static ObservableList<Integer> getWeeks() {
 		int length = ClimbSafeApplication.getClimbSafe().getNrWeeks();
@@ -830,7 +825,7 @@ public class Utility {
 		}
 		return weeks;
 	}
-
+	
 	/**
 	 * get name of guide with that email
 	 * 
